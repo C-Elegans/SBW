@@ -25,6 +25,9 @@
 		0AC918061B6FB03C0068B51D /* GLSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC918051B6FB03C0068B51D /* GLSprite.m */; };
 		0AD8CDDC1B70211F00833F84 /* Shader.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD8CDDB1B70211F00833F84 /* Shader.m */; };
 		0AD8CDDF1B7022AA00833F84 /* MainShader.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD8CDDE1B7022AA00833F84 /* MainShader.m */; };
+		0AD8CDE21B702D9A00833F84 /* Entity.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD8CDE11B702D9A00833F84 /* Entity.m */; };
+		0AD8CDE51B702EBD00833F84 /* MathHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD8CDE41B702EBD00833F84 /* MathHelper.m */; };
+		0AD8CDEA1B702FC400833F84 /* LoaderHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD8CDE91B702FC400833F84 /* LoaderHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +78,12 @@
 		0AD8CDDB1B70211F00833F84 /* Shader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Shader.m; sourceTree = "<group>"; };
 		0AD8CDDD1B7022AA00833F84 /* MainShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainShader.h; sourceTree = "<group>"; };
 		0AD8CDDE1B7022AA00833F84 /* MainShader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainShader.m; sourceTree = "<group>"; };
+		0AD8CDE01B702D9A00833F84 /* Entity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entity.h; sourceTree = "<group>"; };
+		0AD8CDE11B702D9A00833F84 /* Entity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Entity.m; sourceTree = "<group>"; };
+		0AD8CDE31B702EBD00833F84 /* MathHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MathHelper.h; sourceTree = "<group>"; };
+		0AD8CDE41B702EBD00833F84 /* MathHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MathHelper.m; sourceTree = "<group>"; };
+		0AD8CDE81B702FC400833F84 /* LoaderHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoaderHelper.h; sourceTree = "<group>"; };
+		0AD8CDE91B702FC400833F84 /* LoaderHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoaderHelper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +154,8 @@
 				0AC917F81B6FA2370068B51D /* OpenGLViewController.h */,
 				0AC917F91B6FA2370068B51D /* OpenGLViewController.m */,
 				0AC918001B6FA6F40068B51D /* shaders */,
+				0AD8CDE71B702EFB00833F84 /* Entity */,
+				0AD8CDE61B702EF500833F84 /* Helper */,
 			);
 			path = "ios gl tutorial";
 			sourceTree = "<group>";
@@ -195,6 +206,26 @@
 				0AC918051B6FB03C0068B51D /* GLSprite.m */,
 			);
 			name = Sprite;
+			sourceTree = "<group>";
+		};
+		0AD8CDE61B702EF500833F84 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				0AD8CDE31B702EBD00833F84 /* MathHelper.h */,
+				0AD8CDE41B702EBD00833F84 /* MathHelper.m */,
+				0AD8CDE81B702FC400833F84 /* LoaderHelper.h */,
+				0AD8CDE91B702FC400833F84 /* LoaderHelper.m */,
+			);
+			name = Helper;
+			sourceTree = "<group>";
+		};
+		0AD8CDE71B702EFB00833F84 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				0AD8CDE01B702D9A00833F84 /* Entity.h */,
+				0AD8CDE11B702D9A00833F84 /* Entity.m */,
+			);
+			name = Entity;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -331,11 +362,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				0AA72BA81B6EF2B100018D9E /* ios_gl_tutorial.xcdatamodeld in Sources */,
+				0AD8CDEA1B702FC400833F84 /* LoaderHelper.m in Sources */,
+				0AD8CDE51B702EBD00833F84 /* MathHelper.m in Sources */,
 				0AC918061B6FB03C0068B51D /* GLSprite.m in Sources */,
 				0AA72BA21B6EF2B000018D9E /* ViewController.m in Sources */,
 				0AD8CDDF1B7022AA00833F84 /* MainShader.m in Sources */,
 				0AA72B9F1B6EF2B000018D9E /* AppDelegate.m in Sources */,
 				0AA72B9C1B6EF2B000018D9E /* main.m in Sources */,
+				0AD8CDE21B702D9A00833F84 /* Entity.m in Sources */,
 				0AC917FA1B6FA2370068B51D /* OpenGLViewController.m in Sources */,
 				0AD8CDDC1B70211F00833F84 /* Shader.m in Sources */,
 			);

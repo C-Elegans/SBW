@@ -44,6 +44,8 @@ typedef struct{
 -(void)glkView:(nonnull GLKView *)view drawInRect:(CGRect)rect{
     glClearColor(0, 0.45f, 0.25f, 1);
     glClear(GL_COLOR_BUFFER_BIT);
+    
+    
 }
 -(void)update{
     
