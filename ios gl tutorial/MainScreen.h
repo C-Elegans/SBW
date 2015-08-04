@@ -26,5 +26,5 @@ typedef struct{
     
 }
 -(id)initPosition:(vec3)pos;
--(void)touchEnded:(CGPoint)point;
+-(BOOL)touchEnded:(CGPoint)point;
 @end

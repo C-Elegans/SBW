@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		0A50E0F11B712D3A008E69D5 /* mainScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A50E0F01B712D3A008E69D5 /* mainScreen.png */; };
 		0A50E0F41B7135F6008E69D5 /* GameEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A50E0F31B7135F6008E69D5 /* GameEntity.m */; };
+		0A50E0F81B714AB0008E69D5 /* MainMenuTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A50E0F71B714AB0008E69D5 /* MainMenuTests.m */; };
+		0A50E0FA1B7150FE008E69D5 /* gameVertexShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 0A50E0F91B7150FE008E69D5 /* gameVertexShader.glsl */; };
+		0A50E0FC1B71510B008E69D5 /* gameFragmentShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 0A50E0FB1B71510B008E69D5 /* gameFragmentShader.glsl */; };
 		0AA72B9C1B6EF2B000018D9E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA72B9B1B6EF2B000018D9E /* main.m */; };
 		0AA72B9F1B6EF2B000018D9E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA72B9E1B6EF2B000018D9E /* AppDelegate.m */; };
 		0AA72BA21B6EF2B000018D9E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA72BA11B6EF2B000018D9E /* ViewController.m */; };
@@ -55,6 +58,9 @@
 		0A50E0F21B7135F6008E69D5 /* GameEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameEntity.h; sourceTree = "<group>"; };
 		0A50E0F31B7135F6008E69D5 /* GameEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameEntity.m; sourceTree = "<group>"; };
 		0A50E0F61B71402F008E69D5 /* GameEntityProtectedMethods.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameEntityProtectedMethods.h; sourceTree = "<group>"; };
+		0A50E0F71B714AB0008E69D5 /* MainMenuTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuTests.m; sourceTree = "<group>"; };
+		0A50E0F91B7150FE008E69D5 /* gameVertexShader.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = gameVertexShader.glsl; sourceTree = "<group>"; };
+		0A50E0FB1B71510B008E69D5 /* gameFragmentShader.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = gameFragmentShader.glsl; sourceTree = "<group>"; };
 		0AA72B971B6EF2AF00018D9E /* ios gl tutorial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios gl tutorial.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AA72B9B1B6EF2B000018D9E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0AA72B9D1B6EF2B000018D9E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -183,6 +189,7 @@
 				0AA72BB71B6EF2B200018D9E /* ios_gl_tutorialTests.m */,
 				0AA72BB91B6EF2B200018D9E /* Info.plist */,
 				0AD918271B70EC960092C944 /* MathHelperTests.m */,
+				0A50E0F71B714AB0008E69D5 /* MainMenuTests.m */,
 			);
 			path = "ios gl tutorialTests";
 			sourceTree = "<group>";
@@ -205,6 +212,8 @@
 				0AC918011B6FA7050068B51D /* fragmentShader.glsl */,
 				0AD8CDDD1B7022AA00833F84 /* MainShader.h */,
 				0AD8CDDE1B7022AA00833F84 /* MainShader.m */,
+				0A50E0F91B7150FE008E69D5 /* gameVertexShader.glsl */,
+				0A50E0FB1B71510B008E69D5 /* gameFragmentShader.glsl */,
 			);
 			name = shaders;
 			sourceTree = "<group>";
@@ -345,9 +354,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A50E0FA1B7150FE008E69D5 /* gameVertexShader.glsl in Resources */,
 				0A50E0F11B712D3A008E69D5 /* mainScreen.png in Resources */,
 				0AC918021B6FA7050068B51D /* fragmentShader.glsl in Resources */,
 				0AA72BAD1B6EF2B100018D9E /* LaunchScreen.storyboard in Resources */,
+				0A50E0FC1B71510B008E69D5 /* gameFragmentShader.glsl in Resources */,
 				0AA72BAA1B6EF2B100018D9E /* Assets.xcassets in Resources */,
 				0AC917FE1B6FA6E30068B51D /* vertexShader.glsl in Resources */,
 				0AA72BA51B6EF2B100018D9E /* Main.storyboard in Resources */,
@@ -394,6 +405,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A50E0F81B714AB0008E69D5 /* MainMenuTests.m in Sources */,
 				0AA72BB81B6EF2B200018D9E /* ios_gl_tutorialTests.m in Sources */,
 				0AD918281B70EC960092C944 /* MathHelperTests.m in Sources */,
 			);

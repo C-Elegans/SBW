@@ -11,6 +11,7 @@
 #import "MainScreen.h"
 #import "MainShader.h"
 #import "GameEntity.h"
+static id theController = nil;
 @interface OpenGLViewController (){
     GLuint _positionSlot;
     GLuint _colorSlot;
@@ -28,6 +29,11 @@
 
 -(void)viewDidLoad{
     [super viewDidLoad];
+    if(theController != nil && theController != self){
+        NSLog(@"MORE THAN ONE CONTROLLER CREATED");
+        exit(1);
+    }
+    theController = self;
     self.context = [[EAGLContext alloc]initWithAPI:kEAGLRenderingAPIOpenGLES2];
     if(!self.context){
         NSLog(@"Failed to create context");
@@ -95,6 +101,9 @@
             [mainScreen touchEnded:point];
         }
     }
+}
++(OpenGLViewController*)getController{
+    return theController;
 }
 
 @end
