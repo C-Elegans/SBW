@@ -7,6 +7,7 @@
 //
 
 #import "MainShader.h"
+#import "MathHelper.h"
 @interface MainShader(){
     GLuint position_location;
     GLuint color_location;
@@ -17,8 +18,11 @@
     self = [super initFromVertexFile:@"vertexShader" fragmentFile:@"fragmentShader"];
     
     position_location = glGetAttribLocation(program, "position");
-    color_location = glGetAttribLocation(program, "colorSource");
-    
+    color_location = glGetAttribLocation(program, "sourceColor");
+    if(position_location == -1 || color_location == -1){
+        NSLog(@"Invalid Attrib Location!");
+        exit(1);
+    }
     
     return self;
 }
@@ -26,6 +30,10 @@
     glUseProgram(program);
     glEnableVertexAttribArray(position_location);
     glEnableVertexAttribArray(color_location);
+    glVertexAttribPointer(position_location, 3, GL_FLOAT, GL_FALSE,
+                          sizeof(Vertex), 0);
+    glVertexAttribPointer(color_location, 4, GL_FLOAT, GL_FALSE,
+                          sizeof(Vertex), (GLvoid*) (sizeof(float) * 3));
 }
 -(void)stop{
     glDisableVertexAttribArray(position_location);

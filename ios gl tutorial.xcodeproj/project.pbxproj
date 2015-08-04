@@ -28,6 +28,7 @@
 		0AD8CDE21B702D9A00833F84 /* Entity.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD8CDE11B702D9A00833F84 /* Entity.m */; };
 		0AD8CDE51B702EBD00833F84 /* MathHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD8CDE41B702EBD00833F84 /* MathHelper.m */; };
 		0AD8CDEA1B702FC400833F84 /* LoaderHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD8CDE91B702FC400833F84 /* LoaderHelper.m */; };
+		0AD918281B70EC960092C944 /* MathHelperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD918271B70EC960092C944 /* MathHelperTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +85,7 @@
 		0AD8CDE41B702EBD00833F84 /* MathHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MathHelper.m; sourceTree = "<group>"; };
 		0AD8CDE81B702FC400833F84 /* LoaderHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoaderHelper.h; sourceTree = "<group>"; };
 		0AD8CDE91B702FC400833F84 /* LoaderHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoaderHelper.m; sourceTree = "<group>"; };
+		0AD918271B70EC960092C944 /* MathHelperTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MathHelperTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +175,7 @@
 			children = (
 				0AA72BB71B6EF2B200018D9E /* ios_gl_tutorialTests.m */,
 				0AA72BB91B6EF2B200018D9E /* Info.plist */,
+				0AD918271B70EC960092C944 /* MathHelperTests.m */,
 			);
 			path = "ios gl tutorialTests";
 			sourceTree = "<group>";
@@ -380,6 +383,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0AA72BB81B6EF2B200018D9E /* ios_gl_tutorialTests.m in Sources */,
+				0AD918281B70EC960092C944 /* MathHelperTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
