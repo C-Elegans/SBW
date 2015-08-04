@@ -10,6 +10,12 @@
 #import "MathHelper.h"
 #import "LoaderHelper.h"
 #import <GLKit/GLKit.h>
+typedef struct{
+    float x;
+    float y;
+    float width;
+    float height;
+}Rectangle;
 @interface MainScreen : NSObject{
     @public VBOs buffers;
     @public GLuint texture;
@@ -20,4 +26,5 @@
     
 }
 -(id)initPosition:(vec3)pos;
+-(void)touchEnded:(CGPoint)point;
 @end

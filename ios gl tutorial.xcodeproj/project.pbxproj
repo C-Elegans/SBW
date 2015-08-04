@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0A50E0F11B712D3A008E69D5 /* mainScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A50E0F01B712D3A008E69D5 /* mainScreen.png */; };
+		0A50E0F41B7135F6008E69D5 /* GameEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A50E0F31B7135F6008E69D5 /* GameEntity.m */; };
 		0AA72B9C1B6EF2B000018D9E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA72B9B1B6EF2B000018D9E /* main.m */; };
 		0AA72B9F1B6EF2B000018D9E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA72B9E1B6EF2B000018D9E /* AppDelegate.m */; };
 		0AA72BA21B6EF2B000018D9E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA72BA11B6EF2B000018D9E /* ViewController.m */; };
@@ -51,6 +52,9 @@
 
 /* Begin PBXFileReference section */
 		0A50E0F01B712D3A008E69D5 /* mainScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mainScreen.png; path = Assets/mainScreen.png; sourceTree = "<group>"; };
+		0A50E0F21B7135F6008E69D5 /* GameEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameEntity.h; sourceTree = "<group>"; };
+		0A50E0F31B7135F6008E69D5 /* GameEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameEntity.m; sourceTree = "<group>"; };
+		0A50E0F61B71402F008E69D5 /* GameEntityProtectedMethods.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameEntityProtectedMethods.h; sourceTree = "<group>"; };
 		0AA72B971B6EF2AF00018D9E /* ios gl tutorial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios gl tutorial.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AA72B9B1B6EF2B000018D9E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0AA72B9D1B6EF2B000018D9E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -230,6 +234,9 @@
 			children = (
 				0AD8CDE01B702D9A00833F84 /* MainScreen.h */,
 				0AD8CDE11B702D9A00833F84 /* MainScreen.m */,
+				0A50E0F61B71402F008E69D5 /* GameEntityProtectedMethods.h */,
+				0A50E0F21B7135F6008E69D5 /* GameEntity.h */,
+				0A50E0F31B7135F6008E69D5 /* GameEntity.m */,
 			);
 			name = Entity;
 			sourceTree = "<group>";
@@ -374,6 +381,7 @@
 				0AC918061B6FB03C0068B51D /* GLSprite.m in Sources */,
 				0AA72BA21B6EF2B000018D9E /* ViewController.m in Sources */,
 				0AD8CDDF1B7022AA00833F84 /* MainShader.m in Sources */,
+				0A50E0F41B7135F6008E69D5 /* GameEntity.m in Sources */,
 				0AA72B9F1B6EF2B000018D9E /* AppDelegate.m in Sources */,
 				0AA72B9C1B6EF2B000018D9E /* main.m in Sources */,
 				0AD8CDE21B702D9A00833F84 /* MainScreen.m in Sources */,

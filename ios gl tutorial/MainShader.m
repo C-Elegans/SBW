@@ -40,4 +40,5 @@
     glDisableVertexAttribArray(uv_location);
     glUseProgram(0);
 }
+
 @end

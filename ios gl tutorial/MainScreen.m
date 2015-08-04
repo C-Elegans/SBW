@@ -20,6 +20,7 @@ const GLubyte Indices[] = {
     0, 1, 2,
     2, 3, 0
 };
+const Rectangle PlayButton = {0.1434f,0.4642f ,0.7117f,0.1652f};
 @implementation MainScreen
 -(id)initPosition:(vec3)pos{
     self = [super init];
@@ -29,5 +30,12 @@ const GLubyte Indices[] = {
     texture = [LoaderHelper setupTexture:@"mainScreen.png"];
     return self;
 }
-
+-(void)touchEnded:(CGPoint)point{
+    //NSLog(@"Touch x: %f, y: %f",point.x,point.y);
+    if(point.x >PlayButton.x && point.x <(PlayButton.x + PlayButton.width)){
+        if(point.y >PlayButton.y && point.y <(PlayButton.y + PlayButton.height)){
+            NSLog(@"Play Button Pressed!");
+        }
+    }
+}
 @end

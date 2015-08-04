@@ -10,11 +10,13 @@
 #import "GLSprite.h"
 #import "MainScreen.h"
 #import "MainShader.h"
+#import "GameEntity.h"
 @interface OpenGLViewController (){
     GLuint _positionSlot;
     GLuint _colorSlot;
-    MainScreen* entity;
+    MainScreen* mainScreen;
     MainShader* shader;
+    NSMutableArray* gameObjects;
 }
 @property (strong) GLKBaseEffect* effect;
 
@@ -34,8 +36,9 @@
     GLKView* view = (GLKView *)self.view;
     view.context = self.context;
     [EAGLContext setCurrentContext:self.context];
-    entity = [[MainScreen alloc]initPosition:(vec3){0.0f,0.0f,0.0f}];
+    mainScreen = [[MainScreen alloc]initPosition:(vec3){0.0f,0.0f,0.0f}];
     shader = [[MainShader alloc]init];
+    
 }
 -(BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation{
     return UIInterfaceOrientationIsLandscape(toInterfaceOrientation);
@@ -45,19 +48,53 @@
 -(void)glkView:(nonnull GLKView *)view drawInRect:(CGRect)rect{
     glClearColor(0, 0.45f, 0.25f, 1);
     glClear(GL_COLOR_BUFFER_BIT);
+    switch (_gameState) {
+        case MAIN:
+            glBindBuffer(GL_ARRAY_BUFFER, mainScreen->buffers.vertexBuffer);
+            glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, mainScreen->buffers.indicesBuffer);
+            [shader start];
+            glActiveTexture(GL_TEXTURE0);
+            glBindTexture(GL_TEXTURE_2D, mainScreen->texture);
+            glDrawElements(GL_TRIANGLES, mainScreen->numVertices, GL_UNSIGNED_BYTE, 0);
+            
+            [shader stop];
+            
+            break;
+        case RUNNING:
+            if([gameObjects count] <1){
+                break;
+            }
+            [shader start];
+            for(id object in gameObjects){
+                GameEntity* entity = (GameEntity*) object;
+                glBindBuffer(GL_ARRAY_BUFFER, entity.buffers.vertexBuffer);
+                glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, entity.buffers.indicesBuffer);
+                glActiveTexture(GL_TEXTURE0);
+                glBindTexture(GL_TEXTURE_2D, entity.texture);
+                glDrawElements(GL_TRIANGLES, entity.numVertices, GL_UNSIGNED_BYTE, 0);
+            }
+            [shader stop];
+            break;
+    }
     
-    glBindBuffer(GL_ARRAY_BUFFER, entity->buffers.vertexBuffer);
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, entity->buffers.indicesBuffer);
-    [shader start];
-    glActiveTexture(GL_TEXTURE0);
-    glBindTexture(GL_TEXTURE_2D, entity->texture);
-    glDrawElements(GL_TRIANGLES, entity->numVertices, GL_UNSIGNED_BYTE, 0);
-    
-    [shader stop];
     
 }
+
 -(void)update{
     
+}
+-(void)touchesBegan:(nonnull NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event{
+    
+}
+-(void)touchesEnded:(nonnull NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event{
+    for(UITouch* touch in touches){
+        if(_gameState == MAIN){
+            CGPoint point = [touch locationInView:self.view];
+            point.x = point.x /self.view.frame.size.width;
+            point.y = point.y /self.view.frame.size.height;
+            [mainScreen touchEnded:point];
+        }
+    }
 }
 
 @end
