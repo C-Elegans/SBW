@@ -1,7 +1,9 @@
 attribute vec4 position;
-attribute vec4 sourceColor;
-varying vec4 destinationColor;
+attribute vec2 inTexCoords;
+
+varying vec2 outTexCoords;
 void main(void){
-    destinationColor = sourceColor;
+    
+    outTexCoords = inTexCoords;
     gl_Position = position;
 }

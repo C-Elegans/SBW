@@ -15,4 +15,5 @@ typedef struct{
 }VBOs;
 @interface LoaderHelper : NSObject
 +(VBOs)loadToVBOS:(const Vertex*)vertices verticesSize:(int)vSize indices:(const GLubyte*)indices indicesSize:(int)iSize;
++ (GLuint)setupTexture:(NSString *)fileName;
 @end

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A50E0F11B712D3A008E69D5 /* mainScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A50E0F01B712D3A008E69D5 /* mainScreen.png */; };
 		0AA72B9C1B6EF2B000018D9E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA72B9B1B6EF2B000018D9E /* main.m */; };
 		0AA72B9F1B6EF2B000018D9E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA72B9E1B6EF2B000018D9E /* AppDelegate.m */; };
 		0AA72BA21B6EF2B000018D9E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA72BA11B6EF2B000018D9E /* ViewController.m */; };
@@ -25,7 +26,7 @@
 		0AC918061B6FB03C0068B51D /* GLSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC918051B6FB03C0068B51D /* GLSprite.m */; };
 		0AD8CDDC1B70211F00833F84 /* Shader.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD8CDDB1B70211F00833F84 /* Shader.m */; };
 		0AD8CDDF1B7022AA00833F84 /* MainShader.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD8CDDE1B7022AA00833F84 /* MainShader.m */; };
-		0AD8CDE21B702D9A00833F84 /* Entity.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD8CDE11B702D9A00833F84 /* Entity.m */; };
+		0AD8CDE21B702D9A00833F84 /* MainScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD8CDE11B702D9A00833F84 /* MainScreen.m */; };
 		0AD8CDE51B702EBD00833F84 /* MathHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD8CDE41B702EBD00833F84 /* MathHelper.m */; };
 		0AD8CDEA1B702FC400833F84 /* LoaderHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD8CDE91B702FC400833F84 /* LoaderHelper.m */; };
 		0AD918281B70EC960092C944 /* MathHelperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD918271B70EC960092C944 /* MathHelperTests.m */; };
@@ -49,6 +50,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A50E0F01B712D3A008E69D5 /* mainScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mainScreen.png; path = Assets/mainScreen.png; sourceTree = "<group>"; };
 		0AA72B971B6EF2AF00018D9E /* ios gl tutorial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios gl tutorial.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AA72B9B1B6EF2B000018D9E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0AA72B9D1B6EF2B000018D9E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -79,8 +81,8 @@
 		0AD8CDDB1B70211F00833F84 /* Shader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Shader.m; sourceTree = "<group>"; };
 		0AD8CDDD1B7022AA00833F84 /* MainShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainShader.h; sourceTree = "<group>"; };
 		0AD8CDDE1B7022AA00833F84 /* MainShader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainShader.m; sourceTree = "<group>"; };
-		0AD8CDE01B702D9A00833F84 /* Entity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entity.h; sourceTree = "<group>"; };
-		0AD8CDE11B702D9A00833F84 /* Entity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Entity.m; sourceTree = "<group>"; };
+		0AD8CDE01B702D9A00833F84 /* MainScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainScreen.h; sourceTree = "<group>"; };
+		0AD8CDE11B702D9A00833F84 /* MainScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainScreen.m; sourceTree = "<group>"; };
 		0AD8CDE31B702EBD00833F84 /* MathHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MathHelper.h; sourceTree = "<group>"; };
 		0AD8CDE41B702EBD00833F84 /* MathHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MathHelper.m; sourceTree = "<group>"; };
 		0AD8CDE81B702FC400833F84 /* LoaderHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoaderHelper.h; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 		0AA72B991B6EF2AF00018D9E /* ios gl tutorial */ = {
 			isa = PBXGroup;
 			children = (
+				0A50E0F01B712D3A008E69D5 /* mainScreen.png */,
 				0AC918031B6FB0150068B51D /* Sprite */,
 				0AA72B9D1B6EF2B000018D9E /* AppDelegate.h */,
 				0AA72B9E1B6EF2B000018D9E /* AppDelegate.m */,
@@ -225,8 +228,8 @@
 		0AD8CDE71B702EFB00833F84 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				0AD8CDE01B702D9A00833F84 /* Entity.h */,
-				0AD8CDE11B702D9A00833F84 /* Entity.m */,
+				0AD8CDE01B702D9A00833F84 /* MainScreen.h */,
+				0AD8CDE11B702D9A00833F84 /* MainScreen.m */,
 			);
 			name = Entity;
 			sourceTree = "<group>";
@@ -335,6 +338,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A50E0F11B712D3A008E69D5 /* mainScreen.png in Resources */,
 				0AC918021B6FA7050068B51D /* fragmentShader.glsl in Resources */,
 				0AA72BAD1B6EF2B100018D9E /* LaunchScreen.storyboard in Resources */,
 				0AA72BAA1B6EF2B100018D9E /* Assets.xcassets in Resources */,
@@ -372,7 +376,7 @@
 				0AD8CDDF1B7022AA00833F84 /* MainShader.m in Sources */,
 				0AA72B9F1B6EF2B000018D9E /* AppDelegate.m in Sources */,
 				0AA72B9C1B6EF2B000018D9E /* main.m in Sources */,
-				0AD8CDE21B702D9A00833F84 /* Entity.m in Sources */,
+				0AD8CDE21B702D9A00833F84 /* MainScreen.m in Sources */,
 				0AC917FA1B6FA2370068B51D /* OpenGLViewController.m in Sources */,
 				0AD8CDDC1B70211F00833F84 /* Shader.m in Sources */,
 			);

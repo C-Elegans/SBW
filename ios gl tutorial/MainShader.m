@@ -10,7 +10,7 @@
 #import "MathHelper.h"
 @interface MainShader(){
     GLuint position_location;
-    GLuint color_location;
+    GLuint uv_location;
 }
 @end
 @implementation MainShader
@@ -18,8 +18,8 @@
     self = [super initFromVertexFile:@"vertexShader" fragmentFile:@"fragmentShader"];
     
     position_location = glGetAttribLocation(program, "position");
-    color_location = glGetAttribLocation(program, "sourceColor");
-    if(position_location == -1 || color_location == -1){
+    uv_location = glGetAttribLocation(program, "inTexCoords");
+    if(position_location == -1 || uv_location == -1){
         NSLog(@"Invalid Attrib Location!");
         exit(1);
     }
@@ -29,15 +29,15 @@
 -(void)start{
     glUseProgram(program);
     glEnableVertexAttribArray(position_location);
-    glEnableVertexAttribArray(color_location);
+    glEnableVertexAttribArray(uv_location);
     glVertexAttribPointer(position_location, 3, GL_FLOAT, GL_FALSE,
                           sizeof(Vertex), 0);
-    glVertexAttribPointer(color_location, 4, GL_FLOAT, GL_FALSE,
+    glVertexAttribPointer(uv_location, 2, GL_FLOAT, GL_FALSE,
                           sizeof(Vertex), (GLvoid*) (sizeof(float) * 3));
 }
 -(void)stop{
     glDisableVertexAttribArray(position_location);
-    glDisableVertexAttribArray(color_location);
+    glDisableVertexAttribArray(uv_location);
     glUseProgram(0);
 }
 @end

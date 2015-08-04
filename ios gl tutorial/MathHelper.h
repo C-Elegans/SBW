@@ -24,7 +24,7 @@ typedef struct{
 }vec2;
 typedef struct {
     float Position[3];
-    float Color[4];
+    float UV[2];
 } Vertex;
 @interface MathHelper : NSObject
 +(float)vec3Dot:(vec3)vector1 vector2:(vec3)vector2;
