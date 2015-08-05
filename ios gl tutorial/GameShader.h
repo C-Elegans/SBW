@@ -9,5 +9,5 @@
 #import <Foundation/Foundation.h>
 #import "Shader.h"
 @interface GameShader : Shader
-
+-(void)uploadObjectTransformation:(float)r theta:(float)t;
 @end

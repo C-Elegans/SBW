@@ -18,6 +18,7 @@
 @interface GameShader(){
     GLuint position_location;
     GLuint uv_location;
+    GLuint transformation_location;
     
 }
 @end
@@ -27,7 +28,8 @@
     
     position_location = glGetAttribLocation(program, "position");
     uv_location = glGetAttribLocation(program, "inTexCoords");
-    if(position_location == -1 || uv_location == -1){
+    transformation_location = glGetUniformLocation(program, "transformationOffset");
+    if(position_location == -1 || uv_location == -1 || transformation_location == -1){
         NSLog(@"Invalid Attrib Location!");
         exit(1);
     }
@@ -47,6 +49,9 @@
     glDisableVertexAttribArray(position_location);
     glDisableVertexAttribArray(uv_location);
     glUseProgram(0);
+}
+-(void)uploadObjectTransformation:(float)r theta:(float)t{
+    glUniform2f(transformation_location, r, t);
 }
 
 @end

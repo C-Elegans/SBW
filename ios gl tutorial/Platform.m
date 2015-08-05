@@ -9,20 +9,20 @@
 #import "Platform.h"
 #import "GameEntityProtectedMethods.h"
 @implementation Platform
-const Vertex Vertices[] = {
-    {{1, -1, 0}, {1,1}},
-    {{1, 1, 0}, {1,0}},
-    {{-1, 1, 0}, {0,0}},
-    {{-1, -1, 0}, {0,1}}
+const Vertex platformVertices[] = {
+    {{0, 0, 0}, {0,1}},
+    {{0, .3, 0}, {1,1}},
+    {{.2, .3, 0}, {1,0}},
+    {{.2, 0, 0}, {0,0}}
 };
 
-const GLubyte Indices[] = {
+const GLubyte platformIndices[] = {
     0, 1, 2,
     2, 3, 0
 };
 -(id)initRadius:(float)r theta:(float)t{
     self = [super initRadius:r theta:t];
-    [super loadToBuffers:&Vertices[0] vSize:sizeof(Vertices) indices:&Indices[0] iSize:sizeof(Indices)];
+    [super loadToBuffers:&platformVertices[0] vSize:sizeof(platformVertices) indices:&platformIndices[0] iSize:sizeof(platformIndices)];
     [super loadToTexture:@"platform.png"];
     return self;
 }
