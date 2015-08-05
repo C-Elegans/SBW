@@ -50,9 +50,12 @@ static id theController = nil;
     shader = [[MainShader alloc]init];
     gameShader = [[GameShader alloc]init];
     gameObjects = [[NSMutableArray alloc]init];
-     [gameObjects addObject:[[Planet alloc]initRadius:0 theta:0]];
-    [gameObjects addObject:[[Platform alloc]initRadius:.75 theta:0]];
-    [gameObjects addObject:[[Platform alloc]initRadius:.5 theta:1.5]];
+    Platform* platform1 = [[Platform alloc]initRadius:.5 theta:0];
+    Platform* platform2 = [[Platform alloc]initRadius:.5 theta:1.5];
+    Planet* planet =[[Planet alloc]initRadius:-.1 theta:0];
+    [gameObjects addObject:platform1];
+    [gameObjects addObject:platform2];
+    [gameObjects addObject:planet];
    
     
 }
@@ -80,11 +83,12 @@ static id theController = nil;
             if([gameObjects count] <1){
                 break;
             }
-            [gameShader start];
+            
             for(id object in gameObjects){
+                [gameShader start];
                 [gameShader enableAttribs];
                 GameEntity* entity = (GameEntity*) object;
-                //[gameShader uploadObjectTransformation:entity.radius theta:entity.theta];
+                [gameShader uploadObjectTransformation:entity.radius theta:entity.theta];
                 glBindBuffer(GL_ARRAY_BUFFER, entity.buffers.vertexBuffer);
                 glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, entity.buffers.indicesBuffer);
                 glActiveTexture(GL_TEXTURE0);
@@ -92,8 +96,9 @@ static id theController = nil;
                 glDrawElements(GL_TRIANGLES, entity.numVertices, GL_UNSIGNED_BYTE, 0);
                 [gameShader disableAttribs];
                 [entity setTheta:entity.theta + 0.01];
+                [gameShader stop];
             }
-            [gameShader stop];
+            
             break;
     }
     

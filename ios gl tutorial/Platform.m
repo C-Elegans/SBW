@@ -22,6 +22,7 @@ const GLubyte platformIndices[] = {
 };
 -(id)initRadius:(float)r theta:(float)t{
     self = [super initRadius:r theta:t];
+    
     [super loadToBuffers:&platformVertices[0] vSize:sizeof(platformVertices) indices:&platformIndices[0] iSize:sizeof(platformIndices)];
     [super loadToTexture:@"platform.png"];
     return self;

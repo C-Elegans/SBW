@@ -3,13 +3,14 @@ attribute vec2 inTexCoords;
 
 uniform vec2 transformationOffset;
 varying vec2 outTexCoords;
+
 void main(void){
-    vec4 tempPosition;
-    vec4 position2 = position + vec4(transformationOffset,0,0);
-    tempPosition.x = position2.x* cos(position2.y);
-    tempPosition.y = position2.x* sin(position2.y);
-    tempPosition.zw = position2.zw;
+    mediump vec4 newPosition = position + vec4(transformationOffset,0,0);
+    mediump float x = cos(newPosition.y) * newPosition.x;
+    mediump float y = sin(newPosition.y) *newPosition.x;
     outTexCoords = inTexCoords;
-    tempPosition = tempPosition - vec4(0,0,0,0);
-    gl_Position = tempPosition;
+    
+    gl_Position = vec4(x,y,newPosition.z,1);
+
 }
+

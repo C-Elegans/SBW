@@ -7,9 +7,11 @@
 //
 
 #import "LoaderHelper.h"
-
+#import <OpenGLES/ES2/glext.h>
 @implementation LoaderHelper
 +(VBOs)loadToVBOS:(const Vertex*)vertices verticesSize:(int)vSize indices:(const GLubyte*)indices indicesSize:(int)iSize{
+    GLuint vaoid;
+    
     GLuint vertexBuffer,indicesBuffer;
     glGenBuffers(1, &vertexBuffer);
     glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
