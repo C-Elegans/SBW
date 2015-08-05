@@ -38,6 +38,13 @@
 }
 -(void)start{
     glUseProgram(program);
+    
+}
+-(void)stop{
+    
+    glUseProgram(0);
+}
+-(void)enableAttribs{
     glEnableVertexAttribArray(position_location);
     glEnableVertexAttribArray(uv_location);
     glVertexAttribPointer(position_location, 3, GL_FLOAT, GL_FALSE,
@@ -45,10 +52,9 @@
     glVertexAttribPointer(uv_location, 2, GL_FLOAT, GL_FALSE,
                           sizeof(Vertex), (GLvoid*) (sizeof(float) * 3));
 }
--(void)stop{
+-(void)disableAttribs{
     glDisableVertexAttribArray(position_location);
     glDisableVertexAttribArray(uv_location);
-    glUseProgram(0);
 }
 -(void)uploadObjectTransformation:(float)r theta:(float)t{
     glUniform2f(transformation_location, r, t);

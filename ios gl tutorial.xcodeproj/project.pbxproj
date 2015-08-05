@@ -15,6 +15,8 @@
 		0A50E0FF1B715641008E69D5 /* GameShader.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A50E0FE1B715641008E69D5 /* GameShader.m */; };
 		0A50E1031B723F6E008E69D5 /* platform.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A50E1021B723F6E008E69D5 /* platform.png */; };
 		0A50E1061B723F91008E69D5 /* Platform.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A50E1051B723F91008E69D5 /* Platform.m */; };
+		0A50E1091B724D34008E69D5 /* Planet.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A50E1081B724D34008E69D5 /* Planet.m */; };
+		0A50E10B1B725006008E69D5 /* earth.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A50E10A1B725006008E69D5 /* earth.png */; };
 		0AA72B9C1B6EF2B000018D9E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA72B9B1B6EF2B000018D9E /* main.m */; };
 		0AA72B9F1B6EF2B000018D9E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA72B9E1B6EF2B000018D9E /* AppDelegate.m */; };
 		0AA72BA21B6EF2B000018D9E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA72BA11B6EF2B000018D9E /* ViewController.m */; };
@@ -69,6 +71,9 @@
 		0A50E1021B723F6E008E69D5 /* platform.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = platform.png; path = Assets/platform.png; sourceTree = "<group>"; };
 		0A50E1041B723F91008E69D5 /* Platform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Platform.h; sourceTree = "<group>"; };
 		0A50E1051B723F91008E69D5 /* Platform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Platform.m; sourceTree = "<group>"; };
+		0A50E1071B724D34008E69D5 /* Planet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Planet.h; sourceTree = "<group>"; };
+		0A50E1081B724D34008E69D5 /* Planet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Planet.m; sourceTree = "<group>"; };
+		0A50E10A1B725006008E69D5 /* earth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = earth.png; path = Assets/earth.png; sourceTree = "<group>"; };
 		0AA72B971B6EF2AF00018D9E /* ios gl tutorial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios gl tutorial.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AA72B9B1B6EF2B000018D9E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0AA72B9D1B6EF2B000018D9E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -186,6 +191,7 @@
 			children = (
 				0A50E1021B723F6E008E69D5 /* platform.png */,
 				0A50E0F01B712D3A008E69D5 /* mainScreen.png */,
+				0A50E10A1B725006008E69D5 /* earth.png */,
 				0AC918031B6FB0150068B51D /* Sprite */,
 				0AA72B9D1B6EF2B000018D9E /* AppDelegate.h */,
 				0AA72B9E1B6EF2B000018D9E /* AppDelegate.m */,
@@ -275,6 +281,8 @@
 				0A50E0F31B7135F6008E69D5 /* GameEntity.m */,
 				0A50E1041B723F91008E69D5 /* Platform.h */,
 				0A50E1051B723F91008E69D5 /* Platform.m */,
+				0A50E1071B724D34008E69D5 /* Planet.h */,
+				0A50E1081B724D34008E69D5 /* Planet.m */,
 			);
 			name = Entity;
 			sourceTree = "<group>";
@@ -384,6 +392,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A50E0FA1B7150FE008E69D5 /* gameVertexShader.glsl in Resources */,
+				0A50E10B1B725006008E69D5 /* earth.png in Resources */,
 				0A50E0F11B712D3A008E69D5 /* mainScreen.png in Resources */,
 				0AC918021B6FA7050068B51D /* fragmentShader.glsl in Resources */,
 				0AA72BAD1B6EF2B100018D9E /* LaunchScreen.storyboard in Resources */,
@@ -421,6 +430,7 @@
 				0A50E1061B723F91008E69D5 /* Platform.m in Sources */,
 				0AD8CDE51B702EBD00833F84 /* MathHelper.m in Sources */,
 				0AC918061B6FB03C0068B51D /* GLSprite.m in Sources */,
+				0A50E1091B724D34008E69D5 /* Planet.m in Sources */,
 				0AA72BA21B6EF2B000018D9E /* ViewController.m in Sources */,
 				0AD8CDDF1B7022AA00833F84 /* MainShader.m in Sources */,
 				0A50E0F41B7135F6008E69D5 /* GameEntity.m in Sources */,

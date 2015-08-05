@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#define TWO_PI 6.283
 typedef struct{
     float x;
     float y;

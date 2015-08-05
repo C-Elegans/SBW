@@ -10,4 +10,6 @@
 #import "Shader.h"
 @interface GameShader : Shader
 -(void)uploadObjectTransformation:(float)r theta:(float)t;
+-(void)enableAttribs;
+-(void)disableAttribs;
 @end

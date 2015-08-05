@@ -10,6 +10,6 @@ void main(void){
     tempPosition.y = position2.x* sin(position2.y);
     tempPosition.zw = position2.zw;
     outTexCoords = inTexCoords;
-    tempPosition = tempPosition - vec4(0,1,0,0);
+    tempPosition = tempPosition - vec4(0,0,0,0);
     gl_Position = tempPosition;
 }

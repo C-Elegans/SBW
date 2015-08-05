@@ -13,6 +13,7 @@
 #import "GameEntity.h"
 #import "GameShader.h"
 #import "Platform.h"
+#import "Planet.h"
 static id theController = nil;
 @interface OpenGLViewController (){
     GLuint _positionSlot;
@@ -49,8 +50,11 @@ static id theController = nil;
     shader = [[MainShader alloc]init];
     gameShader = [[GameShader alloc]init];
     gameObjects = [[NSMutableArray alloc]init];
-    [gameObjects addObject:[[Platform alloc]initRadius:.5 theta:0]];
+     [gameObjects addObject:[[Planet alloc]initRadius:0 theta:0]];
+    [gameObjects addObject:[[Platform alloc]initRadius:.75 theta:0]];
     [gameObjects addObject:[[Platform alloc]initRadius:.5 theta:1.5]];
+   
+    
 }
 -(BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation{
     return UIInterfaceOrientationIsLandscape(toInterfaceOrientation);
@@ -78,13 +82,15 @@ static id theController = nil;
             }
             [gameShader start];
             for(id object in gameObjects){
+                [gameShader enableAttribs];
                 GameEntity* entity = (GameEntity*) object;
-                [gameShader uploadObjectTransformation:entity.radius theta:entity.theta];
+                //[gameShader uploadObjectTransformation:entity.radius theta:entity.theta];
                 glBindBuffer(GL_ARRAY_BUFFER, entity.buffers.vertexBuffer);
                 glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, entity.buffers.indicesBuffer);
                 glActiveTexture(GL_TEXTURE0);
                 glBindTexture(GL_TEXTURE_2D, entity.texture);
                 glDrawElements(GL_TRIANGLES, entity.numVertices, GL_UNSIGNED_BYTE, 0);
+                [gameShader disableAttribs];
                 [entity setTheta:entity.theta + 0.01];
             }
             [gameShader stop];
