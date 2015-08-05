@@ -17,7 +17,7 @@ typedef struct{
     float height;
 }Rectangle;
 @interface MainScreen : NSObject{
-    @public VBOs buffers;
+    @public GLuint vaoID;
     @public GLuint texture;
     @public int numVertices;
 

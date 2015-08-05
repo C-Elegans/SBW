@@ -9,5 +9,6 @@
 #import "Shader.h"
 
 @interface MainShader : Shader
-
+-(void)enableAttribs;
+-(void)disableAttribs;
 @end

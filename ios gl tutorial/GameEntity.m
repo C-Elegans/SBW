@@ -15,9 +15,10 @@
     _theta = t;
     return self;
 }
--(void)loadToBuffers:(const Vertex*)vertices vSize:(size_t)vsize indices:(const GLubyte*)indices iSize:(size_t)isize{
-    _buffers = [LoaderHelper loadToVBOS:vertices verticesSize:vsize indices:indices indicesSize:isize];
-    _numVertices = isize/sizeof(GLubyte);
+-(void)loadToBuffers:(const Vertex*)vertices vSize:(size_t)vsize indices:(const GLushort*)indices iSize:(size_t)isize{
+    _vaoID = [LoaderHelper loadToVBOS:vertices verticesSize:vsize indices:indices indicesSize:isize];
+    NSLog(@"VaoID: %d", _vaoID);
+    _numVertices = isize/sizeof(GLushort);
 }
 -(void)loadToTexture:(NSString*)fileName{
     _texture = [LoaderHelper setupTexture:fileName];

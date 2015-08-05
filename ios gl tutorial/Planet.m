@@ -17,13 +17,14 @@ const Vertex planetVertices[] = {
     {{1, 3*TWO_PI/4, 0}, {0,0}}
 };
 
-const GLubyte planetIndices[] = {
+const GLushort planetIndices[] = {
     0, 1, 2,
     2, 3, 0
 };
 -(id)initRadius:(float)r theta:(float)t{
     self = [super initRadius:r theta:t];
     [super loadToBuffers:&planetVertices[0] vSize:sizeof(planetVertices) indices:&planetIndices[0] iSize:sizeof(planetIndices)];
+    
     [super loadToTexture:@"earth.png"];
     return self;
 }

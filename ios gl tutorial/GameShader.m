@@ -19,7 +19,8 @@
     GLuint position_location;
     GLuint uv_location;
     GLuint transformation_location;
-    
+    GLuint heightOffset_location;
+    GLuint screenCorrection_location;
 }
 @end
 @implementation GameShader
@@ -28,8 +29,11 @@
     
     position_location = glGetAttribLocation(program, "position");
     uv_location = glGetAttribLocation(program, "inTexCoords");
+    NSLog(@"position: %d, texCoords: %d", position_location, uv_location);
     transformation_location = glGetUniformLocation(program, "transformationOffset");
-    if(position_location == -1 || uv_location == -1 || transformation_location == -1){
+    heightOffset_location = glGetUniformLocation(program, "heightOffset");
+    screenCorrection_location = glGetUniformLocation(program, "screenCorrection");
+    if(position_location == -1 || uv_location == -1 || transformation_location == -1 || heightOffset_location == -1||screenCorrection_location == -1){
         NSLog(@"Invalid Attrib Location!");
         exit(1);
     }
@@ -47,10 +51,8 @@
 -(void)enableAttribs{
     glEnableVertexAttribArray(position_location);
     glEnableVertexAttribArray(uv_location);
-    glVertexAttribPointer(position_location, 3, GL_FLOAT, GL_FALSE,
-                          sizeof(Vertex), 0);
-    glVertexAttribPointer(uv_location, 2, GL_FLOAT, GL_FALSE,
-                          sizeof(Vertex), (GLvoid*) (sizeof(float) * 3));
+    //glVertexAttribPointer(position_location, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), 0);
+    //glVertexAttribPointer(uv_location, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid*) (sizeof(float) * 3));
 }
 -(void)disableAttribs{
     glDisableVertexAttribArray(position_location);
@@ -58,6 +60,13 @@
 }
 -(void)uploadObjectTransformation:(float)r theta:(float)t{
     glUniform2f(transformation_location, r, t);
+}
+-(void)uploadHeightOffset:(float)offset{
+    glUniform1f(heightOffset_location, offset);
+}
+-(void)uploadScreenCorrection:(CGSize)size{
+    float offset = size.height/size.width;
+    glUniform1f(screenCorrection_location, offset);
 }
 
 @end

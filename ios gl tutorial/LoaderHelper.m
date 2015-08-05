@@ -9,9 +9,10 @@
 #import "LoaderHelper.h"
 #import <OpenGLES/ES2/glext.h>
 @implementation LoaderHelper
-+(VBOs)loadToVBOS:(const Vertex*)vertices verticesSize:(int)vSize indices:(const GLubyte*)indices indicesSize:(int)iSize{
++(GLuint)loadToVBOS:(const Vertex*)vertices verticesSize:(int)vSize indices:(const GLushort*)indices indicesSize:(int)iSize{
     GLuint vaoid;
-    
+    glGenVertexArraysOES(1, &vaoid);
+    glBindVertexArrayOES(vaoid);
     GLuint vertexBuffer,indicesBuffer;
     glGenBuffers(1, &vertexBuffer);
     glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
@@ -21,10 +22,15 @@
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indicesBuffer);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, iSize, indices, GL_STATIC_DRAW);
     
-    VBOs vbos;
-    vbos.vertexBuffer = vertexBuffer;
-    vbos.indicesBuffer = indicesBuffer;
-    return vbos;
+    
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), 0);
+    glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid*) (sizeof(float) * 3));
+    glDisableVertexAttribArray(vaoid);
+    glBindVertexArrayOES(0);
+    return vaoid;
+    
+    
+    
 }
 + (GLuint)setupTexture:(NSString *)fileName {
     // 1

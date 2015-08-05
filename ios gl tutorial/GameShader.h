@@ -12,4 +12,6 @@
 -(void)uploadObjectTransformation:(float)r theta:(float)t;
 -(void)enableAttribs;
 -(void)disableAttribs;
+-(void)uploadHeightOffset:(float)offset;
+-(void)uploadScreenCorrection:(CGSize)size;
 @end

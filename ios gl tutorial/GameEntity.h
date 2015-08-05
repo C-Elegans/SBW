@@ -13,7 +13,7 @@
 }
 @property float radius;
 @property float theta;
-@property VBOs buffers;
+@property GLuint vaoID;
 @property GLuint texture;
 @property int numVertices;
 -(id)initRadius:(float)r theta:(float)t;

@@ -11,12 +11,12 @@
 @implementation Platform
 const Vertex platformVertices[] = {
     {{0, 0, 0}, {0,1}},
-    {{0, .1, 0}, {1,1}},
-    {{.2, .1, 0}, {1,0}},
+    {{0, .2, 0}, {1,1}},
+    {{.2, .2, 0}, {1,0}},
     {{.2, 0, 0}, {0,0}}
 };
 
-const GLubyte platformIndices[] = {
+const GLushort platformIndices[] = {
     0, 1, 2,
     2, 3, 0
 };

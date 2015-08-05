@@ -12,7 +12,7 @@
 
 #endif /* GameEntityProtectedMethods_h */
 @protocol GameEntityProtectedMethods <NSObject>
--(void)loadToBuffers:(const Vertex*)vertices vSize:(size_t)vsize indices:(const GLubyte*)indices iSize:(size_t)isize;
+-(void)loadToBuffers:(const Vertex*)vertices vSize:(size_t)vsize indices:(const GLushort*)indices iSize:(size_t)isize;
 -(void)loadToTexture:(NSString*)fileName;
 @end
 @interface GameEntity (ProtectedMethods) <GameEntityProtectedMethods>

@@ -14,6 +14,9 @@
 #import "GameShader.h"
 #import "Platform.h"
 #import "Planet.h"
+#import <OpenGLES/ES2/glext.h>
+#import <OpenGLES/ES2/gl.h>
+
 static id theController = nil;
 @interface OpenGLViewController (){
     GLuint _positionSlot;
@@ -50,13 +53,14 @@ static id theController = nil;
     shader = [[MainShader alloc]init];
     gameShader = [[GameShader alloc]init];
     gameObjects = [[NSMutableArray alloc]init];
-    Platform* platform1 = [[Platform alloc]initRadius:.5 theta:0];
-    Platform* platform2 = [[Platform alloc]initRadius:.5 theta:1.5];
-    Planet* planet =[[Planet alloc]initRadius:-.1 theta:0];
+    Platform* platform1 = [[Platform alloc]initRadius:1 theta:0];
+    Platform* platform2 = [[Platform alloc]initRadius:1 theta:1.5];
+    Planet* planet =[[Planet alloc]initRadius:.5 theta:0];
     [gameObjects addObject:platform1];
     [gameObjects addObject:platform2];
     [gameObjects addObject:planet];
-   
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
     
 }
 -(BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation{
@@ -65,17 +69,19 @@ static id theController = nil;
 
 #pragma mark - GL Stuff
 -(void)glkView:(nonnull GLKView *)view drawInRect:(CGRect)rect{
-    glClearColor(0, 0.45f, 0.25f, 1);
+    glClearColor(0, 0, 0.1, 1);
     glClear(GL_COLOR_BUFFER_BIT);
     switch (_gameState) {
         case MAIN:
-            glBindBuffer(GL_ARRAY_BUFFER, mainScreen->buffers.vertexBuffer);
-            glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, mainScreen->buffers.indicesBuffer);
             [shader start];
+            glBindVertexArrayOES(mainScreen->vaoID);
+            [shader enableAttribs];
             glActiveTexture(GL_TEXTURE0);
             glBindTexture(GL_TEXTURE_2D, mainScreen->texture);
-            glDrawElements(GL_TRIANGLES, mainScreen->numVertices, GL_UNSIGNED_BYTE, 0);
             
+            glDrawElements(GL_TRIANGLES, mainScreen->numVertices, GL_UNSIGNED_SHORT, 0);
+            [shader disableAttribs];
+            glBindVertexArrayOES(0);
             [shader stop];
             
             break;
@@ -83,22 +89,27 @@ static id theController = nil;
             if([gameObjects count] <1){
                 break;
             }
-            
+            [gameShader start];
+            [gameShader uploadHeightOffset:1.25];
+            [gameShader uploadScreenCorrection:self.view.frame.size];
             for(id object in gameObjects){
-                [gameShader start];
-                [gameShader enableAttribs];
                 GameEntity* entity = (GameEntity*) object;
+                
+                glBindVertexArrayOES(entity.vaoID);
+                [gameShader enableAttribs];
+                
                 [gameShader uploadObjectTransformation:entity.radius theta:entity.theta];
-                glBindBuffer(GL_ARRAY_BUFFER, entity.buffers.vertexBuffer);
-                glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, entity.buffers.indicesBuffer);
+                
                 glActiveTexture(GL_TEXTURE0);
                 glBindTexture(GL_TEXTURE_2D, entity.texture);
-                glDrawElements(GL_TRIANGLES, entity.numVertices, GL_UNSIGNED_BYTE, 0);
+                glDrawElements(GL_TRIANGLES, entity.numVertices, GL_UNSIGNED_SHORT, 0);
+                
                 [gameShader disableAttribs];
+                glBindVertexArrayOES(0);
                 [entity setTheta:entity.theta + 0.01];
-                [gameShader stop];
+                
             }
-            
+            [gameShader stop];
             break;
     }
     
