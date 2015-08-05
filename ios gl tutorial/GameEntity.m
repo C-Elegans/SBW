@@ -15,7 +15,7 @@
     _theta = t;
     return self;
 }
--(void)loadToBuffers:(Vertex*)vertices vSize:(size_t)vsize indices:(GLubyte*)indices iSize:(size_t)isize{
+-(void)loadToBuffers:(const Vertex*)vertices vSize:(size_t)vsize indices:(const GLubyte*)indices iSize:(size_t)isize{
     _buffers = [LoaderHelper loadToVBOS:vertices verticesSize:vsize indices:indices indicesSize:isize];
     _numVertices = isize/sizeof(GLubyte);
 }
