@@ -11,12 +11,14 @@
 #import "MainScreen.h"
 #import "MainShader.h"
 #import "GameEntity.h"
+#import "GameShader.h"
 static id theController = nil;
 @interface OpenGLViewController (){
     GLuint _positionSlot;
     GLuint _colorSlot;
     MainScreen* mainScreen;
     MainShader* shader;
+    GameShader* gameShader;
     NSMutableArray* gameObjects;
 }
 @property (strong) GLKBaseEffect* effect;
@@ -44,7 +46,7 @@ static id theController = nil;
     [EAGLContext setCurrentContext:self.context];
     mainScreen = [[MainScreen alloc]initPosition:(vec3){0.0f,0.0f,0.0f}];
     shader = [[MainShader alloc]init];
-    
+    gameShader = [[GameShader alloc]init];
 }
 -(BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation{
     return UIInterfaceOrientationIsLandscape(toInterfaceOrientation);
@@ -70,7 +72,7 @@ static id theController = nil;
             if([gameObjects count] <1){
                 break;
             }
-            [shader start];
+            [gameShader start];
             for(id object in gameObjects){
                 GameEntity* entity = (GameEntity*) object;
                 glBindBuffer(GL_ARRAY_BUFFER, entity.buffers.vertexBuffer);
@@ -79,7 +81,7 @@ static id theController = nil;
                 glBindTexture(GL_TEXTURE_2D, entity.texture);
                 glDrawElements(GL_TRIANGLES, entity.numVertices, GL_UNSIGNED_BYTE, 0);
             }
-            [shader stop];
+            [gameShader stop];
             break;
     }
     
