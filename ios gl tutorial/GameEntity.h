@@ -17,4 +17,5 @@
 @property GLuint texture;
 @property int numVertices;
 -(id)initRadius:(float)r theta:(float)t;
+-(CGRect)getCollisionBox;
 @end

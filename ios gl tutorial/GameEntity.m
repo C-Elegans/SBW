@@ -9,6 +9,7 @@
 #import "GameEntity.h"
 #import "GameEntityProtectedMethods.h"
 @implementation GameEntity
+@synthesize radius=_radius;
 -(id)initRadius:(float)r theta:(float)t{
     self = [super init];
     _radius = r;
@@ -22,5 +23,20 @@
 }
 -(void)loadToTexture:(NSString*)fileName{
     _texture = [LoaderHelper setupTexture:fileName];
+}
+-(CGRect)getCollisionBox{
+    return CGRectMake(0, 0, 0, 0);
+}
+-(float)radius{
+    return _radius;
+}
+-(void)setRadius:(float)radius{
+    _radius += radius;
+    if(_radius>TWO_PI){
+        _radius -= TWO_PI;
+    }
+    if(_radius <0){
+        _radius += TWO_PI;
+    }
 }
 @end

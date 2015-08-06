@@ -28,4 +28,7 @@ const GLushort planetIndices[] = {
     [super loadToTexture:@"earth.png"];
     return self;
 }
+-(CGRect)getCollisionBox{
+    return CGRectMake(0, 0, .5+[super radius], TWO_PI);
+}
 @end

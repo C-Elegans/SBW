@@ -27,4 +27,7 @@ const GLushort platformIndices[] = {
     [super loadToTexture:@"platform.png"];
     return self;
 }
+-(CGRect)getCollisionBox{
+    return CGRectMake(0+[super radius], 0+[super theta], .2, .2);
+}
 @end
