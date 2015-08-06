@@ -36,6 +36,8 @@ static id theController = nil;
 
 -(void)viewDidLoad{
     [super viewDidLoad];
+    GLKView *glkView = (GLKView*)self.view;
+    glkView.drawableMultisample = GLKViewDrawableMultisample4X;
     if(theController != nil && theController != self){
         NSLog(@"MORE THAN ONE CONTROLLER CREATED");
         exit(1);
