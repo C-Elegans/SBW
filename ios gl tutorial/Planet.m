@@ -11,10 +11,10 @@
 #import "GameEntityProtectedMethods.h"
 @implementation Planet
 const Vertex planetVertices[] = {
-    {{1, 0, 0}, {0,1}},
-    {{1, TWO_PI/4, 0}, {1,1}},
-    {{1, TWO_PI/2, 0}, {1,0}},
-    {{1, 3*TWO_PI/4, 0}, {0,0}}
+    {{.5, 0, 0}, {0,1}},
+    {{.5, TWO_PI/4, 0}, {1,1}},
+    {{.5, TWO_PI/2, 0}, {1,0}},
+    {{.5, 3*TWO_PI/4, 0}, {0,0}}
 };
 
 const GLushort planetIndices[] = {

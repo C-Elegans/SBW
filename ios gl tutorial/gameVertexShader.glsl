@@ -7,7 +7,7 @@ uniform float screenCorrection;
 varying vec2 outTexCoords;
 
 void main(void){
-    mediump vec4 newPosition = position + vec4(transformationOffset,0,0);
+    mediump vec4 newPosition = vec4(position.x,position.y * (1.0/transformationOffset.x),position.zw) + vec4(transformationOffset,0,0);
     mediump float x = cos(newPosition.y) * newPosition.x;
     mediump float y = sin(newPosition.y) * newPosition.x;
     outTexCoords = inTexCoords;

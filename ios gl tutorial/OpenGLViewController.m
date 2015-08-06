@@ -55,10 +55,13 @@ static id theController = nil;
     gameObjects = [[NSMutableArray alloc]init];
     Platform* platform1 = [[Platform alloc]initRadius:1 theta:0];
     Platform* platform2 = [[Platform alloc]initRadius:1 theta:1.5];
-    Planet* planet =[[Planet alloc]initRadius:.5 theta:0];
+    Planet* planet =[[Planet alloc]initRadius:1 theta:0];
     [gameObjects addObject:platform1];
     [gameObjects addObject:platform2];
     [gameObjects addObject:planet];
+    for (int i=0; i<20; i++) {
+        [gameObjects addObject:[[Platform alloc]initRadius:((float)rand() / RAND_MAX)+1 theta:((float)rand() / RAND_MAX)*TWO_PI]];
+    }
     glEnable(GL_BLEND);
     glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
     
@@ -93,6 +96,7 @@ static id theController = nil;
             [gameShader uploadHeightOffset:1.25];
             [gameShader uploadScreenCorrection:self.view.frame.size];
             for(id object in gameObjects){
+                glPushGroupMarkerEXT(0, [[NSString stringWithFormat:@"Rendering object %d",[gameObjects indexOfObject:object]] UTF8String]);
                 GameEntity* entity = (GameEntity*) object;
                 
                 glBindVertexArrayOES(entity.vaoID);
@@ -107,7 +111,7 @@ static id theController = nil;
                 [gameShader disableAttribs];
                 glBindVertexArrayOES(0);
                 [entity setTheta:entity.theta + 0.01];
-                
+                glPopGroupMarkerEXT();
             }
             [gameShader stop];
             break;
