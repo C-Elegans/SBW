@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A10A87E1B73E8020011FB3F /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A10A87D1B73E8020011FB3F /* Player.m */; };
+		0A10A8801B73E8790011FB3F /* player.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A10A87F1B73E8790011FB3F /* player.png */; };
 		0A50E0F11B712D3A008E69D5 /* mainScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A50E0F01B712D3A008E69D5 /* mainScreen.png */; };
 		0A50E0F41B7135F6008E69D5 /* GameEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A50E0F31B7135F6008E69D5 /* GameEntity.m */; };
 		0A50E0F81B714AB0008E69D5 /* MainMenuTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A50E0F71B714AB0008E69D5 /* MainMenuTests.m */; };
@@ -32,7 +34,6 @@
 		0AC917FC1B6FA36B0068B51D /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AC917FB1B6FA36B0068B51D /* GLKit.framework */; };
 		0AC917FE1B6FA6E30068B51D /* vertexShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 0AC917FD1B6FA6E30068B51D /* vertexShader.glsl */; };
 		0AC918021B6FA7050068B51D /* fragmentShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 0AC918011B6FA7050068B51D /* fragmentShader.glsl */; };
-		0AC918061B6FB03C0068B51D /* GLSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC918051B6FB03C0068B51D /* GLSprite.m */; };
 		0AD8CDDC1B70211F00833F84 /* Shader.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD8CDDB1B70211F00833F84 /* Shader.m */; };
 		0AD8CDDF1B7022AA00833F84 /* MainShader.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD8CDDE1B7022AA00833F84 /* MainShader.m */; };
 		0AD8CDE21B702D9A00833F84 /* MainScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD8CDE11B702D9A00833F84 /* MainScreen.m */; };
@@ -59,6 +60,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A10A87C1B73E8020011FB3F /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		0A10A87D1B73E8020011FB3F /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
+		0A10A87F1B73E8790011FB3F /* player.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player.png; sourceTree = "<group>"; };
 		0A50E0F01B712D3A008E69D5 /* mainScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mainScreen.png; path = Assets/mainScreen.png; sourceTree = "<group>"; };
 		0A50E0F21B7135F6008E69D5 /* GameEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameEntity.h; sourceTree = "<group>"; };
 		0A50E0F31B7135F6008E69D5 /* GameEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameEntity.m; sourceTree = "<group>"; };
@@ -98,8 +102,6 @@
 		0AC917FB1B6FA36B0068B51D /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		0AC917FD1B6FA6E30068B51D /* vertexShader.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = vertexShader.glsl; sourceTree = "<group>"; };
 		0AC918011B6FA7050068B51D /* fragmentShader.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fragmentShader.glsl; sourceTree = "<group>"; };
-		0AC918041B6FB03C0068B51D /* GLSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLSprite.h; sourceTree = "<group>"; };
-		0AC918051B6FB03C0068B51D /* GLSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLSprite.m; sourceTree = "<group>"; };
 		0AD8CDDA1B70211F00833F84 /* Shader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shader.h; sourceTree = "<group>"; };
 		0AD8CDDB1B70211F00833F84 /* Shader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Shader.m; sourceTree = "<group>"; };
 		0AD8CDDD1B7022AA00833F84 /* MainShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainShader.h; sourceTree = "<group>"; };
@@ -189,10 +191,10 @@
 		0AA72B991B6EF2AF00018D9E /* ios gl tutorial */ = {
 			isa = PBXGroup;
 			children = (
+				0A10A87F1B73E8790011FB3F /* player.png */,
 				0A50E1021B723F6E008E69D5 /* platform.png */,
 				0A50E0F01B712D3A008E69D5 /* mainScreen.png */,
 				0A50E10A1B725006008E69D5 /* earth.png */,
-				0AC918031B6FB0150068B51D /* Sprite */,
 				0AA72B9D1B6EF2B000018D9E /* AppDelegate.h */,
 				0AA72B9E1B6EF2B000018D9E /* AppDelegate.m */,
 				0AA72BA01B6EF2B000018D9E /* ViewController.h */,
@@ -251,15 +253,6 @@
 			name = shaders;
 			sourceTree = "<group>";
 		};
-		0AC918031B6FB0150068B51D /* Sprite */ = {
-			isa = PBXGroup;
-			children = (
-				0AC918041B6FB03C0068B51D /* GLSprite.h */,
-				0AC918051B6FB03C0068B51D /* GLSprite.m */,
-			);
-			name = Sprite;
-			sourceTree = "<group>";
-		};
 		0AD8CDE61B702EF500833F84 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
@@ -283,6 +276,8 @@
 				0A50E1051B723F91008E69D5 /* Platform.m */,
 				0A50E1071B724D34008E69D5 /* Planet.h */,
 				0A50E1081B724D34008E69D5 /* Planet.m */,
+				0A10A87C1B73E8020011FB3F /* Player.h */,
+				0A10A87D1B73E8020011FB3F /* Player.m */,
 			);
 			name = Entity;
 			sourceTree = "<group>";
@@ -392,6 +387,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A50E0FA1B7150FE008E69D5 /* gameVertexShader.glsl in Resources */,
+				0A10A8801B73E8790011FB3F /* player.png in Resources */,
 				0A50E10B1B725006008E69D5 /* earth.png in Resources */,
 				0A50E0F11B712D3A008E69D5 /* mainScreen.png in Resources */,
 				0AC918021B6FA7050068B51D /* fragmentShader.glsl in Resources */,
@@ -425,11 +421,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A10A87E1B73E8020011FB3F /* Player.m in Sources */,
 				0AA72BA81B6EF2B100018D9E /* ios_gl_tutorial.xcdatamodeld in Sources */,
 				0AD8CDEA1B702FC400833F84 /* LoaderHelper.m in Sources */,
 				0A50E1061B723F91008E69D5 /* Platform.m in Sources */,
 				0AD8CDE51B702EBD00833F84 /* MathHelper.m in Sources */,
-				0AC918061B6FB03C0068B51D /* GLSprite.m in Sources */,
 				0A50E1091B724D34008E69D5 /* Planet.m in Sources */,
 				0AA72BA21B6EF2B000018D9E /* ViewController.m in Sources */,
 				0AD8CDDF1B7022AA00833F84 /* MainShader.m in Sources */,
