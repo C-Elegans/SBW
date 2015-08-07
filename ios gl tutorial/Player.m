@@ -24,7 +24,7 @@ const GLushort playerIndices[] = {
     self = [super initRadius:r theta:t];
     
     [super loadToBuffers:&playerVertices[0] vSize:sizeof(playerVertices) indices:&playerIndices[0] iSize:sizeof(playerIndices)];
-    [super loadToTexture:@"player.png"];
+    [super loadToTexture:@"astronaut.png"];
     return self;
 }
 -(CGRect)getCollisionBox{

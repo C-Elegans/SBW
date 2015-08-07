@@ -7,7 +7,7 @@
 //
 
 #import "OpenGLViewController.h"
-#import "GLSprite.h"
+#import "Player.h"
 #import "MainScreen.h"
 #import "MainShader.h"
 #import "GameEntity.h"
@@ -16,7 +16,7 @@
 #import "Planet.h"
 #import <OpenGLES/ES2/glext.h>
 #import <OpenGLES/ES2/gl.h>
-
+#import "GameInput.h"
 static id theController = nil;
 @interface OpenGLViewController (){
     GLuint _positionSlot;
@@ -25,6 +25,9 @@ static id theController = nil;
     MainShader* shader;
     GameShader* gameShader;
     NSMutableArray* gameObjects;
+    Player* player;
+    float globalRotation;
+    GameInput* input;
 }
 @property (strong) GLKBaseEffect* effect;
 
@@ -36,6 +39,8 @@ static id theController = nil;
 
 -(void)viewDidLoad{
     [super viewDidLoad];
+    globalRotation = 0;
+    input = [[GameInput alloc]init:&globalRotation];
     GLKView *glkView = (GLKView*)self.view;
     glkView.drawableMultisample = GLKViewDrawableMultisample4X;
     if(theController != nil && theController != self){
@@ -58,9 +63,11 @@ static id theController = nil;
     Platform* platform1 = [[Platform alloc]initRadius:1 theta:0];
     Platform* platform2 = [[Platform alloc]initRadius:1 theta:1.5];
     Planet* planet =[[Planet alloc]initRadius:1 theta:0];
+    player = [[Player alloc]initRadius:1.5 theta:.5];
     [gameObjects addObject:platform1];
     [gameObjects addObject:platform2];
     [gameObjects addObject:planet];
+    
     for (int i=0; i<20; i++) {
         [gameObjects addObject:[[Platform alloc]initRadius:((float)rand() / RAND_MAX)+1 theta:((float)rand() / RAND_MAX)*TWO_PI]];
     }
@@ -105,17 +112,27 @@ static id theController = nil;
                 glBindVertexArrayOES(entity.vaoID);
                 [gameShader enableAttribs];
                 
-                [gameShader uploadObjectTransformation:entity.radius theta:entity.theta];
+                [gameShader uploadObjectTransformation:entity.radius theta:entity.theta+globalRotation];
                 
                 glActiveTexture(GL_TEXTURE0);
                 glBindTexture(GL_TEXTURE_2D, entity.texture);
                 glDrawElements(GL_TRIANGLES, entity.numVertices, GL_UNSIGNED_SHORT, 0);
                 
                 [gameShader disableAttribs];
-                glBindVertexArrayOES(0);
-                [entity setTheta:entity.theta + 0.01];
-                glPopGroupMarkerEXT();
+                //glBindVertexArrayOES(0);
+                                glPopGroupMarkerEXT();
             }
+            
+            //Render player
+            glPushGroupMarkerEXT(0, "Render Player");
+            glBindVertexArrayOES(player.vaoID);
+            [gameShader enableAttribs];
+            [gameShader uploadObjectTransformation:player.radius theta:TWO_PI/4.0];
+            glBindTexture(GL_TEXTURE_2D, player.texture);
+            glDrawElements(GL_TRIANGLES, player.numVertices, GL_UNSIGNED_SHORT, 0);
+            [gameShader disableAttribs];
+            glBindVertexArrayOES(0);
+            glPopGroupMarkerEXT();
             [gameShader stop];
             break;
     }
@@ -127,20 +144,27 @@ static id theController = nil;
     
 }
 -(void)touchesBegan:(nonnull NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event{
-    
+    [input touchesBegan:touches withEvent:event];
 }
 -(void)touchesEnded:(nonnull NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event{
-    for(UITouch* touch in touches){
-        if(_gameState == MAIN){
+    if(_gameState == MAIN){
+        for(UITouch* touch in touches){
+        
             CGPoint point = [touch locationInView:self.view];
             point.x = point.x /self.view.frame.size.width;
             point.y = point.y /self.view.frame.size.height;
             [mainScreen touchEnded:point];
         }
+    }else{
+        [input touchesEnded:touches withEvent:event];
     }
+}
+-(void)touchesMoved:(nonnull NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event{
+    
 }
 +(OpenGLViewController*)getController{
     return theController;
 }
+
 
 @end
