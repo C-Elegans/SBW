@@ -17,6 +17,9 @@
 #import <OpenGLES/ES2/glext.h>
 #import <OpenGLES/ES2/gl.h>
 #import "GameInput.h"
+#import "GuiShader.h"
+#import "LeftButton.h"
+
 static id theController = nil;
 @interface OpenGLViewController (){
     GLuint _positionSlot;
@@ -24,6 +27,8 @@ static id theController = nil;
     MainScreen* mainScreen;
     MainShader* shader;
     GameShader* gameShader;
+    GuiShader* guiShader;
+    NSMutableArray* guiObjects;
     NSMutableArray* gameObjects;
     Player* player;
     float globalRotation;
@@ -59,7 +64,9 @@ static id theController = nil;
     mainScreen = [[MainScreen alloc]initPosition:(vec3){0.0f,0.0f,0.0f}];
     shader = [[MainShader alloc]init];
     gameShader = [[GameShader alloc]init];
+    guiShader = [[GuiShader alloc]init];
     gameObjects = [[NSMutableArray alloc]init];
+    guiObjects = [[NSMutableArray alloc]init];
     Platform* platform1 = [[Platform alloc]initRadius:1 theta:0];
     Platform* platform2 = [[Platform alloc]initRadius:1 theta:1.5];
     Planet* planet =[[Planet alloc]initRadius:1 theta:0];
@@ -71,6 +78,7 @@ static id theController = nil;
     for (int i=0; i<20; i++) {
         [gameObjects addObject:[[Platform alloc]initRadius:((float)rand() / RAND_MAX)+1 theta:((float)rand() / RAND_MAX)*TWO_PI]];
     }
+    [guiObjects addObject:[[LeftButton alloc]initWithPositionX:-.5 y:0]];
     glEnable(GL_BLEND);
     glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
     
@@ -105,6 +113,7 @@ static id theController = nil;
             [gameShader start];
             [gameShader uploadHeightOffset:1.25];
             [gameShader uploadScreenCorrection:self.view.frame.size];
+            glActiveTexture(GL_TEXTURE0);
             for(id object in gameObjects){
                 glPushGroupMarkerEXT(0, [[NSString stringWithFormat:@"Rendering object %d",[gameObjects indexOfObject:object]] UTF8String]);
                 GameEntity* entity = (GameEntity*) object;
@@ -114,7 +123,7 @@ static id theController = nil;
                 
                 [gameShader uploadObjectTransformation:entity.radius theta:entity.theta+globalRotation];
                 
-                glActiveTexture(GL_TEXTURE0);
+                
                 glBindTexture(GL_TEXTURE_2D, entity.texture);
                 glDrawElements(GL_TRIANGLES, entity.numVertices, GL_UNSIGNED_SHORT, 0);
                 
@@ -134,6 +143,23 @@ static id theController = nil;
             glBindVertexArrayOES(0);
             glPopGroupMarkerEXT();
             [gameShader stop];
+            
+            //Render Gui objects
+            [guiShader start];
+            [guiShader uploadScreenCorrection:self.view.frame.size];
+            glActiveTexture(GL_TEXTURE0);
+            for(GameGui *gui in guiObjects){
+                glPushGroupMarkerEXT(0, [[NSString stringWithFormat:@"Rendering Gui %d", [guiObjects indexOfObject:gui]]UTF8String]);
+                glBindVertexArrayOES(gui.vaoID);
+                [guiShader enableAttribs];
+                [guiShader uploadObjectTransformation:gui.x y:gui.y];
+                glBindTexture(GL_TEXTURE_2D, gui.texture);
+                glDrawElements(GL_TRIANGLES, gui.numVertices, GL_UNSIGNED_SHORT, 0);
+                [guiShader disableAttribs];
+                glBindVertexArrayOES(0);
+                glPopGroupMarkerEXT();
+            }
+            [guiShader stop];
             break;
     }
     

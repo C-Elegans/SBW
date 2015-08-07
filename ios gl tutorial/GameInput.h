@@ -11,5 +11,5 @@
 @interface GameInput : NSObject
 -(void)touchesBegan:(nonnull NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event;
 -(void)touchesEnded:(nonnull NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event;
--(id)init:(__nonnull float* )g;
+-(id)init:(__nonnull float*)g;
 @end
