@@ -9,7 +9,7 @@
 #import "GameEntity.h"
 #import "GameEntityProtectedMethods.h"
 @implementation GameEntity
-@synthesize radius=_radius;
+@synthesize theta=_theta;
 -(id)initRadius:(float)r theta:(float)t{
     self = [super init];
     _radius = r;
@@ -27,16 +27,16 @@
 -(CGRect)getCollisionBox{
     return CGRectMake(0, 0, 0, 0);
 }
--(float)radius{
-    return _radius;
+-(float)getTheta{
+    return _theta;
 }
--(void)setRadius:(float)radius{
-    _radius += radius;
-    if(_radius>TWO_PI){
-        _radius -= TWO_PI;
+-(void)setTheta:(float)t{
+    _theta = t;
+    if(self.theta>TWO_PI){
+        _theta -= TWO_PI;
     }
-    if(_radius <0){
-        _radius += TWO_PI;
+    if(self.theta <0){
+        _theta += TWO_PI;
     }
 }
 @end

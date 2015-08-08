@@ -12,7 +12,7 @@
     
 }
 @property float radius;
-@property float theta;
+@property (nonatomic, getter=getTheta, setter=setTheta:) float theta;
 @property GLuint vaoID;
 @property GLuint texture;
 @property int numVertices;

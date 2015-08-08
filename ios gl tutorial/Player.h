@@ -9,5 +9,5 @@
 #import "GameEntity.h"
 
 @interface Player : GameEntity
-
+-(void)updatePosition:(nullable NSArray* )gameObjects;
 @end

@@ -10,10 +10,11 @@
 #import <UIKit/UIKit.h>
 #import "LeftButton.h"
 #import "RightButton.h"
+#import "Player.h"
 @interface GameInput : NSObject
 -(void)touchesBegan:(nonnull NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event;
 -(void)touchesEnded:(nonnull NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event;
 -(void)touchesMoved:(nonnull NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event;
--(nonnull id)init:(nonnull float*)g leftButton:(nonnull LeftButton*)leftButton rightButton:(nonnull RightButton*)rightButton;
+-(nonnull id)init:(nonnull Player*)theplayer leftButton:(nonnull LeftButton*)leftButton rightButton:(nonnull RightButton*)rightButton;
 -(void)update;
 @end

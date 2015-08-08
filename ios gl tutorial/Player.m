@@ -8,12 +8,14 @@
 
 #import "Player.h"
 #import "GameEntityProtectedMethods.h"
+#import "Planet.h"
 @implementation Player
+const int playerWidth = 0.359375;
 const Vertex playerVertices[] = {
-    {{0, 0, 0}, {0,1}},
-    {{0, .2, 0}, {1,1}},
-    {{.2, .2, 0}, {1,0}},
-    {{.2, 0, 0}, {0,0}}
+    {{0, 0, 0}, {0.125,1}},
+    {{0, .125, 0}, {0.640625,1}},
+    {{.2, .125, 0}, {0.640625,0}},
+    {{.2, 0, 0}, {0.125,0}}
 };
 
 const GLushort playerIndices[] = {
@@ -28,6 +30,21 @@ const GLushort playerIndices[] = {
     return self;
 }
 -(CGRect)getCollisionBox{
-    return CGRectMake(0+[super radius], 0+[super theta], .2, .2);
+    return CGRectMake((0+self.radius), 0+self.theta, .125 *(1/self.radius), .2);
+}
+-(void)updatePosition:(nullable NSArray *)gameObjects{
+    
+    CGRect myCollisionBox = [self getCollisionBox];
+    for(GameEntity* entity in gameObjects){
+        if([MathHelper rect:myCollisionBox intersects:entity.getCollisionBox]){
+            if(!([entity class]==[Planet class])){
+                vec2 moveVec = [MathHelper moveToUndoCollision:myCollisionBox withRect:entity.getCollisionBox];
+                //self.radius += moveVec.x;
+                self.theta += moveVec.y;
+                NSLog(@"object intersected! object %@  index %u",entity, [gameObjects indexOfObject:entity]);
+            }
+        }
+    }
+    if(self.radius < 1)self.radius = 1;
 }
 @end

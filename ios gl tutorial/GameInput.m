@@ -8,15 +8,15 @@
 
 #import "GameInput.h"
 @interface GameInput(){
-    float* globalRotation;
+    Player* player;
     LeftButton* lButton;
     RightButton* rButton;
 }
 @end
 @implementation GameInput
--(id)init:(nonnull float *)g leftButton:(nonnull LeftButton *)leftButton rightButton:(nonnull RightButton *)rightButton{
+-(id)init:(nonnull Player *)theplayer leftButton:(nonnull LeftButton *)leftButton rightButton:(nonnull RightButton *)rightButton{
     self = [super init];
-    globalRotation = g;
+    player = theplayer;
     lButton = leftButton;
     rButton = rightButton;
     return self;
@@ -35,10 +35,10 @@
 }
 -(void)update{
     if(lButton.buttonDown){
-        *globalRotation -= 0.01;
+        player.theta -= 0.01;
     }
     if(rButton.buttonDown){
-        *globalRotation += 0.01;
+        player.theta += 0.01;
     }
 }
 @end

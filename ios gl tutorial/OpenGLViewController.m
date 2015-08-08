@@ -32,7 +32,6 @@ static id theController = nil;
     NSMutableArray* guiObjects;
     NSMutableArray* gameObjects;
     Player* player;
-    float globalRotation;
     GameInput* input;
 }
 @property (strong) GLKBaseEffect* effect;
@@ -45,7 +44,7 @@ static id theController = nil;
 
 -(void)viewDidLoad{
     [super viewDidLoad];
-    globalRotation = 0;
+    
     
     GLKView *glkView = (GLKView*)self.view;
     glkView.drawableMultisample = GLKViewDrawableMultisample4X;
@@ -71,7 +70,7 @@ static id theController = nil;
     Platform* platform1 = [[Platform alloc]initRadius:1 theta:0];
     Platform* platform2 = [[Platform alloc]initRadius:1 theta:1.5];
     Planet* planet =[[Planet alloc]initRadius:1 theta:0];
-    player = [[Player alloc]initRadius:1.5 theta:.5];
+    player = [[Player alloc]initRadius:2 theta:1];
     [gameObjects addObject:platform1];
     [gameObjects addObject:platform2];
     [gameObjects addObject:planet];
@@ -83,7 +82,7 @@ static id theController = nil;
     RightButton* rightButton = [[RightButton alloc]initWithPositionX:-.6 y:-.5 view:self.view];
     [guiObjects addObject:leftButton];
     [guiObjects addObject:rightButton];
-    input = [[GameInput alloc]init:&globalRotation leftButton:leftButton rightButton:rightButton];
+    input = [[GameInput alloc]init:player leftButton:leftButton rightButton:rightButton];
     glEnable(GL_BLEND);
     glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
     CGRect left = [leftButton getBoundingBox];
@@ -127,7 +126,7 @@ static id theController = nil;
                 glBindVertexArrayOES(entity.vaoID);
                 [gameShader enableAttribs];
                 
-                [gameShader uploadObjectTransformation:entity.radius theta:entity.theta+globalRotation];
+                [gameShader uploadObjectTransformation:entity.radius theta:entity.theta];
                 
                 
                 glBindTexture(GL_TEXTURE_2D, entity.texture);
@@ -142,7 +141,7 @@ static id theController = nil;
             glPushGroupMarkerEXT(0, "Render Player");
             glBindVertexArrayOES(player.vaoID);
             [gameShader enableAttribs];
-            [gameShader uploadObjectTransformation:player.radius theta:TWO_PI/4.0];
+            [gameShader uploadObjectTransformation:player.radius theta:player.theta];
             glBindTexture(GL_TEXTURE_2D, player.texture);
             glDrawElements(GL_TRIANGLES, player.numVertices, GL_UNSIGNED_SHORT, 0);
             [gameShader disableAttribs];
@@ -167,6 +166,9 @@ static id theController = nil;
             }
             [guiShader stop];
             [input update];
+            player.radius -= 0.01;
+            [player updatePosition:gameObjects];
+            
             break;
     }
     

@@ -33,4 +33,5 @@ typedef struct {
 +(BOOL)point:(CGPoint)point insideBox:(CGRect)box;
 +(BOOL)rect:(CGRect)rect1 intersects:(CGRect)rect2;
 +(BOOL)valueInRange:(float)val min:(float)min max:(float)max;
++(vec2)moveToUndoCollision:(CGRect)box1 withRect:(CGRect)box2;
 @end

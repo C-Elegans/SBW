@@ -26,7 +26,7 @@
 }
 
 +(BOOL)valueInRange:(float)val min:(float)min max:(float)max{
-    return (val >= min)&&(val <= max);
+    return (val > min)&&(val < max);
 }
 +(BOOL)rect:(CGRect)rect1 intersects:(CGRect)rect2{
     BOOL xOverlap = [MathHelper valueInRange:rect1.origin.x min:rect2.origin.x max:rect2.origin.x + rect2.size.width]||\
@@ -37,5 +37,30 @@
     //valueInRange(B.x, A.x, A.x + A.width);
     return xOverlap && yOverlap;
     
+}
++(vec2)moveToUndoCollision:(CGRect)box1 withRect:(CGRect)box2{
+    vec2 moveVector;
+    BOOL xOverlap = [MathHelper valueInRange:box1.origin.x min:box2.origin.x max:box2.origin.x + box2.size.width]||\
+    [MathHelper valueInRange:box2.origin.x min:box1.origin.x max:box1.origin.x + box1.size.width];
+    BOOL yOverlap = [MathHelper valueInRange:box1.origin.y min:box2.origin.y max:box2.origin.y + box2.size.height]||\
+    [MathHelper valueInRange:box2.origin.y min:box1.origin.y max:box1.origin.y + box1.size.height];
+    if(xOverlap){
+        float option1 = -((box1.origin.x +box1.size.width)-box2.origin.x);
+        float option2 = -(box1.origin.x-(box2.origin.x + box2.size.width));
+        moveVector.x = option2;
+        if(fabsf(option1)<fabsf(option2)){
+            moveVector.x = option1;
+        }
+    }
+    if(yOverlap) {
+        float option1 = -((box1.origin.y +box1.size.height)-box2.origin.y);
+        float option2 = -(box1.origin.y-(box2.origin.y + box2.size.height));
+        moveVector.y = option2;
+        if(fabsf(option1)<fabsf(option2)){
+            moveVector.y = option1;
+        }
+    }
+    
+    return moveVector;
 }
 @end

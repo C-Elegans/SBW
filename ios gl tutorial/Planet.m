@@ -29,6 +29,7 @@ const GLushort planetIndices[] = {
     return self;
 }
 -(CGRect)getCollisionBox{
-    return CGRectMake(0, 0, .5+[super radius], TWO_PI);
+    //return CGRectMake(0, 0, .5+[super radius], TWO_PI);
+    return CGRectMake(0, 0, 0, 0);
 }
 @end
