@@ -26,6 +26,7 @@
 		0AA14D871B7567D300770A6E /* GuiShader.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA14D861B7567D300770A6E /* GuiShader.m */; };
 		0AA14D891B75682600770A6E /* guiVertexShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 0AA14D881B75682600770A6E /* guiVertexShader.glsl */; };
 		0AA14D8B1B75684100770A6E /* guiFragmentShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 0AA14D8A1B75684100770A6E /* guiFragmentShader.glsl */; };
+		0AA14D8E1B757CE600770A6E /* RightButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA14D8D1B757CE600770A6E /* RightButton.m */; };
 		0AA72B9C1B6EF2B000018D9E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA72B9B1B6EF2B000018D9E /* main.m */; };
 		0AA72B9F1B6EF2B000018D9E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA72B9E1B6EF2B000018D9E /* AppDelegate.m */; };
 		0AA72BA21B6EF2B000018D9E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA72BA11B6EF2B000018D9E /* ViewController.m */; };
@@ -97,6 +98,8 @@
 		0AA14D861B7567D300770A6E /* GuiShader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuiShader.m; sourceTree = "<group>"; };
 		0AA14D881B75682600770A6E /* guiVertexShader.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = guiVertexShader.glsl; sourceTree = "<group>"; };
 		0AA14D8A1B75684100770A6E /* guiFragmentShader.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = guiFragmentShader.glsl; sourceTree = "<group>"; };
+		0AA14D8C1B757CE600770A6E /* RightButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RightButton.h; sourceTree = "<group>"; };
+		0AA14D8D1B757CE600770A6E /* RightButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RightButton.m; sourceTree = "<group>"; };
 		0AA72B971B6EF2AF00018D9E /* ios gl tutorial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios gl tutorial.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AA72B9B1B6EF2B000018D9E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0AA72B9D1B6EF2B000018D9E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -204,9 +207,10 @@
 			children = (
 				0AA14D7C1B75647900770A6E /* GameGui.h */,
 				0AA14D7D1B75647900770A6E /* GameGui.m */,
-				0AA14D801B7564C000770A6E /* GameGuiProtectedMethods.h */,
 				0AA14D811B7565ED00770A6E /* LeftButton.h */,
 				0AA14D821B7565ED00770A6E /* LeftButton.m */,
+				0AA14D8C1B757CE600770A6E /* RightButton.h */,
+				0AA14D8D1B757CE600770A6E /* RightButton.m */,
 			);
 			name = Gui;
 			sourceTree = "<group>";
@@ -220,6 +224,15 @@
 				0AA14D8A1B75684100770A6E /* guiFragmentShader.glsl */,
 			);
 			name = GuiShader;
+			sourceTree = "<group>";
+		};
+		0AA14D8F1B7635BC00770A6E /* Input */ = {
+			isa = PBXGroup;
+			children = (
+				0AF3515E1B73EF8E00495590 /* GameInput.h */,
+				0AF3515F1B73EF8E00495590 /* GameInput.m */,
+			);
+			name = Input;
 			sourceTree = "<group>";
 		};
 		0AA72B8E1B6EF2AF00018D9E = {
@@ -258,9 +271,11 @@
 				0AA72BAB1B6EF2B100018D9E /* LaunchScreen.storyboard */,
 				0AA72BAE1B6EF2B100018D9E /* Info.plist */,
 				0AA72BA61B6EF2B100018D9E /* ios_gl_tutorial.xcdatamodeld */,
-				0AA72B9A1B6EF2B000018D9E /* Supporting Files */,
+				0AA14D801B7564C000770A6E /* GameGuiProtectedMethods.h */,
 				0AC917F81B6FA2370068B51D /* OpenGLViewController.h */,
 				0AC917F91B6FA2370068B51D /* OpenGLViewController.m */,
+				0AA14D8F1B7635BC00770A6E /* Input */,
+				0AA72B9A1B6EF2B000018D9E /* Supporting Files */,
 				0AC918001B6FA6F40068B51D /* shaders */,
 				0AD8CDE71B702EFB00833F84 /* Entity */,
 				0AD8CDE61B702EF500833F84 /* Helper */,
@@ -273,8 +288,6 @@
 			isa = PBXGroup;
 			children = (
 				0AA72B9B1B6EF2B000018D9E /* main.m */,
-				0AF3515E1B73EF8E00495590 /* GameInput.h */,
-				0AF3515F1B73EF8E00495590 /* GameInput.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -489,6 +502,7 @@
 				0AA72BA81B6EF2B100018D9E /* ios_gl_tutorial.xcdatamodeld in Sources */,
 				0AD8CDEA1B702FC400833F84 /* LoaderHelper.m in Sources */,
 				0AA14D871B7567D300770A6E /* GuiShader.m in Sources */,
+				0AA14D8E1B757CE600770A6E /* RightButton.m in Sources */,
 				0A50E1061B723F91008E69D5 /* Platform.m in Sources */,
 				0AD8CDE51B702EBD00833F84 /* MathHelper.m in Sources */,
 				0AA14D7E1B75647900770A6E /* GameGui.m in Sources */,
@@ -649,11 +663,13 @@
 				GCC_FAST_MATH = YES;
 				GCC_UNROLL_LOOPS = YES;
 				INFOPLIST_FILE = "ios gl tutorial/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LLVM_LTO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.C-Elegans.ios-gl-tutorial";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -666,11 +682,13 @@
 				GCC_FAST_MATH = YES;
 				GCC_UNROLL_LOOPS = YES;
 				INFOPLIST_FILE = "ios gl tutorial/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LLVM_LTO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.C-Elegans.ios-gl-tutorial";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

@@ -19,6 +19,7 @@
 #import "GameInput.h"
 #import "GuiShader.h"
 #import "LeftButton.h"
+#import "RightButton.h"
 
 static id theController = nil;
 @interface OpenGLViewController (){
@@ -45,7 +46,7 @@ static id theController = nil;
 -(void)viewDidLoad{
     [super viewDidLoad];
     globalRotation = 0;
-    input = [[GameInput alloc]init:&globalRotation];
+    
     GLKView *glkView = (GLKView*)self.view;
     glkView.drawableMultisample = GLKViewDrawableMultisample4X;
     if(theController != nil && theController != self){
@@ -78,10 +79,15 @@ static id theController = nil;
     for (int i=0; i<20; i++) {
         [gameObjects addObject:[[Platform alloc]initRadius:((float)rand() / RAND_MAX)+1 theta:((float)rand() / RAND_MAX)*TWO_PI]];
     }
-    [guiObjects addObject:[[LeftButton alloc]initWithPositionX:-.5 y:0]];
+    LeftButton* leftButton = [[LeftButton alloc]initWithPositionX:-.9 y:-.5 view:self.view];
+    RightButton* rightButton = [[RightButton alloc]initWithPositionX:-.6 y:-.5 view:self.view];
+    [guiObjects addObject:leftButton];
+    [guiObjects addObject:rightButton];
+    input = [[GameInput alloc]init:&globalRotation leftButton:leftButton rightButton:rightButton];
     glEnable(GL_BLEND);
     glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
-    
+    CGRect left = [leftButton getBoundingBox];
+    NSLog(@"LeftButton Bounding Box x: %f, y: %f, w:%f h:%f", left.origin.x,left.origin.y,left.size.width,left.size.height);
     
 }
 -(BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation{
@@ -115,7 +121,7 @@ static id theController = nil;
             [gameShader uploadScreenCorrection:self.view.frame.size];
             glActiveTexture(GL_TEXTURE0);
             for(id object in gameObjects){
-                glPushGroupMarkerEXT(0, [[NSString stringWithFormat:@"Rendering object %d",[gameObjects indexOfObject:object]] UTF8String]);
+                glPushGroupMarkerEXT(0, [[NSString stringWithFormat:@"Rendering object %lu",(unsigned long)[gameObjects indexOfObject:object]] UTF8String]);
                 GameEntity* entity = (GameEntity*) object;
                 
                 glBindVertexArrayOES(entity.vaoID);
@@ -160,6 +166,7 @@ static id theController = nil;
                 glPopGroupMarkerEXT();
             }
             [guiShader stop];
+            [input update];
             break;
     }
     
@@ -170,13 +177,18 @@ static id theController = nil;
     
 }
 -(void)touchesBegan:(nonnull NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event{
-    [input touchesBegan:touches withEvent:event];
+    [super touchesBegan:touches withEvent:event];
+    if(_gameState == RUNNING){
+        [input touchesBegan:touches withEvent:event];
+    }
 }
 -(void)touchesEnded:(nonnull NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event{
+    [super touchesEnded:touches withEvent:event];
     if(_gameState == MAIN){
         for(UITouch* touch in touches){
         
             CGPoint point = [touch locationInView:self.view];
+            NSLog(@"Touch x: %f y:%f",point.x,point.y);
             point.x = point.x /self.view.frame.size.width;
             point.y = point.y /self.view.frame.size.height;
             [mainScreen touchEnded:point];
@@ -186,7 +198,10 @@ static id theController = nil;
     }
 }
 -(void)touchesMoved:(nonnull NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event{
-    
+    [super touchesMoved:touches withEvent:event];
+    if(_gameState == RUNNING){
+        [input touchesMoved:touches withEvent:event];
+    }
 }
 +(OpenGLViewController*)getController{
     return theController;

@@ -6,5 +6,5 @@ varying vec2 outTexCoords;
 
 void main(void){
     outTexCoords = inTexCoords;
-    gl_Position = position = vec4(positionOffset,0,0);
+    gl_Position = vec4(position.x * screenCorrection,position.yzw) + vec4(positionOffset,0,0);
 }

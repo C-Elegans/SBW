@@ -1,37 +1,35 @@
 //
-//  LeftButton.m
+//  RightrightButton.m
 //  ios gl tutorial
 //
 //  Created by Michael Nolan on 8/7/15.
 //  Copyright © 2015 Michael Nolan. All rights reserved.
 //
 
-#import "LeftButton.h"
+#import "RightButton.h"
 #import "GameGuiProtectedMethods.h"
-#import <UIKit/UIKit.h>
-#import "MathHelper.h"
-@interface LeftButton (){
+@interface RightButton (){
     CGRect frameRect;
     UIView* parentView;
 }
 @end
-@implementation LeftButton
-const Vertex leftButtonVertices[] = {
+@implementation RightButton
+const Vertex rightButtonVertices[] = {
     0,0,0,              0,1,
     0,0.3,0,            0,0,
     0.3,0.3,0,          1,0,
     0.3f,0.0f,0.0f,     1,1,
 };
-const GLushort leftButtonIndices[] = {
+const GLushort rightButtonIndices[] = {
     0, 1, 2,
     2, 3, 0
 };
 -(id)initWithPositionX:(float)x y:(float)y view:(nullable UIView *)view{
     self = [super initWithPositionX:x y:y view:view];
-    [super loadToBuffers:&leftButtonVertices[0] vSize:sizeof(leftButtonVertices) indices:&leftButtonIndices[0] iSize:sizeof(leftButtonIndices)];
-    [super loadToTexture:@"leftButton.png"];
-    _buttonDown = false;
+    [super loadToBuffers:&rightButtonVertices[0] vSize:sizeof(rightButtonVertices) indices:&rightButtonIndices[0] iSize:sizeof(rightButtonIndices)];
+            [super loadToTexture:@"rightButton.png"];
     frameRect = view.frame;
+    _buttonDown = false;
     parentView = view;
     return self;
 }
@@ -45,7 +43,6 @@ const GLushort leftButtonIndices[] = {
     
     return CGRectMake(x*xDim, y*yDim, 0.3*0.5*yDim, 0.3*0.5*yDim);
 }
-
 -(void)touchesBegan:(nonnull NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event{
     for(UITouch* touch in touches){
         if ([MathHelper point:[touch locationInView:parentView] insideBox:[self getBoundingBox]]) {
@@ -61,7 +58,7 @@ const GLushort leftButtonIndices[] = {
             _buttonDown = false;
         }
     }
-   
+    
 }
 -(void)touchesMoved:(nonnull NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event{
     BOOL tempButtonDown = false;
@@ -72,4 +69,5 @@ const GLushort leftButtonIndices[] = {
     }
     _buttonDown = tempButtonDown;
 }
+
 @end

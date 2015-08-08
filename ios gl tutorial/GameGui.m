@@ -10,7 +10,7 @@
 #import "GameGuiProtectedMethods.h"
 
 @implementation GameGui
--(id)initWithPositionX:(float)x y:(float)y{
+-(id)initWithPositionX:(float)x y:(float)y view:(nullable UIView *)view{
     self = [super init];
     _x = x;
     _y = y;
@@ -18,11 +18,12 @@
 }
 
 -(void)loadToBuffers:(const Vertex*)vertices vSize:(size_t)vsize indices:(const GLushort*)indices iSize:(size_t)isize{
-    _vaoID = [LoaderHelper loadToVBOS:vertices verticesSize:vsize indices:indices indicesSize:isize];
+    _vaoID = [LoaderHelper loadToVBOS:vertices verticesSize:(int)vsize indices:indices indicesSize:(int)isize];
     
-    _numVertices = isize/sizeof(GLushort);
+    _numVertices = (int)isize/(int)sizeof(GLushort);
 }
 -(void)loadToTexture:(NSString*)fileName{
     _texture = [LoaderHelper setupTexture:fileName];
 }
+
 @end

@@ -15,5 +15,5 @@
 @property float x;
 @property float y;
 
--(id)initWithPositionX:(float)x y:(float)y;
+-(id)initWithPositionX:(float)x y:(float)y view:(nullable UIView *)view;
 @end
