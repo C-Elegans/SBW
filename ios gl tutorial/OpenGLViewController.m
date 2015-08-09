@@ -20,7 +20,7 @@
 #import "GuiShader.h"
 #import "LeftButton.h"
 #import "RightButton.h"
-#define DEBUG
+#undef DEBUG
 static id theController = nil;
 @interface OpenGLViewController (){
     GLuint _positionSlot;
