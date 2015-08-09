@@ -8,8 +8,15 @@
 
 #import "LoaderHelper.h"
 #import <OpenGLES/ES2/glext.h>
+#import <UIKit/UIKit.h>
 @implementation LoaderHelper
-+(GLuint)loadToVBOS:(const Vertex*)vertices verticesSize:(int)vSize indices:(const GLushort*)indices indicesSize:(int)iSize{
+static NSMutableDictionary* textureDict;
+static NSMutableDictionary* vaoDict;
++(void)init{
+    textureDict = [[NSMutableDictionary alloc]init];
+    vaoDict = [[NSMutableDictionary alloc]init];
+}
++(GLuint)loadVertices:(const Vertex*)vertices verticesSize:(int)vSize indices:(const GLushort*)indices indicesSize:(int)iSize{
     GLuint vaoid;
     glGenVertexArraysOES(1, &vaoid);
     glBindVertexArrayOES(vaoid);
@@ -31,6 +38,14 @@
     
     
     
+}
++(GLuint)loadToVBOS:(const Vertex *)vertices verticesSize:(int)vSize indices:(const GLushort *)indices indicesSize:(int)iSize objectName:(NSString*)objectName{
+    NSNumber* vaoID = [vaoDict objectForKey:objectName];
+    if(vaoID == nil){
+        vaoID = [NSNumber numberWithInt:[LoaderHelper loadVertices:vertices verticesSize:vSize indices:indices indicesSize:iSize]];
+        [vaoDict setObject:vaoID forKey:objectName];
+    }
+    return [vaoID integerValue];
 }
 + (GLuint)setupTexture:(NSString *)fileName {
     // 1
@@ -67,5 +82,13 @@
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
     free(spriteData);
     return texName;
+}
++(GLuint)loadTexture:(NSString *)fileName{
+    NSNumber *texture = [textureDict objectForKey:fileName];
+    if(texture == nil){
+        texture = [NSNumber numberWithInt:[LoaderHelper setupTexture:fileName]];
+        [textureDict setObject:texture forKey:fileName];
+    }
+    return (GLuint)[texture intValue];
 }
 @end

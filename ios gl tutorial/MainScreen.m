@@ -25,9 +25,9 @@ const Rectangle PlayButton = {0.1434f,0.3706f ,0.7117f,0.1652f};
 -(id)initPosition:(vec3)pos{
     self = [super init];
     position = pos;
-    vaoID = [LoaderHelper loadToVBOS:&Vertices[0] verticesSize:sizeof(Vertices) indices:&Indices[0] indicesSize:sizeof(Indices)];
+    vaoID = [LoaderHelper loadToVBOS:&Vertices[0] verticesSize:sizeof(Vertices) indices:&Indices[0] indicesSize:sizeof(Indices) objectName:@"MainScreen"];
     numVertices = sizeof(Indices)/sizeof(Indices[0]);
-    texture = [LoaderHelper setupTexture:@"mainScreen.png"];
+    texture = [LoaderHelper loadTexture:@"mainScreen.png"];
     return self;
 }
 -(BOOL)touchEnded:(CGPoint)point{

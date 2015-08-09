@@ -17,7 +17,7 @@
 //
 
 @protocol GameGuiProtectedMethods <NSObject>
--(void)loadToBuffers:(const Vertex*)vertices vSize:(size_t)vsize indices:(const GLushort*)indices iSize:(size_t)isize;
+-(void)loadToBuffers:(const Vertex*)vertices vSize:(size_t)vsize indices:(const GLushort*)indices iSize:(size_t)isize objectName:(NSString*)objectName;
 -(void)loadToTexture:(NSString*)fileName;
 @end
 @interface GameGui (ProtectedMethods) <GameGuiProtectedMethods>

@@ -20,7 +20,7 @@
 #import "GuiShader.h"
 #import "LeftButton.h"
 #import "RightButton.h"
-#undef DEBUG
+#define DEBUG
 static id theController = nil;
 @interface OpenGLViewController (){
     GLuint _positionSlot;
@@ -44,7 +44,7 @@ static id theController = nil;
 
 -(void)viewDidLoad{
     [super viewDidLoad];
-    
+    [LoaderHelper init];
     
     GLKView *glkView = (GLKView*)self.view;
     glkView.drawableMultisample = GLKViewDrawableMultisample4X;
@@ -119,19 +119,25 @@ static id theController = nil;
             [gameShader uploadHeightOffset:1.25];
             [gameShader uploadScreenCorrection:self.view.frame.size];
             glActiveTexture(GL_TEXTURE0);
+            GLuint previousTexture = -1;
+            GLuint previousVAO = -1;
             for(id object in gameObjects){
                 #ifdef DEBUG
                 glPushGroupMarkerEXT(0, [[NSString stringWithFormat:@"Rendering object %lu",(unsigned long)[gameObjects indexOfObject:object]] UTF8String]);
                 #endif
                 GameEntity* entity = (GameEntity*) object;
-                
-                glBindVertexArrayOES(entity.vaoID);
+                if(entity.vaoID != previousVAO){
+                    glBindVertexArrayOES(entity.vaoID);
+                    previousVAO = entity.vaoID;
+                }
                 [gameShader enableAttribs];
                 
                 [gameShader uploadObjectTransformation:entity.radius theta:entity.theta];
                 
-                
-                glBindTexture(GL_TEXTURE_2D, entity.texture);
+                if(entity.texture != previousTexture){
+                    glBindTexture(GL_TEXTURE_2D, entity.texture);
+                    previousTexture = entity.texture;
+                }
                 glDrawElements(GL_TRIANGLES, entity.numVertices, GL_UNSIGNED_SHORT, 0);
                 
                 [gameShader disableAttribs];

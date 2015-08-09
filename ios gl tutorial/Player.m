@@ -29,7 +29,7 @@ const GLushort playerIndices[] = {
 -(id)initRadius:(float)r theta:(float)t{
     self = [super initRadius:r theta:t];
     
-    [super loadToBuffers:&playerVertices[0] vSize:sizeof(playerVertices) indices:&playerIndices[0] iSize:sizeof(playerIndices)];
+    [super loadToBuffers:&playerVertices[0] vSize:sizeof(playerVertices) indices:&playerIndices[0] iSize:sizeof(playerIndices) objectName:@"player"];
     [super loadToTexture:@"astronaut.png"];
     return self;
 }

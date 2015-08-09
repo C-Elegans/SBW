@@ -23,7 +23,7 @@ const GLushort planetIndices[] = {
 };
 -(id)initRadius:(float)r theta:(float)t{
     self = [super initRadius:r theta:t];
-    [super loadToBuffers:&planetVertices[0] vSize:sizeof(planetVertices) indices:&planetIndices[0] iSize:sizeof(planetIndices)];
+    [super loadToBuffers:&planetVertices[0] vSize:sizeof(planetVertices) indices:&planetIndices[0] iSize:sizeof(planetIndices)objectName:@"planet"];
     
     [super loadToTexture:@"earth.png"];
     return self;
