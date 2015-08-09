@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #define TWO_PI 6.283
+#define GRAVITY 0.1
 typedef struct{
     float x;
     float y;

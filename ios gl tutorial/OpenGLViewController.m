@@ -20,7 +20,7 @@
 #import "GuiShader.h"
 #import "LeftButton.h"
 #import "RightButton.h"
-
+#undef DEBUG
 static id theController = nil;
 @interface OpenGLViewController (){
     GLuint _positionSlot;
@@ -120,7 +120,9 @@ static id theController = nil;
             [gameShader uploadScreenCorrection:self.view.frame.size];
             glActiveTexture(GL_TEXTURE0);
             for(id object in gameObjects){
+                #ifdef DEBUG
                 glPushGroupMarkerEXT(0, [[NSString stringWithFormat:@"Rendering object %lu",(unsigned long)[gameObjects indexOfObject:object]] UTF8String]);
+                #endif
                 GameEntity* entity = (GameEntity*) object;
                 
                 glBindVertexArrayOES(entity.vaoID);
@@ -134,7 +136,9 @@ static id theController = nil;
                 
                 [gameShader disableAttribs];
                 //glBindVertexArrayOES(0);
-                                glPopGroupMarkerEXT();
+                #ifdef DEBUG
+                glPopGroupMarkerEXT();
+                #endif
             }
             
             //Render player
@@ -154,7 +158,9 @@ static id theController = nil;
             [guiShader uploadScreenCorrection:self.view.frame.size];
             glActiveTexture(GL_TEXTURE0);
             for(GameGui *gui in guiObjects){
+                #ifdef DEBUG
                 glPushGroupMarkerEXT(0, [[NSString stringWithFormat:@"Rendering Gui %d", [guiObjects indexOfObject:gui]]UTF8String]);
+                #endif
                 glBindVertexArrayOES(gui.vaoID);
                 [guiShader enableAttribs];
                 [guiShader uploadObjectTransformation:gui.x y:gui.y];
@@ -162,11 +168,12 @@ static id theController = nil;
                 glDrawElements(GL_TRIANGLES, gui.numVertices, GL_UNSIGNED_SHORT, 0);
                 [guiShader disableAttribs];
                 glBindVertexArrayOES(0);
+                #ifdef DEBUG
                 glPopGroupMarkerEXT();
+                #endif
             }
             [guiShader stop];
             [input update];
-            player.radius -= 0.01;
             [player updatePosition:gameObjects];
             
             break;

@@ -9,6 +9,10 @@
 #import "Player.h"
 #import "GameEntityProtectedMethods.h"
 #import "Planet.h"
+@interface Player(){
+    float yVelocity;
+}
+@end
 @implementation Player
 const int playerWidth = 0.359375;
 const Vertex playerVertices[] = {
@@ -33,18 +37,22 @@ const GLushort playerIndices[] = {
     return CGRectMake((0+self.radius), 0+self.theta, .125 *(1/self.radius), .2);
 }
 -(void)updatePosition:(nullable NSArray *)gameObjects{
-    
+    yVelocity -= GRAVITY*(1.0f/30.0f);
+    self.radius += yVelocity;
     CGRect myCollisionBox = [self getCollisionBox];
     for(GameEntity* entity in gameObjects){
         if([MathHelper rect:myCollisionBox intersects:entity.getCollisionBox]){
             if(!([entity class]==[Planet class])){
                 vec2 moveVec = [MathHelper moveToUndoCollision:myCollisionBox withRect:entity.getCollisionBox];
-                //self.radius += moveVec.x;
+                self.radius += moveVec.x;
                 self.theta += moveVec.y;
+                if(moveVec.y){
+                    yVelocity = 0;
+                }
                 NSLog(@"object intersected! object %@  index %u",entity, [gameObjects indexOfObject:entity]);
             }
         }
     }
-    if(self.radius < 1)self.radius = 1;
+    if(self.radius < 1.1)self.radius = 1.1;
 }
 @end
