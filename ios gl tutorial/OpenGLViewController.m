@@ -60,6 +60,7 @@ static id theController = nil;
     }
     GLKView* view = (GLKView *)self.view;
     view.context = self.context;
+    
     [EAGLContext setCurrentContext:self.context];
     mainScreen = [[MainScreen alloc]initPosition:(vec3){0.0f,0.0f,0.0f}];
     shader = [[MainShader alloc]init];
@@ -87,6 +88,7 @@ static id theController = nil;
     glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
     CGRect left = [leftButton getBoundingBox];
     NSLog(@"LeftButton Bounding Box x: %f, y: %f, w:%f h:%f", left.origin.x,left.origin.y,left.size.width,left.size.height);
+    
     
 }
 -(BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation{
@@ -132,7 +134,7 @@ static id theController = nil;
                 }
                 [gameShader enableAttribs];
                 
-                [gameShader uploadObjectTransformation:entity.radius theta:entity.theta];
+                [gameShader uploadObjectTransformation:entity.radius theta:entity.theta+(TWO_PI/4.0)-player.theta];
                 
                 if(entity.texture != previousTexture){
                     glBindTexture(GL_TEXTURE_2D, entity.texture);
@@ -151,7 +153,7 @@ static id theController = nil;
             glPushGroupMarkerEXT(0, "Render Player");
             glBindVertexArrayOES(player.vaoID);
             [gameShader enableAttribs];
-            [gameShader uploadObjectTransformation:player.radius theta:player.theta];
+            [gameShader uploadObjectTransformation:player.radius theta:TWO_PI/4.0];
             glBindTexture(GL_TEXTURE_2D, player.texture);
             glDrawElements(GL_TRIANGLES, player.numVertices, GL_UNSIGNED_SHORT, 0);
             [gameShader disableAttribs];
