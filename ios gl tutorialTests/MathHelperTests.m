@@ -29,11 +29,26 @@
     vec3 vector2 = {5.0f, 3.2f,0.5f};
     XCTAssert([MathHelper vec3Dot:vector1 vector2:vector2] ==10.8f);
 }
-
+-(void)testBoxIntersection{
+    CGRect rect1 = CGRectMake(1, 0.25, 0.25, 0.5);
+    CGRect rect2 = CGRectMake(1.1, 0.1, 0.3, 0.2);
+    CGRect rect3 = CGRectMake(1, 1, 0.3, 0.3);
+    XCTAssert([MathHelper rect:rect1 intersects:rect2]==YES);
+    XCTAssert([MathHelper rect:rect1 intersects:rect3]==NO);
+}
+-(void)testMoveVector{
+    CGRect rect1 = CGRectMake(0.2, 0.3, 0.3, 0.5);
+    CGRect rect2 = CGRectMake(0.4, 0, 0.3, 0.5);
+    vec2 moveVec = [MathHelper moveToUndoCollision:rect1 withRect:rect2];
+    NSLog(@"MoveVector for collision is: %fx, %fy",moveVec.x,moveVec.y);
+    XCTAssert(-0.09>moveVec.x && moveVec.x > -0.11);
+    //XCTAssert(0.19<moveVec.y && moveVec.y < 0.21);
+}
 - (void)testPerformanceExample {
-    // This is an example of a performance test case.
+    
     [self measureBlock:^{
-        // Put the code you want to measure the time of here.
+        
+
     }];
 }
 

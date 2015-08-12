@@ -96,11 +96,17 @@
         GLchar messages[256];
         glGetShaderInfoLog(shaderHandle, sizeof(messages), 0, &messages[0]);
         NSString *messageString = [NSString stringWithUTF8String:messages];
-        NSLog(@"%@", messageString);
+        NSLog(@"Shader Compilation failed: \n%@", messageString);
         exit(1);
     }
     
     return shaderHandle;
+    
+}
+-(void)start{
+    
+}
+-(void)stop{
     
 }
 

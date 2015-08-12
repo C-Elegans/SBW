@@ -8,8 +8,15 @@
 
 #import "LoaderHelper.h"
 #import <OpenGLES/ES2/glext.h>
+#import <UIKit/UIKit.h>
 @implementation LoaderHelper
-+(GLuint)loadToVBOS:(const Vertex*)vertices verticesSize:(int)vSize indices:(const GLushort*)indices indicesSize:(int)iSize{
+static NSMutableDictionary* textureDict;
+static NSMutableDictionary* vaoDict;
++(void)init{
+    textureDict = [[NSMutableDictionary alloc]init];
+    vaoDict = [[NSMutableDictionary alloc]init];
+}
++(GLuint)loadVertices:(const Vertex*)vertices verticesSize:(int)vSize indices:(const GLushort*)indices indicesSize:(int)iSize{
     GLuint vaoid;
     glGenVertexArraysOES(1, &vaoid);
     glBindVertexArrayOES(vaoid);
@@ -31,6 +38,14 @@
     
     
     
+}
++(GLuint)loadToVBOS:(const Vertex *)vertices verticesSize:(int)vSize indices:(const GLushort *)indices indicesSize:(int)iSize objectName:(NSString*)objectName{
+    NSNumber* vaoID = [vaoDict objectForKey:objectName];
+    if(vaoID == nil){
+        vaoID = [NSNumber numberWithInt:[LoaderHelper loadVertices:vertices verticesSize:vSize indices:indices indicesSize:iSize]];
+        [vaoDict setObject:vaoID forKey:objectName];
+    }
+    return [vaoID integerValue];
 }
 + (GLuint)setupTexture:(NSString *)fileName {
     // 1
@@ -59,11 +74,21 @@
     glGenTextures(1, &texName);
     glBindTexture(GL_TEXTURE_2D, texName);
     
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
     
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, spriteData);
     
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, (GLsizei)width, (GLsizei)height, 0, GL_RGBA, GL_UNSIGNED_BYTE, spriteData);
+    glGenerateMipmap(GL_TEXTURE_2D);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
     free(spriteData);
     return texName;
+}
++(GLuint)loadTexture:(NSString *)fileName{
+    NSNumber *texture = [textureDict objectForKey:fileName];
+    if(texture == nil){
+        texture = [NSNumber numberWithInt:[LoaderHelper setupTexture:fileName]];
+        [textureDict setObject:texture forKey:fileName];
+    }
+    return (GLuint)[texture intValue];
 }
 @end

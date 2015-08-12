@@ -23,11 +23,11 @@ const GLushort platformIndices[] = {
 -(id)initRadius:(float)r theta:(float)t{
     self = [super initRadius:r theta:t];
     
-    [super loadToBuffers:&platformVertices[0] vSize:sizeof(platformVertices) indices:&platformIndices[0] iSize:sizeof(platformIndices)];
+    [super loadToBuffers:&platformVertices[0] vSize:sizeof(platformVertices) indices:&platformIndices[0] iSize:sizeof(platformIndices)objectName:@"platform"];
     [super loadToTexture:@"platform.png"];
     return self;
 }
 -(CGRect)getCollisionBox{
-    return CGRectMake(0+[super radius], 0+[super theta], .2, .2);
+    return CGRectMake(0+self.radius, 0+self.theta, .2*(1/self.radius), .2);
 }
 @end

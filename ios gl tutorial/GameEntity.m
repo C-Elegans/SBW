@@ -9,34 +9,34 @@
 #import "GameEntity.h"
 #import "GameEntityProtectedMethods.h"
 @implementation GameEntity
-@synthesize radius=_radius;
+@synthesize theta=_theta;
 -(id)initRadius:(float)r theta:(float)t{
     self = [super init];
     _radius = r;
     _theta = t;
     return self;
 }
--(void)loadToBuffers:(const Vertex*)vertices vSize:(size_t)vsize indices:(const GLushort*)indices iSize:(size_t)isize{
-    _vaoID = [LoaderHelper loadToVBOS:vertices verticesSize:vsize indices:indices indicesSize:isize];
+-(void)loadToBuffers:(const Vertex*)vertices vSize:(size_t)vsize indices:(const GLushort*)indices iSize:(size_t)isize objectName:(NSString*)objectName{
+    _vaoID = [LoaderHelper loadToVBOS:vertices verticesSize:vsize indices:indices indicesSize:isize objectName:objectName];
     
     _numVertices = isize/sizeof(GLushort);
 }
 -(void)loadToTexture:(NSString*)fileName{
-    _texture = [LoaderHelper setupTexture:fileName];
+    _texture = [LoaderHelper loadTexture:fileName];
 }
 -(CGRect)getCollisionBox{
     return CGRectMake(0, 0, 0, 0);
 }
--(float)radius{
-    return _radius;
+-(float)getTheta{
+    return _theta;
 }
--(void)setRadius:(float)radius{
-    _radius += radius;
-    if(_radius>TWO_PI){
-        _radius -= TWO_PI;
+-(void)setTheta:(float)t{
+    _theta = t;
+    if(self.theta>TWO_PI){
+        _theta -= TWO_PI;
     }
-    if(_radius <0){
-        _radius += TWO_PI;
+    if(self.theta <0){
+        _theta += TWO_PI;
     }
 }
 @end
