@@ -9,5 +9,9 @@
 #import "GameGui.h"
 
 @interface UpButton : GameGui
-
+-(CGRect)getBoundingBox;
+-(void)touchesBegan:(nonnull NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event;
+-(void)touchesEnded:(nonnull NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event;
+-(void)touchesMoved:(nonnull NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event;
+@property BOOL buttonDown;
 @end

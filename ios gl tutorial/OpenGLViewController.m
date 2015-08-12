@@ -76,14 +76,16 @@ static id theController = nil;
     [gameObjects addObject:platform2];
     [gameObjects addObject:planet];
     
-    for (int i=0; i<20; i++) {
-        [gameObjects addObject:[[Platform alloc]initRadius:((float)rand() / RAND_MAX)+1 theta:((float)rand() / RAND_MAX)*TWO_PI]];
+    for (int i=0; i<10; i++) {
+        [gameObjects addObject:[[Platform alloc]initRadius:(0.5*(float)rand() / RAND_MAX)+1 theta:((float)rand() / RAND_MAX)*TWO_PI]];
     }
     LeftButton* leftButton = [[LeftButton alloc]initWithPositionX:-.9 y:-.5 view:self.view];
     RightButton* rightButton = [[RightButton alloc]initWithPositionX:-.6 y:-.5 view:self.view];
+    UpButton* upButton = [[UpButton alloc]initWithPositionX:.7 y:-.5 view:self.view];
     [guiObjects addObject:leftButton];
     [guiObjects addObject:rightButton];
-    input = [[GameInput alloc]init:player leftButton:leftButton rightButton:rightButton];
+    [guiObjects addObject:upButton];
+    input = [[GameInput alloc]init:player leftButton:leftButton rightButton:rightButton upButton:upButton];
     glEnable(GL_BLEND);
     glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
     CGRect left = [leftButton getBoundingBox];

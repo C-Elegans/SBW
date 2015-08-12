@@ -9,8 +9,10 @@
 #import "Player.h"
 #import "GameEntityProtectedMethods.h"
 #import "Planet.h"
+#define JUMP_HEIGHT GRAVITY/2
 @interface Player(){
     float yVelocity;
+    BOOL onGround;
 }
 @end
 @implementation Player
@@ -47,12 +49,24 @@ const GLushort playerIndices[] = {
                 self.radius += moveVec.x;
                 self.theta += moveVec.y;
                 if(moveVec.y){
-                    yVelocity = 0;
+                    yVelocity = moveVec.y;
+                    onGround = YES;
                 }
                 NSLog(@"object intersected! object %@  index %u",entity, [gameObjects indexOfObject:entity]);
             }
         }
     }
-    if(self.radius < 1.1)self.radius = 1.1;
+    if(self.radius < 1.1){
+        yVelocity = 0;
+        self.radius = 1.1;
+        onGround = YES;
+    }
+}
+-(void)jump{
+    if(onGround){
+        NSLog(@"Jump!");
+        onGround = NO;
+        yVelocity = JUMP_HEIGHT;
+    }
 }
 @end

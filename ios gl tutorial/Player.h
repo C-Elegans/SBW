@@ -10,4 +10,5 @@
 
 @interface Player : GameEntity
 -(void)updatePosition:(nullable NSArray* )gameObjects;
+-(void)jump;
 @end
