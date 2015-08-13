@@ -18,6 +18,7 @@
 		0A50E1061B723F91008E69D5 /* Platform.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A50E1051B723F91008E69D5 /* Platform.m */; };
 		0A50E1091B724D34008E69D5 /* Planet.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A50E1081B724D34008E69D5 /* Planet.m */; };
 		0A50E10B1B725006008E69D5 /* earth.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A50E10A1B725006008E69D5 /* earth.png */; };
+		0A95A7E91B7C14A00030B540 /* UpButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A95A7E81B7C14A00030B540 /* UpButton.m */; };
 		0AA14D761B7561AF00770A6E /* astronaut.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AA14D751B7561AF00770A6E /* astronaut.png */; };
 		0AA14D791B7561B900770A6E /* leftButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AA14D771B7561B900770A6E /* leftButton.png */; };
 		0AA14D7A1B7561B900770A6E /* rightButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AA14D781B7561B900770A6E /* rightButton.png */; };
@@ -31,7 +32,6 @@
 		0AA72B9F1B6EF2B000018D9E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA72B9E1B6EF2B000018D9E /* AppDelegate.m */; };
 		0AA72BA21B6EF2B000018D9E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA72BA11B6EF2B000018D9E /* ViewController.m */; };
 		0AA72BA51B6EF2B100018D9E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AA72BA31B6EF2B100018D9E /* Main.storyboard */; };
-		0AA72BA81B6EF2B100018D9E /* ios_gl_tutorial.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0AA72BA61B6EF2B100018D9E /* ios_gl_tutorial.xcdatamodeld */; };
 		0AA72BAA1B6EF2B100018D9E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AA72BA91B6EF2B100018D9E /* Assets.xcassets */; };
 		0AA72BAD1B6EF2B100018D9E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AA72BAB1B6EF2B100018D9E /* LaunchScreen.storyboard */; };
 		0AA72BB81B6EF2B200018D9E /* ios_gl_tutorialTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA72BB71B6EF2B200018D9E /* ios_gl_tutorialTests.m */; };
@@ -86,6 +86,8 @@
 		0A50E1071B724D34008E69D5 /* Planet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Planet.h; sourceTree = "<group>"; };
 		0A50E1081B724D34008E69D5 /* Planet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Planet.m; sourceTree = "<group>"; };
 		0A50E10A1B725006008E69D5 /* earth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = earth.png; path = Assets/earth.png; sourceTree = "<group>"; };
+		0A95A7E71B7C14A00030B540 /* UpButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpButton.h; sourceTree = "<group>"; };
+		0A95A7E81B7C14A00030B540 /* UpButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpButton.m; sourceTree = "<group>"; };
 		0AA14D751B7561AF00770A6E /* astronaut.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = astronaut.png; path = Assets/astronaut.png; sourceTree = "<group>"; };
 		0AA14D771B7561B900770A6E /* leftButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = leftButton.png; path = Assets/leftButton.png; sourceTree = "<group>"; };
 		0AA14D781B7561B900770A6E /* rightButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = rightButton.png; path = Assets/rightButton.png; sourceTree = "<group>"; };
@@ -107,7 +109,6 @@
 		0AA72BA01B6EF2B000018D9E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		0AA72BA11B6EF2B000018D9E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		0AA72BA41B6EF2B100018D9E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		0AA72BA71B6EF2B100018D9E /* ios_gl_tutorial.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ios_gl_tutorial.xcdatamodel; sourceTree = "<group>"; };
 		0AA72BA91B6EF2B100018D9E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0AA72BAC1B6EF2B100018D9E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0AA72BAE1B6EF2B100018D9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -205,6 +206,8 @@
 		0AA14D7F1B75647D00770A6E /* Gui */ = {
 			isa = PBXGroup;
 			children = (
+				0A95A7E71B7C14A00030B540 /* UpButton.h */,
+				0A95A7E81B7C14A00030B540 /* UpButton.m */,
 				0AA14D7C1B75647900770A6E /* GameGui.h */,
 				0AA14D7D1B75647900770A6E /* GameGui.m */,
 				0AA14D811B7565ED00770A6E /* LeftButton.h */,
@@ -270,7 +273,6 @@
 				0AA72BA91B6EF2B100018D9E /* Assets.xcassets */,
 				0AA72BAB1B6EF2B100018D9E /* LaunchScreen.storyboard */,
 				0AA72BAE1B6EF2B100018D9E /* Info.plist */,
-				0AA72BA61B6EF2B100018D9E /* ios_gl_tutorial.xcdatamodeld */,
 				0AA14D801B7564C000770A6E /* GameGuiProtectedMethods.h */,
 				0AC917F81B6FA2370068B51D /* OpenGLViewController.h */,
 				0AC917F91B6FA2370068B51D /* OpenGLViewController.m */,
@@ -499,7 +501,6 @@
 				0AA14D831B7565ED00770A6E /* LeftButton.m in Sources */,
 				0AF351601B73EF8E00495590 /* GameInput.m in Sources */,
 				0A10A87E1B73E8020011FB3F /* Player.m in Sources */,
-				0AA72BA81B6EF2B100018D9E /* ios_gl_tutorial.xcdatamodeld in Sources */,
 				0AD8CDEA1B702FC400833F84 /* LoaderHelper.m in Sources */,
 				0AA14D871B7567D300770A6E /* GuiShader.m in Sources */,
 				0AA14D8E1B757CE600770A6E /* RightButton.m in Sources */,
@@ -507,6 +508,7 @@
 				0AD8CDE51B702EBD00833F84 /* MathHelper.m in Sources */,
 				0AA14D7E1B75647900770A6E /* GameGui.m in Sources */,
 				0A50E1091B724D34008E69D5 /* Planet.m in Sources */,
+				0A95A7E91B7C14A00030B540 /* UpButton.m in Sources */,
 				0AA72BA21B6EF2B000018D9E /* ViewController.m in Sources */,
 				0AD8CDDF1B7022AA00833F84 /* MainShader.m in Sources */,
 				0A50E0F41B7135F6008E69D5 /* GameEntity.m in Sources */,
@@ -780,19 +782,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		0AA72BA61B6EF2B100018D9E /* ios_gl_tutorial.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				0AA72BA71B6EF2B100018D9E /* ios_gl_tutorial.xcdatamodel */,
-			);
-			currentVersion = 0AA72BA71B6EF2B100018D9E /* ios_gl_tutorial.xcdatamodel */;
-			path = ios_gl_tutorial.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 0AA72B8F1B6EF2AF00018D9E /* Project object */;
 }

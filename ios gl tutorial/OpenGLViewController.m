@@ -31,13 +31,8 @@ static id theController = nil;
     GuiShader* guiShader;
     NSMutableArray* guiObjects;
     NSMutableArray* gameObjects;
-<<<<<<< HEAD
-    GLuint sampleFramebuffer,sampleColorRenderbuffer,sampleDepthRenderbuffer, resolved_framebuffer,resolvedColorRenderbuffer;
-    int width,height;
-=======
     Player* player;
     GameInput* input;
->>>>>>> 88cb1e6f1
 }
 @property (strong) GLKBaseEffect* effect;
 
@@ -63,8 +58,6 @@ static id theController = nil;
         NSLog(@"Failed to create context");
         exit(1);
     }
-    width = self.view.frame.size.width;
-    height = self.view.frame.size.height;
     GLKView* view = (GLKView *)self.view;
     view.context = self.context;
     
@@ -98,28 +91,6 @@ static id theController = nil;
     CGRect left = [leftButton getBoundingBox];
     NSLog(@"LeftButton Bounding Box x: %f, y: %f, w:%f h:%f", left.origin.x,left.origin.y,left.size.width,left.size.height);
     
-    glGenFramebuffers(1, &resolved_framebuffer);
-    glBindFramebuffer(GL_FRAMEBUFFER, resolved_framebuffer);
-    glGenRenderbuffers(1, &resolvedColorRenderbuffer);
-    glBindRenderbuffer(GL_RENDERBUFFER, resolvedColorRenderbuffer);
-    glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, resolvedColorRenderbuffer);
-    
-    glGenFramebuffers(1, &sampleFramebuffer);
-    glBindFramebuffer(GL_FRAMEBUFFER, sampleFramebuffer);
-    
-    glGenRenderbuffers(1, &sampleColorRenderbuffer);
-    glBindRenderbuffer(GL_RENDERBUFFER, sampleColorRenderbuffer);
-    glRenderbufferStorageMultisampleAPPLE(GL_RENDERBUFFER, 4, GL_RGBA8_OES, width, height);
-    glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, sampleColorRenderbuffer);
-    
-    glGenRenderbuffers(1, &sampleDepthRenderbuffer);
-    glBindRenderbuffer(GL_RENDERBUFFER, sampleDepthRenderbuffer);
-    glRenderbufferStorageMultisampleAPPLE(GL_RENDERBUFFER, 4, GL_DEPTH_COMPONENT16, width, height);
-    glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, sampleDepthRenderbuffer);
-    
-    if (glCheckFramebufferStatus(GL_FRAMEBUFFER) != GL_FRAMEBUFFER_COMPLETE)
-    NSLog(@"Failed to make complete framebuffer object %x", glCheckFramebufferStatus(GL_FRAMEBUFFER));
-    
     
 }
 -(BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation{
@@ -128,7 +99,6 @@ static id theController = nil;
 
 #pragma mark - GL Stuff
 -(void)glkView:(nonnull GLKView *)view drawInRect:(CGRect)rect{
-    glBindFramebuffer(GL_FRAMEBUFFER, sampleFramebuffer);
     glClearColor(0, 0, 0.1, 1);
     glClear(GL_COLOR_BUFFER_BIT);
     switch (_gameState) {
@@ -218,9 +188,6 @@ static id theController = nil;
             
             break;
     }
-    glBindFramebuffer(GL_DRAW_FRAMEBUFFER_APPLE, resolved_framebuffer);
-    glBindFramebuffer(GL_READ_FRAMEBUFFER_APPLE, sampleFramebuffer);
-    glResolveMultisampleFramebufferAPPLE();
     
     
 }
