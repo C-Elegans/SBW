@@ -24,7 +24,7 @@ const GLushort rightButtonIndices[] = {
     0, 1, 2,
     2, 3, 0
 };
--(id)initWithPositionX:(float)x y:(float)y view:(nullable UIView *)view{
+-(id)initWithPositionX:(float)x y:(float)y view:(nonnull UIView *)view{
     self = [super initWithPositionX:x y:y view:view];
     [super loadToBuffers:&rightButtonVertices[0] vSize:sizeof(rightButtonVertices) indices:&rightButtonIndices[0] iSize:sizeof(rightButtonIndices) objectName:@"rightButton"];
             [super loadToTexture:@"rightButton.png"];

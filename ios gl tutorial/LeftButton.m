@@ -26,7 +26,7 @@ const GLushort leftButtonIndices[] = {
     0, 1, 2,
     2, 3, 0
 };
--(id)initWithPositionX:(float)x y:(float)y view:(nullable UIView *)view{
+-(id)initWithPositionX:(float)x y:(float)y view:(nonnull UIView *)view{
     self = [super initWithPositionX:x y:y view:view];
     [super loadToBuffers:&leftButtonVertices[0] vSize:sizeof(leftButtonVertices) indices:&leftButtonIndices[0] iSize:sizeof(leftButtonIndices) objectName:@"leftButton"];
     [super loadToTexture:@"leftButton.png"];

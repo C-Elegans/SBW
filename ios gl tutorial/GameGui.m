@@ -10,7 +10,7 @@
 #import "GameGuiProtectedMethods.h"
 
 @implementation GameGui
--(id)initWithPositionX:(float)x y:(float)y view:(nullable UIView *)view{
+-(id)initWithPositionX:(float)x y:(float)y view:(nonnull UIView *)view{
     self = [super init];
     _x = x;
     _y = y;

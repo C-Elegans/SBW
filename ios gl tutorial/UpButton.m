@@ -24,7 +24,7 @@ const GLushort upButtonIndices[] = {
     0, 1, 2,
     2, 3, 0
 };
--(id)initWithPositionX:(float)x y:(float)y view:(nullable UIView *)view{
+-(id)initWithPositionX:(float)x y:(float)y view:(nonnull UIView *)view{
     self = [super initWithPositionX:x y:y view:view];
     [super loadToBuffers:&upButtonVertices[0] vSize:sizeof(upButtonVertices) indices:&upButtonIndices[0] iSize:sizeof(upButtonIndices) objectName:@"upButton"];
     [super loadToTexture:@"upButton.png"];

@@ -83,7 +83,7 @@
     
     // 3
     const char * shaderStringUTF8 = [shaderString UTF8String];
-    int shaderStringLength = [shaderString length];
+    int shaderStringLength = (int)[shaderString length];
     glShaderSource(shaderHandle, 1, &shaderStringUTF8, &shaderStringLength);
     
     // 4

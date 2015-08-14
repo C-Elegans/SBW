@@ -45,7 +45,7 @@ static NSMutableDictionary* vaoDict;
         vaoID = [NSNumber numberWithInt:[LoaderHelper loadVertices:vertices verticesSize:vSize indices:indices indicesSize:iSize]];
         [vaoDict setObject:vaoID forKey:objectName];
     }
-    return [vaoID integerValue];
+    return (GLuint)[vaoID integerValue];
 }
 + (GLuint)setupTexture:(NSString *)fileName {
     // 1

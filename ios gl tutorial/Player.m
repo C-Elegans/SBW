@@ -52,7 +52,7 @@ const GLushort playerIndices[] = {
                     yVelocity = moveVec.y;
                     onGround = YES;
                 }
-                NSLog(@"object intersected! object %@  index %u",entity, [gameObjects indexOfObject:entity]);
+                //NSLog(@"object intersected! object %@  index %lu",entity, [gameObjects indexOfObject:entity]);
             }
         }
     }

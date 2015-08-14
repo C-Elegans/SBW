@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0A10A87E1B73E8020011FB3F /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A10A87D1B73E8020011FB3F /* Player.m */; };
+		0A4167711B7D30090029D807 /* upButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A4167701B7D30090029D807 /* upButton.png */; };
 		0A50E0F11B712D3A008E69D5 /* mainScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A50E0F01B712D3A008E69D5 /* mainScreen.png */; };
 		0A50E0F41B7135F6008E69D5 /* GameEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A50E0F31B7135F6008E69D5 /* GameEntity.m */; };
 		0A50E0F81B714AB0008E69D5 /* MainMenuTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A50E0F71B714AB0008E69D5 /* MainMenuTests.m */; };
@@ -71,6 +72,7 @@
 /* Begin PBXFileReference section */
 		0A10A87C1B73E8020011FB3F /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
 		0A10A87D1B73E8020011FB3F /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
+		0A4167701B7D30090029D807 /* upButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = upButton.png; path = Assets/upButton.png; sourceTree = "<group>"; };
 		0A50E0F01B712D3A008E69D5 /* mainScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mainScreen.png; path = Assets/mainScreen.png; sourceTree = "<group>"; };
 		0A50E0F21B7135F6008E69D5 /* GameEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameEntity.h; sourceTree = "<group>"; };
 		0A50E0F31B7135F6008E69D5 /* GameEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameEntity.m; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 		0AA14D7B1B7561C100770A6E /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				0A4167701B7D30090029D807 /* upButton.png */,
 				0AA14D751B7561AF00770A6E /* astronaut.png */,
 				0AA14D771B7561B900770A6E /* leftButton.png */,
 				0AA14D781B7561B900770A6E /* rightButton.png */,
@@ -459,6 +462,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A4167711B7D30090029D807 /* upButton.png in Resources */,
 				0AA14D791B7561B900770A6E /* leftButton.png in Resources */,
 				0AA14D7A1B7561B900770A6E /* rightButton.png in Resources */,
 				0AA14D891B75682600770A6E /* guiVertexShader.glsl in Resources */,
