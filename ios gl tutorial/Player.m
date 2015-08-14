@@ -11,7 +11,7 @@
 #import "Planet.h"
 #define JUMP_HEIGHT GRAVITY/2
 @interface Player(){
-    float yVelocity;
+    float rVelocity;
     BOOL onGround;
 }
 @end
@@ -39,8 +39,8 @@ const GLushort playerIndices[] = {
     return CGRectMake((0+self.radius), 0+self.theta, .2, .125 *(1/self.radius));
 }
 -(void)updatePosition:(nullable NSArray *)gameObjects{
-    yVelocity -= GRAVITY*(1.0f/30.0f);
-    self.radius += yVelocity;
+    rVelocity -= GRAVITY*(1.0f/30.0f);
+    self.radius += rVelocity;
     CGRect myCollisionBox = [self getCollisionBox];
     for(GameEntity* entity in gameObjects){
         if([MathHelper rect:myCollisionBox intersects:entity.getCollisionBox]){
@@ -49,16 +49,16 @@ const GLushort playerIndices[] = {
                 self.radius += moveVec.x;
                 self.theta += moveVec.y;
                 if(moveVec.x){
-                    yVelocity = 0;
+                    rVelocity = 0;
                     onGround = YES;
                 }
                 //NSLog(@"object intersected! object %@  index %lu",entity, [gameObjects indexOfObject:entity]);
             }
         }
     }
-    if(self.radius < 1.05){
-        yVelocity = 0;
-        self.radius = 1.05;
+    if(self.radius < 1.06){
+        rVelocity = 0;
+        self.radius = 1.06;
         onGround = YES;
     }
 }
@@ -66,7 +66,7 @@ const GLushort playerIndices[] = {
     if(onGround){
         NSLog(@"Jump!");
         onGround = NO;
-        yVelocity = JUMP_HEIGHT;
+        rVelocity = JUMP_HEIGHT;
     }
 }
 @end
