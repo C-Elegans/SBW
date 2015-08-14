@@ -36,7 +36,7 @@ const GLushort playerIndices[] = {
     return self;
 }
 -(CGRect)getCollisionBox{
-    return CGRectMake((0+self.radius), 0+self.theta, .125 *(1/self.radius), .2);
+    return CGRectMake((0+self.radius), 0+self.theta, .2, .125 *(1/self.radius));
 }
 -(void)updatePosition:(nullable NSArray *)gameObjects{
     yVelocity -= GRAVITY*(1.0f/30.0f);
@@ -48,17 +48,17 @@ const GLushort playerIndices[] = {
                 vec2 moveVec = [MathHelper moveToUndoCollision:myCollisionBox withRect:entity.getCollisionBox];
                 self.radius += moveVec.x;
                 self.theta += moveVec.y;
-                if(moveVec.y){
-                    yVelocity = moveVec.y;
+                if(moveVec.x){
+                    yVelocity = 0;
                     onGround = YES;
                 }
                 //NSLog(@"object intersected! object %@  index %lu",entity, [gameObjects indexOfObject:entity]);
             }
         }
     }
-    if(self.radius < 1.1){
+    if(self.radius < 1.05){
         yVelocity = 0;
-        self.radius = 1.1;
+        self.radius = 1.05;
         onGround = YES;
     }
 }

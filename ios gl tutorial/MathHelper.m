@@ -60,7 +60,7 @@
             moveVector.y = option1;
         }
     }
-    if(fabsf(moveVector.x)<fabsf(moveVector.y)){
+    if(fabsf(moveVector.x)<fabsf(moveVector.y*3)){
         moveVector.y = 0;
     }
     else{

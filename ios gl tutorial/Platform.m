@@ -28,6 +28,6 @@ const GLushort platformIndices[] = {
     return self;
 }
 -(CGRect)getCollisionBox{
-    return CGRectMake(0+self.radius, 0+self.theta, .2*(1/self.radius), .2);
+    return CGRectMake(0+self.radius, 0+self.theta, .2, .2*(1/self.radius));
 }
 @end
