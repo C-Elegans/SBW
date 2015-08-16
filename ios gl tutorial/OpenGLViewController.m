@@ -47,7 +47,7 @@ static id theController = nil;
     [super viewDidLoad];
     [LoaderHelper init];
     LevelLoader* loader = [[LevelLoader alloc] init];
-    [loader loadLevel:0];
+    
     GLKView *glkView = (GLKView*)self.view;
     glkView.drawableMultisample = GLKViewDrawableMultisample4X;
     if(theController != nil && theController != self){
@@ -70,17 +70,11 @@ static id theController = nil;
     guiShader = [[GuiShader alloc]init];
     gameObjects = [[NSMutableArray alloc]init];
     guiObjects = [[NSMutableArray alloc]init];
-    Platform* platform1 = [[Platform alloc]initRadius:1 theta:0];
-    Platform* platform2 = [[Platform alloc]initRadius:1 theta:1.5];
+    
     Planet* planet =[[Planet alloc]initRadius:1 theta:0];
     player = [[Player alloc]initRadius:2 theta:1];
-    [gameObjects addObject:platform1];
-    [gameObjects addObject:platform2];
+    gameObjects = [loader loadLevel:0];
     [gameObjects addObject:planet];
-    
-    for (int i=0; i<10; i++) {
-        [gameObjects addObject:[[Platform alloc]initRadius:(0.5*(float)rand() / RAND_MAX)+1 theta:((float)rand() / RAND_MAX)*TWO_PI]];
-    }
     LeftButton* leftButton = [[LeftButton alloc]initWithPositionX:-.9 y:-.5 view:self.view];
     RightButton* rightButton = [[RightButton alloc]initWithPositionX:-.6 y:-.5 view:self.view];
     UpButton* upButton = [[UpButton alloc]initWithPositionX:.7 y:-.5 view:self.view];

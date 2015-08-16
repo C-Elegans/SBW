@@ -14,7 +14,7 @@
     return self;
 }
 
--(NSArray*)loadLevel:(int)level{
+-(NSMutableArray*)loadLevel:(int)level{
     NSString* levelPath = [[NSBundle mainBundle] pathForResource:@"levelData" ofType:@"json"];
     NSError* error;
     NSString* levelString = [[NSString alloc]initWithContentsOfFile:levelPath encoding:NSUTF8StringEncoding error:&error];
@@ -29,10 +29,11 @@
     NSMutableArray* gameObjects = [[NSMutableArray alloc]init];
     if(level<[allObjects count]){
         NSArray* platforms = [[allObjects objectAtIndex:level] objectForKey:@"platforms"];
+        NSLog(@"Platforms: %@",platforms);
         for(int i=0;i<[platforms count];i+=2){
             float radius,theta;
             radius = [(NSNumber*)[platforms objectAtIndex:i] floatValue];
-            radius = [(NSNumber*)[platforms objectAtIndex:i+1] floatValue];
+            theta = [(NSNumber*)[platforms objectAtIndex:i+1] floatValue];
             [gameObjects addObject:[[Platform alloc]initRadius:radius theta:theta]];
         }
     }

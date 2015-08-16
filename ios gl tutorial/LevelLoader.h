@@ -9,5 +9,5 @@
 #import "GameGui.h"
 
 @interface LevelLoader : GameGui
--(NSArray*)loadLevel:(int)level;
+-(NSMutableArray*)loadLevel:(int)level;
 @end
