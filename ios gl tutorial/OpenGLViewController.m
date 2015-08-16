@@ -20,6 +20,7 @@
 #import "GuiShader.h"
 #import "LeftButton.h"
 #import "RightButton.h"
+#import "LevelLoader.h"
 #undef DEBUG
 static id theController = nil;
 @interface OpenGLViewController (){
@@ -45,7 +46,8 @@ static id theController = nil;
 -(void)viewDidLoad{
     [super viewDidLoad];
     [LoaderHelper init];
-    
+    LevelLoader* loader = [[LevelLoader alloc] init];
+    [loader loadLevel:0];
     GLKView *glkView = (GLKView*)self.view;
     glkView.drawableMultisample = GLKViewDrawableMultisample4X;
     if(theController != nil && theController != self){
