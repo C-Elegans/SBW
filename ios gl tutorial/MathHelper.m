@@ -26,13 +26,24 @@
 }
 
 +(BOOL)valueInRange:(float)val min:(float)min max:(float)max{
+    
+    return (val > min)&&(val < max);
+}
++(BOOL)valueInRangeTheta:(float)val min:(float)min max:(float)max{
+    if(max > TWO_PI){
+        max -= TWO_PI;
+        min -= TWO_PI;
+    }else if(min<0){
+        min += TWO_PI;
+        max += TWO_PI;
+    }
     return (val > min)&&(val < max);
 }
 +(BOOL)rect:(CGRect)rect1 intersects:(CGRect)rect2{
     BOOL xOverlap = [MathHelper valueInRange:rect1.origin.x min:rect2.origin.x max:rect2.origin.x + rect2.size.width]||\
     [MathHelper valueInRange:rect2.origin.x min:rect1.origin.x max:rect1.origin.x + rect1.size.width];
-    BOOL yOverlap = [MathHelper valueInRange:rect1.origin.y min:rect2.origin.y max:rect2.origin.y + rect2.size.height]||\
-    [MathHelper valueInRange:rect2.origin.y min:rect1.origin.y max:rect1.origin.y + rect1.size.height];
+    BOOL yOverlap = [MathHelper valueInRangeTheta:rect1.origin.y min:rect2.origin.y max:rect2.origin.y + rect2.size.height]||\
+    [MathHelper valueInRangeTheta:rect2.origin.y min:rect1.origin.y max:rect1.origin.y + rect1.size.height];
     // bool xOverlap = valueInRange(A.x, B.x, B.x + B.width) ||
     //valueInRange(B.x, A.x, A.x + A.width);
     return xOverlap && yOverlap;
@@ -42,8 +53,8 @@
     vec2 moveVector;
     BOOL xOverlap = [MathHelper valueInRange:box1.origin.x min:box2.origin.x max:box2.origin.x + box2.size.width]||\
     [MathHelper valueInRange:box2.origin.x min:box1.origin.x max:box1.origin.x + box1.size.width];
-    BOOL yOverlap = [MathHelper valueInRange:box1.origin.y min:box2.origin.y max:box2.origin.y + box2.size.height]||\
-    [MathHelper valueInRange:box2.origin.y min:box1.origin.y max:box1.origin.y + box1.size.height];
+    BOOL yOverlap = [MathHelper valueInRangeTheta:box1.origin.y min:box2.origin.y max:box2.origin.y + box2.size.height]||\
+    [MathHelper valueInRangeTheta:box2.origin.y min:box1.origin.y max:box1.origin.y + box1.size.height];
     if(xOverlap){
         float option1 = -((box1.origin.x +box1.size.width)-box2.origin.x);
         float option2 = -(box1.origin.x-(box2.origin.x + box2.size.width));
