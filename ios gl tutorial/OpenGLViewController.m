@@ -23,6 +23,7 @@
 #import "LevelLoader.h"
 #undef DEBUG
 static id theController = nil;
+
 @interface OpenGLViewController (){
     GLuint _positionSlot;
     GLuint _colorSlot;
@@ -34,6 +35,8 @@ static id theController = nil;
     NSMutableArray* gameObjects;
     Player* player;
     GameInput* input;
+    LevelLoader* levelLoader;
+    Planet* planet;
 }
 @property (strong) GLKBaseEffect* effect;
 
@@ -42,11 +45,11 @@ static id theController = nil;
 @end
 @implementation OpenGLViewController
 @synthesize context = _context;
-
+@synthesize currentLevel=_currentLevel;
 -(void)viewDidLoad{
     [super viewDidLoad];
     [LoaderHelper init];
-    LevelLoader* loader = [[LevelLoader alloc] init];
+    levelLoader = [[LevelLoader alloc] init];
     
     GLKView *glkView = (GLKView*)self.view;
     glkView.drawableMultisample = GLKViewDrawableMultisample4X;
@@ -71,10 +74,10 @@ static id theController = nil;
     gameObjects = [[NSMutableArray alloc]init];
     guiObjects = [[NSMutableArray alloc]init];
     
-    Planet* planet =[[Planet alloc]initRadius:1 theta:0];
+    planet =[[Planet alloc]initRadius:1 theta:0];
     player = [[Player alloc]initRadius:2 theta:1];
-    gameObjects = [loader loadLevel:0];
-    [gameObjects addObject:planet];
+    //gameObjects = [levelLoader loadLevel:0];
+    
     LeftButton* leftButton = [[LeftButton alloc]initWithPositionX:-.9 y:-.5 view:self.view];
     RightButton* rightButton = [[RightButton alloc]initWithPositionX:-.6 y:-.5 view:self.view];
     UpButton* upButton = [[UpButton alloc]initWithPositionX:.7 y:-.5 view:self.view];
@@ -86,7 +89,7 @@ static id theController = nil;
     glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
     CGRect left = [leftButton getBoundingBox];
     NSLog(@"LeftButton Bounding Box x: %f, y: %f, w:%f h:%f", left.origin.x,left.origin.y,left.size.width,left.size.height);
-    
+    self.currentLevel = 0;
     
 }
 -(BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation{
@@ -221,6 +224,18 @@ static id theController = nil;
 +(OpenGLViewController*)getController{
     return theController;
 }
-
+-(void)setCurrentLevel:(int)currentLevel{
+    @synchronized(self) {
+        _currentLevel = currentLevel;
+        gameObjects = [levelLoader loadLevel:_currentLevel];
+        [gameObjects addObject:planet];
+    }
+    
+}
+-(int)currentLevel{
+    @synchronized(self) {
+        return _currentLevel;
+    }
+}
 
 @end

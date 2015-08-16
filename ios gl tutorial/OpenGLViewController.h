@@ -15,4 +15,5 @@ typedef enum{MAIN,RUNNING} GameState;
 }
 +(OpenGLViewController*)getController;
 @property GameState gameState;
+@property int currentLevel;
 @end
