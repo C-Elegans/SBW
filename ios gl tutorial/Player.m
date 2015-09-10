@@ -9,6 +9,8 @@
 #import "Player.h"
 #import "GameEntityProtectedMethods.h"
 #import "Planet.h"
+#import "Door.h"
+#import "OpenGLViewController.h"
 #define JUMP_HEIGHT GRAVITY/2
 @interface Player(){
     float rVelocity;
@@ -44,7 +46,7 @@ const GLushort playerIndices[] = {
     CGRect myCollisionBox = [self getCollisionBox];
     for(GameEntity* entity in gameObjects){
         if([MathHelper rect:myCollisionBox intersects:entity.getCollisionBox]){
-            if(!([entity class]==[Planet class])){
+			if(!([entity class]==[Planet class]) && !([entity class]==[Door class])){
                 vec2 moveVec = [MathHelper moveToUndoCollision:myCollisionBox withRect:entity.getCollisionBox];
                 self.radius += moveVec.x;
                 self.theta += moveVec.y;
@@ -53,7 +55,10 @@ const GLushort playerIndices[] = {
                     onGround = YES;
                 }
                 //NSLog(@"object intersected! object %@  index %lu",entity, [gameObjects indexOfObject:entity]);
-            }
+			}else if (([entity class]==[Door class])){
+				//[OpenGLViewController getController].gameState = PAUSED;
+				[OpenGLViewController getController].currentLevel++;
+			}
         }
     }
     if(self.radius < 1.06){

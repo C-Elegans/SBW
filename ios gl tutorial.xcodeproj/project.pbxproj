@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0A10A87E1B73E8020011FB3F /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A10A87D1B73E8020011FB3F /* Player.m */; };
 		0A1792071BA1C41600163CED /* door.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A1792061BA1C41600163CED /* door.png */; };
+		0A17920A1BA1C49400163CED /* Door.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A1792091BA1C49400163CED /* Door.m */; };
 		0A4167711B7D30090029D807 /* upButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A4167701B7D30090029D807 /* upButton.png */; };
 		0A4167781B7EC5680029D807 /* LevelLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A4167771B7EC5680029D807 /* LevelLoader.m */; };
 		0A41677A1B7F65060029D807 /* levelData.json in Resources */ = {isa = PBXBuildFile; fileRef = 0A4167791B7F65060029D807 /* levelData.json */; };
@@ -76,6 +77,8 @@
 		0A10A87C1B73E8020011FB3F /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
 		0A10A87D1B73E8020011FB3F /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
 		0A1792061BA1C41600163CED /* door.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = door.png; path = Assets/door.png; sourceTree = "<group>"; };
+		0A1792081BA1C49400163CED /* Door.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Door.h; sourceTree = "<group>"; };
+		0A1792091BA1C49400163CED /* Door.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Door.m; sourceTree = "<group>"; };
 		0A4167701B7D30090029D807 /* upButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = upButton.png; path = Assets/upButton.png; sourceTree = "<group>"; };
 		0A4167761B7EC5680029D807 /* LevelLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelLoader.h; sourceTree = "<group>"; };
 		0A4167771B7EC5680029D807 /* LevelLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelLoader.m; sourceTree = "<group>"; };
@@ -373,6 +376,8 @@
 				0A50E1081B724D34008E69D5 /* Planet.m */,
 				0A10A87C1B73E8020011FB3F /* Player.h */,
 				0A10A87D1B73E8020011FB3F /* Player.m */,
+				0A1792081BA1C49400163CED /* Door.h */,
+				0A1792091BA1C49400163CED /* Door.m */,
 			);
 			name = Entity;
 			sourceTree = "<group>";
@@ -534,6 +539,7 @@
 				0AD8CDE51B702EBD00833F84 /* MathHelper.m in Sources */,
 				0AA14D7E1B75647900770A6E /* GameGui.m in Sources */,
 				0A50E1091B724D34008E69D5 /* Planet.m in Sources */,
+				0A17920A1BA1C49400163CED /* Door.m in Sources */,
 				0A95A7E91B7C14A00030B540 /* UpButton.m in Sources */,
 				0AA72BA21B6EF2B000018D9E /* ViewController.m in Sources */,
 				0AD8CDDF1B7022AA00833F84 /* MainShader.m in Sources */,

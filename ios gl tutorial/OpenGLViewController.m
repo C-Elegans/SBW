@@ -75,7 +75,7 @@ static id theController = nil;
     guiObjects = [[NSMutableArray alloc]init];
     
     planet =[[Planet alloc]initRadius:1 theta:0];
-    player = [[Player alloc]initRadius:2 theta:1];
+    player = [[Player alloc]initRadius:2 theta:0];
     //gameObjects = [levelLoader loadLevel:0];
     
     LeftButton* leftButton = [[LeftButton alloc]initWithPositionX:-.9 y:-.5 view:self.view];

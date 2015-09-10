@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <GLKit/GLKit.h>
-typedef enum{MAIN,RUNNING} GameState;
+typedef enum{MAIN,RUNNING,PAUSED} GameState;
 @interface OpenGLViewController : GLKViewController{
     
     

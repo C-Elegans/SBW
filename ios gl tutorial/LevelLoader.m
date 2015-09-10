@@ -8,6 +8,7 @@
 
 #import "LevelLoader.h"
 #import "Platform.h"
+#import "Door.h"
 @implementation LevelLoader
 -(id)init{
     self = [super init];
@@ -36,6 +37,10 @@
             theta = [(NSNumber*)[platforms objectAtIndex:i+1] floatValue];
             [gameObjects addObject:[[Platform alloc]initRadius:radius theta:theta]];
         }
+		NSArray* doors = [[allObjects objectAtIndex:level] objectForKey:@"door"];
+		float radius = [(NSNumber*)[doors objectAtIndex:0] floatValue];
+		float theta = [(NSNumber*)[doors objectAtIndex:1] floatValue];
+		[gameObjects addObject:[[Door alloc]initRadius:radius theta:theta]];
     }
     
     
