@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0A10A87E1B73E8020011FB3F /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A10A87D1B73E8020011FB3F /* Player.m */; };
+		0A1792071BA1C41600163CED /* door.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A1792061BA1C41600163CED /* door.png */; };
 		0A4167711B7D30090029D807 /* upButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A4167701B7D30090029D807 /* upButton.png */; };
 		0A4167781B7EC5680029D807 /* LevelLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A4167771B7EC5680029D807 /* LevelLoader.m */; };
 		0A41677A1B7F65060029D807 /* levelData.json in Resources */ = {isa = PBXBuildFile; fileRef = 0A4167791B7F65060029D807 /* levelData.json */; };
@@ -74,6 +75,7 @@
 /* Begin PBXFileReference section */
 		0A10A87C1B73E8020011FB3F /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
 		0A10A87D1B73E8020011FB3F /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
+		0A1792061BA1C41600163CED /* door.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = door.png; path = Assets/door.png; sourceTree = "<group>"; };
 		0A4167701B7D30090029D807 /* upButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = upButton.png; path = Assets/upButton.png; sourceTree = "<group>"; };
 		0A4167761B7EC5680029D807 /* LevelLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelLoader.h; sourceTree = "<group>"; };
 		0A4167771B7EC5680029D807 /* LevelLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelLoader.m; sourceTree = "<group>"; };
@@ -211,6 +213,7 @@
 			children = (
 				0A4167701B7D30090029D807 /* upButton.png */,
 				0AA14D751B7561AF00770A6E /* astronaut.png */,
+				0A1792061BA1C41600163CED /* door.png */,
 				0AA14D771B7561B900770A6E /* leftButton.png */,
 				0AA14D781B7561B900770A6E /* rightButton.png */,
 				0A50E1021B723F6E008E69D5 /* platform.png */,
@@ -489,6 +492,7 @@
 				0AA72BAD1B6EF2B100018D9E /* LaunchScreen.storyboard in Resources */,
 				0AA14D8B1B75684100770A6E /* guiFragmentShader.glsl in Resources */,
 				0A41677A1B7F65060029D807 /* levelData.json in Resources */,
+				0A1792071BA1C41600163CED /* door.png in Resources */,
 				0A50E1031B723F6E008E69D5 /* platform.png in Resources */,
 				0A50E0FC1B71510B008E69D5 /* gameFragmentShader.glsl in Resources */,
 				0AA14D761B7561AF00770A6E /* astronaut.png in Resources */,

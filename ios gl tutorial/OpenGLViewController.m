@@ -69,7 +69,7 @@ static id theController = nil;
     [EAGLContext setCurrentContext:self.context];
     mainScreen = [[MainScreen alloc]initPosition:(vec3){0.0f,0.0f,0.0f}];
     shader = [[MainShader alloc]init];
-    gameShader = [[GameShader alloc]init];
+	gameShader = [[GameShader alloc]init];
     guiShader = [[GuiShader alloc]init];
     gameObjects = [[NSMutableArray alloc]init];
     guiObjects = [[NSMutableArray alloc]init];

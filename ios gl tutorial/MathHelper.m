@@ -64,6 +64,9 @@
         }
     }
     if(yOverlap) {
+		if(box1.origin.y + box1.size.height > TWO_PI)box1.origin.y -= TWO_PI;
+		if(box2.origin.y + box2.size.height > TWO_PI)box2.origin.y -= TWO_PI;
+
         float option1 = -((box1.origin.y +box1.size.height)-box2.origin.y);
         float option2 = -(box1.origin.y-(box2.origin.y + box2.size.height));
         moveVector.y = option2;
