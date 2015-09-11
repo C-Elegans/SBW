@@ -245,22 +245,9 @@ static id theController = nil;
 -(void)touchesEnded:(nonnull NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event{
     [super touchesEnded:touches withEvent:event];
     if(_gameState == MAIN){
-        for(UITouch* touch in touches){
-        
-            CGPoint point = [touch locationInView:self.view];
-			
-            point.x = point.x /self.view.frame.size.width;
-            point.y = point.y /self.view.frame.size.height;
-            [mainScreen touchEnded:point];
-        }
+		[mainScreen touchesEnded:touches withEvent:event];
 	}else if(_gameState == LEVEL_CHANGE){
-		for(UITouch* touch in touches){
-			CGPoint point = [touch locationInView:self.view];
-			
-			point.x = point.x /self.view.frame.size.width;
-			point.y = point.y /self.view.frame.size.height;
-			[changeScreen touchEnded:point];
-		}
+		[changeScreen touchesEnded:touches withEvent:event];
 	}
 	else{
         [input touchesEnded:touches withEvent:event];

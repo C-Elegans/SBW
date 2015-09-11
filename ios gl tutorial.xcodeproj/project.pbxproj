@@ -47,6 +47,7 @@
 		0AA72BC31B6EF2B200018D9E /* ios_gl_tutorialUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA72BC21B6EF2B200018D9E /* ios_gl_tutorialUITests.m */; };
 		0AA72BD11B6EF2F800018D9E /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AA72BD01B6EF2F800018D9E /* OpenGLES.framework */; };
 		0AA72BD31B6EF2FD00018D9E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AA72BD21B6EF2FD00018D9E /* QuartzCore.framework */; };
+		0AAA5C991BA381DE00F6BE4A /* ChangeScreenNextButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AAA5C981BA381DE00F6BE4A /* ChangeScreenNextButton.m */; };
 		0AB82CE41BA34F5A00C895F1 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AB82CE31BA34F5A00C895F1 /* GameKit.framework */; };
 		0AC917FA1B6FA2370068B51D /* OpenGLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC917F91B6FA2370068B51D /* OpenGLViewController.m */; };
 		0AC917FC1B6FA36B0068B51D /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AC917FB1B6FA36B0068B51D /* GLKit.framework */; };
@@ -143,6 +144,8 @@
 		0AA72BC41B6EF2B200018D9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0AA72BD01B6EF2F800018D9E /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		0AA72BD21B6EF2FD00018D9E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		0AAA5C971BA381DE00F6BE4A /* ChangeScreenNextButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangeScreenNextButton.h; sourceTree = "<group>"; };
+		0AAA5C981BA381DE00F6BE4A /* ChangeScreenNextButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangeScreenNextButton.m; sourceTree = "<group>"; };
 		0AB82CE31BA34F5A00C895F1 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		0AC917F81B6FA2370068B51D /* OpenGLViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenGLViewController.h; sourceTree = "<group>"; };
 		0AC917F91B6FA2370068B51D /* OpenGLViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenGLViewController.m; sourceTree = "<group>"; };
@@ -209,6 +212,8 @@
 			children = (
 				0A0708831BA368F900A757C2 /* MainScreenPlayButton.h */,
 				0A0708841BA368F900A757C2 /* MainScreenPlayButton.m */,
+				0AAA5C971BA381DE00F6BE4A /* ChangeScreenNextButton.h */,
+				0AAA5C981BA381DE00F6BE4A /* ChangeScreenNextButton.m */,
 			);
 			name = ScreenButtons;
 			sourceTree = "<group>";
@@ -584,6 +589,7 @@
 				0AD8CDE51B702EBD00833F84 /* MathHelper.m in Sources */,
 				0AA14D7E1B75647900770A6E /* GameGui.m in Sources */,
 				0A50E1091B724D34008E69D5 /* Planet.m in Sources */,
+				0AAA5C991BA381DE00F6BE4A /* ChangeScreenNextButton.m in Sources */,
 				0A17920A1BA1C49400163CED /* Door.m in Sources */,
 				0A95A7E91B7C14A00030B540 /* UpButton.m in Sources */,
 				0AA72BA21B6EF2B000018D9E /* ViewController.m in Sources */,

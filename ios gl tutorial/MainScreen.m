@@ -35,16 +35,8 @@ const Rectangle PlayButton = {0.1434f,0.3706f ,0.7117f,0.1652f};
     texture = [LoaderHelper loadTexture:@"mainScreen.png"];
     return self;
 }
--(BOOL)touchEnded:(CGPoint)point{
-    //NSLog(@"Touch x: %f, y: %f",point.x,point.y);
-    if(point.x >PlayButton.x && point.x <(PlayButton.x + PlayButton.width)){
-        if(point.y >PlayButton.y && point.y <(PlayButton.y + PlayButton.height)){
-            NSLog(@"Play Button Pressed!");
-            [[OpenGLViewController getController] setGameState:RUNNING];
-            return true;
-        }
-    }
-    return false;
+-(void)touchesEnded:(nonnull NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event{
+	[playButton touchesEnded:touches withEvent:event];
 }
 -(NSArray*)getButtons{
 	NSArray* array = [[NSArray alloc] initWithObjects:playButton, nil];

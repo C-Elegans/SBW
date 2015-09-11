@@ -45,7 +45,7 @@ const GLushort playButtonIndices[] = {
 	float y = (1-self.y) *0.5;
 	//float offset = size.height/size.width;
 	
-	return CGRectMake(x*xDim, y*yDim, 0.3*0.5*yDim, 0.3*0.5*yDim);
+	return CGRectMake(x*xDim, y*yDim, WIDTH*0.5*xDim, HEIGHT*0.5*yDim);
 }
 
 -(void)touchesEnded:(nonnull NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event{
