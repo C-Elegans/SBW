@@ -14,11 +14,12 @@
 @public GLuint vaoID;
 @public GLuint texture;
 @public int numVertices;
-	
+@public BOOL ignoreTouch;
 @protected
 	vec3 position;
 	
 }
--(id)initPosition:(vec3)pos;
--(BOOL)touchEnded:(CGPoint)point;
+-(nonnull id)initPosition:(vec3)pos view:(UIView*)view;
+-(void)touchesEnded:(nonnull NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event;
+-(nonnull NSArray*)getButtons;
 @end

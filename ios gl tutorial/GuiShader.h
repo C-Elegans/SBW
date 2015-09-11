@@ -13,4 +13,5 @@
 -(void)disableAttribs;
 -(void)uploadObjectTransformation:(float)x y:(float)y;
 -(void)uploadScreenCorrection:(CGSize)size;
+-(void)uploadAlpha:(float)alpha;
 @end

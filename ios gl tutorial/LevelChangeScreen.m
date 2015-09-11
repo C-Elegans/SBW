@@ -8,7 +8,13 @@
 
 #import "LevelChangeScreen.h"
 #import "OpenGLViewController.h"
-
+#import "ChangeScreenNextButton.h"
+#import "ChangeScreenMenuButton.h"
+@interface LevelChangeScreen(){
+	ChangeScreenNextButton* nextButton;
+	ChangeScreenMenuButton* menuButton;
+}
+@end
 const Vertex changeVertices[] = {
 	{{1, -1, 0}, {1,1}},
 	{{1, 1, 0}, {1,0}},
@@ -20,27 +26,28 @@ const GLushort changeIndices[] = {
 	0, 1, 2,
 	2, 3, 0
 };
-Rectangle nextButton = {0.5136,0.30859,0.4736,0.16601};
+
 @implementation LevelChangeScreen
--(id)initPosition:(vec3)pos{
+-(id)initPosition:(vec3)pos view:(UIView *)view{
 	self = [super init];
+	nextButton = [[ChangeScreenNextButton alloc]initWithPositionX:0.05 y:0 view:view];
+	menuButton = [[ChangeScreenMenuButton alloc]initWithPositionX:-.95 y:0 view:view];
 	position = pos;
 	vaoID = [LoaderHelper loadToVBOS:&changeVertices[0] verticesSize:sizeof(changeVertices) indices:&changeIndices[0] indicesSize:sizeof(changeIndices) objectName:@"LevelChangeScreen"];
 	numVertices = sizeof(changeIndices)/sizeof(changeIndices[0]);
 	texture = [LoaderHelper loadTexture:@"levelScreen.png"];
 	return self;
 }
--(BOOL)touchEnded:(CGPoint)point{
-	//NSLog(@"Touch x: %f, y: %f",point.x,point.y);
-	if(point.x >nextButton.x && point.x <(nextButton.x + nextButton.width)){
-		if(point.y >nextButton.y && point.y <(nextButton.y + nextButton.height)){
-			NSLog(@"Next Button Pressed!");
-			[OpenGLViewController getController].currentLevel++;
-			[[OpenGLViewController getController] setGameState:RUNNING];
-			[[OpenGLViewController getController] resetPlayerAndInput];
-			return true;
-		}
+-(void)touchesEnded:(nonnull NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event{
+	NSLog(@"Point %@\n",touches);
+	if(!ignoreTouch){
+		[nextButton touchesEnded:touches withEvent:event];
+		[menuButton touchesEnded:touches withEvent:event];
 	}
-	return false;
+	ignoreTouch = false;
+}
+-(NSArray*)getButtons{
+	NSArray* array = [[NSArray alloc] initWithObjects:nextButton,menuButton, nil];
+	return array;
 }
 @end

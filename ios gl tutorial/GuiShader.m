@@ -12,6 +12,7 @@
     GLuint uv_location;
     GLuint positionOffset_location;
     GLuint screenCorrection_location;
+	GLuint alpha_location;
 }
 @end
 @implementation GuiShader
@@ -21,6 +22,7 @@
     uv_location = glGetAttribLocation(program, "inTexCoords");
     positionOffset_location = glGetUniformLocation(program, "positionOffset");
     screenCorrection_location = glGetUniformLocation(program, "screenCorrection");
+	alpha_location = glGetUniformLocation(program, "alpha");
     NSLog(@"GuiShader position: %d uv:%d",position_location, uv_location);
     if(position_location == -1 || uv_location == -1){
         NSLog(@"Invalid Attrib Location");
@@ -50,5 +52,9 @@
     float offset = size.height/size.width;
     glUniform1f(screenCorrection_location, offset);
 }
+-(void)uploadAlpha:(float)alpha{
+	glUniform1f(alpha_location, alpha);
+}
+
 
 @end

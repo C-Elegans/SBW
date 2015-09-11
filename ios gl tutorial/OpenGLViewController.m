@@ -22,7 +22,6 @@
 #import "RightButton.h"
 #import "LevelLoader.h"
 #import "LevelChangeScreen.h"
-#undef DEBUG
 static id theController = nil;
 
 @interface OpenGLViewController (){
@@ -48,6 +47,7 @@ static id theController = nil;
 @implementation OpenGLViewController
 @synthesize context = _context;
 @synthesize currentLevel=_currentLevel;
+@synthesize gameState=_gameState;
 -(void)viewDidLoad{
     [super viewDidLoad];
     [LoaderHelper init];
@@ -69,8 +69,8 @@ static id theController = nil;
     view.context = self.context;
     
     [EAGLContext setCurrentContext:self.context];
-    mainScreen = [[MainScreen alloc]initPosition:(vec3){0.0f,0.0f,0.0f}];
-	changeScreen = [[LevelChangeScreen alloc]initPosition:(vec3){0.0f,0.0f,0.0f}];
+    mainScreen = [[MainScreen alloc]initPosition:(vec3){0.0f,0.0f,0.0f} view:self.view];
+	changeScreen = [[LevelChangeScreen alloc]initPosition:(vec3){0.0f,0.0f,0.0f} view:self.view];
     shader = [[MainShader alloc]init];
 	gameShader = [[GameShader alloc]init];
     guiShader = [[GuiShader alloc]init];
@@ -105,17 +105,42 @@ static id theController = nil;
     glClear(GL_COLOR_BUFFER_BIT);
     switch (_gameState) {
         case MAIN:
-            [shader start];
-            glBindVertexArrayOES(mainScreen->vaoID);
-            [shader enableAttribs];
-            glActiveTexture(GL_TEXTURE0);
-            glBindTexture(GL_TEXTURE_2D, mainScreen->texture);
-            
-            glDrawElements(GL_TRIANGLES, mainScreen->numVertices, GL_UNSIGNED_SHORT, 0);
-            [shader disableAttribs];
-            glBindVertexArrayOES(0);
-            [shader stop];
-            
+			{
+				glEnable(GL_BLEND);
+				[shader start];
+				glBindVertexArrayOES(mainScreen->vaoID);
+				[shader enableAttribs];
+				glActiveTexture(GL_TEXTURE0);
+				glBindTexture(GL_TEXTURE_2D, mainScreen->texture);
+				
+				glDrawElements(GL_TRIANGLES, mainScreen->numVertices, GL_UNSIGNED_SHORT, 0);
+				[shader disableAttribs];
+				glBindVertexArrayOES(0);
+				[shader stop];
+			
+				NSArray* buttons = [mainScreen getButtons];
+				[guiShader start];
+				[guiShader uploadScreenCorrection:self.view.frame.size];
+				[guiShader uploadAlpha:1];
+				glActiveTexture(GL_TEXTURE0);
+				for(GameGui *gui in buttons){
+	#ifdef DEBUG
+					glPushGroupMarkerEXT(0,"rendering button");
+	#endif
+					glBindVertexArrayOES(gui.vaoID);
+					[guiShader enableAttribs];
+					[guiShader uploadObjectTransformation:gui.x y:gui.y];
+					glBindTexture(GL_TEXTURE_2D, gui.texture);
+					glDrawElements(GL_TRIANGLES, gui.numVertices, GL_UNSIGNED_SHORT, 0);
+					[guiShader disableAttribs];
+					glBindVertexArrayOES(0);
+	#ifdef DEBUG
+					glPopGroupMarkerEXT();
+	#endif
+				}
+				[guiShader stop];
+			
+			}
             break;
         case RUNNING:
             if([gameObjects count] <1){
@@ -168,6 +193,7 @@ static id theController = nil;
             //Render Gui objects
             [guiShader start];
             [guiShader uploadScreenCorrection:self.view.frame.size];
+			[guiShader uploadAlpha:0.1];
             glActiveTexture(GL_TEXTURE0);
             for(GameGui *gui in guiObjects){
                 #ifdef DEBUG
@@ -200,6 +226,27 @@ static id theController = nil;
 				[shader disableAttribs];
 				glBindVertexArrayOES(0);
 				[shader stop];
+				NSArray* buttons = [changeScreen getButtons];
+				[guiShader start];
+				[guiShader uploadScreenCorrection:self.view.frame.size];
+				[guiShader uploadAlpha:1];
+				glActiveTexture(GL_TEXTURE0);
+				for(GameGui *gui in buttons){
+					#ifdef DEBUG
+					glPushGroupMarkerEXT(0,"rendering button");
+					#endif
+					glBindVertexArrayOES(gui.vaoID);
+					[guiShader enableAttribs];
+					[guiShader uploadObjectTransformation:gui.x y:gui.y];
+					glBindTexture(GL_TEXTURE_2D, gui.texture);
+					glDrawElements(GL_TRIANGLES, gui.numVertices, GL_UNSIGNED_SHORT, 0);
+					[guiShader disableAttribs];
+					glBindVertexArrayOES(0);
+					#ifdef DEBUG
+					glPopGroupMarkerEXT();
+					#endif
+				}
+				[guiShader stop];
 			
 			break;
     }
@@ -219,22 +266,9 @@ static id theController = nil;
 -(void)touchesEnded:(nonnull NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event{
     [super touchesEnded:touches withEvent:event];
     if(_gameState == MAIN){
-        for(UITouch* touch in touches){
-        
-            CGPoint point = [touch locationInView:self.view];
-			
-            point.x = point.x /self.view.frame.size.width;
-            point.y = point.y /self.view.frame.size.height;
-            [mainScreen touchEnded:point];
-        }
+		[mainScreen touchesEnded:touches withEvent:event];
 	}else if(_gameState == LEVEL_CHANGE){
-		for(UITouch* touch in touches){
-			CGPoint point = [touch locationInView:self.view];
-			
-			point.x = point.x /self.view.frame.size.width;
-			point.y = point.y /self.view.frame.size.height;
-			[changeScreen touchEnded:point];
-		}
+		[changeScreen touchesEnded:touches withEvent:event];
 	}
 	else{
         [input touchesEnded:touches withEvent:event];
@@ -266,6 +300,17 @@ static id theController = nil;
 	player.radius = 1;
 	player.theta = 0;
 	[input reset];
+}
+-(void)setGameState:(GameState)gameState{
+	@synchronized(self) {
+		_gameState = gameState;
+		if(gameState == LEVEL_CHANGE){
+			changeScreen->ignoreTouch = true;
+		}
+	}
+}
+-(GameState)gameState{
+	return _gameState;
 }
 
 @end

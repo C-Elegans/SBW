@@ -20,6 +20,7 @@
     vec3 position;
     
 }
--(id)initPosition:(vec3)pos;
--(BOOL)touchEnded:(CGPoint)point;
+-(id)initPosition:(vec3)pos view:(UIView*)view;
+-(void)touchesEnded:(nonnull NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event;
+-(NSArray*)getButtons;
 @end
