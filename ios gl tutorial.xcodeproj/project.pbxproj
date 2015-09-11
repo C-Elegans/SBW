@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0A0708801BA366B200A757C2 /* playButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A07087F1BA366B200A757C2 /* playButton.png */; };
+		0A0708851BA368F900A757C2 /* MainScreenPlayButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A0708841BA368F900A757C2 /* MainScreenPlayButton.m */; };
 		0A10A87E1B73E8020011FB3F /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A10A87D1B73E8020011FB3F /* Player.m */; };
 		0A1792071BA1C41600163CED /* door.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A1792061BA1C41600163CED /* door.png */; };
 		0A17920A1BA1C49400163CED /* Door.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A1792091BA1C49400163CED /* Door.m */; };
@@ -79,6 +80,8 @@
 
 /* Begin PBXFileReference section */
 		0A07087F1BA366B200A757C2 /* playButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = playButton.png; path = Assets/playButton.png; sourceTree = "<group>"; };
+		0A0708831BA368F900A757C2 /* MainScreenPlayButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainScreenPlayButton.h; sourceTree = "<group>"; };
+		0A0708841BA368F900A757C2 /* MainScreenPlayButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainScreenPlayButton.m; sourceTree = "<group>"; };
 		0A10A87C1B73E8020011FB3F /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
 		0A10A87D1B73E8020011FB3F /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
 		0A1792061BA1C41600163CED /* door.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = door.png; path = Assets/door.png; sourceTree = "<group>"; };
@@ -190,6 +193,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A0708811BA368D100A757C2 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				0AD8CDE01B702D9A00833F84 /* MainScreen.h */,
+				0AD8CDE11B702D9A00833F84 /* MainScreen.m */,
+				0A17920E1BA2108B00163CED /* LevelChangeScreen.h */,
+				0A17920F1BA2108B00163CED /* LevelChangeScreen.m */,
+			);
+			name = Screens;
+			sourceTree = "<group>";
+		};
+		0A0708821BA368D900A757C2 /* ScreenButtons */ = {
+			isa = PBXGroup;
+			children = (
+				0A0708831BA368F900A757C2 /* MainScreenPlayButton.h */,
+				0A0708841BA368F900A757C2 /* MainScreenPlayButton.m */,
+			);
+			name = ScreenButtons;
+			sourceTree = "<group>";
+		};
 		0A4167751B7EC54A0029D807 /* Level */ = {
 			isa = PBXGroup;
 			children = (
@@ -241,6 +264,7 @@
 		0AA14D7F1B75647D00770A6E /* Gui */ = {
 			isa = PBXGroup;
 			children = (
+				0A0708821BA368D900A757C2 /* ScreenButtons */,
 				0A95A7E71B7C14A00030B540 /* UpButton.h */,
 				0A95A7E81B7C14A00030B540 /* UpButton.m */,
 				0AA14D7C1B75647900770A6E /* GameGui.h */,
@@ -378,8 +402,7 @@
 		0AD8CDE71B702EFB00833F84 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				0AD8CDE01B702D9A00833F84 /* MainScreen.h */,
-				0AD8CDE11B702D9A00833F84 /* MainScreen.m */,
+				0A0708811BA368D100A757C2 /* Screens */,
 				0A50E0F61B71402F008E69D5 /* GameEntityProtectedMethods.h */,
 				0A50E0F21B7135F6008E69D5 /* GameEntity.h */,
 				0A50E0F31B7135F6008E69D5 /* GameEntity.m */,
@@ -391,8 +414,6 @@
 				0A10A87D1B73E8020011FB3F /* Player.m */,
 				0A1792081BA1C49400163CED /* Door.h */,
 				0A1792091BA1C49400163CED /* Door.m */,
-				0A17920E1BA2108B00163CED /* LevelChangeScreen.h */,
-				0A17920F1BA2108B00163CED /* LevelChangeScreen.m */,
 			);
 			name = Entity;
 			sourceTree = "<group>";
@@ -558,6 +579,7 @@
 				0AD8CDEA1B702FC400833F84 /* LoaderHelper.m in Sources */,
 				0AA14D871B7567D300770A6E /* GuiShader.m in Sources */,
 				0AA14D8E1B757CE600770A6E /* RightButton.m in Sources */,
+				0A0708851BA368F900A757C2 /* MainScreenPlayButton.m in Sources */,
 				0A50E1061B723F91008E69D5 /* Platform.m in Sources */,
 				0AD8CDE51B702EBD00833F84 /* MathHelper.m in Sources */,
 				0AA14D7E1B75647900770A6E /* GameGui.m in Sources */,

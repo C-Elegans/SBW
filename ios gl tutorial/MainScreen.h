@@ -20,6 +20,7 @@
     vec3 position;
     
 }
--(id)initPosition:(vec3)pos;
+-(id)initPosition:(vec3)pos view:(UIView*)view;
 -(BOOL)touchEnded:(CGPoint)point;
+-(NSArray*)getButtons;
 @end
