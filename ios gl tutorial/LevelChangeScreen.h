@@ -10,15 +10,14 @@
 #import "MathHelper.h"
 #import "LoaderHelper.h"
 #import <GLKit/GLKit.h>
-
-@interface MainScreen : NSObject{
-    @public GLuint vaoID;
-    @public GLuint texture;
-    @public int numVertices;
-
-    @protected
-    vec3 position;
-    
+@interface LevelChangeScreen : NSObject{
+@public GLuint vaoID;
+@public GLuint texture;
+@public int numVertices;
+	
+@protected
+	vec3 position;
+	
 }
 -(id)initPosition:(vec3)pos;
 -(BOOL)touchEnded:(CGPoint)point;

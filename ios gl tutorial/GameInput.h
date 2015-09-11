@@ -18,4 +18,5 @@
 -(void)touchesMoved:(nonnull NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event;
 -(nonnull id)init:(nonnull Player*)theplayer leftButton:(nonnull LeftButton*)leftButton rightButton:(nonnull RightButton*)rightButton upButton:(nonnull UpButton*)upButton;
 -(void)update;
+-(void)reset;
 @end

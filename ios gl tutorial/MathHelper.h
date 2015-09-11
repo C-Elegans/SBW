@@ -29,6 +29,12 @@ typedef struct {
     float Position[3];
     float UV[2];
 } Vertex;
+typedef struct{
+	float x;
+	float y;
+	float width;
+	float height;
+}Rectangle;
 @interface MathHelper : NSObject
 +(float)vec3Dot:(vec3)vector1 vector2:(vec3)vector2;
 +(BOOL)point:(CGPoint)point insideBox:(CGRect)box;

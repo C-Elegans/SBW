@@ -10,6 +10,8 @@
 		0A10A87E1B73E8020011FB3F /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A10A87D1B73E8020011FB3F /* Player.m */; };
 		0A1792071BA1C41600163CED /* door.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A1792061BA1C41600163CED /* door.png */; };
 		0A17920A1BA1C49400163CED /* Door.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A1792091BA1C49400163CED /* Door.m */; };
+		0A1792101BA2108B00163CED /* LevelChangeScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A17920F1BA2108B00163CED /* LevelChangeScreen.m */; };
+		0A1792121BA2157700163CED /* levelScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A1792111BA2157700163CED /* levelScreen.png */; };
 		0A4167711B7D30090029D807 /* upButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A4167701B7D30090029D807 /* upButton.png */; };
 		0A4167781B7EC5680029D807 /* LevelLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A4167771B7EC5680029D807 /* LevelLoader.m */; };
 		0A41677A1B7F65060029D807 /* levelData.json in Resources */ = {isa = PBXBuildFile; fileRef = 0A4167791B7F65060029D807 /* levelData.json */; };
@@ -79,6 +81,9 @@
 		0A1792061BA1C41600163CED /* door.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = door.png; path = Assets/door.png; sourceTree = "<group>"; };
 		0A1792081BA1C49400163CED /* Door.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Door.h; sourceTree = "<group>"; };
 		0A1792091BA1C49400163CED /* Door.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Door.m; sourceTree = "<group>"; };
+		0A17920E1BA2108B00163CED /* LevelChangeScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelChangeScreen.h; sourceTree = "<group>"; };
+		0A17920F1BA2108B00163CED /* LevelChangeScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelChangeScreen.m; sourceTree = "<group>"; };
+		0A1792111BA2157700163CED /* levelScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = levelScreen.png; path = Assets/levelScreen.png; sourceTree = "<group>"; };
 		0A4167701B7D30090029D807 /* upButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = upButton.png; path = Assets/upButton.png; sourceTree = "<group>"; };
 		0A4167761B7EC5680029D807 /* LevelLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelLoader.h; sourceTree = "<group>"; };
 		0A4167771B7EC5680029D807 /* LevelLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelLoader.m; sourceTree = "<group>"; };
@@ -222,6 +227,7 @@
 				0A50E1021B723F6E008E69D5 /* platform.png */,
 				0A50E0F01B712D3A008E69D5 /* mainScreen.png */,
 				0A50E10A1B725006008E69D5 /* earth.png */,
+				0A1792111BA2157700163CED /* levelScreen.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -378,6 +384,8 @@
 				0A10A87D1B73E8020011FB3F /* Player.m */,
 				0A1792081BA1C49400163CED /* Door.h */,
 				0A1792091BA1C49400163CED /* Door.m */,
+				0A17920E1BA2108B00163CED /* LevelChangeScreen.h */,
+				0A17920F1BA2108B00163CED /* LevelChangeScreen.m */,
 			);
 			name = Entity;
 			sourceTree = "<group>";
@@ -504,6 +512,7 @@
 				0AA72BAA1B6EF2B100018D9E /* Assets.xcassets in Resources */,
 				0AC917FE1B6FA6E30068B51D /* vertexShader.glsl in Resources */,
 				0AA72BA51B6EF2B100018D9E /* Main.storyboard in Resources */,
+				0A1792121BA2157700163CED /* levelScreen.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -528,6 +537,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A1792101BA2108B00163CED /* LevelChangeScreen.m in Sources */,
 				0AA14D831B7565ED00770A6E /* LeftButton.m in Sources */,
 				0AF351601B73EF8E00495590 /* GameInput.m in Sources */,
 				0A10A87E1B73E8020011FB3F /* Player.m in Sources */,

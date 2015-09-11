@@ -28,6 +28,6 @@ const GLushort doorIndices[] = {
 	return self;
 }
 -(CGRect)getCollisionBox{
-	return CGRectMake(0+self.radius, 0+self.theta, .2, .2*(1/self.radius));
+	return CGRectMake(0+self.radius, 0.09+self.theta, .2, .11*(1/self.radius));
 }
 @end

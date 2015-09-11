@@ -56,8 +56,8 @@ const GLushort playerIndices[] = {
                 }
                 //NSLog(@"object intersected! object %@  index %lu",entity, [gameObjects indexOfObject:entity]);
 			}else if (([entity class]==[Door class])){
-				//[OpenGLViewController getController].gameState = PAUSED;
-				[OpenGLViewController getController].currentLevel++;
+				[OpenGLViewController getController].gameState = LEVEL_CHANGE;
+				
 			}
         }
     }

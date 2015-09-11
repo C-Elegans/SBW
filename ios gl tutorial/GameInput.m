@@ -49,4 +49,9 @@
         [player jump];
     }
 }
+-(void)reset{
+	lButton.buttonDown = false;
+	rButton.buttonDown = false;
+	uButton.buttonDown = false;
+}
 @end

@@ -8,12 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import <GLKit/GLKit.h>
-typedef enum{MAIN,RUNNING,PAUSED} GameState;
+typedef enum{MAIN,RUNNING,LEVEL_CHANGE} GameState;
 @interface OpenGLViewController : GLKViewController{
     
     
 }
 +(OpenGLViewController*)getController;
+-(void)resetPlayerAndInput;
 @property GameState gameState;
 @property int currentLevel;
 @end

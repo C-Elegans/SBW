@@ -21,6 +21,7 @@
 #import "LeftButton.h"
 #import "RightButton.h"
 #import "LevelLoader.h"
+#import "LevelChangeScreen.h"
 #undef DEBUG
 static id theController = nil;
 
@@ -28,12 +29,13 @@ static id theController = nil;
     GLuint _positionSlot;
     GLuint _colorSlot;
     MainScreen* mainScreen;
+	LevelChangeScreen* changeScreen;
     MainShader* shader;
     GameShader* gameShader;
     GuiShader* guiShader;
     NSMutableArray* guiObjects;
     NSMutableArray* gameObjects;
-    Player* player;
+	Player* player;
     GameInput* input;
     LevelLoader* levelLoader;
     Planet* planet;
@@ -68,6 +70,7 @@ static id theController = nil;
     
     [EAGLContext setCurrentContext:self.context];
     mainScreen = [[MainScreen alloc]initPosition:(vec3){0.0f,0.0f,0.0f}];
+	changeScreen = [[LevelChangeScreen alloc]initPosition:(vec3){0.0f,0.0f,0.0f}];
     shader = [[MainShader alloc]init];
 	gameShader = [[GameShader alloc]init];
     guiShader = [[GuiShader alloc]init];
@@ -186,13 +189,26 @@ static id theController = nil;
             [player updatePosition:gameObjects];
             
             break;
+		case LEVEL_CHANGE:
+				[shader start];
+				glBindVertexArrayOES(changeScreen->vaoID);
+				[shader enableAttribs];
+				glActiveTexture(GL_TEXTURE0);
+				glBindTexture(GL_TEXTURE_2D, changeScreen->texture);
+				
+				glDrawElements(GL_TRIANGLES, changeScreen->numVertices, GL_UNSIGNED_SHORT, 0);
+				[shader disableAttribs];
+				glBindVertexArrayOES(0);
+				[shader stop];
+			
+			break;
     }
-    
-    
+	
+	
 }
 
 -(void)update{
-    
+	
 }
 -(void)touchesBegan:(nonnull NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event{
     [super touchesBegan:touches withEvent:event];
@@ -206,12 +222,21 @@ static id theController = nil;
         for(UITouch* touch in touches){
         
             CGPoint point = [touch locationInView:self.view];
-            NSLog(@"Touch x: %f y:%f",point.x,point.y);
+			
             point.x = point.x /self.view.frame.size.width;
             point.y = point.y /self.view.frame.size.height;
             [mainScreen touchEnded:point];
         }
-    }else{
+	}else if(_gameState == LEVEL_CHANGE){
+		for(UITouch* touch in touches){
+			CGPoint point = [touch locationInView:self.view];
+			
+			point.x = point.x /self.view.frame.size.width;
+			point.y = point.y /self.view.frame.size.height;
+			[changeScreen touchEnded:point];
+		}
+	}
+	else{
         [input touchesEnded:touches withEvent:event];
     }
 }
@@ -236,6 +261,11 @@ static id theController = nil;
     @synchronized(self) {
         return _currentLevel;
     }
+}
+-(void)resetPlayerAndInput{
+	player.radius = 1;
+	player.theta = 0;
+	[input reset];
 }
 
 @end
