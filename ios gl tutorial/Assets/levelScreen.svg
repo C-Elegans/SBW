@@ -65,16 +65,6 @@
        r="631.42865"
        gradientTransform="matrix(1.7646992,0.01279831,-0.00795496,1.0968727,-424.07024,-419.03481)"
        gradientUnits="userSpaceOnUse" />
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient4236"
-       id="linearGradient4229"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(0.66431095,0,0,1,-108.80644,-15.469178)"
-       x1="185.71428"
-       y1="304.28571"
-       x2="928.5714"
-       y2="304.28571" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -423,15 +413,7 @@
            x="74.285713"
            y="117.14286"
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:90px;font-family:'LCD Solid';-inkscape-font-specification:'LCD Solid';text-align:center;text-anchor:middle;fill:#b4b4b4;fill-opacity:1" /></flowRegion><flowPara
-         id="flowPara4202">Congratulations!</flowPara></flowRoot>    <rect
-       ry="21.428583"
-       y="221.67368"
-       x="14.565584"
-       height="105.71431"
-       width="537.14282"
-       id="rect4227"
-       style="opacity:1;fill:url(#linearGradient4229);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:60.70399857;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-    <flowRoot
+         id="flowPara4202">Congratulations!</flowPara></flowRoot>    <flowRoot
        xml:space="preserve"
        id="flowRoot4231"
        style="fill:black;stroke:none;stroke-opacity:1;stroke-width:1px;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:1;font-family:Sans;font-style:normal;font-weight:normal;font-size:70px;line-height:125%;letter-spacing:0px;word-spacing:0px;"><flowRegion
@@ -453,17 +435,5 @@
            x="28.284271"
            y="229.87807"
            style="-inkscape-font-specification:'LCD Solid';font-family:'LCD Solid';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:70px;" /></flowRegion><flowPara
-         id="flowPara4245" /></flowRoot>    <flowRoot
-       xml:space="preserve"
-       id="flowRoot4247"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:70px;line-height:125%;font-family:'LCD Solid';-inkscape-font-specification:'LCD Solid';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       transform="translate(61.579964,-6.3371384)"><flowRegion
-         id="flowRegion4249"><rect
-           id="rect4251"
-           width="551.54327"
-           height="125.2589"
-           x="28.284271"
-           y="233.91867"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:70px;font-family:'LCD Solid';-inkscape-font-specification:'LCD Solid'" /></flowRegion><flowPara
-         id="flowPara4253">Main Menu</flowPara></flowRoot>  </g>
+         id="flowPara4245" /></flowRoot>  </g>
 </svg>

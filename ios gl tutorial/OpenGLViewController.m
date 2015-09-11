@@ -22,7 +22,6 @@
 #import "RightButton.h"
 #import "LevelLoader.h"
 #import "LevelChangeScreen.h"
-#undef DEBUG
 static id theController = nil;
 
 @interface OpenGLViewController (){
@@ -48,6 +47,7 @@ static id theController = nil;
 @implementation OpenGLViewController
 @synthesize context = _context;
 @synthesize currentLevel=_currentLevel;
+@synthesize gameState=_gameState;
 -(void)viewDidLoad{
     [super viewDidLoad];
     [LoaderHelper init];
@@ -70,7 +70,7 @@ static id theController = nil;
     
     [EAGLContext setCurrentContext:self.context];
     mainScreen = [[MainScreen alloc]initPosition:(vec3){0.0f,0.0f,0.0f} view:self.view];
-	changeScreen = [[LevelChangeScreen alloc]initPosition:(vec3){0.0f,0.0f,0.0f}];
+	changeScreen = [[LevelChangeScreen alloc]initPosition:(vec3){0.0f,0.0f,0.0f} view:self.view];
     shader = [[MainShader alloc]init];
 	gameShader = [[GameShader alloc]init];
     guiShader = [[GuiShader alloc]init];
@@ -226,6 +226,27 @@ static id theController = nil;
 				[shader disableAttribs];
 				glBindVertexArrayOES(0);
 				[shader stop];
+				NSArray* buttons = [changeScreen getButtons];
+				[guiShader start];
+				[guiShader uploadScreenCorrection:self.view.frame.size];
+				[guiShader uploadAlpha:1];
+				glActiveTexture(GL_TEXTURE0);
+				for(GameGui *gui in buttons){
+					#ifdef DEBUG
+					glPushGroupMarkerEXT(0,"rendering button");
+					#endif
+					glBindVertexArrayOES(gui.vaoID);
+					[guiShader enableAttribs];
+					[guiShader uploadObjectTransformation:gui.x y:gui.y];
+					glBindTexture(GL_TEXTURE_2D, gui.texture);
+					glDrawElements(GL_TRIANGLES, gui.numVertices, GL_UNSIGNED_SHORT, 0);
+					[guiShader disableAttribs];
+					glBindVertexArrayOES(0);
+					#ifdef DEBUG
+					glPopGroupMarkerEXT();
+					#endif
+				}
+				[guiShader stop];
 			
 			break;
     }
@@ -279,6 +300,17 @@ static id theController = nil;
 	player.radius = 1;
 	player.theta = 0;
 	[input reset];
+}
+-(void)setGameState:(GameState)gameState{
+	@synchronized(self) {
+		_gameState = gameState;
+		if(gameState == LEVEL_CHANGE){
+			changeScreen->ignoreTouch = true;
+		}
+	}
+}
+-(GameState)gameState{
+	return _gameState;
 }
 
 @end

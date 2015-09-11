@@ -1,38 +1,37 @@
 //
-//  ChangeScreenNextButton.m
+//  ChangeScreenMenuButton.m
 //  ios gl tutorial
 //
 //  Created by Michael Nolan on 9/11/15.
 //  Copyright © 2015 Michael Nolan. All rights reserved.
 //
 
-#import "ChangeScreenNextButton.h"
+#import "ChangeScreenMenuButton.h"
 #import "GameGuiProtectedMethods.h"
 #import "OpenGLViewController.h"
 #define WIDTH 1.6
 #define HEIGHT 0.35
-
-@interface ChangeScreenNextButton (){
+@interface ChangeScreenMenuButton (){
 	CGRect frameRect;
 	UIView* parentView;
 	
 }
 @end
-@implementation ChangeScreenNextButton
-const Vertex nextButtonVertices[] = {
+@implementation ChangeScreenMenuButton
+const Vertex menuButtonVertices[] = {
 	0,0,0,              0,1,
 	0,HEIGHT,0,            0,0,
 	WIDTH,HEIGHT,0,          1,0,
 	WIDTH,0.0f,0.0f,     1,1,
 };
-const GLushort nextButtonIndices[] = {
+const GLushort menuButtonIndices[] = {
 	0, 1, 2,
 	2, 3, 0
 };
 -(id)initWithPositionX:(float)x y:(float)y view:(nonnull UIView *)view{
 	self = [super initWithPositionX:x y:y view:view];
-	[super loadToBuffers:&nextButtonVertices[0] vSize:sizeof(nextButtonVertices) indices:&nextButtonIndices[0] iSize:sizeof(nextButtonIndices) objectName:@"nextButton"];
-	[super loadToTexture:@"nextButton.png"];
+	[super loadToBuffers:&menuButtonVertices[0] vSize:sizeof(menuButtonVertices) indices:&menuButtonIndices[0] iSize:sizeof(menuButtonIndices) objectName:@"menuButton"];
+	[super loadToTexture:@"menuButton.png"];
 	frameRect = view.frame;
 	
 	parentView = view;
@@ -53,9 +52,9 @@ const GLushort nextButtonIndices[] = {
 	
 	for(UITouch* touch in touches){
 		if ([MathHelper point:[touch locationInView:parentView] insideBox:[self getBoundingBox]]) {
-			[OpenGLViewController getController].currentLevel++;
+			[OpenGLViewController getController].gameState = MAIN;
+			[OpenGLViewController getController].currentLevel = 0;
 			[[OpenGLViewController getController] resetPlayerAndInput];
-			[OpenGLViewController getController].gameState = RUNNING;
 		}
 	}
 	
