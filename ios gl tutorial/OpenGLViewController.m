@@ -122,7 +122,7 @@ static id theController = nil;
                 break;
             }
             [gameShader start];
-            [gameShader uploadHeightOffset:1.25];
+            [gameShader uploadHeightOffset:player.radius];
             [gameShader uploadScreenCorrection:self.view.frame.size];
             glActiveTexture(GL_TEXTURE0);
             GLuint previousTexture = -1;

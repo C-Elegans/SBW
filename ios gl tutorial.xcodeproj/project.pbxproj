@@ -45,6 +45,7 @@
 		0AA72BC31B6EF2B200018D9E /* ios_gl_tutorialUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA72BC21B6EF2B200018D9E /* ios_gl_tutorialUITests.m */; };
 		0AA72BD11B6EF2F800018D9E /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AA72BD01B6EF2F800018D9E /* OpenGLES.framework */; };
 		0AA72BD31B6EF2FD00018D9E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AA72BD21B6EF2FD00018D9E /* QuartzCore.framework */; };
+		0AB82CE41BA34F5A00C895F1 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AB82CE31BA34F5A00C895F1 /* GameKit.framework */; };
 		0AC917FA1B6FA2370068B51D /* OpenGLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC917F91B6FA2370068B51D /* OpenGLViewController.m */; };
 		0AC917FC1B6FA36B0068B51D /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AC917FB1B6FA36B0068B51D /* GLKit.framework */; };
 		0AC917FE1B6FA6E30068B51D /* vertexShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 0AC917FD1B6FA6E30068B51D /* vertexShader.glsl */; };
@@ -137,6 +138,7 @@
 		0AA72BC41B6EF2B200018D9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0AA72BD01B6EF2F800018D9E /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		0AA72BD21B6EF2FD00018D9E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		0AB82CE31BA34F5A00C895F1 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		0AC917F81B6FA2370068B51D /* OpenGLViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenGLViewController.h; sourceTree = "<group>"; };
 		0AC917F91B6FA2370068B51D /* OpenGLViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenGLViewController.m; sourceTree = "<group>"; };
 		0AC917FB1B6FA36B0068B51D /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
@@ -165,6 +167,7 @@
 				0AC917FC1B6FA36B0068B51D /* GLKit.framework in Frameworks */,
 				0AA72BD31B6EF2FD00018D9E /* QuartzCore.framework in Frameworks */,
 				0AA72BD11B6EF2F800018D9E /* OpenGLES.framework in Frameworks */,
+				0AB82CE41BA34F5A00C895F1 /* GameKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,6 +273,7 @@
 		0AA72B8E1B6EF2AF00018D9E = {
 			isa = PBXGroup;
 			children = (
+				0AB82CE31BA34F5A00C895F1 /* GameKit.framework */,
 				0AC917FB1B6FA36B0068B51D /* GLKit.framework */,
 				0AA72BD21B6EF2FD00018D9E /* QuartzCore.framework */,
 				0AA72BD01B6EF2F800018D9E /* OpenGLES.framework */,
@@ -458,6 +462,11 @@
 					0AA72B961B6EF2AF00018D9E = {
 						CreatedOnToolsVersion = 7.0;
 						DevelopmentTeam = V52LF89X24;
+						SystemCapabilities = {
+							com.apple.GameCenter = {
+								enabled = 1;
+							};
+						};
 					};
 					0AA72BB21B6EF2B200018D9E = {
 						CreatedOnToolsVersion = 7.0;

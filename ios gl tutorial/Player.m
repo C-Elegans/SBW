@@ -69,7 +69,6 @@ const GLushort playerIndices[] = {
 }
 -(void)jump{
     if(onGround){
-        NSLog(@"Jump!");
         onGround = NO;
         rVelocity = JUMP_HEIGHT;
     }
