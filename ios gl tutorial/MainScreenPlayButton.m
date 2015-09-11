@@ -9,17 +9,20 @@
 #import "MainScreenPlayButton.h"
 #import "GameGuiProtectedMethods.h"
 #import "OpenGLViewController.h"
+#define WIDTH 3
+#define HEIGHT 0.2
 @interface MainScreenPlayButton (){
 	CGRect frameRect;
 	UIView* parentView;
+	
 }
 @end
 @implementation MainScreenPlayButton
 const Vertex playButtonVertices[] = {
 	0,0,0,              0,1,
-	0,1.5,0,            0,0,
-	0.1,1.5,0,          1,0,
-	0.1f,0.0f,0.0f,     1,1,
+	0,HEIGHT,0,            0,0,
+	WIDTH,HEIGHT,0,          1,0,
+	WIDTH,0.0f,0.0f,     1,1,
 };
 const GLushort playButtonIndices[] = {
 	0, 1, 2,

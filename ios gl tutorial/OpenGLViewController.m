@@ -69,7 +69,7 @@ static id theController = nil;
     view.context = self.context;
     
     [EAGLContext setCurrentContext:self.context];
-    mainScreen = [[MainScreen alloc]initPosition:(vec3){0.0f,0.0f,0.0f}];
+    mainScreen = [[MainScreen alloc]initPosition:(vec3){0.0f,0.0f,0.0f} view:self.view];
 	changeScreen = [[LevelChangeScreen alloc]initPosition:(vec3){0.0f,0.0f,0.0f}];
     shader = [[MainShader alloc]init];
 	gameShader = [[GameShader alloc]init];
@@ -105,17 +105,42 @@ static id theController = nil;
     glClear(GL_COLOR_BUFFER_BIT);
     switch (_gameState) {
         case MAIN:
-            [shader start];
-            glBindVertexArrayOES(mainScreen->vaoID);
-            [shader enableAttribs];
-            glActiveTexture(GL_TEXTURE0);
-            glBindTexture(GL_TEXTURE_2D, mainScreen->texture);
-            
-            glDrawElements(GL_TRIANGLES, mainScreen->numVertices, GL_UNSIGNED_SHORT, 0);
-            [shader disableAttribs];
-            glBindVertexArrayOES(0);
-            [shader stop];
-            
+			{
+				glEnable(GL_BLEND);
+				[shader start];
+				glBindVertexArrayOES(mainScreen->vaoID);
+				[shader enableAttribs];
+				glActiveTexture(GL_TEXTURE0);
+				glBindTexture(GL_TEXTURE_2D, mainScreen->texture);
+				
+				glDrawElements(GL_TRIANGLES, mainScreen->numVertices, GL_UNSIGNED_SHORT, 0);
+				[shader disableAttribs];
+				glBindVertexArrayOES(0);
+				[shader stop];
+			
+				NSArray* buttons = [mainScreen getButtons];
+				[guiShader start];
+				[guiShader uploadScreenCorrection:self.view.frame.size];
+				[guiShader uploadAlpha:1];
+				glActiveTexture(GL_TEXTURE0);
+				for(GameGui *gui in buttons){
+	#ifdef DEBUG
+					glPushGroupMarkerEXT(0,"rendering button");
+	#endif
+					glBindVertexArrayOES(gui.vaoID);
+					[guiShader enableAttribs];
+					[guiShader uploadObjectTransformation:gui.x y:gui.y];
+					glBindTexture(GL_TEXTURE_2D, gui.texture);
+					glDrawElements(GL_TRIANGLES, gui.numVertices, GL_UNSIGNED_SHORT, 0);
+					[guiShader disableAttribs];
+					glBindVertexArrayOES(0);
+	#ifdef DEBUG
+					glPopGroupMarkerEXT();
+	#endif
+				}
+				[guiShader stop];
+			
+			}
             break;
         case RUNNING:
             if([gameObjects count] <1){
@@ -168,6 +193,7 @@ static id theController = nil;
             //Render Gui objects
             [guiShader start];
             [guiShader uploadScreenCorrection:self.view.frame.size];
+			[guiShader uploadAlpha:0.1];
             glActiveTexture(GL_TEXTURE0);
             for(GameGui *gui in guiObjects){
                 #ifdef DEBUG
