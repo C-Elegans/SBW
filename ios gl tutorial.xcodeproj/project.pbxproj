@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A0708801BA366B200A757C2 /* playButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A07087F1BA366B200A757C2 /* playButton.png */; };
 		0A10A87E1B73E8020011FB3F /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A10A87D1B73E8020011FB3F /* Player.m */; };
 		0A1792071BA1C41600163CED /* door.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A1792061BA1C41600163CED /* door.png */; };
 		0A17920A1BA1C49400163CED /* Door.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A1792091BA1C49400163CED /* Door.m */; };
@@ -77,6 +78,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A07087F1BA366B200A757C2 /* playButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = playButton.png; path = Assets/playButton.png; sourceTree = "<group>"; };
 		0A10A87C1B73E8020011FB3F /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
 		0A10A87D1B73E8020011FB3F /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
 		0A1792061BA1C41600163CED /* door.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = door.png; path = Assets/door.png; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 		0AA14D7B1B7561C100770A6E /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				0A07087F1BA366B200A757C2 /* playButton.png */,
 				0A4167701B7D30090029D807 /* upButton.png */,
 				0AA14D751B7561AF00770A6E /* astronaut.png */,
 				0A1792061BA1C41600163CED /* door.png */,
@@ -506,6 +509,7 @@
 				0A4167711B7D30090029D807 /* upButton.png in Resources */,
 				0AA14D791B7561B900770A6E /* leftButton.png in Resources */,
 				0AA14D7A1B7561B900770A6E /* rightButton.png in Resources */,
+				0A0708801BA366B200A757C2 /* playButton.png in Resources */,
 				0AA14D891B75682600770A6E /* guiVertexShader.glsl in Resources */,
 				0A50E0FA1B7150FE008E69D5 /* gameVertexShader.glsl in Resources */,
 				0A50E10B1B725006008E69D5 /* earth.png in Resources */,
