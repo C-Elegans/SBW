@@ -9,8 +9,8 @@
 #import "MainScreenPlayButton.h"
 #import "GameGuiProtectedMethods.h"
 #import "OpenGLViewController.h"
-#define WIDTH 3
-#define HEIGHT 0.2
+#define WIDTH 2.5
+#define HEIGHT 0.25
 @interface MainScreenPlayButton (){
 	CGRect frameRect;
 	UIView* parentView;
