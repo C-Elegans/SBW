@@ -20,7 +20,7 @@ const GLushort changeIndices[] = {
 	0, 1, 2,
 	2, 3, 0
 };
-Rectangle nextButton = {0.5136,0.30859,0.4736,0.16601};
+
 @implementation LevelChangeScreen
 -(id)initPosition:(vec3)pos{
 	self = [super init];
@@ -30,17 +30,7 @@ Rectangle nextButton = {0.5136,0.30859,0.4736,0.16601};
 	texture = [LoaderHelper loadTexture:@"levelScreen.png"];
 	return self;
 }
--(BOOL)touchEnded:(CGPoint)point{
-	//NSLog(@"Touch x: %f, y: %f",point.x,point.y);
-	if(point.x >nextButton.x && point.x <(nextButton.x + nextButton.width)){
-		if(point.y >nextButton.y && point.y <(nextButton.y + nextButton.height)){
-			NSLog(@"Next Button Pressed!");
-			[OpenGLViewController getController].currentLevel++;
-			[[OpenGLViewController getController] setGameState:RUNNING];
-			[[OpenGLViewController getController] resetPlayerAndInput];
-			return true;
-		}
-	}
-	return false;
+-(void)touchesEnded:(nonnull NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event{
+	
 }
 @end

@@ -20,5 +20,5 @@
 	
 }
 -(id)initPosition:(vec3)pos;
--(BOOL)touchEnded:(CGPoint)point;
+-(void)touchesEnded:(nonnull NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event;
 @end
