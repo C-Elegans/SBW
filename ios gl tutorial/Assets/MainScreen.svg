@@ -62,16 +62,6 @@
        r="631.42865"
        gradientTransform="matrix(1.7646992,0.01279831,-0.00795496,1.0968727,-424.07024,-419.03481)"
        gradientUnits="userSpaceOnUse" />
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient4236"
-       id="linearGradient4240"
-       x1="185.71428"
-       y1="304.28571"
-       x2="928.5714"
-       y2="304.28571"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="translate(-21.999985,0)" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -81,7 +71,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.35"
-     inkscape:cx="407.61078"
+     inkscape:cx="389.14286"
      inkscape:cy="141.42857"
      inkscape:document-units="px"
      inkscape:current-layer="layer2"
@@ -420,25 +410,5 @@
            x="74.285713"
            y="117.14286"
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:90px;font-family:'LCD Solid';-inkscape-font-specification:'LCD Solid';text-align:center;text-anchor:middle;fill:#b4b4b4;fill-opacity:1" /></flowRegion><flowPara
-         id="flowPara4202">Small Blue World</flowPara></flowRoot>    <rect
-       style="opacity:1;fill:url(#linearGradient4240);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:60.70399857;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       id="rect4234"
-       width="808.57141"
-       height="105.71431"
-       x="163.71429"
-       y="237.14285"
-       ry="21.428583" />
-    <flowRoot
-       xml:space="preserve"
-       id="flowRoot4242"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:60px;line-height:125%;font-family:'LCD Solid';-inkscape-font-specification:'LCD Solid';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       transform="matrix(1.4468002,0,0,1.4468002,-229.95702,-118.33859)"><flowRegion
-         id="flowRegion4244"><rect
-           id="rect4246"
-           width="497.14285"
-           height="80"
-           x="308.57144"
-           y="248.57144"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:60px;font-family:'LCD Solid';-inkscape-font-specification:'LCD Solid';text-align:center;text-anchor:middle" /></flowRegion><flowPara
-         id="flowPara4248">Play!</flowPara></flowRoot>  </g>
+         id="flowPara4202">Small Blue World</flowPara></flowRoot>  </g>
 </svg>
