@@ -39,7 +39,7 @@ const GLushort changeIndices[] = {
 	return self;
 }
 -(void)touchesEnded:(nonnull NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event{
-	NSLog(@"Point %@\n",touches);
+	
 	if(!ignoreTouch){
 		[nextButton touchesEnded:touches withEvent:event];
 		[menuButton touchesEnded:touches withEvent:event];

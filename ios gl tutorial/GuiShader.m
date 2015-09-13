@@ -23,7 +23,7 @@
     positionOffset_location = glGetUniformLocation(program, "positionOffset");
     screenCorrection_location = glGetUniformLocation(program, "screenCorrection");
 	alpha_location = glGetUniformLocation(program, "alpha");
-    NSLog(@"GuiShader position: %d uv:%d",position_location, uv_location);
+    
     if(position_location == -1 || uv_location == -1){
         NSLog(@"Invalid Attrib Location");
         exit(1);

@@ -94,7 +94,7 @@ static id theController = nil;
     glEnable(GL_BLEND);
     glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
     CGRect left = [leftButton getBoundingBox];
-    NSLog(@"LeftButton Bounding Box x: %f, y: %f, w:%f h:%f", left.origin.x,left.origin.y,left.size.width,left.size.height);
+    
     self.currentLevel = 0;
     
 }

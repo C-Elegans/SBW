@@ -32,7 +32,7 @@
     
     position_location = glGetAttribLocation(program, "position");
     uv_location = glGetAttribLocation(program, "inTexCoords");
-    NSLog(@"GameShader position: %d, texCoords: %d", position_location, uv_location);
+    
     transformation_location = glGetUniformLocation(program, "transformationOffset");
     heightOffset_location = glGetUniformLocation(program, "heightOffset");
     screenCorrection_location = glGetUniformLocation(program, "screenCorrection");
