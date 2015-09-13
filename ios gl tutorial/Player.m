@@ -27,10 +27,10 @@ typedef enum{WALKING, JUMPING, STANDING} PlayerState;
 @implementation Player
 const int playerWidth = 0.359375;
 const Vertex playerVertices[] = {
-    {{0, 0, 0}, {0.125,1}},
-    {{0, .125, 0}, {0.640625,1}},
-    {{.2, .125, 0}, {0.640625,0}},
-    {{.2, 0, 0}, {0.125,0}}
+    {{0, 0, 0}, {0,1}},
+    {{0, .23, 0}, {1,1}},
+    {{.2, .23, 0}, {1,0}},
+    {{.2, 0, 0}, {0,0}}
 };
 
 const GLushort playerIndices[] = {
@@ -96,10 +96,12 @@ const vec2 animationStates[] = {
 	if(playerState != JUMPING){
 		if(moveVal != 0){
 			playerState = WALKING;
-			_rotation = moveVal;
 		}else{
 			playerState = STANDING;
 		}
+	}
+	if(moveVal !=0){
+		_rotation = moveVal;
 	}
 }
 -(void)updateAnimation{
