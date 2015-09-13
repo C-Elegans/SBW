@@ -153,7 +153,7 @@ static id theController = nil;
             [gameShader start];
             [gameShader uploadHeightOffset:player.radius];
             [gameShader uploadScreenCorrection:self.view.frame.size];
-			[gameShader loadAnimation:1 textureOffset:(vec2){0,0}];
+			[gameShader loadAnimation:1 textureOffset:(vec2){0,0} rotation:1];
             glActiveTexture(GL_TEXTURE0);
             GLuint previousTexture = -1;
             GLuint previousVAO = -1;
@@ -184,7 +184,7 @@ static id theController = nil;
             }
             
             //Render player
-			[gameShader loadAnimation:player.textureDivisor textureOffset:player.textureOffset];
+			[gameShader loadAnimation:player.textureDivisor textureOffset:player.textureOffset rotation:player.rotation];
             glPushGroupMarkerEXT(0, "Render Player");
             glBindVertexArrayOES(player.vaoID);
             [gameShader enableAttribs];

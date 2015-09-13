@@ -18,7 +18,6 @@ typedef enum{WALKING, JUMPING, STANDING} PlayerState;
 
 @interface Player(){
     float rVelocity;
-	int rotation;
 	PlayerState playerState;
 	int animationState;
 	float time;
@@ -97,7 +96,7 @@ const vec2 animationStates[] = {
 	if(playerState != JUMPING){
 		if(moveVal != 0){
 			playerState = WALKING;
-			rotation = moveVal;
+			_rotation = moveVal;
 		}else{
 			playerState = STANDING;
 		}
