@@ -22,6 +22,7 @@
 #import "RightButton.h"
 #import "LevelLoader.h"
 #import "LevelChangeScreen.h"
+
 static id theController = nil;
 
 @interface OpenGLViewController (){
@@ -38,6 +39,8 @@ static id theController = nil;
     GameInput* input;
     LevelLoader* levelLoader;
     Planet* planet;
+	CFTimeInterval lastTimeStamp;
+	
 }
 @property (strong) GLKBaseEffect* effect;
 
@@ -52,7 +55,7 @@ static id theController = nil;
     [super viewDidLoad];
     [LoaderHelper init];
     levelLoader = [[LevelLoader alloc] init];
-    
+	lastTimeStamp = CFAbsoluteTimeGetCurrent();
     GLKView *glkView = (GLKView*)self.view;
     glkView.drawableMultisample = GLKViewDrawableMultisample4X;
     if(theController != nil && theController != self){
@@ -101,6 +104,7 @@ static id theController = nil;
 
 #pragma mark - GL Stuff
 -(void)glkView:(nonnull GLKView *)view drawInRect:(CGRect)rect{
+	[self updateFrameTime];
     glClearColor(0, 0, 0.1, 1);
     glClear(GL_COLOR_BUFFER_BIT);
     switch (_gameState) {
@@ -149,6 +153,7 @@ static id theController = nil;
             [gameShader start];
             [gameShader uploadHeightOffset:player.radius];
             [gameShader uploadScreenCorrection:self.view.frame.size];
+			[gameShader loadAnimation:1 textureOffset:(vec2){0,0}];
             glActiveTexture(GL_TEXTURE0);
             GLuint previousTexture = -1;
             GLuint previousVAO = -1;
@@ -179,6 +184,7 @@ static id theController = nil;
             }
             
             //Render player
+			[gameShader loadAnimation:player.textureDivisor textureOffset:player.textureOffset];
             glPushGroupMarkerEXT(0, "Render Player");
             glBindVertexArrayOES(player.vaoID);
             [gameShader enableAttribs];
@@ -311,6 +317,11 @@ static id theController = nil;
 }
 -(GameState)gameState{
 	return _gameState;
+}
+-(void)updateFrameTime{
+	CFTimeInterval currentTime = CFAbsoluteTimeGetCurrent();
+	_frameTime = currentTime - lastTimeStamp;
+	lastTimeStamp = currentTime;
 }
 
 @end

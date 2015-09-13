@@ -40,14 +40,17 @@
 }
 -(void)update{
     if(lButton.buttonDown){
-        player.theta += 0.02;
+		[player move:1];
     }
-    if(rButton.buttonDown){
-        player.theta -= 0.02;
-    }
+    else if(rButton.buttonDown){
+		[player move:-1];
+	}else{
+		[player move:0];
+	}
     if(uButton.buttonDown){
         [player jump];
     }
+	
 }
 -(void)reset{
 	lButton.buttonDown = false;

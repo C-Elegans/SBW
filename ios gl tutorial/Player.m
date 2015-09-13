@@ -11,11 +11,19 @@
 #import "Planet.h"
 #import "Door.h"
 #import "OpenGLViewController.h"
+#import "MathHelper.h"
 #define JUMP_HEIGHT GRAVITY/2
+#define MOVE_SPEED 0.02
+typedef enum{WALKING, JUMPING, STANDING} PlayerState;
+
 @interface Player(){
     float rVelocity;
-    BOOL onGround;
+	int rotation;
+	PlayerState playerState;
+	int animationState;
+	float time;
 }
+
 @end
 @implementation Player
 const int playerWidth = 0.359375;
@@ -30,9 +38,14 @@ const GLushort playerIndices[] = {
     0, 1, 2,
     2, 3, 0
 };
+const vec2 animationStates[] = {
+	{0,0},{1,0},{0,0},{1,1}
+};
 -(id)initRadius:(float)r theta:(float)t{
     self = [super initRadius:r theta:t];
-    
+	_textureDivisor = 2;
+	_textureOffset = (vec2){0,0};
+	time = 0;
     [super loadToBuffers:&playerVertices[0] vSize:sizeof(playerVertices) indices:&playerIndices[0] iSize:sizeof(playerIndices) objectName:@"player"];
     [super loadToTexture:@"astronaut.png"];
     return self;
@@ -52,7 +65,9 @@ const GLushort playerIndices[] = {
                 self.theta += moveVec.y;
                 if(moveVec.x){
                     rVelocity = 0;
-                    onGround = YES;
+					if(playerState == JUMPING){
+						playerState = STANDING;
+					}
                 }
                 //NSLog(@"object intersected! object %@  index %lu",entity, [gameObjects indexOfObject:entity]);
 			}else if (([entity class]==[Door class])){
@@ -64,13 +79,46 @@ const GLushort playerIndices[] = {
     if(self.radius < 1.06){
         rVelocity = 0;
         self.radius = 1.06;
-        onGround = YES;
+		if(playerState == JUMPING){
+			playerState = STANDING;
+		}
     }
+	[self updateAnimation];
+	
 }
 -(void)jump{
-    if(onGround){
-        onGround = NO;
+    if(playerState == WALKING || playerState == STANDING){
+		playerState = JUMPING;
         rVelocity = JUMP_HEIGHT;
     }
 }
+-(void)move:(int) moveVal{
+	self.theta+=moveVal * MOVE_SPEED;
+	if(playerState != JUMPING){
+		if(moveVal != 0){
+			playerState = WALKING;
+			rotation = moveVal;
+		}else{
+			playerState = STANDING;
+		}
+	}
+}
+-(void)updateAnimation{
+	time +=[OpenGLViewController getController].frameTime;
+	if(playerState == WALKING){
+		if(time >0.1){
+			animationState++;
+			animationState &=3;
+			time =0;
+		}
+		
+	}
+	else{
+		animationState = 0;
+	}
+	_textureOffset = animationStates[animationState];
+	
+	
+}
+
 @end

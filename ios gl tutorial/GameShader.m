@@ -21,6 +21,8 @@
     GLuint transformation_location;
     GLuint heightOffset_location;
     GLuint screenCorrection_location;
+	GLuint textureDivisor_location;
+	GLuint textureOffset_location;
 }
 @end
 @implementation GameShader
@@ -33,6 +35,8 @@
     transformation_location = glGetUniformLocation(program, "transformationOffset");
     heightOffset_location = glGetUniformLocation(program, "heightOffset");
     screenCorrection_location = glGetUniformLocation(program, "screenCorrection");
+	textureDivisor_location = glGetUniformLocation(program, "textureDivisor");
+	textureOffset_location = glGetUniformLocation(program, "textureOffset");
     if(position_location == -1 || uv_location == -1 || transformation_location == -1 || heightOffset_location == -1||screenCorrection_location == -1){
         NSLog(@"Invalid Attrib Location!");
         exit(1);
@@ -67,6 +71,10 @@
 -(void)uploadScreenCorrection:(CGSize)size{
     float offset = size.height/size.width;
     glUniform1f(screenCorrection_location, offset);
+}
+-(void)loadAnimation:(int)divisor textureOffset:(vec2)offset{
+	glUniform1f(textureDivisor_location, (float)divisor);
+	glUniform2f(textureOffset_location, offset.x/divisor, offset.y/divisor);
 }
 
 @end

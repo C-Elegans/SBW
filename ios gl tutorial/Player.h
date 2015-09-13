@@ -9,6 +9,9 @@
 #import "GameEntity.h"
 
 @interface Player : GameEntity
+@property int textureDivisor;
+@property vec2 textureOffset;
 -(void)updatePosition:(nullable NSArray* )gameObjects;
 -(void)jump;
+-(void)move:(int) moveVal;
 @end
