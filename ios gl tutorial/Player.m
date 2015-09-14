@@ -12,8 +12,8 @@
 #import "Door.h"
 #import "OpenGLViewController.h"
 #import "MathHelper.h"
-#define JUMP_HEIGHT GRAVITY/2
-#define MOVE_SPEED 0.02
+#define JUMP_HEIGHT GRAVITY/3
+#define MOVE_SPEED 0.6
 typedef enum{WALKING, JUMPING, STANDING} PlayerState;
 
 @interface Player(){
@@ -46,14 +46,14 @@ const vec2 animationStates[] = {
 	self.textureOffset = (vec2){0,0};
 	time = 0;
     [super loadToBuffers:&playerVertices[0] vSize:sizeof(playerVertices) indices:&playerIndices[0] iSize:sizeof(playerIndices) objectName:@"player"];
-    [super loadToTexture:@"astronaut.png"];
+    [super loadToTexture:@"astronaut.png" mipmapsEnabled:true];
     return self;
 }
 -(CGRect)getCollisionBox{
-    return CGRectMake((+self.radius), -.0625+self.theta, .2, .0625 *(1/self.radius));
+    return CGRectMake((+self.radius), -0.04+self.theta, .2, (0.125-0.04) *(1/self.radius));
 }
 -(void)updatePosition:(nullable NSArray *)gameObjects{
-    rVelocity -= GRAVITY*(1.0f/30.0f);
+    rVelocity -= GRAVITY*([OpenGLViewController getController].frameTime);
     self.radius += rVelocity;
     CGRect myCollisionBox = [self getCollisionBox];
     for(GameEntity* entity in gameObjects){
@@ -92,7 +92,7 @@ const vec2 animationStates[] = {
     }
 }
 -(void)move:(int) moveVal{
-	self.theta+=moveVal * MOVE_SPEED;
+	self.theta+=moveVal * MOVE_SPEED * [OpenGLViewController getController].frameTime;
 	if(playerState != JUMPING){
 		if(moveVal != 0){
 			playerState = WALKING;

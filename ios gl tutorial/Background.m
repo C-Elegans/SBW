@@ -25,7 +25,7 @@ const GLushort backgroundIndices[] = {
 	self.textureDivisor = 0.1;
 	[super loadToBuffers:&backgroundVertices[0] vSize:sizeof(backgroundVertices) indices:&backgroundIndices[0] iSize:sizeof(backgroundIndices)objectName:@"background"];
 	
-	[super loadToTexture:@"Background.png"];
+	[super loadToTexture:@"Background.png" mipmapsEnabled:true];
 	return self;
 }
 -(CGRect)getCollisionBox{

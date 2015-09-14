@@ -25,7 +25,7 @@ const GLushort planetIndices[] = {
     self = [super initRadius:r theta:t];
     [super loadToBuffers:&planetVertices[0] vSize:sizeof(planetVertices) indices:&planetIndices[0] iSize:sizeof(planetIndices)objectName:@"planet"];
     
-    [super loadToTexture:@"earth.png"];
+    [super loadToTexture:@"earth.png" mipmapsEnabled:true];
     return self;
 }
 -(CGRect)getCollisionBox{

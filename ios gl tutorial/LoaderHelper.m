@@ -47,7 +47,7 @@ static NSMutableDictionary* vaoDict;
     }
     return (GLuint)[vaoID integerValue];
 }
-+ (GLuint)setupTexture:(NSString *)fileName {
++ (GLuint)setupTexture:(NSString *)fileName enableMipmaps:(BOOL)mipmapEnabled{
     // 1
     CGImageRef spriteImage = [UIImage imageNamed:fileName].CGImage;
     if (!spriteImage) {
@@ -76,17 +76,26 @@ static NSMutableDictionary* vaoDict;
     
     
     
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, (GLsizei)width, (GLsizei)height, 0, GL_RGBA, GL_UNSIGNED_BYTE, spriteData);
-    glGenerateMipmap(GL_TEXTURE_2D);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, (GLsizei)width, (GLsizei)height, 0, GL_RGBA, GL_UNSIGNED_BYTE, spriteData);
+	if(mipmapEnabled){
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_NEAREST);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+		glTexParameteri(GL_TEXTURE_2D, GL_GENERATE_MIPMAP_HINT, GL_NICEST);
+		glGenerateMipmap(GL_TEXTURE_2D);
+	}else{
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+		//glTexParameteri(GL_TEXTURE_2D, GL_GENERATE_MIPMAP_HINT, GL_NICEST);
+		//glGenerateMipmap(GL_TEXTURE_2D);
+	}
+	//glGenerateMipmap(GL_TEXTURE_2D);
     free(spriteData);
     return texName;
 }
-+(GLuint)loadTexture:(NSString *)fileName{
++(GLuint)loadTexture:(NSString *)fileName enableMipmaps:(BOOL)mipmapsEnabled{
     NSNumber *texture = [textureDict objectForKey:fileName];
     if(texture == nil){
-        texture = [NSNumber numberWithInt:[LoaderHelper setupTexture:fileName]];
+        texture = [NSNumber numberWithInt:[LoaderHelper setupTexture:fileName enableMipmaps:mipmapsEnabled]];
         [textureDict setObject:texture forKey:fileName];
     }
     return (GLuint)[texture intValue];

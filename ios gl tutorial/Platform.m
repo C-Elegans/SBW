@@ -24,7 +24,7 @@ const GLushort platformIndices[] = {
     self = [super initRadius:r theta:t];
     
     [super loadToBuffers:&platformVertices[0] vSize:sizeof(platformVertices) indices:&platformIndices[0] iSize:sizeof(platformIndices)objectName:@"platform"];
-    [super loadToTexture:@"platform.png"];
+    [super loadToTexture:@"platform.png" mipmapsEnabled:true];
     return self;
 }
 -(CGRect)getCollisionBox{

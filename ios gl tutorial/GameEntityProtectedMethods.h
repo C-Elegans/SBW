@@ -13,7 +13,7 @@
 #endif /* GameEntityProtectedMethods_h */
 @protocol GameEntityProtectedMethods <NSObject>
 -(void)loadToBuffers:(const Vertex*)vertices vSize:(size_t)vsize indices:(const GLushort*)indices iSize:(size_t)isize objectName:(NSString*)objectName;
--(void)loadToTexture:(NSString*)fileName;
+-(void)loadToTexture:(NSString*)fileName mipmapsEnabled:(BOOL)enableMipmaps;
 @end
 @interface GameEntity (ProtectedMethods) <GameEntityProtectedMethods>
 

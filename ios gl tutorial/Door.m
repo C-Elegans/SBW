@@ -24,7 +24,7 @@ const GLushort doorIndices[] = {
 	self = [super initRadius:r theta:t];
 	
 	[super loadToBuffers:&doorVertices[0] vSize:sizeof(doorVertices) indices:&doorIndices[0] iSize:sizeof(doorIndices)objectName:@"door"];
-	[super loadToTexture:@"door.png"];
+	[super loadToTexture:@"door.png" mipmapsEnabled:true];
 	return self;
 }
 -(CGRect)getCollisionBox{

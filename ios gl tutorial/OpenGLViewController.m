@@ -72,6 +72,7 @@ static id theController = nil;
     view.context = self.context;
     
     [EAGLContext setCurrentContext:self.context];
+	self.preferredFramesPerSecond = 10;
     mainScreen = [[MainScreen alloc]initPosition:(vec3){0.0f,0.0f,0.0f} view:self.view];
 	changeScreen = [[LevelChangeScreen alloc]initPosition:(vec3){0.0f,0.0f,0.0f} view:self.view];
     shader = [[MainShader alloc]init];
@@ -311,8 +312,14 @@ static id theController = nil;
 -(void)setGameState:(GameState)gameState{
 	@synchronized(self) {
 		_gameState = gameState;
-		if(gameState == LEVEL_CHANGE){
-			changeScreen->ignoreTouch = true;
+		switch (_gameState) {
+			case MAIN:
+    			self.preferredFramesPerSecond = 10; break;
+			case RUNNING:
+				self.preferredFramesPerSecond = 60; break;
+			case LEVEL_CHANGE:
+				self.preferredFramesPerSecond = 10; break;
+	
 		}
 	}
 }

@@ -32,7 +32,7 @@ const Rectangle PlayButton = {0.1434f,0.3706f ,0.7117f,0.1652f};
     position = pos;
     vaoID = [LoaderHelper loadToVBOS:&Vertices[0] verticesSize:sizeof(Vertices) indices:&Indices[0] indicesSize:sizeof(Indices) objectName:@"MainScreen"];
     numVertices = sizeof(Indices)/sizeof(Indices[0]);
-    texture = [LoaderHelper loadTexture:@"mainScreen.png"];
+    texture = [LoaderHelper loadTexture:@"mainScreen.png" enableMipmaps:false];
     return self;
 }
 -(void)touchesEnded:(nonnull NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event{

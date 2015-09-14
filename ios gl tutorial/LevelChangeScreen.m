@@ -35,7 +35,7 @@ const GLushort changeIndices[] = {
 	position = pos;
 	vaoID = [LoaderHelper loadToVBOS:&changeVertices[0] verticesSize:sizeof(changeVertices) indices:&changeIndices[0] indicesSize:sizeof(changeIndices) objectName:@"LevelChangeScreen"];
 	numVertices = sizeof(changeIndices)/sizeof(changeIndices[0]);
-	texture = [LoaderHelper loadTexture:@"levelScreen.png"];
+	texture = [LoaderHelper loadTexture:@"levelScreen.png" enableMipmaps:false];
 	return self;
 }
 -(void)touchesEnded:(nonnull NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event{

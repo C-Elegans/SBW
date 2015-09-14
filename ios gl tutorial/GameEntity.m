@@ -24,8 +24,8 @@
     
     _numVertices = (int)isize/(int)sizeof(GLushort);
 }
--(void)loadToTexture:(NSString*)fileName{
-    _texture = [LoaderHelper loadTexture:fileName];
+-(void)loadToTexture:(NSString*)fileName mipmapsEnabled:(BOOL)enableMipmaps{
+    _texture = [LoaderHelper loadTexture:fileName enableMipmaps:enableMipmaps];
 }
 -(CGRect)getCollisionBox{
     return CGRectMake(0, 0, 0, 0);

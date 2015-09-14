@@ -23,7 +23,7 @@
     _numVertices = (int)isize/(int)sizeof(GLushort);
 }
 -(void)loadToTexture:(NSString*)fileName{
-    _texture = [LoaderHelper loadTexture:fileName];
+    _texture = [LoaderHelper loadTexture:fileName enableMipmaps:false];
 }
 
 @end
