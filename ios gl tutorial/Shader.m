@@ -7,7 +7,6 @@
 //
 
 #import "Shader.h"
-
 @interface Shader(){
     
 }
@@ -90,6 +89,7 @@
     glCompileShader(shaderHandle);
     
     // 5
+	#ifdef DEBUG
     GLint compileSuccess;
     glGetShaderiv(shaderHandle, GL_COMPILE_STATUS, &compileSuccess);
     if (compileSuccess == GL_FALSE) {
@@ -99,7 +99,7 @@
         NSLog(@"Shader Compilation failed: \n%@", messageString);
         exit(1);
     }
-    
+	#endif
     return shaderHandle;
     
 }
