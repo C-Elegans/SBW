@@ -14,6 +14,9 @@
     self = [super init];
     _radius = r;
     _theta = t;
+	_textureDivisor = 1;
+	_textureOffset = (vec2){0,0};
+	_rotation = 1;
     return self;
 }
 -(void)loadToBuffers:(const Vertex*)vertices vSize:(size_t)vsize indices:(const GLushort*)indices iSize:(size_t)isize objectName:(NSString*)objectName{

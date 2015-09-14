@@ -15,5 +15,5 @@
 -(void)disableAttribs;
 -(void)uploadHeightOffset:(float)offset;
 -(void)uploadScreenCorrection:(CGSize)size;
--(void)loadAnimation:(int)divisor textureOffset:(vec2)offset rotation:(int)rotation;
+-(void)loadAnimation:(float)divisor textureOffset:(vec2)offset rotation:(int)rotation;
 @end

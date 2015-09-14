@@ -22,7 +22,7 @@
 #import "RightButton.h"
 #import "LevelLoader.h"
 #import "LevelChangeScreen.h"
-
+#import "Background.h"
 static id theController = nil;
 
 @interface OpenGLViewController (){
@@ -40,7 +40,7 @@ static id theController = nil;
     LevelLoader* levelLoader;
     Planet* planet;
 	CFTimeInterval lastTimeStamp;
-	
+	//Background* background;
 }
 @property (strong) GLKBaseEffect* effect;
 
@@ -82,6 +82,7 @@ static id theController = nil;
     
     planet =[[Planet alloc]initRadius:1 theta:0];
     player = [[Player alloc]initRadius:2 theta:0];
+	
     //gameObjects = [levelLoader loadLevel:0];
     
     LeftButton* leftButton = [[LeftButton alloc]initWithPositionX:-.9 y:-.5 view:self.view];
@@ -93,7 +94,7 @@ static id theController = nil;
     input = [[GameInput alloc]init:player leftButton:leftButton rightButton:rightButton upButton:upButton];
     glEnable(GL_BLEND);
     glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
-    CGRect left = [leftButton getBoundingBox];
+    
     
     self.currentLevel = 0;
     
@@ -153,7 +154,7 @@ static id theController = nil;
             [gameShader start];
             [gameShader uploadHeightOffset:player.radius];
             [gameShader uploadScreenCorrection:self.view.frame.size];
-			[gameShader loadAnimation:1 textureOffset:(vec2){0,0} rotation:1];
+			
             glActiveTexture(GL_TEXTURE0);
             GLuint previousTexture = -1;
             GLuint previousVAO = -1;
@@ -169,7 +170,7 @@ static id theController = nil;
                 [gameShader enableAttribs];
                 
                 [gameShader uploadObjectTransformation:entity.radius theta:entity.theta+(TWO_PI/4.0)-player.theta];
-                
+                [gameShader loadAnimation:entity.textureDivisor textureOffset:entity.textureOffset rotation:entity.rotation];
                 if(entity.texture != previousTexture){
                     glBindTexture(GL_TEXTURE_2D, entity.texture);
                     previousTexture = entity.texture;

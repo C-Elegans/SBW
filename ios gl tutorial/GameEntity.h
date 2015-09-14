@@ -16,6 +16,9 @@
 @property GLuint vaoID;
 @property GLuint texture;
 @property int numVertices;
+@property float textureDivisor;
+@property vec2 textureOffset;
+@property int rotation;
 -(id)initRadius:(float)r theta:(float)t;
 -(CGRect)getCollisionBox;
 @end

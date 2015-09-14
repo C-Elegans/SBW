@@ -9,6 +9,7 @@
 #import "LevelLoader.h"
 #import "Platform.h"
 #import "Door.h"
+#import "Background.h"
 @implementation LevelLoader
 -(id)init{
     self = [super init];
@@ -28,6 +29,7 @@
         NSLog(@"%@",jsonData);
     }
     NSMutableArray* gameObjects = [[NSMutableArray alloc]init];
+	[gameObjects addObject:[[Background alloc] initRadius:1 theta:0]];
     if(level<[allObjects count]){
         NSArray* platforms = [[allObjects objectAtIndex:level] objectForKey:@"platforms"];
         for(int i=0;i<[platforms count];i+=2){

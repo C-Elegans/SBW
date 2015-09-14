@@ -74,8 +74,8 @@
     float offset = size.height/size.width;
     glUniform1f(screenCorrection_location, offset);
 }
--(void)loadAnimation:(int)divisor textureOffset:(vec2)offset rotation:(int)rotation{
-	glUniform1f(textureDivisor_location, (float)divisor);
+-(void)loadAnimation:(float)divisor textureOffset:(vec2)offset rotation:(int)rotation{
+	glUniform1f(textureDivisor_location, divisor);
 	glUniform2f(textureOffset_location, offset.x/divisor, offset.y/divisor);
 	glUniform1f(rotation_location, (float)rotation);
 }

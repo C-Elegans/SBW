@@ -30,6 +30,8 @@
 		0A66434D1BA3848B00BA19E1 /* nextButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A66434C1BA3848B00BA19E1 /* nextButton.png */; };
 		0A66434F1BA3892800BA19E1 /* menuButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A66434E1BA3892800BA19E1 /* menuButton.png */; };
 		0A6643521BA3894300BA19E1 /* ChangeScreenMenuButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6643511BA3894300BA19E1 /* ChangeScreenMenuButton.m */; };
+		0A8D85E21BA704BD00585A62 /* Background.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A8D85E11BA704BD00585A62 /* Background.m */; };
+		0A8D85E41BA706A400585A62 /* Background.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A8D85E31BA706A400585A62 /* Background.png */; };
 		0A95A7E91B7C14A00030B540 /* UpButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A95A7E81B7C14A00030B540 /* UpButton.m */; };
 		0AA14D761B7561AF00770A6E /* astronaut.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AA14D751B7561AF00770A6E /* astronaut.png */; };
 		0AA14D791B7561B900770A6E /* leftButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AA14D771B7561B900770A6E /* leftButton.png */; };
@@ -117,6 +119,9 @@
 		0A66434E1BA3892800BA19E1 /* menuButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menuButton.png; path = Assets/menuButton.png; sourceTree = "<group>"; };
 		0A6643501BA3894300BA19E1 /* ChangeScreenMenuButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangeScreenMenuButton.h; sourceTree = "<group>"; };
 		0A6643511BA3894300BA19E1 /* ChangeScreenMenuButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangeScreenMenuButton.m; sourceTree = "<group>"; };
+		0A8D85E01BA704BD00585A62 /* Background.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Background.h; sourceTree = "<group>"; };
+		0A8D85E11BA704BD00585A62 /* Background.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Background.m; sourceTree = "<group>"; };
+		0A8D85E31BA706A400585A62 /* Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Background.png; path = Assets/Background.png; sourceTree = "<group>"; };
 		0A95A7E71B7C14A00030B540 /* UpButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpButton.h; sourceTree = "<group>"; };
 		0A95A7E81B7C14A00030B540 /* UpButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpButton.m; sourceTree = "<group>"; };
 		0AA14D751B7561AF00770A6E /* astronaut.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = astronaut.png; path = Assets/astronaut.png; sourceTree = "<group>"; };
@@ -268,6 +273,7 @@
 				0AA14D751B7561AF00770A6E /* astronaut.png */,
 				0A1792061BA1C41600163CED /* door.png */,
 				0AA14D771B7561B900770A6E /* leftButton.png */,
+				0A8D85E31BA706A400585A62 /* Background.png */,
 				0AA14D781B7561B900770A6E /* rightButton.png */,
 				0A50E1021B723F6E008E69D5 /* platform.png */,
 				0A50E0F01B712D3A008E69D5 /* mainScreen.png */,
@@ -430,6 +436,8 @@
 				0A10A87D1B73E8020011FB3F /* Player.m */,
 				0A1792081BA1C49400163CED /* Door.h */,
 				0A1792091BA1C49400163CED /* Door.m */,
+				0A8D85E01BA704BD00585A62 /* Background.h */,
+				0A8D85E11BA704BD00585A62 /* Background.m */,
 			);
 			name = Entity;
 			sourceTree = "<group>";
@@ -561,6 +569,7 @@
 				0A50E1031B723F6E008E69D5 /* platform.png in Resources */,
 				0A50E0FC1B71510B008E69D5 /* gameFragmentShader.glsl in Resources */,
 				0AA14D761B7561AF00770A6E /* astronaut.png in Resources */,
+				0A8D85E41BA706A400585A62 /* Background.png in Resources */,
 				0AA72BAA1B6EF2B100018D9E /* Assets.xcassets in Resources */,
 				0AC917FE1B6FA6E30068B51D /* vertexShader.glsl in Resources */,
 				0AA72BA51B6EF2B100018D9E /* Main.storyboard in Resources */,
@@ -602,6 +611,7 @@
 				0A50E1061B723F91008E69D5 /* Platform.m in Sources */,
 				0AD8CDE51B702EBD00833F84 /* MathHelper.m in Sources */,
 				0AA14D7E1B75647900770A6E /* GameGui.m in Sources */,
+				0A8D85E21BA704BD00585A62 /* Background.m in Sources */,
 				0A50E1091B724D34008E69D5 /* Planet.m in Sources */,
 				0AAA5C991BA381DE00F6BE4A /* ChangeScreenNextButton.m in Sources */,
 				0A17920A1BA1C49400163CED /* Door.m in Sources */,
