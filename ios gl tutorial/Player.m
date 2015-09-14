@@ -27,10 +27,10 @@ typedef enum{WALKING, JUMPING, STANDING} PlayerState;
 @implementation Player
 const int playerWidth = 0.359375;
 const Vertex playerVertices[] = {
-    {{0, 0, 0}, {0,1}},
-    {{0, .23, 0}, {1,1}},
-    {{.2, .23, 0}, {1,0}},
-    {{.2, 0, 0}, {0,0}}
+    {{0, -0.115, 0}, {0,1}},
+    {{0, .115, 0}, {1,1}},
+    {{.2, .115, 0}, {1,0}},
+    {{.2, -0.115, 0}, {0,0}}
 };
 
 const GLushort playerIndices[] = {
@@ -50,7 +50,7 @@ const vec2 animationStates[] = {
     return self;
 }
 -(CGRect)getCollisionBox{
-    return CGRectMake((0+self.radius), 0+self.theta, .2, .125 *(1/self.radius));
+    return CGRectMake((+self.radius), -.0625+self.theta, .2, .0625 *(1/self.radius));
 }
 -(void)updatePosition:(nullable NSArray *)gameObjects{
     rVelocity -= GRAVITY*(1.0f/30.0f);
