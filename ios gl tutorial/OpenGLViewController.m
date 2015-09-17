@@ -82,7 +82,7 @@ static id theController = nil;
     guiObjects = [[NSMutableArray alloc]init];
     
     planet =[[Planet alloc]initRadius:1 theta:0];
-    player = [[Player alloc]initRadius:2 theta:0];
+    player = [[Player alloc]initRadius:1 theta:0];
 	
     //gameObjects = [levelLoader loadLevel:0];
     
@@ -205,7 +205,7 @@ static id theController = nil;
             glActiveTexture(GL_TEXTURE0);
             for(GameGui *gui in guiObjects){
                 #ifdef DEBUG
-                glPushGroupMarkerEXT(0, [[NSString stringWithFormat:@"Rendering Gui %d", [guiObjects indexOfObject:gui]]UTF8String]);
+                glPushGroupMarkerEXT(0, [[NSString stringWithFormat:@"Rendering Gui %lu", (unsigned long)[guiObjects indexOfObject:gui]]UTF8String]);
                 #endif
                 glBindVertexArrayOES(gui.vaoID);
                 [guiShader enableAttribs];
