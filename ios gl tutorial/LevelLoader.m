@@ -31,7 +31,7 @@
     NSMutableArray* gameObjects = [[NSMutableArray alloc]init];
 	[gameObjects addObject:[[Background alloc] initRadius:1 theta:0]];
     if(level<[allObjects count]){
-        NSArray* platforms = [[allObjects objectAtIndex:level] objectForKey:@"platforms"];
+        NSArray* platforms = [[allObjects objectAtIndex:level] objectForKey:@"platform"];
         for(int i=0;i<[platforms count];i+=2){
             float radius,theta;
             radius = [(NSNumber*)[platforms objectAtIndex:i] floatValue];
