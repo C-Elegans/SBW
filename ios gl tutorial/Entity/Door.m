@@ -29,7 +29,7 @@ const GLushort doorIndices[] = {
 	return self;
 }
 -(CGRect)getCollisionBox{
-	return CGRectMake(0+self.radius, 0.08+self.theta, .2, .13*(1/self.radius));
+	return CGRectMake(0+self.radius, (0.08*(1/self.radius))+self.theta, .2, .13*(1/self.radius));
 }
 -(void)onCollisionWith:(GameEntity *)player{
 	[OpenGLViewController getController].gameState = LEVEL_CHANGE;
