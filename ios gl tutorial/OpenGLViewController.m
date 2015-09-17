@@ -179,6 +179,7 @@ static id theController = nil;
                 glDrawElements(GL_TRIANGLES, entity.numVertices, GL_UNSIGNED_SHORT, 0);
                 
                 [gameShader disableAttribs];
+				[entity update];
                 //glBindVertexArrayOES(0);
                 #ifdef DEBUG
                 glPopGroupMarkerEXT();

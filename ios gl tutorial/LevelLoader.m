@@ -10,6 +10,7 @@
 #import "Platform.h"
 #import "Door.h"
 #import "Background.h"
+#import "JumpPad.h"
 @implementation LevelLoader
 -(id)init{
     self = [super init];
@@ -42,9 +43,16 @@
 		float radius = [(NSNumber*)[doors objectAtIndex:0] floatValue];
 		float theta = [(NSNumber*)[doors objectAtIndex:1] floatValue];
 		[gameObjects addObject:[[Door alloc]initRadius:radius theta:theta]];
+		NSArray* pads = [[allObjects objectAtIndex:level] objectForKey:@"JumpPad"];
+		for(int i=0;i<[pads count];i+=2){
+			float radius,theta;
+			radius = [(NSNumber*)[pads objectAtIndex:i] floatValue];
+			theta = [(NSNumber*)[pads objectAtIndex:i+1] floatValue];
+			[gameObjects addObject:[[JumpPad alloc]initRadius:radius theta:theta]];
+		}
     }
-    
-    
+	
+	
     return gameObjects;
 }
 @end

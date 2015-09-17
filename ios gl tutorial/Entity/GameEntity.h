@@ -21,4 +21,5 @@
 @property int rotation;
 -(id)initRadius:(float)r theta:(float)t;
 -(CGRect)getCollisionBox;
+-(void)update;
 @end

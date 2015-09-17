@@ -42,4 +42,7 @@
         _theta += TWO_PI;
     }
 }
+-(void)update{
+	
+}
 @end
