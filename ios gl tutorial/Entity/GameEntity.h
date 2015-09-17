@@ -22,4 +22,6 @@
 -(id)initRadius:(float)r theta:(float)t;
 -(CGRect)getCollisionBox;
 -(void)update;
+-(BOOL)playerShouldCollide;
+-(void)onCollisionWith:(GameEntity*)player;
 @end

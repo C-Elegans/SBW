@@ -32,4 +32,7 @@ const GLushort planetIndices[] = {
     //return CGRectMake(0, 0, .5+[super radius], TWO_PI);
     return CGRectMake(0, 0, 0, 0);
 }
+-(BOOL)playerShouldCollide{
+	return NO;
+}
 @end

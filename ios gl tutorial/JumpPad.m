@@ -8,6 +8,7 @@
 
 #import "JumpPad.h"
 #import "OpenGLViewController.h"
+#import "Player.h"
 #import "GameEntityProtectedMethods.h"
 @interface JumpPad(){
 	float time;
@@ -38,7 +39,7 @@ const vec2 jumpAnimationStates[] = {
 	return self;
 }
 -(CGRect)getCollisionBox{
-	return CGRectMake(0+self.radius, 0+self.theta, .2, .2*(1/self.radius));
+	return CGRectMake(0+self.radius, 0+self.theta, .05, .2*(1/self.radius));
 }
 -(void)update{
 	time +=[OpenGLViewController getController].frameTime;
@@ -52,5 +53,13 @@ const vec2 jumpAnimationStates[] = {
 	
 	
 	self.textureOffset = jumpAnimationStates[animationState];
+}
+-(BOOL)playerShouldCollide{
+	return NO;
+}
+-(void)onCollisionWith:(GameEntity *)player{
+	Player* p = (Player*)player;
+	[p jump:GRAVITY/1.5];
+	
 }
 @end

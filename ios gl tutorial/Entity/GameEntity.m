@@ -45,4 +45,10 @@
 -(void)update{
 	
 }
+-(BOOL)playerShouldCollide{
+	return YES;
+}
+-(void)onCollisionWith:(GameEntity *)player{
+	
+}
 @end

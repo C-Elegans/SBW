@@ -12,12 +12,12 @@
 #import "Door.h"
 #import "OpenGLViewController.h"
 #import "MathHelper.h"
-#define JUMP_HEIGHT GRAVITY/3
+
 #define MOVE_SPEED 0.6
 typedef enum{WALKING, JUMPING, STANDING} PlayerState;
 
 @interface Player(){
-    float rVelocity;
+
 	PlayerState playerState;
 	int animationState;
 	float time;
@@ -53,42 +53,41 @@ const vec2 animationStates[] = {
     return CGRectMake((+self.radius), -0.04+self.theta, .2, (0.125-0.04) *(1/self.radius));
 }
 -(void)updatePosition:(nullable NSArray *)gameObjects{
-    rVelocity -= GRAVITY*([OpenGLViewController getController].frameTime);
-    self.radius += rVelocity;
+    _rVelocity -= GRAVITY*([OpenGLViewController getController].frameTime);
+    self.radius += _rVelocity;
+	if(self.radius < 1.06){
+		_rVelocity = 0;
+		self.radius = 1.06;
+		if(playerState == JUMPING){
+			playerState = STANDING;
+		}
+	}
     CGRect myCollisionBox = [self getCollisionBox];
     for(GameEntity* entity in gameObjects){
         if([MathHelper rect:myCollisionBox intersects:entity.getCollisionBox]){
-			if(!([entity class]==[Planet class]) && !([entity class]==[Door class])){
+			[entity onCollisionWith:self];
+			if([entity playerShouldCollide]){
                 vec2 moveVec = [MathHelper moveToUndoCollision:myCollisionBox withRect:entity.getCollisionBox];
                 self.radius += moveVec.x;
                 self.theta += moveVec.y;
                 if(moveVec.x){
-                    rVelocity = 0;
+                    _rVelocity = 0;
 					if(playerState == JUMPING){
 						playerState = STANDING;
 					}
                 }
                 //NSLog(@"object intersected! object %@  index %lu",entity, [gameObjects indexOfObject:entity]);
-			}else if (([entity class]==[Door class])){
-				[OpenGLViewController getController].gameState = LEVEL_CHANGE;
-				
 			}
         }
     }
-    if(self.radius < 1.06){
-        rVelocity = 0;
-        self.radius = 1.06;
-		if(playerState == JUMPING){
-			playerState = STANDING;
-		}
-    }
+	
 	[self updateAnimation];
 	
 }
--(void)jump{
+-(void)jump:(float)speed{
     if(playerState == WALKING || playerState == STANDING){
 		playerState = JUMPING;
-        rVelocity = JUMP_HEIGHT;
+        _rVelocity = speed;
     }
 }
 -(void)move:(int) moveVal{

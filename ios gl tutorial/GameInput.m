@@ -48,7 +48,7 @@
 		[player move:0];
 	}
     if(uButton.buttonDown){
-        [player jump];
+		[player jump:JUMP_HEIGHT];
     }
 	
 }

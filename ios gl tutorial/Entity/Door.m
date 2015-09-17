@@ -8,6 +8,7 @@
 
 #import "Door.h"
 #import "GameEntityProtectedMethods.h"
+#import "OpenGLViewController.h"
 @implementation Door
 const Vertex doorVertices[] = {
 	{{0, -0.01, 0}, {0,1}},
@@ -29,5 +30,8 @@ const GLushort doorIndices[] = {
 }
 -(CGRect)getCollisionBox{
 	return CGRectMake(0+self.radius, 0.08+self.theta, .2, .13*(1/self.radius));
+}
+-(void)onCollisionWith:(GameEntity *)player{
+	[OpenGLViewController getController].gameState = LEVEL_CHANGE;
 }
 @end
