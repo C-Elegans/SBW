@@ -7,21 +7,21 @@
 //
 
 #import "PauseScreen.h"
-
+#import "LoaderHelper.h"
 @implementation PauseScreen
-const Vertex Vertices[] = {
-	{{1, -1, 0}, {1,1}},
-	{{1, 1, 0}, {1,0}},
-	{{-1, 1, 0}, {0,0}},
-	{{-1, -1, 0}, {0,1}}
-};
 
-const GLushort Indices[] = {
-	0, 1, 2,
-	2, 3, 0
-};
--(id)initPosition:(vec3)pos view:(nonnull UIView *)view{
-	self = [super initPosition:pos view:view];
+-(id)initPosition:(vec3)pos view:(UIView*) view{
+	self = [super init];
+	//playButton = [[MainScreenPlayButton alloc]initWithPositionX:-0.72 y:0 view:view];
+	texture = [LoaderHelper loadTexture:@"mainScreen.png" enableMipmaps:false];
 	return self;
+}
+-(void)touchesEnded:(nonnull NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event{
+	//	[playButton touchesEnded:touches withEvent:event];
+}
+-(NSArray*)getButtons{
+	//	NSArray* array = [[NSArray alloc] initWithObjects:playButton, nil];
+	//	return array;
+	return nil;
 }
 @end

@@ -33,8 +33,6 @@ const GLushort changeIndices[] = {
 	nextButton = [[ChangeScreenNextButton alloc]initWithPositionX:0.05 y:0 view:view];
 	menuButton = [[ChangeScreenMenuButton alloc]initWithPositionX:-.95 y:0 view:view];
 	position = pos;
-	vaoID = [LoaderHelper loadToVBOS:&changeVertices[0] verticesSize:sizeof(changeVertices) indices:&changeIndices[0] indicesSize:sizeof(changeIndices) objectName:@"LevelChangeScreen"];
-	numVertices = sizeof(changeIndices)/sizeof(changeIndices[0]);
 	texture = [LoaderHelper loadTexture:@"levelScreen.png" enableMipmaps:false];
 	return self;
 }
