@@ -115,6 +115,7 @@ static id theController = nil;
 	[self updateFrameTime];
     glClearColor(0, 0, 0.1, 1);
     glClear(GL_COLOR_BUFFER_BIT);
+	
     switch (_gameState) {
         case MAIN:
 			{
@@ -372,6 +373,8 @@ static id theController = nil;
 			case RUNNING:
 				self.preferredFramesPerSecond = 60; break;
 			case LEVEL_CHANGE:
+				self.preferredFramesPerSecond = 10; break;
+			case PAUSED:
 				self.preferredFramesPerSecond = 10; break;
 	
 		}
