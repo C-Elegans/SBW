@@ -93,7 +93,7 @@ static id theController = nil;
     LeftButton* leftButton = [[LeftButton alloc]initWithPositionX:-.9 y:-.5 view:self.view];
     RightButton* rightButton = [[RightButton alloc]initWithPositionX:-.6 y:-.5 view:self.view];
     UpButton* upButton = [[UpButton alloc]initWithPositionX:.7 y:-.5 view:self.view];
-	PauseButton* pauseButton =[[PauseButton alloc]initWithPositionX:.9 y:.9 view:self.view];
+	PauseButton* pauseButton =[[PauseButton alloc]initWithPositionX:.9 y:.85 view:self.view];
     [guiObjects addObject:leftButton];
     [guiObjects addObject:rightButton];
     [guiObjects addObject:upButton];
@@ -325,6 +325,16 @@ static id theController = nil;
 	else{
         [input touchesEnded:touches withEvent:event];
     }
+	switch (_gameState) {
+  		case MAIN:
+			[mainScreen touchesEnded:touches withEvent:event];break;
+		case LEVEL_CHANGE:
+			[changeScreen touchesEnded:touches withEvent:event]; break;
+		case RUNNING:
+			[input touchesEnded:touches withEvent:event];break;
+		case PAUSED:
+			[pauseScreen touchesEnded:touches withEvent:event];break;
+	}
 }
 -(void)touchesMoved:(nonnull NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event{
     [super touchesMoved:touches withEvent:event];

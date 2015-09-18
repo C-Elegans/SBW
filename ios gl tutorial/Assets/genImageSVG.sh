@@ -12,6 +12,7 @@ elif [ "$#" -eq 4 ]; then
 	inkscape -z -C -w $3 -h $4 -e $2 $1
 	git add $2
 else
-	echo "Usage ./genIcons source.svg target.png size"
+	echo "Usage ./genImageSVG source.svg target.png size"
+	echo "Usage ./genImageSVG source.svg target.png width height"
 	exit 1
 fi

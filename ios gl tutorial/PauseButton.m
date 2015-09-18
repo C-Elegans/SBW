@@ -7,6 +7,7 @@
 //
 
 #import "PauseButton.h"
+#import "OpenGLViewController.h"
 #import "GameGuiProtectedMethods.h"
 @interface PauseButton (){
 	CGRect frameRect;
@@ -47,7 +48,7 @@ const GLushort pauseButtonIndices[] = {
 	
 	for(UITouch* touch in touches){
 		if ([MathHelper point:[touch locationInView:parentView] insideBox:[self getBoundingBox]]) {
-			//pause game
+			[OpenGLViewController getController].gameState = PAUSED;
 			
 		}
 	}

@@ -49,6 +49,8 @@
 		0AA4B48D1BAB84FD00F32400 /* PauseScreenResumeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA4B48C1BAB84FD00F32400 /* PauseScreenResumeButton.m */; };
 		0AA4B4901BAB850A00F32400 /* PauseButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA4B48F1BAB850A00F32400 /* PauseButton.m */; };
 		0AA4B4921BAB883100F32400 /* pauseButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AA4B4911BAB883100F32400 /* pauseButton.png */; };
+		0AA4B4941BAC479A00F32400 /* resumeButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AA4B4931BAC479A00F32400 /* resumeButton.png */; };
+		0AA4B4961BAC47A400F32400 /* pauseScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AA4B4951BAC47A400F32400 /* pauseScreen.png */; };
 		0AA72B9C1B6EF2B000018D9E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA72B9B1B6EF2B000018D9E /* main.m */; };
 		0AA72B9F1B6EF2B000018D9E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA72B9E1B6EF2B000018D9E /* AppDelegate.m */; };
 		0AA72BA21B6EF2B000018D9E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA72BA11B6EF2B000018D9E /* ViewController.m */; };
@@ -157,6 +159,8 @@
 		0AA4B48E1BAB850A00F32400 /* PauseButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PauseButton.h; sourceTree = "<group>"; };
 		0AA4B48F1BAB850A00F32400 /* PauseButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PauseButton.m; sourceTree = "<group>"; };
 		0AA4B4911BAB883100F32400 /* pauseButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pauseButton.png; path = Assets/pauseButton.png; sourceTree = "<group>"; };
+		0AA4B4931BAC479A00F32400 /* resumeButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = resumeButton.png; path = Assets/resumeButton.png; sourceTree = "<group>"; };
+		0AA4B4951BAC47A400F32400 /* pauseScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pauseScreen.png; path = Assets/pauseScreen.png; sourceTree = "<group>"; };
 		0AA72B971B6EF2AF00018D9E /* ios gl tutorial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios gl tutorial.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AA72B9B1B6EF2B000018D9E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0AA72B9D1B6EF2B000018D9E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -306,6 +310,8 @@
 				0A1792111BA2157700163CED /* levelScreen.png */,
 				0A24981C1BAB5B6E00C2C872 /* jumpPad.png */,
 				0AA4B4911BAB883100F32400 /* pauseButton.png */,
+				0AA4B4931BAC479A00F32400 /* resumeButton.png */,
+				0AA4B4951BAC47A400F32400 /* pauseScreen.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -585,6 +591,7 @@
 				0A4167711B7D30090029D807 /* upButton.png in Resources */,
 				0AA14D791B7561B900770A6E /* leftButton.png in Resources */,
 				0AA14D7A1B7561B900770A6E /* rightButton.png in Resources */,
+				0AA4B4961BAC47A400F32400 /* pauseScreen.png in Resources */,
 				0A0708801BA366B200A757C2 /* playButton.png in Resources */,
 				0AA14D891B75682600770A6E /* guiVertexShader.glsl in Resources */,
 				0A50E0FA1B7150FE008E69D5 /* gameVertexShader.glsl in Resources */,
@@ -600,6 +607,7 @@
 				0A66434F1BA3892800BA19E1 /* menuButton.png in Resources */,
 				0A50E1031B723F6E008E69D5 /* platform.png in Resources */,
 				0A50E0FC1B71510B008E69D5 /* gameFragmentShader.glsl in Resources */,
+				0AA4B4941BAC479A00F32400 /* resumeButton.png in Resources */,
 				0AA14D761B7561AF00770A6E /* astronaut.png in Resources */,
 				0A8D85E41BA706A400585A62 /* Background.png in Resources */,
 				0AA72BAA1B6EF2B100018D9E /* Assets.xcassets in Resources */,
