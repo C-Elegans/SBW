@@ -29,7 +29,7 @@ const GLushort changeIndices[] = {
 
 @implementation LevelChangeScreen
 -(id)initPosition:(vec3)pos view:(UIView *)view{
-	self = [super init];
+	self = [super initPosition:pos view:view];
 	nextButton = [[ChangeScreenNextButton alloc]initWithPositionX:0.05 y:0 view:view];
 	menuButton = [[ChangeScreenMenuButton alloc]initWithPositionX:-.95 y:0 view:view];
 	position = pos;

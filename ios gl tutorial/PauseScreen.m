@@ -8,20 +8,24 @@
 
 #import "PauseScreen.h"
 #import "LoaderHelper.h"
+#import "PauseScreenResumeButton.h"
+@interface PauseScreen(){
+	PauseScreenResumeButton* resumeButton;
+}
+@end
 @implementation PauseScreen
 
 -(id)initPosition:(vec3)pos view:(UIView*) view{
-	self = [super init];
-	//playButton = [[MainScreenPlayButton alloc]initWithPositionX:-0.72 y:0 view:view];
+	self = [super initPosition:pos view:view];
+	resumeButton = [[PauseScreenResumeButton alloc]initWithPositionX:-0.72 y:0 view:view];
 	texture = [LoaderHelper loadTexture:@"mainScreen.png" enableMipmaps:false];
 	return self;
 }
 -(void)touchesEnded:(nonnull NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event{
-	//	[playButton touchesEnded:touches withEvent:event];
+	[resumeButton touchesEnded:touches withEvent:event];
 }
 -(NSArray*)getButtons{
-	//	NSArray* array = [[NSArray alloc] initWithObjects:playButton, nil];
-	//	return array;
-	return nil;
+	NSArray* array = [[NSArray alloc] initWithObjects:resumeButton, nil];
+	return array;
 }
 @end

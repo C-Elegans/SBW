@@ -23,6 +23,8 @@
 #import "LevelLoader.h"
 #import "LevelChangeScreen.h"
 #import "Background.h"
+#import "PauseButton.h"
+#import "PauseScreen.h"
 static id theController = nil;
 
 @interface OpenGLViewController (){
@@ -30,6 +32,7 @@ static id theController = nil;
     GLuint _colorSlot;
     MainScreen* mainScreen;
 	LevelChangeScreen* changeScreen;
+	PauseScreen* pauseScreen;
     MainShader* shader;
     GameShader* gameShader;
     GuiShader* guiShader;
@@ -75,6 +78,7 @@ static id theController = nil;
 	self.preferredFramesPerSecond = 10;
     mainScreen = [[MainScreen alloc]initPosition:(vec3){0.0f,0.0f,0.0f} view:self.view];
 	changeScreen = [[LevelChangeScreen alloc]initPosition:(vec3){0.0f,0.0f,0.0f} view:self.view];
+	pauseScreen = [[PauseScreen alloc]initPosition:(vec3){0,0,0} view:self.view];
     shader = [[MainShader alloc]init];
 	gameShader = [[GameShader alloc]init];
     guiShader = [[GuiShader alloc]init];
@@ -89,10 +93,12 @@ static id theController = nil;
     LeftButton* leftButton = [[LeftButton alloc]initWithPositionX:-.9 y:-.5 view:self.view];
     RightButton* rightButton = [[RightButton alloc]initWithPositionX:-.6 y:-.5 view:self.view];
     UpButton* upButton = [[UpButton alloc]initWithPositionX:.7 y:-.5 view:self.view];
+	PauseButton* pauseButton =[[PauseButton alloc]initWithPositionX:.9 y:.9 view:self.view];
     [guiObjects addObject:leftButton];
     [guiObjects addObject:rightButton];
     [guiObjects addObject:upButton];
-    input = [[GameInput alloc]init:player leftButton:leftButton rightButton:rightButton upButton:upButton];
+	[guiObjects addObject:pauseButton];
+    input = [[GameInput alloc]init:player leftButton:leftButton rightButton:rightButton upButton:upButton pauseButton:pauseButton];
     glEnable(GL_BLEND);
     glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
     
@@ -225,6 +231,7 @@ static id theController = nil;
             
             break;
 		case LEVEL_CHANGE:
+		{
 				[shader start];
 				glBindVertexArrayOES(changeScreen->vaoID);
 				[shader enableAttribs];
@@ -256,8 +263,44 @@ static id theController = nil;
 					#endif
 				}
 				[guiShader stop];
-			
+		}
 			break;
+		case PAUSED:
+		{
+			[shader start];
+			glBindVertexArrayOES(pauseScreen->vaoID);
+			[shader enableAttribs];
+			glActiveTexture(GL_TEXTURE0);
+			glBindTexture(GL_TEXTURE_2D, pauseScreen->texture);
+			
+			glDrawElements(GL_TRIANGLES, pauseScreen->numVertices, GL_UNSIGNED_SHORT, 0);
+			[shader disableAttribs];
+			glBindVertexArrayOES(0);
+			[shader stop];
+			NSArray* buttons = [pauseScreen getButtons];
+			[guiShader start];
+			[guiShader uploadScreenCorrection:self.view.frame.size];
+			[guiShader uploadAlpha:1];
+			glActiveTexture(GL_TEXTURE0);
+			for(GameGui *gui in buttons){
+				#ifdef DEBUG
+				glPushGroupMarkerEXT(0,"rendering button");
+				#endif
+				glBindVertexArrayOES(gui.vaoID);
+				[guiShader enableAttribs];
+				[guiShader uploadObjectTransformation:gui.x y:gui.y];
+				glBindTexture(GL_TEXTURE_2D, gui.texture);
+				glDrawElements(GL_TRIANGLES, gui.numVertices, GL_UNSIGNED_SHORT, 0);
+				[guiShader disableAttribs];
+				glBindVertexArrayOES(0);
+				#ifdef DEBUG
+				glPopGroupMarkerEXT();
+				#endif
+			}
+			[guiShader stop];
+		
+		break;
+		}
     }
 	
 	

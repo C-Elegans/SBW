@@ -7,20 +7,23 @@
 //
 
 #import "GameInput.h"
+
 @interface GameInput(){
     Player* player;
     LeftButton* lButton;
     RightButton* rButton;
     UpButton* uButton;
+	PauseButton* pButton;
 }
 @end
 @implementation GameInput
--(id)init:(nonnull Player *)theplayer leftButton:(nonnull LeftButton *)leftButton rightButton:(nonnull RightButton *)rightButton upButton:(nonnull UpButton*)upButton{
+-(id)init:(nonnull Player *)theplayer leftButton:(nonnull LeftButton *)leftButton rightButton:(nonnull RightButton *)rightButton upButton:(nonnull UpButton*)upButton pauseButton:(nonnull PauseButton *)pauseButton{
     self = [super init];
     player = theplayer;
     lButton = leftButton;
     rButton = rightButton;
     uButton = upButton;
+	pButton = pauseButton;
     return self;
 }
 -(void)touchesBegan:(nonnull NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event{
@@ -32,6 +35,7 @@
     [lButton touchesEnded:touches withEvent:event];
     [rButton touchesEnded:touches withEvent:event];
     [uButton touchesEnded:touches withEvent:event];
+	[pButton touchesEnded:touches withEvent:event];
 }
 -(void)touchesMoved:(nonnull NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event{
     [lButton touchesMoved:touches withEvent:event];
