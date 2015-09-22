@@ -15,6 +15,8 @@ typedef enum{MAIN,RUNNING,LEVEL_CHANGE,PAUSED} GameState;
 }
 +(OpenGLViewController*)getController;
 -(void)resetPlayerAndInput;
+-(void)aquireLock;
+-(void)releaseLock;
 @property(readonly) float frameTime;
 @property GameState gameState;
 @property int currentLevel;

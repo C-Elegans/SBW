@@ -44,6 +44,7 @@ static id theController = nil;
     LevelLoader* levelLoader;
     Planet* planet;
 	CFTimeInterval lastTimeStamp;
+	NSLock* arrayLock;
 	//Background* background;
 }
 @property (strong) GLKBaseEffect* effect;
@@ -157,7 +158,9 @@ static id theController = nil;
 			}
             break;
         case RUNNING:
+			[arrayLock lock];
             if([gameObjects count] <1){
+				[arrayLock unlock];
                 break;
             }
             [gameShader start];
@@ -193,7 +196,7 @@ static id theController = nil;
                 glPopGroupMarkerEXT();
                 #endif
             }
-            
+			[arrayLock unlock];
             //Render player
 			[gameShader loadAnimation:player.textureDivisor textureOffset:player.textureOffset rotation:player.rotation];
             glPushGroupMarkerEXT(0, "Render Player");
@@ -229,8 +232,9 @@ static id theController = nil;
             }
             [guiShader stop];
             [input update];
+			[arrayLock lock];
             [player updatePosition:gameObjects];
-            
+			[arrayLock unlock];
             break;
 		case LEVEL_CHANGE:
 		{
@@ -351,10 +355,18 @@ static id theController = nil;
     @synchronized(self) {
         _currentLevel = currentLevel;
 		[StatisticsTracker sharedInstance].currentlevel = currentLevel;
+		[arrayLock lock];
         gameObjects = [levelLoader loadLevel:_currentLevel];
         [gameObjects addObject:planet];
+		[arrayLock unlock];
     }
     
+}
+-(void)aquireLock{
+	
+}
+-(void)releaseLock{
+	
 }
 -(int)currentLevel{
     @synchronized(self) {
@@ -385,6 +397,7 @@ static id theController = nil;
 -(GameState)gameState{
 	return _gameState;
 }
+
 -(void)updateFrameTime{
 	CFTimeInterval currentTime = CFAbsoluteTimeGetCurrent();
 	_frameTime = currentTime - lastTimeStamp;

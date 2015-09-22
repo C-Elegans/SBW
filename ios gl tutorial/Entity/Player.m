@@ -63,6 +63,7 @@ const vec2 animationStates[] = {
 		}
 	}
     CGRect myCollisionBox = [self getCollisionBox];
+	
     for(GameEntity* entity in gameObjects){
         if([MathHelper rect:myCollisionBox intersects:entity.getCollisionBox]){
 			[entity onCollisionWith:self];
@@ -80,6 +81,8 @@ const vec2 animationStates[] = {
 			}
         }
     }
+	
+
 	
 	[self updateAnimation];
 	
