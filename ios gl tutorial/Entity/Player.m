@@ -81,7 +81,7 @@ const vec2 animationStates[] = {
 			}
         }
     }
-	
+	[[OpenGLViewController getController] flushObjects];
 
 	
 	[self updateAnimation];

@@ -45,6 +45,7 @@ static id theController = nil;
     Planet* planet;
 	CFTimeInterval lastTimeStamp;
 	NSLock* arrayLock;
+	NSMutableArray* objectsToDelete;
 	//Background* background;
 }
 @property (strong) GLKBaseEffect* effect;
@@ -86,6 +87,7 @@ static id theController = nil;
     guiShader = [[GuiShader alloc]init];
     gameObjects = [[NSMutableArray alloc]init];
     guiObjects = [[NSMutableArray alloc]init];
+	objectsToDelete = [NSMutableArray new];
     
     planet =[[Planet alloc]initRadius:1 theta:0];
     player = [[Player alloc]initRadius:1 theta:0];
@@ -402,6 +404,20 @@ static id theController = nil;
 	CFTimeInterval currentTime = CFAbsoluteTimeGetCurrent();
 	_frameTime = currentTime - lastTimeStamp;
 	lastTimeStamp = currentTime;
+}
+-(void)deleteObject:(GameEntity*)object{
+	[objectsToDelete addObject:object];
+}
+-(void)flushObjects{
+	if([objectsToDelete count]>0){
+	dispatch_sync(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+		[arrayLock lock];
+		[gameObjects removeObjectsInArray:objectsToDelete];
+		[objectsToDelete removeAllObjects];
+		[arrayLock unlock];
+	});
+	}
+	
 }
 
 @end
