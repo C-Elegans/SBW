@@ -11,6 +11,7 @@
 #import "Door.h"
 #import "Background.h"
 #import "JumpPad.h"
+#import "Tree.h"
 @implementation LevelLoader
 -(id)init{
     self = [super init];
@@ -49,6 +50,13 @@
 			radius = [(NSNumber*)[pads objectAtIndex:i] floatValue];
 			theta = [(NSNumber*)[pads objectAtIndex:i+1] floatValue];
 			[gameObjects addObject:[[JumpPad alloc]initRadius:radius theta:theta]];
+		}
+		NSArray* trees = [[allObjects objectAtIndex:level] objectForKey:@"Tree"];
+		for(int i=0;i<[trees count]; i+=2){
+			float radius,theta;
+			radius = [(NSNumber*)[trees objectAtIndex:i] floatValue];
+			theta = [(NSNumber*)[trees objectAtIndex:i+1] floatValue];
+			[gameObjects addObject:[[Tree alloc]initRadius:radius theta:theta]];
 		}
     }
 	

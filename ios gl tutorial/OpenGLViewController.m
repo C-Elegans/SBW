@@ -104,8 +104,8 @@ static id theController = nil;
     glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
     
     
-    self.currentLevel = [StatisticsTracker sharedInstance].currentlevel;
-    
+	// self.currentLevel = [StatisticsTracker sharedInstance].currentlevel;
+	self.currentLevel = 0;
 }
 -(BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation{
     return UIInterfaceOrientationIsLandscape(toInterfaceOrientation);
