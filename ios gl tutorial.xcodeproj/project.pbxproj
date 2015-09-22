@@ -29,12 +29,14 @@
 		0A50E1061B723F91008E69D5 /* Platform.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A50E1051B723F91008E69D5 /* Platform.m */; };
 		0A50E1091B724D34008E69D5 /* Planet.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A50E1081B724D34008E69D5 /* Planet.m */; };
 		0A50E10B1B725006008E69D5 /* earth.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A50E10A1B725006008E69D5 /* earth.png */; };
+		0A5103BC1BB0D8E100AF7E39 /* tree.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A5103BB1BB0D8E100AF7E39 /* tree.png */; };
 		0A66434D1BA3848B00BA19E1 /* nextButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A66434C1BA3848B00BA19E1 /* nextButton.png */; };
 		0A66434F1BA3892800BA19E1 /* menuButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A66434E1BA3892800BA19E1 /* menuButton.png */; };
 		0A6643521BA3894300BA19E1 /* ChangeScreenMenuButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6643511BA3894300BA19E1 /* ChangeScreenMenuButton.m */; };
 		0A8D85E21BA704BD00585A62 /* Background.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A8D85E11BA704BD00585A62 /* Background.m */; };
 		0A8D85E41BA706A400585A62 /* Background.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A8D85E31BA706A400585A62 /* Background.png */; };
 		0A95A7E91B7C14A00030B540 /* UpButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A95A7E81B7C14A00030B540 /* UpButton.m */; };
+		0A9BD6AA1BB0D2F700A24952 /* Tree.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9BD6A91BB0D2F700A24952 /* Tree.m */; };
 		0AA14D761B7561AF00770A6E /* astronaut.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AA14D751B7561AF00770A6E /* astronaut.png */; };
 		0AA14D791B7561B900770A6E /* leftButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AA14D771B7561B900770A6E /* leftButton.png */; };
 		0AA14D7A1B7561B900770A6E /* rightButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AA14D781B7561B900770A6E /* rightButton.png */; };
@@ -51,6 +53,7 @@
 		0AA4B4921BAB883100F32400 /* pauseButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AA4B4911BAB883100F32400 /* pauseButton.png */; };
 		0AA4B4941BAC479A00F32400 /* resumeButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AA4B4931BAC479A00F32400 /* resumeButton.png */; };
 		0AA4B4961BAC47A400F32400 /* pauseScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AA4B4951BAC47A400F32400 /* pauseScreen.png */; };
+		0AA4B49A1BAC5BA900F32400 /* StatisticsTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA4B4991BAC5BA900F32400 /* StatisticsTracker.m */; };
 		0AA72B9C1B6EF2B000018D9E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA72B9B1B6EF2B000018D9E /* main.m */; };
 		0AA72B9F1B6EF2B000018D9E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA72B9E1B6EF2B000018D9E /* AppDelegate.m */; };
 		0AA72BA21B6EF2B000018D9E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA72BA11B6EF2B000018D9E /* ViewController.m */; };
@@ -127,6 +130,7 @@
 		0A50E1071B724D34008E69D5 /* Planet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Planet.h; path = Entity/Planet.h; sourceTree = "<group>"; };
 		0A50E1081B724D34008E69D5 /* Planet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Planet.m; path = Entity/Planet.m; sourceTree = "<group>"; };
 		0A50E10A1B725006008E69D5 /* earth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = earth.png; path = Assets/earth.png; sourceTree = "<group>"; };
+		0A5103BB1BB0D8E100AF7E39 /* tree.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tree.png; path = Assets/tree.png; sourceTree = "<group>"; };
 		0A66434C1BA3848B00BA19E1 /* nextButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = nextButton.png; path = Assets/nextButton.png; sourceTree = "<group>"; };
 		0A66434E1BA3892800BA19E1 /* menuButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menuButton.png; path = Assets/menuButton.png; sourceTree = "<group>"; };
 		0A6643501BA3894300BA19E1 /* ChangeScreenMenuButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangeScreenMenuButton.h; sourceTree = "<group>"; };
@@ -136,6 +140,8 @@
 		0A8D85E31BA706A400585A62 /* Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Background.png; path = Assets/Background.png; sourceTree = "<group>"; };
 		0A95A7E71B7C14A00030B540 /* UpButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpButton.h; sourceTree = "<group>"; };
 		0A95A7E81B7C14A00030B540 /* UpButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpButton.m; sourceTree = "<group>"; };
+		0A9BD6A81BB0D2F700A24952 /* Tree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tree.h; sourceTree = "<group>"; };
+		0A9BD6A91BB0D2F700A24952 /* Tree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tree.m; sourceTree = "<group>"; };
 		0AA14D751B7561AF00770A6E /* astronaut.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = astronaut.png; path = Assets/astronaut.png; sourceTree = "<group>"; };
 		0AA14D771B7561B900770A6E /* leftButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = leftButton.png; path = Assets/leftButton.png; sourceTree = "<group>"; };
 		0AA14D781B7561B900770A6E /* rightButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = rightButton.png; path = Assets/rightButton.png; sourceTree = "<group>"; };
@@ -161,6 +167,8 @@
 		0AA4B4911BAB883100F32400 /* pauseButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pauseButton.png; path = Assets/pauseButton.png; sourceTree = "<group>"; };
 		0AA4B4931BAC479A00F32400 /* resumeButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = resumeButton.png; path = Assets/resumeButton.png; sourceTree = "<group>"; };
 		0AA4B4951BAC47A400F32400 /* pauseScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pauseScreen.png; path = Assets/pauseScreen.png; sourceTree = "<group>"; };
+		0AA4B4981BAC5BA900F32400 /* StatisticsTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatisticsTracker.h; sourceTree = "<group>"; };
+		0AA4B4991BAC5BA900F32400 /* StatisticsTracker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatisticsTracker.m; sourceTree = "<group>"; };
 		0AA72B971B6EF2AF00018D9E /* ios gl tutorial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios gl tutorial.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AA72B9B1B6EF2B000018D9E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0AA72B9D1B6EF2B000018D9E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -298,6 +306,7 @@
 				0A66434E1BA3892800BA19E1 /* menuButton.png */,
 				0A07087F1BA366B200A757C2 /* playButton.png */,
 				0A66434C1BA3848B00BA19E1 /* nextButton.png */,
+				0A5103BB1BB0D8E100AF7E39 /* tree.png */,
 				0A4167701B7D30090029D807 /* upButton.png */,
 				0AA14D751B7561AF00770A6E /* astronaut.png */,
 				0A1792061BA1C41600163CED /* door.png */,
@@ -354,6 +363,15 @@
 			name = Input;
 			sourceTree = "<group>";
 		};
+		0AA4B4971BAC5B7D00F32400 /* GameCenter */ = {
+			isa = PBXGroup;
+			children = (
+				0AA4B4981BAC5BA900F32400 /* StatisticsTracker.h */,
+				0AA4B4991BAC5BA900F32400 /* StatisticsTracker.m */,
+			);
+			name = GameCenter;
+			sourceTree = "<group>";
+		};
 		0AA72B8E1B6EF2AF00018D9E = {
 			isa = PBXGroup;
 			children = (
@@ -401,6 +419,7 @@
 				0AD8CDE71B702EFB00833F84 /* Entity */,
 				0AD8CDE61B702EF500833F84 /* Helper */,
 				0AA14D7F1B75647D00770A6E /* Gui */,
+				0AA4B4971BAC5B7D00F32400 /* GameCenter */,
 			);
 			path = "ios gl tutorial";
 			sourceTree = "<group>";
@@ -475,6 +494,8 @@
 				0A8D85E11BA704BD00585A62 /* Background.m */,
 				0A24981E1BAB5B8300C2C872 /* JumpPad.h */,
 				0A24981F1BAB5B8300C2C872 /* JumpPad.m */,
+				0A9BD6A81BB0D2F700A24952 /* Tree.h */,
+				0A9BD6A91BB0D2F700A24952 /* Tree.m */,
 			);
 			name = Entity;
 			sourceTree = "<group>";
@@ -591,6 +612,7 @@
 				0A4167711B7D30090029D807 /* upButton.png in Resources */,
 				0AA14D791B7561B900770A6E /* leftButton.png in Resources */,
 				0AA14D7A1B7561B900770A6E /* rightButton.png in Resources */,
+				0A5103BC1BB0D8E100AF7E39 /* tree.png in Resources */,
 				0AA4B4961BAC47A400F32400 /* pauseScreen.png in Resources */,
 				0A0708801BA366B200A757C2 /* playButton.png in Resources */,
 				0AA14D891B75682600770A6E /* guiVertexShader.glsl in Resources */,
@@ -643,6 +665,7 @@
 				0AA14D831B7565ED00770A6E /* LeftButton.m in Sources */,
 				0AA4B4901BAB850A00F32400 /* PauseButton.m in Sources */,
 				0AF351601B73EF8E00495590 /* GameInput.m in Sources */,
+				0AA4B49A1BAC5BA900F32400 /* StatisticsTracker.m in Sources */,
 				0A10A87E1B73E8020011FB3F /* Player.m in Sources */,
 				0A4167781B7EC5680029D807 /* LevelLoader.m in Sources */,
 				0AD8CDEA1B702FC400833F84 /* LoaderHelper.m in Sources */,
@@ -653,6 +676,7 @@
 				0A50E1061B723F91008E69D5 /* Platform.m in Sources */,
 				0AD8CDE51B702EBD00833F84 /* MathHelper.m in Sources */,
 				0AA14D7E1B75647900770A6E /* GameGui.m in Sources */,
+				0A9BD6AA1BB0D2F700A24952 /* Tree.m in Sources */,
 				0A8D85E21BA704BD00585A62 /* Background.m in Sources */,
 				0A50E1091B724D34008E69D5 /* Planet.m in Sources */,
 				0AAA5C991BA381DE00F6BE4A /* ChangeScreenNextButton.m in Sources */,
@@ -818,7 +842,7 @@
 				GCC_FAST_MATH = YES;
 				GCC_UNROLL_LOOPS = YES;
 				INFOPLIST_FILE = "ios gl tutorial/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LLVM_LTO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.C-Elegans.ios-gl-tutorial";
@@ -837,7 +861,7 @@
 				GCC_FAST_MATH = YES;
 				GCC_UNROLL_LOOPS = YES;
 				INFOPLIST_FILE = "ios gl tutorial/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LLVM_LTO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.C-Elegans.ios-gl-tutorial";
