@@ -25,6 +25,7 @@
 #import "Background.h"
 #import "PauseButton.h"
 #import "PauseScreen.h"
+#import "StatisticsTracker.h"
 static id theController = nil;
 
 @interface OpenGLViewController (){
@@ -103,7 +104,7 @@ static id theController = nil;
     glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
     
     
-    self.currentLevel = 0;
+    self.currentLevel = [StatisticsTracker sharedInstance].currentlevel;
     
 }
 -(BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation{
@@ -349,6 +350,7 @@ static id theController = nil;
 -(void)setCurrentLevel:(int)currentLevel{
     @synchronized(self) {
         _currentLevel = currentLevel;
+		[StatisticsTracker sharedInstance].currentlevel = currentLevel;
         gameObjects = [levelLoader loadLevel:_currentLevel];
         [gameObjects addObject:planet];
     }

@@ -51,6 +51,7 @@
 		0AA4B4921BAB883100F32400 /* pauseButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AA4B4911BAB883100F32400 /* pauseButton.png */; };
 		0AA4B4941BAC479A00F32400 /* resumeButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AA4B4931BAC479A00F32400 /* resumeButton.png */; };
 		0AA4B4961BAC47A400F32400 /* pauseScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AA4B4951BAC47A400F32400 /* pauseScreen.png */; };
+		0AA4B49A1BAC5BA900F32400 /* StatisticsTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA4B4991BAC5BA900F32400 /* StatisticsTracker.m */; };
 		0AA72B9C1B6EF2B000018D9E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA72B9B1B6EF2B000018D9E /* main.m */; };
 		0AA72B9F1B6EF2B000018D9E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA72B9E1B6EF2B000018D9E /* AppDelegate.m */; };
 		0AA72BA21B6EF2B000018D9E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA72BA11B6EF2B000018D9E /* ViewController.m */; };
@@ -161,6 +162,8 @@
 		0AA4B4911BAB883100F32400 /* pauseButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pauseButton.png; path = Assets/pauseButton.png; sourceTree = "<group>"; };
 		0AA4B4931BAC479A00F32400 /* resumeButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = resumeButton.png; path = Assets/resumeButton.png; sourceTree = "<group>"; };
 		0AA4B4951BAC47A400F32400 /* pauseScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pauseScreen.png; path = Assets/pauseScreen.png; sourceTree = "<group>"; };
+		0AA4B4981BAC5BA900F32400 /* StatisticsTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatisticsTracker.h; sourceTree = "<group>"; };
+		0AA4B4991BAC5BA900F32400 /* StatisticsTracker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatisticsTracker.m; sourceTree = "<group>"; };
 		0AA72B971B6EF2AF00018D9E /* ios gl tutorial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios gl tutorial.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AA72B9B1B6EF2B000018D9E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0AA72B9D1B6EF2B000018D9E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -354,6 +357,15 @@
 			name = Input;
 			sourceTree = "<group>";
 		};
+		0AA4B4971BAC5B7D00F32400 /* GameCenter */ = {
+			isa = PBXGroup;
+			children = (
+				0AA4B4981BAC5BA900F32400 /* StatisticsTracker.h */,
+				0AA4B4991BAC5BA900F32400 /* StatisticsTracker.m */,
+			);
+			name = GameCenter;
+			sourceTree = "<group>";
+		};
 		0AA72B8E1B6EF2AF00018D9E = {
 			isa = PBXGroup;
 			children = (
@@ -401,6 +413,7 @@
 				0AD8CDE71B702EFB00833F84 /* Entity */,
 				0AD8CDE61B702EF500833F84 /* Helper */,
 				0AA14D7F1B75647D00770A6E /* Gui */,
+				0AA4B4971BAC5B7D00F32400 /* GameCenter */,
 			);
 			path = "ios gl tutorial";
 			sourceTree = "<group>";
@@ -643,6 +656,7 @@
 				0AA14D831B7565ED00770A6E /* LeftButton.m in Sources */,
 				0AA4B4901BAB850A00F32400 /* PauseButton.m in Sources */,
 				0AF351601B73EF8E00495590 /* GameInput.m in Sources */,
+				0AA4B49A1BAC5BA900F32400 /* StatisticsTracker.m in Sources */,
 				0A10A87E1B73E8020011FB3F /* Player.m in Sources */,
 				0A4167781B7EC5680029D807 /* LevelLoader.m in Sources */,
 				0AD8CDEA1B702FC400833F84 /* LoaderHelper.m in Sources */,
@@ -818,7 +832,7 @@
 				GCC_FAST_MATH = YES;
 				GCC_UNROLL_LOOPS = YES;
 				INFOPLIST_FILE = "ios gl tutorial/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LLVM_LTO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.C-Elegans.ios-gl-tutorial";
@@ -837,7 +851,7 @@
 				GCC_FAST_MATH = YES;
 				GCC_UNROLL_LOOPS = YES;
 				INFOPLIST_FILE = "ios gl tutorial/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LLVM_LTO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.C-Elegans.ios-gl-tutorial";
