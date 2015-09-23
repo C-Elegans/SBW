@@ -507,6 +507,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0AA72BC71B6EF2B200018D9E /* Build configuration list for PBXNativeTarget "ios gl tutorial" */;
 			buildPhases = (
+				0A9973251BB345DE00AD6BB5 /* ShellScript */,
 				0AA72B931B6EF2AF00018D9E /* Sources */,
 				0AA72B941B6EF2AF00018D9E /* Frameworks */,
 				0AA72B951B6EF2AF00018D9E /* Resources */,
@@ -655,6 +656,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0A9973251BB345DE00AD6BB5 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/Users/mnolan/programming/objective-c/ios\\ gl\\ tutorial/ios\\ gl\\ tutorial/Levels/combineJson.py";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0AA72B931B6EF2AF00018D9E /* Sources */ = {
