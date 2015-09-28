@@ -26,6 +26,7 @@
 #import "PauseButton.h"
 #import "PauseScreen.h"
 #import "StatisticsTracker.h"
+#import "HealthBar.h"
 static id theController = nil;
 
 @interface OpenGLViewController (){
@@ -103,6 +104,7 @@ static id theController = nil;
     [guiObjects addObject:rightButton];
     [guiObjects addObject:upButton];
 	[guiObjects addObject:pauseButton];
+	[guiObjects addObject:[[HealthBar alloc]initWithPositionX:-1 y:0.9 view:view]];
     input = [[GameInput alloc]init:player leftButton:leftButton rightButton:rightButton upButton:upButton pauseButton:pauseButton];
     glEnable(GL_BLEND);
     glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
@@ -227,6 +229,9 @@ static id theController = nil;
                 glPushGroupMarkerEXT(0, [[NSString stringWithFormat:@"Rendering Gui %lu", (unsigned long)[guiObjects indexOfObject:gui]]UTF8String]);
                 #endif
                 glBindVertexArrayOES(gui.vaoID);
+				if([gui class]== [HealthBar class]){
+					[guiShader uploadAlphaCutoff:0.5];
+				}
                 [guiShader enableAttribs];
                 [guiShader uploadObjectTransformation:gui.x y:gui.y];
                 glBindTexture(GL_TEXTURE_2D, gui.texture);
@@ -237,6 +242,7 @@ static id theController = nil;
                 glPopGroupMarkerEXT();
                 #endif
             }
+			[guiShader uploadAlphaCutoff:-1];
             [guiShader stop];
             [input update];
 			[arrayLock lock];

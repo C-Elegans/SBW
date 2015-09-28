@@ -65,6 +65,8 @@
 		0AA72BD11B6EF2F800018D9E /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AA72BD01B6EF2F800018D9E /* OpenGLES.framework */; };
 		0AA72BD31B6EF2FD00018D9E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AA72BD21B6EF2FD00018D9E /* QuartzCore.framework */; };
 		0AAA5C991BA381DE00F6BE4A /* ChangeScreenNextButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AAA5C981BA381DE00F6BE4A /* ChangeScreenNextButton.m */; };
+		0AB0182A1BB9D48800264366 /* HealthBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AB018291BB9D48800264366 /* HealthBar.m */; };
+		0AB0182C1BB9DA5B00264366 /* healthBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AB0182B1BB9DA5B00264366 /* healthBar.png */; };
 		0AB82CE41BA34F5A00C895F1 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AB82CE31BA34F5A00C895F1 /* GameKit.framework */; };
 		0AC917FA1B6FA2370068B51D /* OpenGLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC917F91B6FA2370068B51D /* OpenGLViewController.m */; };
 		0AC917FC1B6FA36B0068B51D /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AC917FB1B6FA36B0068B51D /* GLKit.framework */; };
@@ -189,6 +191,9 @@
 		0AA72BD21B6EF2FD00018D9E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		0AAA5C971BA381DE00F6BE4A /* ChangeScreenNextButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangeScreenNextButton.h; sourceTree = "<group>"; };
 		0AAA5C981BA381DE00F6BE4A /* ChangeScreenNextButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangeScreenNextButton.m; sourceTree = "<group>"; };
+		0AB018281BB9D48800264366 /* HealthBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HealthBar.h; sourceTree = "<group>"; };
+		0AB018291BB9D48800264366 /* HealthBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HealthBar.m; sourceTree = "<group>"; };
+		0AB0182B1BB9DA5B00264366 /* healthBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = healthBar.png; path = Assets/healthBar.png; sourceTree = "<group>"; };
 		0AB82CE31BA34F5A00C895F1 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		0AC917F81B6FA2370068B51D /* OpenGLViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenGLViewController.h; sourceTree = "<group>"; };
 		0AC917F91B6FA2370068B51D /* OpenGLViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenGLViewController.m; sourceTree = "<group>"; };
@@ -303,6 +308,7 @@
 		0AA14D7B1B7561C100770A6E /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				0AB0182B1BB9DA5B00264366 /* healthBar.png */,
 				0A66434E1BA3892800BA19E1 /* menuButton.png */,
 				0A07087F1BA366B200A757C2 /* playButton.png */,
 				0A66434C1BA3848B00BA19E1 /* nextButton.png */,
@@ -339,6 +345,8 @@
 				0AA14D8D1B757CE600770A6E /* RightButton.m */,
 				0AA4B48E1BAB850A00F32400 /* PauseButton.h */,
 				0AA4B48F1BAB850A00F32400 /* PauseButton.m */,
+				0AB018281BB9D48800264366 /* HealthBar.h */,
+				0AB018291BB9D48800264366 /* HealthBar.m */,
 			);
 			name = Gui;
 			sourceTree = "<group>";
@@ -634,6 +642,7 @@
 				0AA14D761B7561AF00770A6E /* astronaut.png in Resources */,
 				0A8D85E41BA706A400585A62 /* Background.png in Resources */,
 				0AA72BAA1B6EF2B100018D9E /* Assets.xcassets in Resources */,
+				0AB0182C1BB9DA5B00264366 /* healthBar.png in Resources */,
 				0AC917FE1B6FA6E30068B51D /* vertexShader.glsl in Resources */,
 				0AA72BA51B6EF2B100018D9E /* Main.storyboard in Resources */,
 				0A1792121BA2157700163CED /* levelScreen.png in Resources */,
@@ -712,6 +721,7 @@
 				0AD8CDE21B702D9A00833F84 /* MainScreen.m in Sources */,
 				0AC917FA1B6FA2370068B51D /* OpenGLViewController.m in Sources */,
 				0AD8CDDC1B70211F00833F84 /* Shader.m in Sources */,
+				0AB0182A1BB9D48800264366 /* HealthBar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
