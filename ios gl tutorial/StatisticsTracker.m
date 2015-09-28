@@ -26,15 +26,27 @@
 -(void)saveData{
 	[[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInt:_currentlevel] forKey:@"currentLevel"];
 	[[NSUserDefaults standardUserDefaults]setObject:[NSNumber numberWithInt:_maxLevel] forKey:@"maxLevel"];
+	[[NSUserDefaults standardUserDefaults]setObject:[NSNumber numberWithInt:_trees] forKey:@"trees"];
+	[[NSUserDefaults standardUserDefaults]setObject:_treeLevels forKey:@"treeLevels"];
 }
 -(void)loadData{
 	if([[NSUserDefaults standardUserDefaults]objectForKey:@"maxLevel"]){
 		_maxLevel = [[[NSUserDefaults standardUserDefaults]objectForKey:@"maxLevel"] integerValue];
 		_currentlevel = [[[NSUserDefaults standardUserDefaults]objectForKey:@"currentLevel"] integerValue];
+		_trees = [[[NSUserDefaults standardUserDefaults]objectForKey:@"trees"] integerValue];
+		
 	}else{
 		_maxLevel = 0;
 		_currentlevel = 0;
+		_trees = 0;
+		
 	}
+	if([[NSUserDefaults standardUserDefaults]objectForKey:@"treeLevels"]){
+		_treeLevels = [[NSUserDefaults standardUserDefaults]objectForKey:@"treeLevels"];
+	}else{
+		_treeLevels = [NSMutableArray new];
+	}
+	
 }
 -(void)setCurrentlevel:(int)currentlevel{
 	@synchronized(self) {
@@ -47,6 +59,18 @@
 -(int)currentlevel{
 	@synchronized(self) {
 		return _currentlevel;
+	}
+}
+-(void)setTrees:(int)trees forLevel:(int)level{
+	if(level+1 > [_treeLevels count]){
+		[_treeLevels addObject:[NSNumber numberWithInt:trees]];
+		_trees += trees;
+	}else{
+		int lastTrees = [[_treeLevels objectAtIndex:level]integerValue];
+		if(trees > lastTrees){
+			[_treeLevels replaceObjectAtIndex:level withObject:[NSNumber numberWithInt:trees]];
+			_trees += trees-lastTrees;
+		}
 	}
 }
 @end

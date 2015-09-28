@@ -37,6 +37,7 @@ const GLushort treeIndices[] = {
 }
 -(void)onCollisionWith:(GameEntity *)player{
 	[[OpenGLViewController getController] deleteObject:self];
+	[OpenGLViewController getController].trees += 1;
 	NSLog(@"Tree Collided");
 }
 -(BOOL)playerShouldCollide{

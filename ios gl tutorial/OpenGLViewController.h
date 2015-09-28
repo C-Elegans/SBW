@@ -23,4 +23,5 @@ typedef enum{MAIN,RUNNING,LEVEL_CHANGE,PAUSED} GameState;
 @property(readonly) float frameTime;
 @property GameState gameState;
 @property int currentLevel;
+@property int trees;
 @end

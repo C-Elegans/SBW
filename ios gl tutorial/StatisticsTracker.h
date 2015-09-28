@@ -12,7 +12,9 @@
 +(StatisticsTracker*)sharedInstance;
 @property (assign) int currentlevel;
 @property (assign) int maxLevel;
+@property int trees;
+@property NSMutableArray<NSNumber*>* treeLevels;
 -(void)saveData;
 -(void)loadData;
-
+-(void)setTrees:(int)trees forLevel:(int)level;
 @end

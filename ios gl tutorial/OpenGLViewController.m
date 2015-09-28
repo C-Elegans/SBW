@@ -46,6 +46,7 @@ static id theController = nil;
 	CFTimeInterval lastTimeStamp;
 	NSLock* arrayLock;
 	NSMutableArray* objectsToDelete;
+	
 	//Background* background;
 }
 @property (strong) GLKBaseEffect* effect;
@@ -173,30 +174,34 @@ static id theController = nil;
             GLuint previousTexture = -1;
             GLuint previousVAO = -1;
             for(id object in gameObjects){
-                #ifdef DEBUG
-                glPushGroupMarkerEXT(0, [[NSString stringWithFormat:@"Rendering object %lu",(unsigned long)[gameObjects indexOfObject:object]] UTF8String]);
-                #endif
-                GameEntity* entity = (GameEntity*) object;
-                if(entity.vaoID != previousVAO){
-                    glBindVertexArrayOES(entity.vaoID);
-                    previousVAO = entity.vaoID;
-                }
-                [gameShader enableAttribs];
-                
-                [gameShader uploadObjectTransformation:entity.radius theta:entity.theta+(TWO_PI/4.0)-player.theta];
-                [gameShader loadAnimation:entity.textureDivisor textureOffset:entity.textureOffset rotation:entity.rotation];
-                if(entity.texture != previousTexture){
-                    glBindTexture(GL_TEXTURE_2D, entity.texture);
-                    previousTexture = entity.texture;
-                }
-                glDrawElements(GL_TRIANGLES, entity.numVertices, GL_UNSIGNED_SHORT, 0);
-                
-                [gameShader disableAttribs];
-				[entity update];
-                //glBindVertexArrayOES(0);
-                #ifdef DEBUG
-                glPopGroupMarkerEXT();
-                #endif
+				GameEntity* entity = (GameEntity*) object;
+				if(![MathHelper valueInRange:entity.theta+(TWO_PI/4.0)-player.theta min:TWO_PI/2 max:TWO_PI]){
+					#ifdef DEBUG
+					
+					glPushGroupMarkerEXT(0, [[NSString stringWithFormat:@"Rendering object %lu",(unsigned long)[gameObjects indexOfObject:object]] UTF8String]);
+					#endif
+					
+					if(entity.vaoID != previousVAO){
+						glBindVertexArrayOES(entity.vaoID);
+						previousVAO = entity.vaoID;
+					}
+					[gameShader enableAttribs];
+					
+					[gameShader uploadObjectTransformation:entity.radius theta:entity.theta+(TWO_PI/4.0)-player.theta];
+					[gameShader loadAnimation:entity.textureDivisor textureOffset:entity.textureOffset rotation:entity.rotation];
+					if(entity.texture != previousTexture){
+						glBindTexture(GL_TEXTURE_2D, entity.texture);
+						previousTexture = entity.texture;
+					}
+					glDrawElements(GL_TRIANGLES, entity.numVertices, GL_UNSIGNED_SHORT, 0);
+					
+					[gameShader disableAttribs];
+					[entity update];
+					//glBindVertexArrayOES(0);
+					#ifdef DEBUG
+					glPopGroupMarkerEXT();
+					#endif
+				}
             }
 			[arrayLock unlock];
             //Render player
@@ -382,7 +387,11 @@ static id theController = nil;
 }
 -(void)setGameState:(GameState)gameState{
 	@synchronized(self) {
+		if(_gameState == RUNNING){
+			[self endLevel];
+		}
 		_gameState = gameState;
+		
 		switch (_gameState) {
 			case MAIN:
     			self.preferredFramesPerSecond = 10; break;
@@ -395,6 +404,10 @@ static id theController = nil;
 	
 		}
 	}
+}
+-(void)endLevel{
+	[[StatisticsTracker sharedInstance ] setTrees:_trees forLevel:_currentLevel];
+	_trees = 0;
 }
 -(GameState)gameState{
 	return _gameState;
