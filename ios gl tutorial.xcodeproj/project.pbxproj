@@ -67,6 +67,11 @@
 		0AAA5C991BA381DE00F6BE4A /* ChangeScreenNextButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AAA5C981BA381DE00F6BE4A /* ChangeScreenNextButton.m */; };
 		0AB0182A1BB9D48800264366 /* HealthBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AB018291BB9D48800264366 /* HealthBar.m */; };
 		0AB0182C1BB9DA5B00264366 /* healthBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AB0182B1BB9DA5B00264366 /* healthBar.png */; };
+		0AB0182E1BB9F97C00264366 /* turret.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AB0182D1BB9F97C00264366 /* turret.png */; };
+		0AB018311BB9F98E00264366 /* Turret.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AB018301BB9F98E00264366 /* Turret.m */; };
+		0AB018331BB9FB3100264366 /* Levels in Resources */ = {isa = PBXBuildFile; fileRef = 0AB018321BB9FB3100264366 /* Levels */; };
+		0AB018361BBA024A00264366 /* Bullet.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AB018351BBA024A00264366 /* Bullet.m */; };
+		0AB018381BBACA7300264366 /* bullet.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AB018371BBACA7300264366 /* bullet.png */; };
 		0AB82CE41BA34F5A00C895F1 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AB82CE31BA34F5A00C895F1 /* GameKit.framework */; };
 		0AC917FA1B6FA2370068B51D /* OpenGLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC917F91B6FA2370068B51D /* OpenGLViewController.m */; };
 		0AC917FC1B6FA36B0068B51D /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AC917FB1B6FA36B0068B51D /* GLKit.framework */; };
@@ -194,6 +199,13 @@
 		0AB018281BB9D48800264366 /* HealthBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HealthBar.h; sourceTree = "<group>"; };
 		0AB018291BB9D48800264366 /* HealthBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HealthBar.m; sourceTree = "<group>"; };
 		0AB0182B1BB9DA5B00264366 /* healthBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = healthBar.png; path = Assets/healthBar.png; sourceTree = "<group>"; };
+		0AB0182D1BB9F97C00264366 /* turret.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = turret.png; path = Assets/turret.png; sourceTree = "<group>"; };
+		0AB0182F1BB9F98E00264366 /* Turret.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Turret.h; sourceTree = "<group>"; };
+		0AB018301BB9F98E00264366 /* Turret.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Turret.m; sourceTree = "<group>"; };
+		0AB018321BB9FB3100264366 /* Levels */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Levels; sourceTree = "<group>"; };
+		0AB018341BBA024A00264366 /* Bullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bullet.h; sourceTree = "<group>"; };
+		0AB018351BBA024A00264366 /* Bullet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bullet.m; sourceTree = "<group>"; };
+		0AB018371BBACA7300264366 /* bullet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bullet.png; path = Assets/bullet.png; sourceTree = "<group>"; };
 		0AB82CE31BA34F5A00C895F1 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		0AC917F81B6FA2370068B51D /* OpenGLViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenGLViewController.h; sourceTree = "<group>"; };
 		0AC917F91B6FA2370068B51D /* OpenGLViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenGLViewController.m; sourceTree = "<group>"; };
@@ -308,6 +320,8 @@
 		0AA14D7B1B7561C100770A6E /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				0AB018371BBACA7300264366 /* bullet.png */,
+				0AB0182D1BB9F97C00264366 /* turret.png */,
 				0AB0182B1BB9DA5B00264366 /* healthBar.png */,
 				0A66434E1BA3892800BA19E1 /* menuButton.png */,
 				0A07087F1BA366B200A757C2 /* playButton.png */,
@@ -407,6 +421,7 @@
 		0AA72B991B6EF2AF00018D9E /* ios gl tutorial */ = {
 			isa = PBXGroup;
 			children = (
+				0AB018321BB9FB3100264366 /* Levels */,
 				0AA14D7B1B7561C100770A6E /* Images */,
 				0AA72B9D1B6EF2B000018D9E /* AppDelegate.h */,
 				0AA72B9E1B6EF2B000018D9E /* AppDelegate.m */,
@@ -504,6 +519,10 @@
 				0A24981F1BAB5B8300C2C872 /* JumpPad.m */,
 				0A9BD6A81BB0D2F700A24952 /* Tree.h */,
 				0A9BD6A91BB0D2F700A24952 /* Tree.m */,
+				0AB0182F1BB9F98E00264366 /* Turret.h */,
+				0AB018301BB9F98E00264366 /* Turret.m */,
+				0AB018341BBA024A00264366 /* Bullet.h */,
+				0AB018351BBA024A00264366 /* Bullet.m */,
 			);
 			name = Entity;
 			sourceTree = "<group>";
@@ -619,9 +638,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A4167711B7D30090029D807 /* upButton.png in Resources */,
+				0AB0182E1BB9F97C00264366 /* turret.png in Resources */,
 				0AA14D791B7561B900770A6E /* leftButton.png in Resources */,
 				0AA14D7A1B7561B900770A6E /* rightButton.png in Resources */,
 				0A5103BC1BB0D8E100AF7E39 /* tree.png in Resources */,
+				0AB018381BBACA7300264366 /* bullet.png in Resources */,
 				0AA4B4961BAC47A400F32400 /* pauseScreen.png in Resources */,
 				0A0708801BA366B200A757C2 /* playButton.png in Resources */,
 				0AA14D891B75682600770A6E /* guiVertexShader.glsl in Resources */,
@@ -632,6 +653,7 @@
 				0A66434D1BA3848B00BA19E1 /* nextButton.png in Resources */,
 				0AA72BAD1B6EF2B100018D9E /* LaunchScreen.storyboard in Resources */,
 				0AA4B4921BAB883100F32400 /* pauseButton.png in Resources */,
+				0AB018331BB9FB3100264366 /* Levels in Resources */,
 				0AA14D8B1B75684100770A6E /* guiFragmentShader.glsl in Resources */,
 				0A41677A1B7F65060029D807 /* levelData.json in Resources */,
 				0A1792071BA1C41600163CED /* door.png in Resources */,
@@ -689,9 +711,11 @@
 			files = (
 				0A1792101BA2108B00163CED /* LevelChangeScreen.m in Sources */,
 				0AA14D831B7565ED00770A6E /* LeftButton.m in Sources */,
+				0AB018361BBA024A00264366 /* Bullet.m in Sources */,
 				0AA4B4901BAB850A00F32400 /* PauseButton.m in Sources */,
 				0AF351601B73EF8E00495590 /* GameInput.m in Sources */,
 				0AA4B49A1BAC5BA900F32400 /* StatisticsTracker.m in Sources */,
+				0AB018311BB9F98E00264366 /* Turret.m in Sources */,
 				0A10A87E1B73E8020011FB3F /* Player.m in Sources */,
 				0A4167781B7EC5680029D807 /* LevelLoader.m in Sources */,
 				0AD8CDEA1B702FC400833F84 /* LoaderHelper.m in Sources */,

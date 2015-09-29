@@ -12,6 +12,7 @@
 #import "Background.h"
 #import "JumpPad.h"
 #import "Tree.h"
+#import "Turret.h"
 @implementation LevelLoader
 -(id)init{
     self = [super init];
@@ -57,6 +58,13 @@
 			radius = [(NSNumber*)[trees objectAtIndex:i] floatValue];
 			theta = [(NSNumber*)[trees objectAtIndex:i+1] floatValue];
 			[gameObjects addObject:[[Tree alloc]initRadius:radius theta:theta]];
+		}
+		NSArray* turrets = [[allObjects objectAtIndex:level]objectForKey:@"Turret"];
+		for(int i=0;i<[turrets count];i+= 2){
+			float radius,theta;
+			radius = [(NSNumber*)[turrets objectAtIndex:i] floatValue];
+			theta = [(NSNumber*)[turrets objectAtIndex:i+1] floatValue];
+			[gameObjects addObject:[[Turret alloc]initRadius:radius theta:theta]];
 		}
     }
 	

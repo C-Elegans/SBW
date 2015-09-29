@@ -123,5 +123,8 @@ const vec2 animationStates[] = {
 	
 	
 }
+-(BOOL)playerShouldCollide{
+	return YES;
+}
 
 @end

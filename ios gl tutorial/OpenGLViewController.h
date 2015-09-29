@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <GLKit/GLKit.h>
 #import "GameEntity.h"
+#import "Bullet.h"
 typedef enum{MAIN,RUNNING,LEVEL_CHANGE,PAUSED} GameState;
 @interface OpenGLViewController : GLKViewController{
     
@@ -20,6 +21,8 @@ typedef enum{MAIN,RUNNING,LEVEL_CHANGE,PAUSED} GameState;
 -(void)releaseLock;
 -(void)deleteObject:(GameEntity*)object;
 -(void)flushObjects;
+-(void)addBullet:(Bullet*)bullet;
+-(void)deleteBullet:(Bullet*)bullet;
 @property(readonly) float frameTime;
 @property GameState gameState;
 @property int currentLevel;
