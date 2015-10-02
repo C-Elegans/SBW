@@ -51,7 +51,7 @@ const GLushort turretIndices[] = {
 		light = ~light;
 		time = 0;
 	}
-	if(timeToFire >1){
+	if(timeToFire >2){
 		firing = 5;
 		Bullet* theBullet = [[Bullet alloc]initRadius:self.radius+0.1 theta:self.theta];
 		theBullet.rotation = self.rotation;

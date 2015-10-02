@@ -10,6 +10,7 @@
 #define JUMP_HEIGHT GRAVITY/3
 @interface Player : GameEntity
 @property float rVelocity;
+@property float health;
 -(void)updatePosition:(nullable NSArray* )gameObjects;
 -(void)jump:(float)speed;
 -(void)move:(int) moveVal;

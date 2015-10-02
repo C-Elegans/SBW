@@ -27,6 +27,9 @@
 #import "PauseScreen.h"
 #import "StatisticsTracker.h"
 #import "HealthBar.h"
+#import "Bullet.h"
+#import "TextRenderer.h"
+
 static id theController = nil;
 
 @interface OpenGLViewController (){
@@ -47,7 +50,11 @@ static id theController = nil;
 	CFTimeInterval lastTimeStamp;
 	NSLock* arrayLock;
 	NSMutableArray* objectsToDelete;
-	
+	NSMutableArray<Bullet*>* bullets;
+	NSMutableArray<Bullet*>* bulletsToDelete;
+	NSLock* bulletLock;
+	NSMutableArray<TextBox*>* textBoxes;
+	TextRenderer* textRenderer;
 	//Background* background;
 }
 @property (strong) GLKBaseEffect* effect;
@@ -90,10 +97,12 @@ static id theController = nil;
     gameObjects = [[NSMutableArray alloc]init];
     guiObjects = [[NSMutableArray alloc]init];
 	objectsToDelete = [NSMutableArray new];
-    
+	bullets = [NSMutableArray new];
+	bulletsToDelete = [NSMutableArray new];
+	textBoxes = [NSMutableArray new];
     planet =[[Planet alloc]initRadius:1 theta:0];
     player = [[Player alloc]initRadius:1 theta:0];
-	
+	bulletLock = [NSLock new];
     //gameObjects = [levelLoader loadLevel:0];
     
     LeftButton* leftButton = [[LeftButton alloc]initWithPositionX:-.9 y:-.5 view:self.view];
@@ -104,12 +113,13 @@ static id theController = nil;
     [guiObjects addObject:rightButton];
     [guiObjects addObject:upButton];
 	[guiObjects addObject:pauseButton];
-	[guiObjects addObject:[[HealthBar alloc]initWithPositionX:-1 y:0.9 view:view]];
+	//[guiObjects addObject:[[HealthBar alloc]initWithPositionX:-1 y:0.9 view:view]];
     input = [[GameInput alloc]init:player leftButton:leftButton rightButton:rightButton upButton:upButton pauseButton:pauseButton];
     glEnable(GL_BLEND);
     glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
-    
-    
+	[textBoxes addObject:[[TextBox alloc] initWithString:@"testing" x:0.5 y:0]];
+	textRenderer = [TextRenderer new];
+	 
 	// self.currentLevel = [StatisticsTracker sharedInstance].currentlevel;
 	self.currentLevel = 0;
 }
@@ -174,7 +184,10 @@ static id theController = nil;
 			
             glActiveTexture(GL_TEXTURE0);
             GLuint previousTexture = -1;
-            GLuint previousVAO = -1;
+			GLuint previousVAO = -1;
+			
+			[gameObjects addObjectsFromArray:bullets];
+			[bullets makeObjectsPerformSelector:@selector(update)];
             for(id object in gameObjects){
 				GameEntity* entity = (GameEntity*) object;
 				if(![MathHelper valueInRange:entity.theta+(TWO_PI/4.0)-player.theta min:TWO_PI/2 max:TWO_PI]){
@@ -205,6 +218,7 @@ static id theController = nil;
 					#endif
 				}
             }
+			
 			[arrayLock unlock];
             //Render player
 			[gameShader loadAnimation:player.textureDivisor textureOffset:player.textureOffset rotation:player.rotation];
@@ -218,7 +232,7 @@ static id theController = nil;
             glBindVertexArrayOES(0);
             glPopGroupMarkerEXT();
             [gameShader stop];
-            
+			
             //Render Gui objects
             [guiShader start];
             [guiShader uploadScreenCorrection:self.view.frame.size];
@@ -229,9 +243,7 @@ static id theController = nil;
                 glPushGroupMarkerEXT(0, [[NSString stringWithFormat:@"Rendering Gui %lu", (unsigned long)[guiObjects indexOfObject:gui]]UTF8String]);
                 #endif
                 glBindVertexArrayOES(gui.vaoID);
-				if([gui class]== [HealthBar class]){
-					[guiShader uploadAlphaCutoff:0.5];
-				}
+				
                 [guiShader enableAttribs];
                 [guiShader uploadObjectTransformation:gui.x y:gui.y];
                 glBindTexture(GL_TEXTURE_2D, gui.texture);
@@ -242,12 +254,26 @@ static id theController = nil;
                 glPopGroupMarkerEXT();
                 #endif
             }
-			[guiShader uploadAlphaCutoff:-1];
+			
             [guiShader stop];
             [input update];
 			[arrayLock lock];
+			[textRenderer render:textBoxes view:self.view];
             [player updatePosition:gameObjects];
+			[gameObjects removeObjectsInArray:bullets];
+			
+			[bullets removeObjectsInArray:bulletsToDelete];
+			[bulletsToDelete removeAllObjects];
+			for(Bullet* b in bullets){
+				
+					[b checkCollisions:gameObjects];
+				
+			}
+			[bullets removeObjectsInArray:bulletsToDelete];
+			[bulletsToDelete removeAllObjects];
+			
 			[arrayLock unlock];
+			
             break;
 		case LEVEL_CHANGE:
 		{
@@ -413,6 +439,8 @@ static id theController = nil;
 }
 -(void)endLevel{
 	[[StatisticsTracker sharedInstance ] setTrees:_trees forLevel:_currentLevel];
+	[bullets removeAllObjects];
+	[bulletsToDelete removeAllObjects];
 	_trees = 0;
 }
 -(GameState)gameState{
@@ -437,6 +465,16 @@ static id theController = nil;
 	});
 	}
 	
+}
+-(void)addBullet:(Bullet *)bullet{
+	[bulletLock lock];
+	[bullets addObject:bullet];
+	[bulletLock unlock];
+}
+-(void)deleteBullet:(Bullet *)bullet{
+	[bulletLock lock];
+	[bulletsToDelete addObject:bullet];
+	[bulletLock unlock];
 }
 
 @end

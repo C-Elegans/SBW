@@ -60,11 +60,14 @@
 			[gameObjects addObject:[[Tree alloc]initRadius:radius theta:theta]];
 		}
 		NSArray* turrets = [[allObjects objectAtIndex:level]objectForKey:@"Turret"];
-		for(int i=0;i<[turrets count];i+= 2){
-			float radius,theta;
+		for(int i=0;i<[turrets count];i+= 3){
+			float radius,theta,rotation;
 			radius = [(NSNumber*)[turrets objectAtIndex:i] floatValue];
 			theta = [(NSNumber*)[turrets objectAtIndex:i+1] floatValue];
-			[gameObjects addObject:[[Turret alloc]initRadius:radius theta:theta]];
+			rotation =[(NSNumber*)[turrets objectAtIndex:i+2] floatValue];
+			Turret* t = [[Turret alloc]initRadius:radius theta:theta];
+			t.rotation = rotation;
+			[gameObjects addObject:t];
 		}
     }
 	

@@ -72,6 +72,13 @@
 		0AB018331BB9FB3100264366 /* Levels in Resources */ = {isa = PBXBuildFile; fileRef = 0AB018321BB9FB3100264366 /* Levels */; };
 		0AB018361BBA024A00264366 /* Bullet.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AB018351BBA024A00264366 /* Bullet.m */; };
 		0AB018381BBACA7300264366 /* bullet.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AB018371BBACA7300264366 /* bullet.png */; };
+		0AB0183F1BBC781E00264366 /* lcd.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AB0183E1BBC781E00264366 /* lcd.png */; };
+		0AB018431BBC785D00264366 /* TextBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AB018421BBC785D00264366 /* TextBox.m */; };
+		0AB018461BBC786900264366 /* TextChar.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AB018451BBC786900264366 /* TextChar.m */; };
+		0AB018491BBC7E2A00264366 /* TextShader.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AB018481BBC7E2A00264366 /* TextShader.m */; };
+		0AB0184D1BBCA06500264366 /* textVertexShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 0AB0184C1BBCA06500264366 /* textVertexShader.glsl */; };
+		0AB0184F1BBCA07200264366 /* textFragmentShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 0AB0184E1BBCA07200264366 /* textFragmentShader.glsl */; };
+		0AB018581BBCA58000264366 /* TextRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AB018571BBCA58000264366 /* TextRenderer.m */; };
 		0AB82CE41BA34F5A00C895F1 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AB82CE31BA34F5A00C895F1 /* GameKit.framework */; };
 		0AC917FA1B6FA2370068B51D /* OpenGLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC917F91B6FA2370068B51D /* OpenGLViewController.m */; };
 		0AC917FC1B6FA36B0068B51D /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AC917FB1B6FA36B0068B51D /* GLKit.framework */; };
@@ -206,6 +213,17 @@
 		0AB018341BBA024A00264366 /* Bullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bullet.h; sourceTree = "<group>"; };
 		0AB018351BBA024A00264366 /* Bullet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bullet.m; sourceTree = "<group>"; };
 		0AB018371BBACA7300264366 /* bullet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bullet.png; path = Assets/bullet.png; sourceTree = "<group>"; };
+		0AB0183E1BBC781E00264366 /* lcd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lcd.png; sourceTree = "<group>"; };
+		0AB018411BBC785D00264366 /* TextBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextBox.h; sourceTree = "<group>"; };
+		0AB018421BBC785D00264366 /* TextBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextBox.m; sourceTree = "<group>"; };
+		0AB018441BBC786900264366 /* TextChar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextChar.h; sourceTree = "<group>"; };
+		0AB018451BBC786900264366 /* TextChar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextChar.m; sourceTree = "<group>"; };
+		0AB018471BBC7E2A00264366 /* TextShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextShader.h; sourceTree = "<group>"; };
+		0AB018481BBC7E2A00264366 /* TextShader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextShader.m; sourceTree = "<group>"; };
+		0AB0184C1BBCA06500264366 /* textVertexShader.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = textVertexShader.glsl; sourceTree = "<group>"; };
+		0AB0184E1BBCA07200264366 /* textFragmentShader.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = textFragmentShader.glsl; sourceTree = "<group>"; };
+		0AB018561BBCA58000264366 /* TextRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextRenderer.h; sourceTree = "<group>"; };
+		0AB018571BBCA58000264366 /* TextRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextRenderer.m; sourceTree = "<group>"; };
 		0AB82CE31BA34F5A00C895F1 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		0AC917F81B6FA2370068B51D /* OpenGLViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenGLViewController.h; sourceTree = "<group>"; };
 		0AC917F91B6FA2370068B51D /* OpenGLViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenGLViewController.m; sourceTree = "<group>"; };
@@ -320,6 +338,7 @@
 		0AA14D7B1B7561C100770A6E /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				0AB0183E1BBC781E00264366 /* lcd.png */,
 				0AB018371BBACA7300264366 /* bullet.png */,
 				0AB0182D1BB9F97C00264366 /* turret.png */,
 				0AB0182B1BB9DA5B00264366 /* healthBar.png */,
@@ -436,6 +455,7 @@
 				0AC917F81B6FA2370068B51D /* OpenGLViewController.h */,
 				0AC917F91B6FA2370068B51D /* OpenGLViewController.m */,
 				0AA14D8F1B7635BC00770A6E /* Input */,
+				0AB018401BBC783500264366 /* Font */,
 				0A4167751B7EC54A0029D807 /* Level */,
 				0AA72B9A1B6EF2B000018D9E /* Supporting Files */,
 				0AC918001B6FA6F40068B51D /* shaders */,
@@ -473,6 +493,23 @@
 				0AA72BC41B6EF2B200018D9E /* Info.plist */,
 			);
 			path = "ios gl tutorialUITests";
+			sourceTree = "<group>";
+		};
+		0AB018401BBC783500264366 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				0AB018411BBC785D00264366 /* TextBox.h */,
+				0AB018421BBC785D00264366 /* TextBox.m */,
+				0AB018441BBC786900264366 /* TextChar.h */,
+				0AB018451BBC786900264366 /* TextChar.m */,
+				0AB018471BBC7E2A00264366 /* TextShader.h */,
+				0AB018481BBC7E2A00264366 /* TextShader.m */,
+				0AB0184C1BBCA06500264366 /* textVertexShader.glsl */,
+				0AB0184E1BBCA07200264366 /* textFragmentShader.glsl */,
+				0AB018561BBCA58000264366 /* TextRenderer.h */,
+				0AB018571BBCA58000264366 /* TextRenderer.m */,
+			);
+			name = Font;
 			sourceTree = "<group>";
 		};
 		0AC918001B6FA6F40068B51D /* shaders */ = {
@@ -646,9 +683,11 @@
 				0AA4B4961BAC47A400F32400 /* pauseScreen.png in Resources */,
 				0A0708801BA366B200A757C2 /* playButton.png in Resources */,
 				0AA14D891B75682600770A6E /* guiVertexShader.glsl in Resources */,
+				0AB0183F1BBC781E00264366 /* lcd.png in Resources */,
 				0A50E0FA1B7150FE008E69D5 /* gameVertexShader.glsl in Resources */,
 				0A50E10B1B725006008E69D5 /* earth.png in Resources */,
 				0A50E0F11B712D3A008E69D5 /* mainScreen.png in Resources */,
+				0AB0184D1BBCA06500264366 /* textVertexShader.glsl in Resources */,
 				0AC918021B6FA7050068B51D /* fragmentShader.glsl in Resources */,
 				0A66434D1BA3848B00BA19E1 /* nextButton.png in Resources */,
 				0AA72BAD1B6EF2B100018D9E /* LaunchScreen.storyboard in Resources */,
@@ -669,6 +708,7 @@
 				0AA72BA51B6EF2B100018D9E /* Main.storyboard in Resources */,
 				0A1792121BA2157700163CED /* levelScreen.png in Resources */,
 				0A24981D1BAB5B6E00C2C872 /* jumpPad.png in Resources */,
+				0AB0184F1BBCA07200264366 /* textFragmentShader.glsl in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -711,6 +751,7 @@
 			files = (
 				0A1792101BA2108B00163CED /* LevelChangeScreen.m in Sources */,
 				0AA14D831B7565ED00770A6E /* LeftButton.m in Sources */,
+				0AB018581BBCA58000264366 /* TextRenderer.m in Sources */,
 				0AB018361BBA024A00264366 /* Bullet.m in Sources */,
 				0AA4B4901BAB850A00F32400 /* PauseButton.m in Sources */,
 				0AF351601B73EF8E00495590 /* GameInput.m in Sources */,
@@ -720,6 +761,7 @@
 				0A4167781B7EC5680029D807 /* LevelLoader.m in Sources */,
 				0AD8CDEA1B702FC400833F84 /* LoaderHelper.m in Sources */,
 				0A6643521BA3894300BA19E1 /* ChangeScreenMenuButton.m in Sources */,
+				0AB018491BBC7E2A00264366 /* TextShader.m in Sources */,
 				0AA14D871B7567D300770A6E /* GuiShader.m in Sources */,
 				0AA14D8E1B757CE600770A6E /* RightButton.m in Sources */,
 				0A0708851BA368F900A757C2 /* MainScreenPlayButton.m in Sources */,
@@ -737,8 +779,10 @@
 				0AA72BA21B6EF2B000018D9E /* ViewController.m in Sources */,
 				0AD8CDDF1B7022AA00833F84 /* MainShader.m in Sources */,
 				0A50E0F41B7135F6008E69D5 /* GameEntity.m in Sources */,
+				0AB018461BBC786900264366 /* TextChar.m in Sources */,
 				0A2498201BAB5B8300C2C872 /* JumpPad.m in Sources */,
 				0AA4B4871BAB81A700F32400 /* PauseScreen.m in Sources */,
+				0AB018431BBC785D00264366 /* TextBox.m in Sources */,
 				0A50E0FF1B715641008E69D5 /* GameShader.m in Sources */,
 				0AA72B9F1B6EF2B000018D9E /* AppDelegate.m in Sources */,
 				0AA72B9C1B6EF2B000018D9E /* main.m in Sources */,
