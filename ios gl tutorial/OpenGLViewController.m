@@ -117,7 +117,7 @@ static id theController = nil;
     input = [[GameInput alloc]init:player leftButton:leftButton rightButton:rightButton upButton:upButton pauseButton:pauseButton];
     glEnable(GL_BLEND);
     glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
-	[textBoxes addObject:[[TextBox alloc] initWithString:@"testing" x:0.5 y:0]];
+	[textBoxes addObject:[[TextBox alloc] initWithString:@"testing" x:0.6 y:0.9]];
 	textRenderer = [TextRenderer new];
 	 
 	// self.currentLevel = [StatisticsTracker sharedInstance].currentlevel;
@@ -130,6 +130,8 @@ static id theController = nil;
 #pragma mark - GL Stuff
 -(void)glkView:(nonnull GLKView *)view drawInRect:(CGRect)rect{
 	[self updateFrameTime];
+	TextBox* box = [textBoxes objectAtIndex:0];
+	[box setString:[NSString stringWithFormat:@"Fps: %0.1f",1/_frameTime]];
     glClearColor(0, 0, 0.1, 1);
     glClear(GL_COLOR_BUFFER_BIT);
 	

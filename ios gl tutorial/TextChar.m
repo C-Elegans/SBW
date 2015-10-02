@@ -10,11 +10,13 @@
 #import "LoaderHelper.h"
 #define WIDTH 14
 #define HEIGHT 8
+#define V_CORRECTION 0.8359
+#define H_CORRECTION 0.98242
 const Vertex textVertices[] = {
-	{{0, 0, 0}, {0,1}},
-	{{0, .1, 0}, {1,1}},
-	{{.1, .1, 0}, {1,0}},
-	{{.1, 0, 0}, {0,0}}
+	{{0, 0, 0}, {0,.9}},
+	{{0, .1, 0}, {0,0.1}},
+	{{.05, .1, 0}, {1,0.1}},
+	{{.05, 0, 0}, {1,.9}}
 };
 
 const GLushort textIndices[] = {
@@ -42,8 +44,11 @@ const GLushort textIndices[] = {
 		_character = character;
 		NSRange range =[textIndex rangeOfString:[NSString stringWithFormat:@"%c", _character]];
 		int index = (int)range.location;
-		//_offset = (vec2){(float)(index % WIDTH)/14.0,1-((float)(index/WIDTH)/8.0)};
-			_offset = (vec2){1/14,1/8};
+		float xO, yO;
+		xO = index % WIDTH;
+		yO = index / WIDTH;
+		_offset = (vec2){(xO/(float)WIDTH)*H_CORRECTION,(yO/(float)HEIGHT)*V_CORRECTION};
+		//_offset = (vec2){2.0/14.0,0/8.5};
 	}
 }
 -(char)character{
