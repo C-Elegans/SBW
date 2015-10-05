@@ -27,4 +27,10 @@ const GLushort Indices[] = {
 	position = pos;
 	return self;
 }
+-(void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+	
+}
+-(NSArray*)getButtons{
+	return nil;
+}
 @end

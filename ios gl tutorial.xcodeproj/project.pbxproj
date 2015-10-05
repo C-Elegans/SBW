@@ -16,6 +16,7 @@
 		0A1792121BA2157700163CED /* levelScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A1792111BA2157700163CED /* levelScreen.png */; };
 		0A24981D1BAB5B6E00C2C872 /* jumpPad.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A24981C1BAB5B6E00C2C872 /* jumpPad.png */; };
 		0A2498201BAB5B8300C2C872 /* JumpPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A24981F1BAB5B8300C2C872 /* JumpPad.m */; };
+		0A36915C1BC2BA950034E3B4 /* todo.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0A36915B1BC2BA950034E3B4 /* todo.txt */; };
 		0A4167711B7D30090029D807 /* upButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A4167701B7D30090029D807 /* upButton.png */; };
 		0A4167781B7EC5680029D807 /* LevelLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A4167771B7EC5680029D807 /* LevelLoader.m */; };
 		0A41677A1B7F65060029D807 /* levelData.json in Resources */ = {isa = PBXBuildFile; fileRef = 0A4167791B7F65060029D807 /* levelData.json */; };
@@ -125,6 +126,8 @@
 		0A24981C1BAB5B6E00C2C872 /* jumpPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = jumpPad.png; path = Assets/jumpPad.png; sourceTree = "<group>"; };
 		0A24981E1BAB5B8300C2C872 /* JumpPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JumpPad.h; sourceTree = "<group>"; };
 		0A24981F1BAB5B8300C2C872 /* JumpPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JumpPad.m; sourceTree = "<group>"; };
+		0A36915A1BC2B8720034E3B4 /* Color.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Color.h; sourceTree = "<group>"; };
+		0A36915B1BC2BA950034E3B4 /* todo.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = todo.txt; sourceTree = "<group>"; };
 		0A4167701B7D30090029D807 /* upButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = upButton.png; path = Assets/upButton.png; sourceTree = "<group>"; };
 		0A4167761B7EC5680029D807 /* LevelLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelLoader.h; sourceTree = "<group>"; };
 		0A4167771B7EC5680029D807 /* LevelLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelLoader.m; sourceTree = "<group>"; };
@@ -444,6 +447,7 @@
 				0AA14D7B1B7561C100770A6E /* Images */,
 				0AA72B9D1B6EF2B000018D9E /* AppDelegate.h */,
 				0AA72B9E1B6EF2B000018D9E /* AppDelegate.m */,
+				0A36915B1BC2BA950034E3B4 /* todo.txt */,
 				0AA72BA01B6EF2B000018D9E /* ViewController.h */,
 				0AA72BA11B6EF2B000018D9E /* ViewController.m */,
 				0A4167791B7F65060029D807 /* levelData.json */,
@@ -531,6 +535,7 @@
 				0AD8CDE41B702EBD00833F84 /* MathHelper.m */,
 				0AD8CDE81B702FC400833F84 /* LoaderHelper.h */,
 				0AD8CDE91B702FC400833F84 /* LoaderHelper.m */,
+				0A36915A1BC2B8720034E3B4 /* Color.h */,
 			);
 			name = Helper;
 			sourceTree = "<group>";
@@ -627,6 +632,7 @@
 		0AA72B8F1B6EF2AF00018D9E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0710;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Michael Nolan";
 				TargetAttributes = {
@@ -690,6 +696,7 @@
 				0AB0184D1BBCA06500264366 /* textVertexShader.glsl in Resources */,
 				0AC918021B6FA7050068B51D /* fragmentShader.glsl in Resources */,
 				0A66434D1BA3848B00BA19E1 /* nextButton.png in Resources */,
+				0A36915C1BC2BA950034E3B4 /* todo.txt in Resources */,
 				0AA72BAD1B6EF2B100018D9E /* LaunchScreen.storyboard in Resources */,
 				0AA4B4921BAB883100F32400 /* pauseButton.png in Resources */,
 				0AB018331BB9FB3100264366 /* Levels in Resources */,
@@ -932,6 +939,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_FAST_MATH = YES;
@@ -943,6 +951,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.C-Elegans.ios-gl-tutorial";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "ios gl tutorial/ios gl tutorial-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -951,6 +961,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_FAST_MATH = YES;
@@ -962,6 +973,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.C-Elegans.ios-gl-tutorial";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "ios gl tutorial/ios gl tutorial-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

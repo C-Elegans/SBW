@@ -12,6 +12,7 @@
 @interface TextBox : NSObject
 @property vec2 position;
 @property NSString* string;
--(id)initWithString:(NSString*)string x:(float)x y:(float)y;
+@property vec4 color;
+-(id)initWithString:(NSString*)string x:(float)x y:(float)y color:(vec4)color;
 -(NSArray<TextChar*>*)getChars;
 @end

@@ -16,13 +16,13 @@
 @end
 @implementation TextBox
 @synthesize string=_string;
--(id)initWithString:(NSString*)string x:(float)x y:(float)y{
+-(id)initWithString:(NSString*)string x:(float)x y:(float)y color:(vec4)color{
 	self = [super init];
 	textChars = [NSMutableArray new];
 	_string = string;
 	_position = (vec2){x,y};
 	shader = [TextShader new];
-	
+	_color = color;
 	return self;
 }
 -(NSArray<TextChar*>*)getChars{

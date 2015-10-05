@@ -13,6 +13,7 @@
 #import "GuiShader.h"
 #import <GLKit/GLKit.h>
 #import <OpenGLES/ES2/glext.h>
+#import "Color.h"
 @interface TextRenderer(){
 	TextShader* shader;
 	//GuiShader* shader;
@@ -29,12 +30,12 @@
 	[shader start];
 	for (TextBox* box in boxes) {
 		for (TextChar* tc in [box getChars]) {
-			[self renderTextChar:tc view:view];
+			[self renderTextChar:tc view:view color:box.color];
 		}
 	}
 	[shader stop];
 }
--(void)renderTextChar:(TextChar*)textChar view:(UIView*)view{
+-(void)renderTextChar:(TextChar*)textChar view:(UIView*)view color:(vec4)color{
 	glPushGroupMarkerEXT(0, "Rendering Char");
 	glActiveTexture(GL_TEXTURE0);
 	
@@ -45,7 +46,7 @@
 	[shader uploadObjectTransformation:textChar.position.x y:textChar.position.y];
 	[shader uploadTexCoordOffset:textChar.offset];
 	[shader uploadScreenCorrection:view.frame.size];
-	[shader uploadColor:(vec4){1,1,1,1}];
+	[shader uploadColor:color];
 	
 	glBindTexture(GL_TEXTURE_2D, textChar.texture);
 	glDrawElements(GL_TRIANGLES, textChar.numVertices, GL_UNSIGNED_SHORT, 0);
