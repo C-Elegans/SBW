@@ -27,4 +27,5 @@ typedef enum{MAIN,RUNNING,LEVEL_CHANGE,PAUSED} GameState;
 @property GameState gameState;
 @property int currentLevel;
 @property int trees;
+@property float levelTime;
 @end

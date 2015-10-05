@@ -67,6 +67,7 @@ static id theController = nil;
 @synthesize currentLevel=_currentLevel;
 @synthesize gameState=_gameState;
 -(void)viewDidLoad{
+	_levelTime = 0;
     [super viewDidLoad];
     [LoaderHelper init];
     levelLoader = [[LevelLoader alloc] init];
@@ -117,7 +118,8 @@ static id theController = nil;
     input = [[GameInput alloc]init:player leftButton:leftButton rightButton:rightButton upButton:upButton pauseButton:pauseButton];
     glEnable(GL_BLEND);
     glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
-	[textBoxes addObject:[[TextBox alloc] initWithString:@"testing" x:0.6 y:0.9]];
+	[textBoxes addObject:[[TextBox alloc] initWithString:@"testing" x:-1 y:0.9]];
+	
 	textRenderer = [TextRenderer new];
 	 
 	// self.currentLevel = [StatisticsTracker sharedInstance].currentlevel;
@@ -131,7 +133,7 @@ static id theController = nil;
 -(void)glkView:(nonnull GLKView *)view drawInRect:(CGRect)rect{
 	[self updateFrameTime];
 	TextBox* box = [textBoxes objectAtIndex:0];
-	[box setString:[NSString stringWithFormat:@"Fps: %0.1f",1/_frameTime]];
+	[box setString:[NSString stringWithFormat:@"%0.1fs",_levelTime]];
     glClearColor(0, 0, 0.1, 1);
     glClear(GL_COLOR_BUFFER_BIT);
 	
@@ -175,6 +177,7 @@ static id theController = nil;
 			}
             break;
         case RUNNING:
+			_levelTime += _frameTime;
 			[arrayLock lock];
             if([gameObjects count] <1){
 				[arrayLock unlock];
@@ -400,6 +403,7 @@ static id theController = nil;
         gameObjects = [levelLoader loadLevel:_currentLevel];
         [gameObjects addObject:planet];
 		[arrayLock unlock];
+		_levelTime = 0;
     }
     
 }
