@@ -41,4 +41,5 @@ typedef struct{
 +(BOOL)rect:(CGRect)rect1 intersects:(CGRect)rect2;
 +(BOOL)valueInRange:(float)val min:(float)min max:(float)max;
 +(vec2)moveToUndoCollision:(CGRect)box1 withRect:(CGRect)box2;
++(float)clamp:(float) min:(float)min max:(float)max;
 @end

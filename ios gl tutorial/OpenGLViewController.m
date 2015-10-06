@@ -30,6 +30,7 @@
 #import "Bullet.h"
 #import "TextRenderer.h"
 #import "Color.h"
+#import "HealthBar.h"
 static id theController = nil;
 
 @interface OpenGLViewController (){
@@ -55,6 +56,7 @@ static id theController = nil;
 	NSLock* bulletLock;
 	NSMutableArray<TextBox*>* textBoxes;
 	TextRenderer* textRenderer;
+	HealthBar* healthbar;
 	//Background* background;
 }
 @property (strong) GLKBaseEffect* effect;
@@ -114,6 +116,7 @@ static id theController = nil;
     [guiObjects addObject:rightButton];
     [guiObjects addObject:upButton];
 	[guiObjects addObject:pauseButton];
+	healthbar = [[HealthBar alloc]initWithPositionX:0.6 y:0.9 view:view];
 	//[guiObjects addObject:[[HealthBar alloc]initWithPositionX:-1 y:0.9 view:view]];
     input = [[GameInput alloc]init:player leftButton:leftButton rightButton:rightButton upButton:upButton pauseButton:pauseButton];
     glEnable(GL_BLEND);
@@ -264,6 +267,7 @@ static id theController = nil;
             [input update];
 			[arrayLock lock];
 			[textRenderer render:textBoxes view:self.view];
+			[healthbar render:player];
             [player updatePosition:gameObjects];
 			[gameObjects removeObjectsInArray:bullets];
 			

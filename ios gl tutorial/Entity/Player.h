@@ -11,6 +11,7 @@
 @interface Player : GameEntity
 @property float rVelocity;
 @property float health;
+@property float maxHealth;
 -(void)updatePosition:(nullable NSArray* )gameObjects;
 -(void)jump:(float)speed;
 -(void)move:(int) moveVal;

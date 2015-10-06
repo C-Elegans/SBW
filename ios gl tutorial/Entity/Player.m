@@ -44,6 +44,8 @@ const vec2 animationStates[] = {
     self = [super initRadius:r theta:t];
 	self.textureDivisor = 2;
 	self.textureOffset = (vec2){0,0};
+	self.maxHealth = 10;
+	self.health = self.maxHealth;
 	time = 0;
     [super loadToBuffers:&playerVertices[0] vSize:sizeof(playerVertices) indices:&playerIndices[0] iSize:sizeof(playerIndices) objectName:@"player"];
     [super loadToTexture:@"astronaut.png" mipmapsEnabled:true];
