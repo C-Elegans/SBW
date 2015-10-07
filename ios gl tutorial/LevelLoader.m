@@ -13,6 +13,7 @@
 #import "JumpPad.h"
 #import "Tree.h"
 #import "Turret.h"
+#import "Eyeball.h"
 @implementation LevelLoader
 -(id)init{
     self = [super init];
@@ -68,6 +69,13 @@
 			Turret* t = [[Turret alloc]initRadius:radius theta:theta];
 			t.rotation = rotation;
 			[gameObjects addObject:t];
+		}
+		NSArray* eyeballs = [[allObjects objectAtIndex:level] objectForKey:@"Eyeball"];
+		for(int i=0;i<[eyeballs count]; i+=2){
+			float radius,theta;
+			radius = [(NSNumber*)[eyeballs objectAtIndex:i] floatValue];
+			theta = [(NSNumber*)[eyeballs objectAtIndex:i+1] floatValue];
+			[gameObjects addObject:[[Eyeball alloc]initRadius:radius theta:theta]];
 		}
     }
 	

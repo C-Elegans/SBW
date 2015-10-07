@@ -23,6 +23,8 @@
 		0A36916B1BC31FB70034E3B4 /* barVertexShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 0A36916A1BC31FB70034E3B4 /* barVertexShader.glsl */; };
 		0A36916D1BC31FCB0034E3B4 /* barFragmentShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 0A36916C1BC31FCB0034E3B4 /* barFragmentShader.glsl */; };
 		0A36916F1BC4A43C0034E3B4 /* eyeball.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A36916E1BC4A43C0034E3B4 /* eyeball.png */; };
+		0A3691721BC4A49A0034E3B4 /* Eyeball.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A3691711BC4A49A0034E3B4 /* Eyeball.m */; };
+		0A3691741BC555DC0034E3B4 /* test.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A3691731BC555DC0034E3B4 /* test.png */; };
 		0A4167711B7D30090029D807 /* upButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A4167701B7D30090029D807 /* upButton.png */; };
 		0A4167781B7EC5680029D807 /* LevelLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A4167771B7EC5680029D807 /* LevelLoader.m */; };
 		0A41677A1B7F65060029D807 /* levelData.json in Resources */ = {isa = PBXBuildFile; fileRef = 0A4167791B7F65060029D807 /* levelData.json */; };
@@ -140,6 +142,9 @@
 		0A36916A1BC31FB70034E3B4 /* barVertexShader.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = barVertexShader.glsl; sourceTree = "<group>"; };
 		0A36916C1BC31FCB0034E3B4 /* barFragmentShader.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = barFragmentShader.glsl; sourceTree = "<group>"; };
 		0A36916E1BC4A43C0034E3B4 /* eyeball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = eyeball.png; path = Assets/eyeball.png; sourceTree = "<group>"; };
+		0A3691701BC4A49A0034E3B4 /* Eyeball.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Eyeball.h; sourceTree = "<group>"; };
+		0A3691711BC4A49A0034E3B4 /* Eyeball.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Eyeball.m; sourceTree = "<group>"; };
+		0A3691731BC555DC0034E3B4 /* test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = test.png; path = Assets/test.png; sourceTree = "<group>"; };
 		0A4167701B7D30090029D807 /* upButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = upButton.png; path = Assets/upButton.png; sourceTree = "<group>"; };
 		0A4167761B7EC5680029D807 /* LevelLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelLoader.h; sourceTree = "<group>"; };
 		0A4167771B7EC5680029D807 /* LevelLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelLoader.m; sourceTree = "<group>"; };
@@ -363,6 +368,7 @@
 		0AA14D7B1B7561C100770A6E /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				0A3691731BC555DC0034E3B4 /* test.png */,
 				0A3691621BC31C200034E3B4 /* healthbar.png */,
 				0AB0183E1BBC781E00264366 /* lcd.png */,
 				0AB018371BBACA7300264366 /* bullet.png */,
@@ -587,6 +593,8 @@
 				0AB018301BB9F98E00264366 /* Turret.m */,
 				0AB018341BBA024A00264366 /* Bullet.h */,
 				0AB018351BBA024A00264366 /* Bullet.m */,
+				0A3691701BC4A49A0034E3B4 /* Eyeball.h */,
+				0A3691711BC4A49A0034E3B4 /* Eyeball.m */,
 			);
 			name = Entity;
 			sourceTree = "<group>";
@@ -713,6 +721,7 @@
 				0A0708801BA366B200A757C2 /* playButton.png in Resources */,
 				0AA14D891B75682600770A6E /* guiVertexShader.glsl in Resources */,
 				0AB0183F1BBC781E00264366 /* lcd.png in Resources */,
+				0A3691741BC555DC0034E3B4 /* test.png in Resources */,
 				0A50E0FA1B7150FE008E69D5 /* gameVertexShader.glsl in Resources */,
 				0A50E10B1B725006008E69D5 /* earth.png in Resources */,
 				0A36916D1BC31FCB0034E3B4 /* barFragmentShader.glsl in Resources */,
@@ -821,6 +830,7 @@
 				0AA72B9F1B6EF2B000018D9E /* AppDelegate.m in Sources */,
 				0AA72B9C1B6EF2B000018D9E /* main.m in Sources */,
 				0AD8CDE21B702D9A00833F84 /* MainScreen.m in Sources */,
+				0A3691721BC4A49A0034E3B4 /* Eyeball.m in Sources */,
 				0AC917FA1B6FA2370068B51D /* OpenGLViewController.m in Sources */,
 				0AD8CDDC1B70211F00833F84 /* Shader.m in Sources */,
 			);
