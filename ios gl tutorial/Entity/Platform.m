@@ -9,11 +9,11 @@
 #import "Platform.h"
 #import "GameEntityProtectedMethods.h"
 @implementation Platform
-const Vertex platformVertices[] = {
-    {{0, 0, 0}, {0,1}},
-    {{0, .2, 0}, {1,1}},
-    {{.2, .2, 0}, {1,0}},
-    {{.2, 0, 0}, {0,0}}
+const Vertex3D platformVertices[] = {
+    {{0, 0, 0}, {0,1,1}},
+    {{0, .2, 0}, {1,1,1}},
+    {{.2, .2, 0}, {1,0,1}},
+    {{.2, 0, 0}, {0,0,1}}
 };
 
 const GLushort platformIndices[] = {

@@ -27,11 +27,11 @@ typedef enum{WALKING, JUMPING, STANDING} PlayerState;
 @implementation Player
 const int playerWidth = 0.359375;
 @synthesize health = _health;
-const Vertex playerVertices[] = {
-    {{0, -0.115, 0}, {0,1}},
-    {{0, .115, 0}, {1,1}},
-    {{.2, .115, 0}, {1,0}},
-    {{.2, -0.115, 0}, {0,0}}
+const Vertex3D playerVertices[] = {
+    {{0, -0.115, 0}, {0,1,1}},
+    {{0, .115, 0}, {1,1,1}},
+    {{.2, .115, 0}, {1,0,1}},
+    {{.2, -0.115, 0}, {0,0,1}}
 };
 
 const GLushort playerIndices[] = {

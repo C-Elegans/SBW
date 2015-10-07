@@ -39,6 +39,29 @@ static NSMutableDictionary* vaoDict;
     
     
 }
++(GLuint)loadVertices3D:(const Vertex3D*)vertices verticesSize:(int)vSize indices:(const GLushort*)indices indicesSize:(int)iSize{
+	GLuint vaoid;
+	glGenVertexArraysOES(1, &vaoid);
+	glBindVertexArrayOES(vaoid);
+	GLuint vertexBuffer,indicesBuffer;
+	glGenBuffers(1, &vertexBuffer);
+	glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
+	glBufferData(GL_ARRAY_BUFFER, vSize, vertices, GL_STATIC_DRAW);
+	
+	glGenBuffers(1, &indicesBuffer);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indicesBuffer);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, iSize, indices, GL_STATIC_DRAW);
+	
+	
+	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex3D), 0);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex3D), (GLvoid*) (sizeof(float) * 3));
+	glDisableVertexAttribArray(vaoid);
+	glBindVertexArrayOES(0);
+	return vaoid;
+	
+	
+	
+}
 +(GLuint)loadToVBOS:(const Vertex *)vertices verticesSize:(int)vSize indices:(const GLushort *)indices indicesSize:(int)iSize objectName:(NSString*)objectName{
     NSNumber* vaoID = [vaoDict objectForKey:objectName];
     if(vaoID == nil){
@@ -46,6 +69,14 @@ static NSMutableDictionary* vaoDict;
         [vaoDict setObject:vaoID forKey:objectName];
     }
     return (GLuint)[vaoID integerValue];
+}
++(GLuint)loadToVBOS3D:(const Vertex3D *)vertices verticesSize:(int)vSize indices:(const GLushort *)indices indicesSize:(int)iSize objectName:(NSString*)objectName{
+	NSNumber* vaoID = [vaoDict objectForKey:objectName];
+	if(vaoID == nil){
+		vaoID = [NSNumber numberWithInt:[LoaderHelper loadVertices3D:vertices verticesSize:vSize indices:indices indicesSize:iSize]];
+		[vaoDict setObject:vaoID forKey:objectName];
+	}
+	return (GLuint)[vaoID integerValue];
 }
 + (GLuint)setupTexture:(NSString *)fileName enableMipmaps:(BOOL)mipmapEnabled{
     // 1

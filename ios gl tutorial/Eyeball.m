@@ -10,11 +10,11 @@
 }
 @end
 @implementation Eyeball
-const Vertex eyeballVertices[] = {
-	{{0, 0, 0}, {0,1}},
-	{{0, .2, 0}, {1,1}},
-	{{.22, .2, 0}, {1,0}},
-	{{.22, 0, 0}, {0,0}}
+const Vertex3D eyeballVertices[] = {
+	{{0, -.02, 0}, {0,1,1}},
+	{{0, .22, 0}, {1,1,1}},
+	{{.22, .2, 0}, {1,0,1}},
+	{{.22, 0, 0}, {0,0,1}}
 };
 
 const GLushort eyeballIndices[] = {
@@ -27,7 +27,7 @@ const GLushort eyeballIndices[] = {
 	
 	self.rotation = -1;
 	[super loadToBuffers:&eyeballVertices[0] vSize:sizeof(eyeballVertices) indices:&eyeballIndices[0] iSize:sizeof(eyeballIndices)objectName:@"eyeball"];
-	[super loadToTexture:@"test.png" mipmapsEnabled:true];
+	[super loadToTexture:@"eyeball.png" mipmapsEnabled:true];
 	return self;
 }
 -(CGRect)getCollisionBox{

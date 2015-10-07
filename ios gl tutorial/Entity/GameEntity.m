@@ -19,8 +19,8 @@
 	_rotation = 1;
     return self;
 }
--(void)loadToBuffers:(const Vertex*)vertices vSize:(size_t)vsize indices:(const GLushort*)indices iSize:(size_t)isize objectName:(NSString*)objectName{
-    _vaoID = [LoaderHelper loadToVBOS:vertices verticesSize:(int)vsize indices:indices indicesSize:(int)isize objectName:objectName];
+-(void)loadToBuffers:(const Vertex3D*)vertices vSize:(size_t)vsize indices:(const GLushort*)indices iSize:(size_t)isize objectName:(NSString*)objectName{
+    _vaoID = [LoaderHelper loadToVBOS3D:vertices verticesSize:(int)vsize indices:indices indicesSize:(int)isize objectName:objectName];
     
     _numVertices = (int)isize/(int)sizeof(GLushort);
 }
