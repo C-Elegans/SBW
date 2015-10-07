@@ -9,11 +9,11 @@
 #import "Background.h"
 #import "GameEntityProtectedMethods.h"
 @implementation Background
-const Vertex3D backgroundVertices[] = {
-	{{20, 0, 0}, {0,1,1}},
-	{{20, TWO_PI/4, 0}, {1,1,1}},
-	{{20, TWO_PI/2, 0}, {1,0,1}},
-	{{20, 3*TWO_PI/4, 0}, {0,0,1}}
+const Vertex backgroundVertices[] = {
+	{{20, 0, 0}, {0,1}},
+	{{20, TWO_PI/4, 0}, {1,1}},
+	{{20, TWO_PI/2, 0}, {1,0}},
+	{{20, 3*TWO_PI/4, 0}, {0,0}}
 };
 
 const GLushort backgroundIndices[] = {

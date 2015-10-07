@@ -29,10 +29,6 @@ typedef struct {
     float Position[3];
     float UV[2];
 } Vertex;
-typedef struct {
-	float Position[3];
-	float UV[3];
-} Vertex3D;
 typedef struct{
 	float x;
 	float y;
@@ -45,5 +41,5 @@ typedef struct{
 +(BOOL)rect:(CGRect)rect1 intersects:(CGRect)rect2;
 +(BOOL)valueInRange:(float)val min:(float)min max:(float)max;
 +(vec2)moveToUndoCollision:(CGRect)box1 withRect:(CGRect)box2;
-+(float)clamp:(float)val :(float)min max:(float)max;
++(float)clamp:(float) min:(float)min max:(float)max;
 @end

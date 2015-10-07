@@ -1,5 +1,5 @@
 attribute vec4 position;
-attribute vec3 inTexCoords;
+attribute vec2 inTexCoords;
 
 uniform vec2 transformationOffset;
 uniform float heightOffset;
@@ -7,8 +7,12 @@ uniform float screenCorrection;
 uniform mediump float textureDivisor;
 uniform float rotation;
 uniform vec2 textureOffset;
+<<<<<<< HEAD
 uniform mat4 objectRotation;
 varying vec3 outTexCoords;
+=======
+varying vec2 outTexCoords;
+>>>>>>> parent of b324108... added perspective correction, not sure if necessary
 
 void main(void){
 	mediump vec4 newPosition = position * objectRotation;
@@ -16,11 +20,10 @@ void main(void){
     mediump float x = cos(newPosition.y) * newPosition.x;
     mediump float y = sin(newPosition.y) * newPosition.x;
 	if(rotation <0.0){
-		outTexCoords.xy = ((vec2(1.0-inTexCoords.x,inTexCoords.y)/textureDivisor)+textureOffset);
+		outTexCoords = ((vec2(1.0-inTexCoords.x,inTexCoords.y)/textureDivisor)+textureOffset);
 	}else{
-    	outTexCoords.xy = ((inTexCoords.xy/textureDivisor)+textureOffset);
+    	outTexCoords = ((inTexCoords/textureDivisor)+textureOffset);
 	}
-	outTexCoords.z = inTexCoords.z;
     gl_Position = vec4(x*screenCorrection,y-heightOffset,newPosition.z,1);
 
 }
