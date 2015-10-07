@@ -19,6 +19,7 @@
 @property float textureDivisor;
 @property vec2 textureOffset;
 @property int rotation;
+@property float objectRotation;
 -(id)initRadius:(float)r theta:(float)t;
 -(CGRect)getCollisionBox;
 -(void)update;

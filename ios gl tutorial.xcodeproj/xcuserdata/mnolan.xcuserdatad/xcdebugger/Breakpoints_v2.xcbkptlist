@@ -300,11 +300,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ios gl tutorial/OpenGLViewController.m"
-            timestampString = "465772418.153238"
+            timestampString = "465941934.21346"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "452"
-            endingLineNumber = "452"
+            startingLineNumber = "453"
+            endingLineNumber = "453"
             landmarkName = "-endLevel"
             landmarkType = "5">
          </BreakpointContent>
@@ -332,11 +332,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ios gl tutorial/OpenGLViewController.m"
-            timestampString = "465772418.153238"
+            timestampString = "465941934.21346"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "435"
-            endingLineNumber = "435"
+            startingLineNumber = "436"
+            endingLineNumber = "436"
             landmarkName = "-setGameState:"
             landmarkType = "5">
          </BreakpointContent>
@@ -503,11 +503,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ios gl tutorial/OpenGLViewController.m"
-            timestampString = "465772418.153238"
+            timestampString = "465941934.21346"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "277"
-            endingLineNumber = "277"
+            startingLineNumber = "278"
+            endingLineNumber = "278"
             landmarkName = "-glkView:drawInRect:"
             landmarkType = "5">
             <Locations>
@@ -551,11 +551,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ios gl tutorial/OpenGLViewController.m"
-            timestampString = "465772418.153238"
+            timestampString = "465941934.21346"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "269"
-            endingLineNumber = "269"
+            startingLineNumber = "270"
+            endingLineNumber = "270"
             landmarkName = "-glkView:drawInRect:"
             landmarkType = "5">
          </BreakpointContent>
@@ -567,11 +567,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ios gl tutorial/OpenGLViewController.m"
-            timestampString = "465772418.153238"
+            timestampString = "465941934.21346"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "278"
-            endingLineNumber = "278"
+            startingLineNumber = "279"
+            endingLineNumber = "279"
             landmarkName = "-glkView:drawInRect:"
             landmarkType = "5">
          </BreakpointContent>
@@ -732,6 +732,22 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "35"
             endingLineNumber = "35">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ios gl tutorial/GameShader.m"
+            timestampString = "465941959.653967"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "-loadObjectRotation:"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

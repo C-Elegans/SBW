@@ -212,6 +212,7 @@ static id theController = nil;
 					
 					[gameShader uploadObjectTransformation:entity.radius theta:entity.theta+(TWO_PI/4.0)-player.theta];
 					[gameShader loadAnimation:entity.textureDivisor textureOffset:entity.textureOffset rotation:entity.rotation];
+					[gameShader loadObjectRotation:entity.objectRotation];
 					if(entity.texture != previousTexture){
 						glBindTexture(GL_TEXTURE_2D, entity.texture);
 						previousTexture = entity.texture;

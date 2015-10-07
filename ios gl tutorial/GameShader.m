@@ -15,6 +15,7 @@
 
 #import "GameShader.h"
 #import "MathHelper.h"
+
 @interface GameShader(){
     GLuint position_location;
     GLuint uv_location;
@@ -24,6 +25,7 @@
 	GLuint textureDivisor_location;
 	GLuint textureOffset_location;
 	GLuint rotation_location;
+	GLuint objectRotation_location;
 }
 @end
 @implementation GameShader
@@ -39,6 +41,7 @@
 	textureDivisor_location = glGetUniformLocation(program, "textureDivisor");
 	textureOffset_location = glGetUniformLocation(program, "textureOffset");
 	rotation_location = glGetUniformLocation(program, "rotation");
+	objectRotation_location = glGetUniformLocation(program, "objectRotation");
     if(position_location == -1 || uv_location == -1 || transformation_location == -1 || heightOffset_location == -1||screenCorrection_location == -1){
         NSLog(@"Invalid Attrib Location!");
         exit(1);
@@ -78,6 +81,11 @@
 	glUniform1f(textureDivisor_location, divisor);
 	glUniform2f(textureOffset_location, offset.x/divisor, offset.y/divisor);
 	glUniform1f(rotation_location, (float)rotation);
+}
+-(void)loadObjectRotation:(float)rotation{
+	GLKMatrix4 mat = GLKMatrix4Identity;
+	mat = GLKMatrix4RotateZ(mat, rotation);
+	glUniformMatrix4fv(objectRotation_location, 1, 0, mat.m);
 }
 
 @end

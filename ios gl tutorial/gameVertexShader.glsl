@@ -7,10 +7,12 @@ uniform float screenCorrection;
 uniform mediump float textureDivisor;
 uniform float rotation;
 uniform vec2 textureOffset;
+uniform mat4 objectRotation;
 varying vec3 outTexCoords;
 
 void main(void){
-    mediump vec4 newPosition = vec4(position.x,position.y * (1.0/transformationOffset.x),position.zw) + vec4(transformationOffset,0,0);
+	mediump vec4 newPosition = position * objectRotation;
+	newPosition = vec4(newPosition.x,newPosition.y * (1.0/transformationOffset.x),newPosition.zw) + vec4(transformationOffset,0,0);
     mediump float x = cos(newPosition.y) * newPosition.x;
     mediump float y = sin(newPosition.y) * newPosition.x;
 	if(rotation <0.0){
