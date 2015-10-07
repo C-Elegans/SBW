@@ -11,6 +11,7 @@
 @end
 @implementation Eyeball
 
+
 const Vertex eyeballVertices[] = {
 	{{-.11, -.1, 0}, {0,1}},
 	{{-.11, .1, 0}, {1,1}},
