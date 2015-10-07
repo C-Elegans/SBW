@@ -15,4 +15,5 @@
 -(void)updatePosition:(nullable NSArray* )gameObjects;
 -(void)jump:(float)speed;
 -(void)move:(int) moveVal;
+-(void)die;
 @end

@@ -26,6 +26,7 @@ typedef enum{WALKING, JUMPING, STANDING} PlayerState;
 @end
 @implementation Player
 const int playerWidth = 0.359375;
+@synthesize health = _health;
 const Vertex playerVertices[] = {
     {{0, -0.115, 0}, {0,1}},
     {{0, .115, 0}, {1,1}},
@@ -127,6 +128,25 @@ const vec2 animationStates[] = {
 }
 -(BOOL)playerShouldCollide{
 	return YES;
+}
+-(void)setHealth:(float)health{
+	@synchronized(self) {
+		_health = health;
+		if(health <= 0){
+			[self die];
+		}
+	}
+}
+-(float)health{
+	@synchronized(self) {
+		return _health;
+	}
+}
+-(void)die{
+	[OpenGLViewController getController].currentLevel = [OpenGLViewController getController].currentLevel;
+	_health = _maxHealth;
+	self.radius = 2;
+	self.theta =0;
 }
 
 @end

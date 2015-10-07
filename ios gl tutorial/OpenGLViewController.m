@@ -126,7 +126,7 @@ static id theController = nil;
 	textRenderer = [TextRenderer new];
 	 
 	// self.currentLevel = [StatisticsTracker sharedInstance].currentlevel;
-	self.currentLevel = 0;
+	self.currentLevel = 9;
 }
 -(BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation{
     return UIInterfaceOrientationIsLandscape(toInterfaceOrientation);

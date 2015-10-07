@@ -54,9 +54,9 @@ const GLushort bulletIndices[] = {
 		}
 	}
 }
--(void)onCollisionWith:(GameEntity *)player{
+-(void)onCollisionWith:(Player *)player{
 	[[OpenGLViewController getController] deleteBullet:self];
-	
+	player.health -= 1;
 	NSLog(@"Bullet Collided");
 }
 -(void)checkCollisions:(NSArray<GameEntity*>*)gameObjects{
