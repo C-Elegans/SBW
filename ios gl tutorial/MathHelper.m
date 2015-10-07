@@ -82,7 +82,7 @@
     }
     return moveVector;
 }
-+(float)clamp:(float)val :(float)min max:(float)max{
++(float)clamp:(float)val min:(float)min max:(float)max{
 	return MAX(min, MIN(max, val));
 }
 @end

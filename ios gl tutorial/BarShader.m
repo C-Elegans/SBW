@@ -55,7 +55,7 @@
 	glUniform1f(screenCorrection_location, offset);
 }
 -(void)uploadAlpha:(float)alpha{
-	alpha = [MathHelper clamp:1-alpha :0 max:0.99];
+	alpha = [MathHelper clamp:1-alpha min:0 max:0.99];
 	glUniform1f(alpha_location, alpha);
 }
 
