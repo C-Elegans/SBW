@@ -17,11 +17,11 @@
 }
 @end
 @implementation Bullet
-const Vertex3D bulletVertices[] = {
-	{{0, 0, 0}, {0,1,1}},
-	{{0, 0.05, 0}, {1,1,1}},
-	{{.05, .05, 0}, {1,0,1}},
-	{{.05, 0, 0}, {0,0,1}}
+const Vertex bulletVertices[] = {
+	{{0, 0, 0}, {0,1}},
+	{{0, 0.05, 0}, {1,1}},
+	{{.05, .05, 0}, {1,0}},
+	{{.05, 0, 0}, {0,0}}
 };
 
 const GLushort bulletIndices[] = {

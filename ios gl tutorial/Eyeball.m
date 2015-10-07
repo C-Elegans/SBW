@@ -10,11 +10,19 @@
 }
 @end
 @implementation Eyeball
+<<<<<<< HEAD
 const Vertex3D eyeballVertices[] = {
 	{{-.1, -.1, 0}, {0,1,1}},
 	{{-.1, .1, 0}, {1,1,1}},
 	{{.1, .1, 0}, {1,0,1}},
 	{{.1, -.1, 0}, {0,0,1}}
+=======
+const Vertex eyeballVertices[] = {
+	{{0, 0, 0}, {0,1}},
+	{{0, .2, 0}, {1,1}},
+	{{.22, .2, 0}, {1,0}},
+	{{.22, 0, 0}, {0,0}}
+>>>>>>> parent of b324108... added perspective correction, not sure if necessary
 };
 
 const GLushort eyeballIndices[] = {
