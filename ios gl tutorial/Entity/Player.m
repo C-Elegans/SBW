@@ -21,10 +21,13 @@ typedef enum{WALKING, JUMPING, STANDING} PlayerState;
 	PlayerState playerState;
 	int animationState;
 	float time;
+	
 }
 
 @end
 @implementation Player
+static Player* thePlayer = nil;
+static dispatch_once_t token;
 const int playerWidth = 0.359375;
 @synthesize health = _health;
 const Vertex playerVertices[] = {
@@ -42,7 +45,10 @@ const vec2 animationStates[] = {
 	{0,0},{1,0},{0,0},{1,1}
 };
 -(id)initRadius:(float)r theta:(float)t{
-    self = [super initRadius:r theta:t];
+	dispatch_once(&token, ^{
+		thePlayer = [super initRadius:r theta:t];
+	});
+    self = thePlayer;
 	self.textureDivisor = 2;
 	self.textureOffset = (vec2){0,0};
 	self.maxHealth = 10;
@@ -148,5 +154,9 @@ const vec2 animationStates[] = {
 	self.radius = 2;
 	self.theta =0;
 }
++(Player*)getPlayer{
+	return thePlayer;
+}
+
 
 @end

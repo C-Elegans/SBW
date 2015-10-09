@@ -7,19 +7,9 @@ uniform float screenCorrection;
 uniform mediump float textureDivisor;
 uniform float rotation;
 uniform vec2 textureOffset;
-<<<<<<< HEAD
-
 uniform mat4 objectRotation;
 varying vec2 outTexCoords;
 
-=======
-<<<<<<< HEAD
-uniform mat4 objectRotation;
-varying vec3 outTexCoords;
-=======
-varying vec2 outTexCoords;
->>>>>>> parent of b324108... added perspective correction, not sure if necessary
->>>>>>> origin/master
 
 void main(void){
 	mediump vec4 newPosition = position * objectRotation;

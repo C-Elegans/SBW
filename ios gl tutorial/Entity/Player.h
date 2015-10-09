@@ -16,4 +16,5 @@
 -(void)jump:(float)speed;
 -(void)move:(int) moveVal;
 -(void)die;
++(Player*)getPlayer;
 @end
