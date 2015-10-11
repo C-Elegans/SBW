@@ -42,7 +42,7 @@
         _theta += TWO_PI;
     }
 }
--(void)update{
+-(void)update:(NSArray<GameEntity *> *)gameObjects{
 	
 }
 -(BOOL)playerShouldCollide{

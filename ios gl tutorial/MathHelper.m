@@ -8,6 +8,7 @@
 
 #import "MathHelper.h"
 #include <math.h>
+#define EPSILON 0.0001
 @implementation MathHelper
 +(float)vec3Dot:(vec3)vector1 vector2:(vec3)vector2{
     float sum = 0;
@@ -85,4 +86,12 @@
 +(float)clamp:(float)val min:(float)min max:(float)max{
 	return MAX(min, MIN(max, val));
 }
+BOOL floatEqualsFloat(float one, float two){
+	return (two - EPSILON < one) && (one < two + EPSILON);
+}
+BOOL floatEqualsFloatEpsilon(float one, float two, float epsilon){
+	return (two - epsilon < one) && (one < two + epsilon);
+}
+
+
 @end

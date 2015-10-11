@@ -1,12 +1,11 @@
 #import "Eyeball.h"
 #import "GameEntityProtectedMethods.h"
 #import "OpenGLViewController.h"
+#import "Player.h"
+#import "AIHelper.h"
+#define MOVE_SPEED 0.1
 @interface Eyeball(){
-	float time;
-	float timeToFire;
-	int animationState;
-	int firing;
-	BOOL light;
+	
 }
 @end
 @implementation Eyeball
@@ -35,8 +34,15 @@ const GLushort eyeballIndices[] = {
 -(CGRect)getCollisionBox{
 	return CGRectMake(0+self.radius, 0+self.theta, .05, .2*(1/self.radius));
 }
--(void)update{
-	self.objectRotation += 0.05;
+-(void)update:(NSArray<GameEntity *> *)gameObjects{
+	Player* player = [Player getPlayer];
+	vec2 playerPos = (vec2) {player.radius,player.theta};
+	vec2 myPos = (vec2){self.radius,self.theta};
+	vec2 moveVec = [AIHelper calculateShortestMoveVectorFrom:myPos to:playerPos];
+	self.radius += [MathHelper clamp:moveVec.x min:-MOVE_SPEED max:MOVE_SPEED];
+	if(atan2f(moveVec.x, moveVec.y) > TWO_PI/4){
+		
+	}
 }
 -(BOOL)playerShouldCollide{
 	return NO;

@@ -22,7 +22,7 @@
 @property float objectRotation;
 -(id)initRadius:(float)r theta:(float)t;
 -(CGRect)getCollisionBox;
--(void)update;
+-(void)update:(NSArray<GameEntity*>*)gameObjects;
 -(BOOL)playerShouldCollide;
 -(void)onCollisionWith:(GameEntity*)player;
 @end

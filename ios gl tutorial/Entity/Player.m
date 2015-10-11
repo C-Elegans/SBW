@@ -61,7 +61,7 @@ const vec2 animationStates[] = {
 -(CGRect)getCollisionBox{
     return CGRectMake((+self.radius), -0.04+self.theta, .2, (0.125-0.04) *(1/self.radius));
 }
--(void)updatePosition:(nullable NSArray *)gameObjects{
+-(void)update:(NSArray<GameEntity *> *)gameObjects{
     _rVelocity -= GRAVITY*([OpenGLViewController getController].frameTime);
     self.radius += _rVelocity;
 	if(self.radius < 1.06){
@@ -71,25 +71,15 @@ const vec2 animationStates[] = {
 			playerState = STANDING;
 		}
 	}
-    CGRect myCollisionBox = [self getCollisionBox];
+    
 	
-    for(GameEntity* entity in gameObjects){
-        if([MathHelper rect:myCollisionBox intersects:entity.getCollisionBox]){
-			[entity onCollisionWith:self];
-			if([entity playerShouldCollide]){
-                vec2 moveVec = [MathHelper moveToUndoCollision:myCollisionBox withRect:entity.getCollisionBox];
-                self.radius += moveVec.x;
-                self.theta += moveVec.y;
-                if(moveVec.x){
-                    _rVelocity = 0;
-					if(playerState == JUMPING){
-						playerState = STANDING;
-					}
-                }
-                //NSLog(@"object intersected! object %@  index %lu",entity, [gameObjects indexOfObject:entity]);
-			}
-        }
-    }
+	vec2 collision = [super checkCollisions:gameObjects];
+	if(collision.x){
+		_rVelocity = 0;
+		if(playerState == JUMPING){
+			playerState = STANDING;
+		}
+	}
 	[[OpenGLViewController getController] flushObjects];
 
 	

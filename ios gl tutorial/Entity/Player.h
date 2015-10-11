@@ -6,13 +6,13 @@
 //  Copyright © 2015 Michael Nolan. All rights reserved.
 //
 
-#import "GameEntity.h"
+#import "GameEntityDynamic.h"
 #define JUMP_HEIGHT GRAVITY/3
-@interface Player : GameEntity
+@interface Player : GameEntityDynamic
 @property float rVelocity;
 @property float health;
 @property float maxHealth;
--(void)updatePosition:(nullable NSArray* )gameObjects;
+
 -(void)jump:(float)speed;
 -(void)move:(int) moveVal;
 -(void)die;

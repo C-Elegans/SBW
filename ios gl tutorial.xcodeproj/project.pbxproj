@@ -45,6 +45,9 @@
 		0A8D85E21BA704BD00585A62 /* Background.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A8D85E11BA704BD00585A62 /* Background.m */; };
 		0A8D85E41BA706A400585A62 /* Background.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A8D85E31BA706A400585A62 /* Background.png */; };
 		0A95A7E91B7C14A00030B540 /* UpButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A95A7E81B7C14A00030B540 /* UpButton.m */; };
+		0A9716B11BC7FAD200E7C68A /* AIHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9716B01BC7FAD200E7C68A /* AIHelper.m */; };
+		0A9716B31BC7FC0F00E7C68A /* AIHelperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9716B21BC7FC0F00E7C68A /* AIHelperTests.m */; };
+		0A9716B61BC950E200E7C68A /* GameEntityDynamic.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9716B51BC950E200E7C68A /* GameEntityDynamic.m */; };
 		0A9BD6AA1BB0D2F700A24952 /* Tree.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9BD6A91BB0D2F700A24952 /* Tree.m */; };
 		0AA14D761B7561AF00770A6E /* astronaut.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AA14D751B7561AF00770A6E /* astronaut.png */; };
 		0AA14D791B7561B900770A6E /* leftButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AA14D771B7561B900770A6E /* leftButton.png */; };
@@ -174,6 +177,11 @@
 		0A8D85E31BA706A400585A62 /* Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Background.png; path = Assets/Background.png; sourceTree = "<group>"; };
 		0A95A7E71B7C14A00030B540 /* UpButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpButton.h; sourceTree = "<group>"; };
 		0A95A7E81B7C14A00030B540 /* UpButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpButton.m; sourceTree = "<group>"; };
+		0A9716AF1BC7FAD200E7C68A /* AIHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIHelper.h; sourceTree = "<group>"; };
+		0A9716B01BC7FAD200E7C68A /* AIHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIHelper.m; sourceTree = "<group>"; };
+		0A9716B21BC7FC0F00E7C68A /* AIHelperTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIHelperTests.m; sourceTree = "<group>"; };
+		0A9716B41BC950E200E7C68A /* GameEntityDynamic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameEntityDynamic.h; sourceTree = "<group>"; };
+		0A9716B51BC950E200E7C68A /* GameEntityDynamic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameEntityDynamic.m; sourceTree = "<group>"; };
 		0A9BD6A81BB0D2F700A24952 /* Tree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tree.h; sourceTree = "<group>"; };
 		0A9BD6A91BB0D2F700A24952 /* Tree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tree.m; sourceTree = "<group>"; };
 		0AA14D751B7561AF00770A6E /* astronaut.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = astronaut.png; path = Assets/astronaut.png; sourceTree = "<group>"; };
@@ -514,6 +522,7 @@
 				0AA72BB91B6EF2B200018D9E /* Info.plist */,
 				0AD918271B70EC960092C944 /* MathHelperTests.m */,
 				0A50E0F71B714AB0008E69D5 /* MainMenuTests.m */,
+				0A9716B21BC7FC0F00E7C68A /* AIHelperTests.m */,
 			);
 			path = "ios gl tutorialTests";
 			sourceTree = "<group>";
@@ -564,6 +573,8 @@
 				0AD8CDE81B702FC400833F84 /* LoaderHelper.h */,
 				0AD8CDE91B702FC400833F84 /* LoaderHelper.m */,
 				0A36915A1BC2B8720034E3B4 /* Color.h */,
+				0A9716AF1BC7FAD200E7C68A /* AIHelper.h */,
+				0A9716B01BC7FAD200E7C68A /* AIHelper.m */,
 			);
 			name = Helper;
 			sourceTree = "<group>";
@@ -575,6 +586,8 @@
 				0A50E0F61B71402F008E69D5 /* GameEntityProtectedMethods.h */,
 				0A50E0F21B7135F6008E69D5 /* GameEntity.h */,
 				0A50E0F31B7135F6008E69D5 /* GameEntity.m */,
+				0A9716B41BC950E200E7C68A /* GameEntityDynamic.h */,
+				0A9716B51BC950E200E7C68A /* GameEntityDynamic.m */,
 				0A50E1041B723F91008E69D5 /* Platform.h */,
 				0A50E1051B723F91008E69D5 /* Platform.m */,
 				0A50E1071B724D34008E69D5 /* Planet.h */,
@@ -793,6 +806,7 @@
 				0A1792101BA2108B00163CED /* LevelChangeScreen.m in Sources */,
 				0AA14D831B7565ED00770A6E /* LeftButton.m in Sources */,
 				0AB018581BBCA58000264366 /* TextRenderer.m in Sources */,
+				0A9716B11BC7FAD200E7C68A /* AIHelper.m in Sources */,
 				0AB018361BBA024A00264366 /* Bullet.m in Sources */,
 				0AA4B4901BAB850A00F32400 /* PauseButton.m in Sources */,
 				0AF351601B73EF8E00495590 /* GameInput.m in Sources */,
@@ -832,6 +846,7 @@
 				0AD8CDE21B702D9A00833F84 /* MainScreen.m in Sources */,
 				0A3691721BC4A49A0034E3B4 /* Eyeball.m in Sources */,
 				0AC917FA1B6FA2370068B51D /* OpenGLViewController.m in Sources */,
+				0A9716B61BC950E200E7C68A /* GameEntityDynamic.m in Sources */,
 				0AD8CDDC1B70211F00833F84 /* Shader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -843,6 +858,7 @@
 				0A50E0F81B714AB0008E69D5 /* MainMenuTests.m in Sources */,
 				0AA72BB81B6EF2B200018D9E /* ios_gl_tutorialTests.m in Sources */,
 				0AD918281B70EC960092C944 /* MathHelperTests.m in Sources */,
+				0A9716B31BC7FC0F00E7C68A /* AIHelperTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
