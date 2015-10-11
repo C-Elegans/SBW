@@ -15,7 +15,11 @@
 	return self;
 }
 -(vec2)checkCollisions:(NSArray<GameEntity*>*)gameObjects{
+	
 	vec2 collision = (vec2){0,0};
+	if(self.radius < 1.06){
+		collision.x = 1.06-self.radius;
+	}
 	CGRect myCollisionBox = [self getCollisionBox];
 	for (GameEntity* entity in gameObjects) {
 		if(entity == self){

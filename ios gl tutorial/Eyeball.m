@@ -43,6 +43,7 @@ const GLushort eyeballIndices[] = {
 	if(atan2f(moveVec.x, moveVec.y) > TWO_PI/4){
 		
 	}
+	
 }
 -(BOOL)playerShouldCollide{
 	return NO;

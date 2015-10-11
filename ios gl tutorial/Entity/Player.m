@@ -64,15 +64,6 @@ const vec2 animationStates[] = {
 -(void)update:(NSArray<GameEntity *> *)gameObjects{
     _rVelocity -= GRAVITY*([OpenGLViewController getController].frameTime);
     self.radius += _rVelocity;
-	if(self.radius < 1.06){
-		_rVelocity = 0;
-		self.radius = 1.06;
-		if(playerState == JUMPING){
-			playerState = STANDING;
-		}
-	}
-    
-	
 	vec2 collision = [super checkCollisions:gameObjects];
 	if(collision.x){
 		_rVelocity = 0;
