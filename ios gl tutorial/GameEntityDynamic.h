@@ -9,5 +9,9 @@
 #import "GameEntity.h"
 
 @interface GameEntityDynamic : GameEntity
+typedef enum{WALKING, JUMPING, STANDING} EntityState;
+@property EntityState entityState;
+@property float rVelocity;
 -(vec2)checkCollisions:(NSArray<GameEntity*>*)gameObjects;
+-(void)jump:(float)speed;
 @end

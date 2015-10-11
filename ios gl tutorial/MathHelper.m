@@ -92,6 +92,8 @@ BOOL floatEqualsFloat(float one, float two){
 BOOL floatEqualsFloatEpsilon(float one, float two, float epsilon){
 	return (two - epsilon < one) && (one < two + epsilon);
 }
-
++(float)magnitudeOf:(vec2)vec{
+	return sqrtf(vec.x*vec.x + vec.y*vec.y);
+}
 
 @end

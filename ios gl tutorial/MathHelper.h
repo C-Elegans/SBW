@@ -43,6 +43,7 @@ typedef struct{
 +(vec2)moveToUndoCollision:(CGRect)box1 withRect:(CGRect)box2;
 
 +(float)clamp:(float)val min:(float)min max:(float)max;
++(float)magnitudeOf:(vec2)vec;
 BOOL floatEqualsFloat(float one, float two);
 BOOL floatEqualsFloatEpsilon(float one, float two, float epsilon);
 @end

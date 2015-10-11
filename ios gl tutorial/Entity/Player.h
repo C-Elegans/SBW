@@ -9,7 +9,7 @@
 #import "GameEntityDynamic.h"
 #define JUMP_HEIGHT GRAVITY/3
 @interface Player : GameEntityDynamic
-@property float rVelocity;
+
 @property float health;
 @property float maxHealth;
 

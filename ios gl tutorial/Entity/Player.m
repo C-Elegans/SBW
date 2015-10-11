@@ -14,11 +14,10 @@
 #import "MathHelper.h"
 
 #define MOVE_SPEED 0.6
-typedef enum{WALKING, JUMPING, STANDING} PlayerState;
+
 
 @interface Player(){
 
-	PlayerState playerState;
 	int animationState;
 	float time;
 	
@@ -62,34 +61,23 @@ const vec2 animationStates[] = {
     return CGRectMake((+self.radius), -0.04+self.theta, .2, (0.125-0.04) *(1/self.radius));
 }
 -(void)update:(NSArray<GameEntity *> *)gameObjects{
-    _rVelocity -= GRAVITY*([OpenGLViewController getController].frameTime);
-    self.radius += _rVelocity;
-	vec2 collision = [super checkCollisions:gameObjects];
-	if(collision.x){
-		_rVelocity = 0;
-		if(playerState == JUMPING){
-			playerState = STANDING;
-		}
-	}
+	
+	[super checkCollisions:gameObjects];
+	
 	[[OpenGLViewController getController] flushObjects];
 
 	
 	[self updateAnimation];
 	
 }
--(void)jump:(float)speed{
-    if(playerState == WALKING || playerState == STANDING){
-		playerState = JUMPING;
-        _rVelocity = speed;
-    }
-}
+
 -(void)move:(int) moveVal{
 	self.theta+=moveVal * MOVE_SPEED * [OpenGLViewController getController].frameTime;
-	if(playerState != JUMPING){
+	if(self.entityState != JUMPING){
 		if(moveVal != 0){
-			playerState = WALKING;
+			self.entityState = WALKING;
 		}else{
-			playerState = STANDING;
+			self.entityState = STANDING;
 		}
 	}
 	if(moveVal !=0){
@@ -98,7 +86,7 @@ const vec2 animationStates[] = {
 }
 -(void)updateAnimation{
 	time +=[OpenGLViewController getController].frameTime;
-	if(playerState == WALKING){
+	if(self.entityState == WALKING){
 		if(time >0.1){
 			animationState++;
 			animationState &=3;

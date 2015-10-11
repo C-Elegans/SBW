@@ -12,10 +12,10 @@
 
 
 const Vertex eyeballVertices[] = {
-	{{-.11, -.1, 0}, {0,1}},
-	{{-.11, .1, 0}, {1,1}},
-	{{.11, .1, 0}, {1,0}},
-	{{.11, -.1, 0}, {0,0}}
+	{{0, 0, 0}, {0,1}},
+	{{0, .2, 0}, {1,1}},
+	{{.22, .2, 0}, {1,0}},
+	{{.22, 0, 0}, {0,0}}
 };
 
 const GLushort eyeballIndices[] = {
@@ -35,14 +35,16 @@ const GLushort eyeballIndices[] = {
 	return CGRectMake(0+self.radius, 0+self.theta, .05, .2*(1/self.radius));
 }
 -(void)update:(NSArray<GameEntity *> *)gameObjects{
+	float frameTime = [OpenGLViewController getController].frameTime;
 	Player* player = [Player getPlayer];
 	vec2 playerPos = (vec2) {player.radius,player.theta};
 	vec2 myPos = (vec2){self.radius,self.theta};
 	vec2 moveVec = [AIHelper calculateShortestMoveVectorFrom:myPos to:playerPos];
-	self.radius += [MathHelper clamp:moveVec.x min:-MOVE_SPEED max:MOVE_SPEED];
-	if(atan2f(moveVec.x, moveVec.y) > TWO_PI/4){
-		
+	self.theta += [MathHelper clamp:moveVec.y min:-MOVE_SPEED*frameTime max:MOVE_SPEED*frameTime];
+	if(atanf(moveVec.x/ moveVec.y) > TWO_PI/4 && [MathHelper magnitudeOf:moveVec]>0.2){
+		[super jump:JUMP_HEIGHT];
 	}
+	[super checkCollisions:gameObjects];
 	
 }
 -(BOOL)playerShouldCollide{
