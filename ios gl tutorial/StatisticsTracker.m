@@ -28,18 +28,23 @@
 	[[NSUserDefaults standardUserDefaults]setObject:[NSNumber numberWithInt:_maxLevel] forKey:@"maxLevel"];
 	[[NSUserDefaults standardUserDefaults]setObject:[NSNumber numberWithInt:_trees] forKey:@"trees"];
 	[[NSUserDefaults standardUserDefaults]setObject:_treeLevels forKey:@"treeLevels"];
+	[[NSUserDefaults standardUserDefaults]setObject:[NSNumber numberWithInt:_lives] forKey:@"lives"];
+	[[NSUserDefaults standardUserDefaults]setObject:_dateToFullyRecharge forKey:@"dateToRecharge"];
 }
 -(void)loadData{
 	if([[NSUserDefaults standardUserDefaults]objectForKey:@"maxLevel"]){
 		_maxLevel = [[[NSUserDefaults standardUserDefaults]objectForKey:@"maxLevel"] integerValue];
 		_currentlevel = [[[NSUserDefaults standardUserDefaults]objectForKey:@"currentLevel"] integerValue];
 		_trees = [[[NSUserDefaults standardUserDefaults]objectForKey:@"trees"] integerValue];
+		_lives = [[[NSUserDefaults standardUserDefaults]objectForKey:@"lives"] integerValue];
+		_dateToFullyRecharge = [[NSUserDefaults standardUserDefaults]objectForKey:@"dateToRecharge"];
 		
 	}else{
 		_maxLevel = 0;
 		_currentlevel = 0;
 		_trees = 0;
-		
+		_lives = 5;
+		_dateToFullyRecharge = [NSDate date];
 	}
 	if([[NSUserDefaults standardUserDefaults]objectForKey:@"treeLevels"]){
 		_treeLevels = [[NSUserDefaults standardUserDefaults]objectForKey:@"treeLevels"];

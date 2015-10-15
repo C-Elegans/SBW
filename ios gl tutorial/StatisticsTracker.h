@@ -13,6 +13,8 @@
 @property (assign) int currentlevel;
 @property (assign) int maxLevel;
 @property int trees;
+@property int lives;
+@property NSDate* dateToFullyRecharge;
 @property NSMutableArray<NSNumber*>* treeLevels;
 -(void)saveData;
 -(void)loadData;
