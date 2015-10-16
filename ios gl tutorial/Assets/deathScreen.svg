@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="1136"
+   height="640"
+   viewBox="0 0 1136 640"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="deathScreen.svg">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.7"
+     inkscape:cx="568"
+     inkscape:cy="302.9532"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     units="px"
+     inkscape:window-width="1280"
+     inkscape:window-height="751"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-412.36216)">
+    <rect
+       style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect4133"
+       width="1136"
+       height="640"
+       x="0.5"
+       y="411.86215" />
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot4135"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:90px;line-height:125%;font-family:'LCD Solid';-inkscape-font-specification:'LCD Solid';letter-spacing:0px;word-spacing:0px;fill:#cccccc;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       transform="matrix(1.5931184,0,0,1.5931184,13.03685,298.37132)"><flowRegion
+         id="flowRegion4137"><rect
+           id="rect4139"
+           width="657.14288"
+           height="164.28572"
+           x="127.14286"
+           y="102.85714"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:90px;font-family:'LCD Solid';-inkscape-font-specification:'LCD Solid';fill:#cccccc;fill-opacity:1" /></flowRegion><flowPara
+         id="flowPara4141">You Died</flowPara></flowRoot>    <image
+       y="672.36218"
+       x="614.28571"
+       id="image4205"
+       xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABmJLR0QA/wD/AP+gvaeTAAAACXBI
+WXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3woQDC04NCdQcQAAACZpVFh0Q29tbWVudAAAAAAAQ3Jl
+YXRlZCB3aXRoIEdJTVAgb24gYSBNYWOV5F9bAAAETElEQVRYw6WWPW8cVRSGn3vnaz/sCJCgCQVI
+CH4BjQtKQCIg5AIJ0UMTakRFSUGDxG/gl1DRhAKkIGEkHDvEjoMdx/buzu7MHAq/1z6brK21PdJo
+vu55z3u+3jvw4mFZlhlggFVVle6vehhgMUYLIRiQrpcb7YBNwTp3bghsGSJFURhgj8H2wQ7AZmCm
+a57ncxjRP5RlSab7AHS63gZmwPQ8sgudP5rNeCjgGdAH8nNbzObNg4/+N2AoowJ4CrwD1EAmoBgC
+ZhYWEQgh2J4ZfWCgd62uKbAZMMhzmqYJcxmIMdIBJ8CBwvwPuCcyud51ZvT7fVvk/Fczoohv6dwB
+nrimyIGmaeYzUFWV/VLXTOWsAI6BVZXhBHgTeEUAvcVZsANl775sn2n9LeA1oHIRyzjkZ/UDJvpg
+QKm6dQJ7JOOXFtQxHWNF3ch56zBy9RJ6F06DIAL2c11zqLq1ct7IYQuMVLsnItkAGtWz9G8D2yKR
+OdtK9jvCMAU5Og3CYkrHWAaZmm4gpn3XgAbs6nnWtqQ53zNjX+sLOZrJZuSy84/IJ6yyLIlZlp12
+pgBK170DAUURaZXav4B9RXWv63ggRwOR64RjmqoU9VPZhzSa0yl527ZMZJT6oNCimDpfEZT6dggc
+AW/pW3KaxrWnSIPLanq3pXWr59MX2RejlJqJnDcyzFwUEycsf8hBK2LRNW+ta6ZvrexaBTMWgbzr
+Ovqa+dtuUe3UsHVZGco4dwKTSFcincgm9UwN2blJ200Z6PV6lMCmS2ESjKhroW9HqmGlM3NNVmpN
+dGO96gJKZRrqeSU14WQyOavXpiIYumkwNWCS6OSodv2SohzIvnKpnggr9VQU1lRNGIHwlSKrpYAm
+46EMj1K9BNxzkxLc+04EkthUrtk6nSNhv/u8Er4ssAMxrlxJCpFKTRkFZm5ck9Oh7vsuU4Wc9oE9
+ZdErIUC4GwId8KocnTiwNKJp9xppTSnQRqmeOGLR1T3X2m1hvH8q5/O7oZmFL7OM+247fizwzqnb
+2PVCrpKlLPRVrrHbT1bcqDbAelnO/QbE5zeUFeB3N3qFgNOmMlB2igU60ej7wIlaKsOhdsXZbMaF
+f0Rt24YvFNWmrodOYIbKQulSnASmc1l5JtkdOK0YAR+41C/6I5rb278BXgfeVicPRajvfyyc6ETX
+L7i0t9pF12Ok67oX/F1EgDzP7W7TMAQ+VEpLZzB2c9269HeaoCTnO8CdS3zFiwg0TRN+VIR/An/L
+SeO0YOimIalm7XT+3wVNt3QGfDl+UF3fc/0wcAqXBOlYTXys9etVRV3Xl/pYhsBZT9wC1lzzDdyW
+7f+CdoGPlsRflgCAfaf6rjlxiU5+DzWun1zy634TAgD2tdRyzb3MgAf6a/40y2jbdmnceEUC4SeN
+1YbbK7bU/R9LS64EyPUO+15O39CIfnZNvHhNAuFb3WwAn2fZTYK50WFlWdpNAP4H69bQmlbJ1AoA
+AAAASUVORK5CYII=
+"
+       style="image-rendering:optimizeSpeed"
+       preserveAspectRatio="none"
+       height="40"
+       width="40" />
+  </g>
+</svg>

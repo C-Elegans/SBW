@@ -12,7 +12,7 @@
 -(id)initPosition:(vec3)pos view:(UIView*) view{
 	self = [super initPosition:pos view:view];
 	//resumeButton = [[PauseScreenResumeButton alloc]initWithPositionX:-0.72 y:-0.25 view:view];
-	texture = [LoaderHelper loadTexture:@"pauseScreen.png" enableMipmaps:false];
+	texture = [LoaderHelper loadTexture:@"deathScreen.png" enableMipmaps:false];
 	return self;
 }
 -(void)touchesEnded:(nonnull NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event{

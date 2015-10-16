@@ -38,6 +38,7 @@
 		0A50E10B1B725006008E69D5 /* earth.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A50E10A1B725006008E69D5 /* earth.png */; };
 		0A5103BC1BB0D8E100AF7E39 /* tree.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A5103BB1BB0D8E100AF7E39 /* tree.png */; };
 		0A6643521BA3894300BA19E1 /* ChangeScreenMenuButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6643511BA3894300BA19E1 /* ChangeScreenMenuButton.m */; };
+		0A730BB21BD12A4900AAA7CF /* deathScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A730BB11BD12A4900AAA7CF /* deathScreen.png */; };
 		0A8D85E21BA704BD00585A62 /* Background.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A8D85E11BA704BD00585A62 /* Background.m */; };
 		0A8D85E41BA706A400585A62 /* Background.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A8D85E31BA706A400585A62 /* Background.png */; };
 		0A95A7E91B7C14A00030B540 /* UpButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A95A7E81B7C14A00030B540 /* UpButton.m */; };
@@ -169,6 +170,7 @@
 		0A5103BB1BB0D8E100AF7E39 /* tree.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tree.png; path = Assets/tree.png; sourceTree = "<group>"; };
 		0A6643501BA3894300BA19E1 /* ChangeScreenMenuButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangeScreenMenuButton.h; sourceTree = "<group>"; };
 		0A6643511BA3894300BA19E1 /* ChangeScreenMenuButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangeScreenMenuButton.m; sourceTree = "<group>"; };
+		0A730BB11BD12A4900AAA7CF /* deathScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = deathScreen.png; path = Assets/deathScreen.png; sourceTree = "<group>"; };
 		0A8D85E01BA704BD00585A62 /* Background.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Background.h; path = Entity/Background.h; sourceTree = "<group>"; };
 		0A8D85E11BA704BD00585A62 /* Background.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Background.m; path = Entity/Background.m; sourceTree = "<group>"; };
 		0A8D85E31BA706A400585A62 /* Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Background.png; path = Assets/Background.png; sourceTree = "<group>"; };
@@ -382,6 +384,7 @@
 			isa = PBXGroup;
 			children = (
 				0AF869111BD036FA00C3B6BF /* leftButton.png */,
+				0A730BB11BD12A4900AAA7CF /* deathScreen.png */,
 				0AF869121BD036FA00C3B6BF /* menuButton.png */,
 				0AF869131BD036FA00C3B6BF /* nextButton.png */,
 				0AF869141BD036FA00C3B6BF /* pauseButton.png */,
@@ -756,6 +759,7 @@
 				0A1792071BA1C41600163CED /* door.png in Resources */,
 				0A3691631BC31C200034E3B4 /* healthbar.png in Resources */,
 				0A36916B1BC31FB70034E3B4 /* barVertexShader.glsl in Resources */,
+				0A730BB21BD12A4900AAA7CF /* deathScreen.png in Resources */,
 				0AF8691E1BD036FA00C3B6BF /* resumeButton.png in Resources */,
 				0A50E1031B723F6E008E69D5 /* platform.png in Resources */,
 				0A50E0FC1B71510B008E69D5 /* gameFragmentShader.glsl in Resources */,
