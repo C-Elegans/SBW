@@ -31,6 +31,7 @@
 #import "TextRenderer.h"
 #import "Color.h"
 #import "HealthBar.h"
+#import "Renderer.h"
 static id theController = nil;
 
 @interface OpenGLViewController (){
@@ -39,9 +40,7 @@ static id theController = nil;
     MainScreen* mainScreen;
 	LevelChangeScreen* changeScreen;
 	PauseScreen* pauseScreen;
-    MainShader* shader;
-    GameShader* gameShader;
-    GuiShader* guiShader;
+	
     NSMutableArray* guiObjects;
     NSMutableArray* gameObjects;
 	Player* player;
@@ -57,6 +56,7 @@ static id theController = nil;
 	NSMutableArray<TextBox*>* textBoxes;
 	TextRenderer* textRenderer;
 	HealthBar* healthbar;
+	Renderer* renderer;
 	//Background* background;
 }
 @property (strong) GLKBaseEffect* effect;
@@ -94,9 +94,7 @@ static id theController = nil;
     mainScreen = [[MainScreen alloc]initPosition:(vec3){0.0f,0.0f,0.0f} view:self.view];
 	changeScreen = [[LevelChangeScreen alloc]initPosition:(vec3){0.0f,0.0f,0.0f} view:self.view];
 	pauseScreen = [[PauseScreen alloc]initPosition:(vec3){0,0,0} view:self.view];
-    shader = [[MainShader alloc]init];
-	gameShader = [[GameShader alloc]init];
-    guiShader = [[GuiShader alloc]init];
+	
     gameObjects = [[NSMutableArray alloc]init];
     guiObjects = [[NSMutableArray alloc]init];
 	objectsToDelete = [NSMutableArray new];
@@ -124,7 +122,7 @@ static id theController = nil;
 	[textBoxes addObject:[[TextBox alloc] initWithString:@"testing" x:-1 y:0.9 color:YELLOW]];
 	
 	textRenderer = [TextRenderer new];
-	 
+	renderer = [[Renderer alloc]initView:self.view.frame.size];
 	// self.currentLevel = [StatisticsTracker sharedInstance].currentlevel;
 	self.currentLevel = 0;
 }
@@ -137,46 +135,12 @@ static id theController = nil;
 	[self updateFrameTime];
 	TextBox* box = [textBoxes objectAtIndex:0];
 	[box setString:[NSString stringWithFormat:@"%0.1fs",_levelTime]];
-    glClearColor(0, 0, 0.1, 1);
-    glClear(GL_COLOR_BUFFER_BIT);
+	[renderer renderStart];
 	
     switch (_gameState) {
         case MAIN:
 			{
-				glEnable(GL_BLEND);
-				[shader start];
-				glBindVertexArrayOES(mainScreen->vaoID);
-				[shader enableAttribs];
-				glActiveTexture(GL_TEXTURE0);
-				glBindTexture(GL_TEXTURE_2D, mainScreen->texture);
-				
-				glDrawElements(GL_TRIANGLES, mainScreen->numVertices, GL_UNSIGNED_SHORT, 0);
-				[shader disableAttribs];
-				glBindVertexArrayOES(0);
-				[shader stop];
-			
-				NSArray* buttons = [mainScreen getButtons];
-				[guiShader start];
-				[guiShader uploadScreenCorrection:self.view.frame.size];
-				[guiShader uploadAlpha:1];
-				glActiveTexture(GL_TEXTURE0);
-				for(GameGui *gui in buttons){
-	#ifdef DEBUG
-					glPushGroupMarkerEXT(0,"rendering button");
-	#endif
-					glBindVertexArrayOES(gui.vaoID);
-					[guiShader enableAttribs];
-					[guiShader uploadObjectTransformation:gui.x y:gui.y];
-					glBindTexture(GL_TEXTURE_2D, gui.texture);
-					glDrawElements(GL_TRIANGLES, gui.numVertices, GL_UNSIGNED_SHORT, 0);
-					[guiShader disableAttribs];
-					glBindVertexArrayOES(0);
-	#ifdef DEBUG
-					glPopGroupMarkerEXT();
-	#endif
-				}
-				[guiShader stop];
-			
+			[renderer renderScreen:mainScreen];
 			}
             break;
         case RUNNING:
@@ -186,85 +150,19 @@ static id theController = nil;
 				[arrayLock unlock];
                 break;
             }
-            [gameShader start];
-            [gameShader uploadHeightOffset:player.radius];
-            [gameShader uploadScreenCorrection:self.view.frame.size];
+			
 			
             glActiveTexture(GL_TEXTURE0);
-            GLuint previousTexture = -1;
-			GLuint previousVAO = -1;
+            
 			
-			[gameObjects addObjectsFromArray:bullets];
-			[bullets makeObjectsPerformSelector:@selector(update)];
-            for(id object in gameObjects){
-				GameEntity* entity = (GameEntity*) object;
-				if(![MathHelper valueInRange:entity.theta+(TWO_PI/4.0)-player.theta min:TWO_PI/2 max:TWO_PI]){
-					#ifdef DEBUG
-					
-					glPushGroupMarkerEXT(0, [[NSString stringWithFormat:@"Rendering object %lu",(unsigned long)[gameObjects indexOfObject:object]] UTF8String]);
-					#endif
-					
-					if(entity.vaoID != previousVAO){
-						glBindVertexArrayOES(entity.vaoID);
-						previousVAO = entity.vaoID;
-					}
-					[gameShader enableAttribs];
-					
-					[gameShader uploadObjectTransformation:entity.radius theta:entity.theta+(TWO_PI/4.0)-player.theta];
-					[gameShader loadAnimation:entity.textureDivisor textureOffset:entity.textureOffset rotation:entity.rotation];
-					[gameShader loadObjectRotation:entity.objectRotation];
-					if(entity.texture != previousTexture){
-						glBindTexture(GL_TEXTURE_2D, entity.texture);
-						previousTexture = entity.texture;
-					}
-					glDrawElements(GL_TRIANGLES, entity.numVertices, GL_UNSIGNED_SHORT, 0);
-					
-					[gameShader disableAttribs];
-					[entity update:gameObjects];
-					//glBindVertexArrayOES(0);
-					#ifdef DEBUG
-					glPopGroupMarkerEXT();
-					#endif
-				}
-            }
+			[renderer renderGameEntities:gameObjects];
 			
 			[arrayLock unlock];
             //Render player
-			[gameShader loadAnimation:player.textureDivisor textureOffset:player.textureOffset rotation:player.rotation];
-            glPushGroupMarkerEXT(0, "Render Player");
-            glBindVertexArrayOES(player.vaoID);
-            [gameShader enableAttribs];
-            [gameShader uploadObjectTransformation:player.radius theta:TWO_PI/4.0];
-            glBindTexture(GL_TEXTURE_2D, player.texture);
-            glDrawElements(GL_TRIANGLES, player.numVertices, GL_UNSIGNED_SHORT, 0);
-            [gameShader disableAttribs];
-            glBindVertexArrayOES(0);
-            glPopGroupMarkerEXT();
-            [gameShader stop];
 			
+			[renderer renderPlayer:player];
             //Render Gui objects
-            [guiShader start];
-            [guiShader uploadScreenCorrection:self.view.frame.size];
-			[guiShader uploadAlpha:0.1];
-            glActiveTexture(GL_TEXTURE0);
-            for(GameGui *gui in guiObjects){
-                #ifdef DEBUG
-                glPushGroupMarkerEXT(0, [[NSString stringWithFormat:@"Rendering Gui %lu", (unsigned long)[guiObjects indexOfObject:gui]]UTF8String]);
-                #endif
-                glBindVertexArrayOES(gui.vaoID);
-				
-                [guiShader enableAttribs];
-                [guiShader uploadObjectTransformation:gui.x y:gui.y];
-                glBindTexture(GL_TEXTURE_2D, gui.texture);
-                glDrawElements(GL_TRIANGLES, gui.numVertices, GL_UNSIGNED_SHORT, 0);
-                [guiShader disableAttribs];
-                glBindVertexArrayOES(0);
-                #ifdef DEBUG
-                glPopGroupMarkerEXT();
-                #endif
-            }
-			
-            [guiShader stop];
+			[renderer renderGuis:guiObjects];
             [input update];
 			[arrayLock lock];
 			[textRenderer render:textBoxes view:self.view];
@@ -287,72 +185,12 @@ static id theController = nil;
             break;
 		case LEVEL_CHANGE:
 		{
-				[shader start];
-				glBindVertexArrayOES(changeScreen->vaoID);
-				[shader enableAttribs];
-				glActiveTexture(GL_TEXTURE0);
-				glBindTexture(GL_TEXTURE_2D, changeScreen->texture);
-				
-				glDrawElements(GL_TRIANGLES, changeScreen->numVertices, GL_UNSIGNED_SHORT, 0);
-				[shader disableAttribs];
-				glBindVertexArrayOES(0);
-				[shader stop];
-				NSArray* buttons = [changeScreen getButtons];
-				[guiShader start];
-				[guiShader uploadScreenCorrection:self.view.frame.size];
-				[guiShader uploadAlpha:1];
-				glActiveTexture(GL_TEXTURE0);
-				for(GameGui *gui in buttons){
-					#ifdef DEBUG
-					glPushGroupMarkerEXT(0,"rendering button");
-					#endif
-					glBindVertexArrayOES(gui.vaoID);
-					[guiShader enableAttribs];
-					[guiShader uploadObjectTransformation:gui.x y:gui.y];
-					glBindTexture(GL_TEXTURE_2D, gui.texture);
-					glDrawElements(GL_TRIANGLES, gui.numVertices, GL_UNSIGNED_SHORT, 0);
-					[guiShader disableAttribs];
-					glBindVertexArrayOES(0);
-					#ifdef DEBUG
-					glPopGroupMarkerEXT();
-					#endif
-				}
-				[guiShader stop];
+			[renderer renderScreen:changeScreen];
 		}
 			break;
 		case PAUSED:
 		{
-			[shader start];
-			glBindVertexArrayOES(pauseScreen->vaoID);
-			[shader enableAttribs];
-			glActiveTexture(GL_TEXTURE0);
-			glBindTexture(GL_TEXTURE_2D, pauseScreen->texture);
-			
-			glDrawElements(GL_TRIANGLES, pauseScreen->numVertices, GL_UNSIGNED_SHORT, 0);
-			[shader disableAttribs];
-			glBindVertexArrayOES(0);
-			[shader stop];
-			NSArray* buttons = [pauseScreen getButtons];
-			[guiShader start];
-			[guiShader uploadScreenCorrection:self.view.frame.size];
-			[guiShader uploadAlpha:1];
-			glActiveTexture(GL_TEXTURE0);
-			for(GameGui *gui in buttons){
-				#ifdef DEBUG
-				glPushGroupMarkerEXT(0,"rendering button");
-				#endif
-				glBindVertexArrayOES(gui.vaoID);
-				[guiShader enableAttribs];
-				[guiShader uploadObjectTransformation:gui.x y:gui.y];
-				glBindTexture(GL_TEXTURE_2D, gui.texture);
-				glDrawElements(GL_TRIANGLES, gui.numVertices, GL_UNSIGNED_SHORT, 0);
-				[guiShader disableAttribs];
-				glBindVertexArrayOES(0);
-				#ifdef DEBUG
-				glPopGroupMarkerEXT();
-				#endif
-			}
-			[guiShader stop];
+		[renderer renderScreen:pauseScreen];
 		
 		break;
 		}

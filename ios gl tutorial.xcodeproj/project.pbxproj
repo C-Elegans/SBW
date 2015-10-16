@@ -39,6 +39,7 @@
 		0A5103BC1BB0D8E100AF7E39 /* tree.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A5103BB1BB0D8E100AF7E39 /* tree.png */; };
 		0A6643521BA3894300BA19E1 /* ChangeScreenMenuButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6643511BA3894300BA19E1 /* ChangeScreenMenuButton.m */; };
 		0A730BB21BD12A4900AAA7CF /* deathScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A730BB11BD12A4900AAA7CF /* deathScreen.png */; };
+		0A730BB61BD12AC300AAA7CF /* Renderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A730BB51BD12AC300AAA7CF /* Renderer.m */; };
 		0A8D85E21BA704BD00585A62 /* Background.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A8D85E11BA704BD00585A62 /* Background.m */; };
 		0A8D85E41BA706A400585A62 /* Background.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A8D85E31BA706A400585A62 /* Background.png */; };
 		0A95A7E91B7C14A00030B540 /* UpButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A95A7E81B7C14A00030B540 /* UpButton.m */; };
@@ -171,6 +172,8 @@
 		0A6643501BA3894300BA19E1 /* ChangeScreenMenuButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangeScreenMenuButton.h; sourceTree = "<group>"; };
 		0A6643511BA3894300BA19E1 /* ChangeScreenMenuButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangeScreenMenuButton.m; sourceTree = "<group>"; };
 		0A730BB11BD12A4900AAA7CF /* deathScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = deathScreen.png; path = Assets/deathScreen.png; sourceTree = "<group>"; };
+		0A730BB41BD12AC300AAA7CF /* Renderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Renderer.h; sourceTree = "<group>"; };
+		0A730BB51BD12AC300AAA7CF /* Renderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Renderer.m; sourceTree = "<group>"; };
 		0A8D85E01BA704BD00585A62 /* Background.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Background.h; path = Entity/Background.h; sourceTree = "<group>"; };
 		0A8D85E11BA704BD00585A62 /* Background.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Background.m; path = Entity/Background.m; sourceTree = "<group>"; };
 		0A8D85E31BA706A400585A62 /* Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Background.png; path = Assets/Background.png; sourceTree = "<group>"; };
@@ -380,6 +383,15 @@
 			name = GameShader;
 			sourceTree = "<group>";
 		};
+		0A730BB31BD12A9E00AAA7CF /* Render */ = {
+			isa = PBXGroup;
+			children = (
+				0A730BB41BD12AC300AAA7CF /* Renderer.h */,
+				0A730BB51BD12AC300AAA7CF /* Renderer.m */,
+			);
+			name = Render;
+			sourceTree = "<group>";
+		};
 		0AA14D7B1B7561C100770A6E /* Images */ = {
 			isa = PBXGroup;
 			children = (
@@ -501,6 +513,7 @@
 				0AA14D801B7564C000770A6E /* GameGuiProtectedMethods.h */,
 				0AC917F81B6FA2370068B51D /* OpenGLViewController.h */,
 				0AC917F91B6FA2370068B51D /* OpenGLViewController.m */,
+				0A730BB31BD12A9E00AAA7CF /* Render */,
 				0A36915D1BC31A5D0034E3B4 /* Bar */,
 				0AA14D8F1B7635BC00770A6E /* Input */,
 				0AB018401BBC783500264366 /* Font */,
@@ -847,6 +860,7 @@
 				0AD8CDDF1B7022AA00833F84 /* MainShader.m in Sources */,
 				0A50E0F41B7135F6008E69D5 /* GameEntity.m in Sources */,
 				0AB018461BBC786900264366 /* TextChar.m in Sources */,
+				0A730BB61BD12AC300AAA7CF /* Renderer.m in Sources */,
 				0A2498201BAB5B8300C2C872 /* JumpPad.m in Sources */,
 				0AA4B4871BAB81A700F32400 /* PauseScreen.m in Sources */,
 				0AB018431BBC785D00264366 /* TextBox.m in Sources */,
