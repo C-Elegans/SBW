@@ -40,7 +40,7 @@ const GLushort bulletIndices[] = {
 -(CGRect)getCollisionBox{
 	return CGRectMake(self.radius, self.theta, 0.05, .1*(1/self.radius));
 }
--(void)update{
+-(void)update:(NSArray<GameEntity *> *)gameObjects{
 	float move = SPEED * [[OpenGLViewController getController] frameTime]*(1/self.radius);
 	self.theta += move * self.rotation;
 	distanceTraveled += move;

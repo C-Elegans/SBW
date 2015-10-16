@@ -155,7 +155,7 @@ static id theController = nil;
 			
             glActiveTexture(GL_TEXTURE0);
             
-			
+			[gameObjects addObjectsFromArray:bullets];
 			[renderer renderGameEntities:gameObjects];
 			
 			[arrayLock unlock];

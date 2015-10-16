@@ -8,19 +8,24 @@
 
 #import "DeathScreen.h"
 #import "LoaderHelper.h"
+#import "ChangeScreenMenuButton.h"
+@interface DeathScreen(){
+	ChangeScreenMenuButton* menuButton;
+}
+@end
 @implementation DeathScreen
 -(id)initPosition:(vec3)pos view:(UIView*) view{
 	self = [super initPosition:pos view:view];
-	//resumeButton = [[PauseScreenResumeButton alloc]initWithPositionX:-0.72 y:-0.25 view:view];
+	menuButton = [[ChangeScreenMenuButton alloc]initWithPositionX:-.95 y:0 view:view];
 	texture = [LoaderHelper loadTexture:@"deathScreen.png" enableMipmaps:false];
 	return self;
 }
 -(void)touchesEnded:(nonnull NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event{
-	//[resumeButton touchesEnded:touches withEvent:event];
+	[menuButton touchesEnded:touches withEvent:event];
 }
 -(NSArray*)getButtons{
-	//NSArray* array = [[NSArray alloc] initWithObjects:resumeButton, nil];
-	NSArray* array = nil;
+	NSArray* array = [[NSArray alloc] initWithObjects:menuButton, nil];
+	
 	return array;
 }
 @end
