@@ -32,6 +32,7 @@
 #import "Color.h"
 #import "HealthBar.h"
 #import "Renderer.h"
+#import "DeathScreen.h"
 static id theController = nil;
 
 @interface OpenGLViewController (){
@@ -40,7 +41,7 @@ static id theController = nil;
     MainScreen* mainScreen;
 	LevelChangeScreen* changeScreen;
 	PauseScreen* pauseScreen;
-	
+	DeathScreen* deathScreen;
     NSMutableArray* guiObjects;
     NSMutableArray* gameObjects;
 	Player* player;
@@ -94,7 +95,7 @@ static id theController = nil;
     mainScreen = [[MainScreen alloc]initPosition:(vec3){0.0f,0.0f,0.0f} view:self.view];
 	changeScreen = [[LevelChangeScreen alloc]initPosition:(vec3){0.0f,0.0f,0.0f} view:self.view];
 	pauseScreen = [[PauseScreen alloc]initPosition:(vec3){0,0,0} view:self.view];
-	
+	deathScreen = [[DeathScreen alloc]initPosition:(vec3){0,0,0} view:self.view];
     gameObjects = [[NSMutableArray alloc]init];
     guiObjects = [[NSMutableArray alloc]init];
 	objectsToDelete = [NSMutableArray new];
@@ -124,7 +125,7 @@ static id theController = nil;
 	textRenderer = [TextRenderer new];
 	renderer = [[Renderer alloc]initView:self.view.frame.size];
 	// self.currentLevel = [StatisticsTracker sharedInstance].currentlevel;
-	self.currentLevel = 0;
+	self.currentLevel = 9;
 }
 -(BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation{
     return UIInterfaceOrientationIsLandscape(toInterfaceOrientation);
@@ -172,6 +173,7 @@ static id theController = nil;
 			
 			[bullets removeObjectsInArray:bulletsToDelete];
 			[bulletsToDelete removeAllObjects];
+			
 			for(Bullet* b in bullets){
 				
 					[b checkCollisions:gameObjects];
@@ -193,6 +195,11 @@ static id theController = nil;
 		[renderer renderScreen:pauseScreen];
 		
 		break;
+		
+		}
+		case DEAD:{
+			[renderer renderScreen:deathScreen];
+			break;
 		}
     }
 	
@@ -227,6 +234,8 @@ static id theController = nil;
 			[input touchesEnded:touches withEvent:event];break;
 		case PAUSED:
 			[pauseScreen touchesEnded:touches withEvent:event];break;
+		case DEAD:
+			[deathScreen touchesEnded:touches withEvent:event];break;
 	}
 }
 -(void)touchesMoved:(nonnull NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event{

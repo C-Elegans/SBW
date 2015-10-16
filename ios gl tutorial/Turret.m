@@ -42,7 +42,7 @@ const GLushort turretIndices[] = {
 -(CGRect)getCollisionBox{
 	return CGRectMake(0+self.radius, 0+self.theta, .05, .2*(1/self.radius));
 }
--(void)update{
+-(void)update:(NSArray<GameEntity *> *)gameObjects{
 	time +=[OpenGLViewController getController].frameTime;
 	timeToFire +=[OpenGLViewController getController].frameTime;
 	firing--;
