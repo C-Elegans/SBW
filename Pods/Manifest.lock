@@ -1,0 +1,10 @@
+PODS:
+  - AdColony (2.5.1)
+
+DEPENDENCIES:
+  - AdColony
+
+SPEC CHECKSUMS:
+  AdColony: 4e459b2634cf325ed32bbd8a12428366f09aa49a
+
+COCOAPODS: 0.38.2

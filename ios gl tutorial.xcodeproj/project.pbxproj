@@ -106,6 +106,7 @@
 		0AF8691E1BD036FA00C3B6BF /* resumeButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AF869161BD036FA00C3B6BF /* resumeButton.png */; };
 		0AF8691F1BD036FA00C3B6BF /* rightButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AF869171BD036FA00C3B6BF /* rightButton.png */; };
 		0AF869201BD036FA00C3B6BF /* upButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AF869181BD036FA00C3B6BF /* upButton.png */; };
+		5182B08A122D29DBD2BD3643 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA27F0C2CB0AB770450D8A31 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -281,6 +282,9 @@
 		0AF869161BD036FA00C3B6BF /* resumeButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = resumeButton.png; path = Assets/Buttons/resumeButton.png; sourceTree = "<group>"; };
 		0AF869171BD036FA00C3B6BF /* rightButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = rightButton.png; path = Assets/Buttons/rightButton.png; sourceTree = "<group>"; };
 		0AF869181BD036FA00C3B6BF /* upButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = upButton.png; path = Assets/Buttons/upButton.png; sourceTree = "<group>"; };
+		40095D3F8CD3421A02403A6B /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		60FB0AB86D4E945B48A5503A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		DA27F0C2CB0AB770450D8A31 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -292,6 +296,7 @@
 				0AA72BD31B6EF2FD00018D9E /* QuartzCore.framework in Frameworks */,
 				0AA72BD11B6EF2F800018D9E /* OpenGLES.framework in Frameworks */,
 				0AB82CE41BA34F5A00C895F1 /* GameKit.framework in Frameworks */,
+				5182B08A122D29DBD2BD3643 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -490,6 +495,8 @@
 				0AA72BB61B6EF2B200018D9E /* ios gl tutorialTests */,
 				0AA72BC11B6EF2B200018D9E /* ios gl tutorialUITests */,
 				0AA72B981B6EF2AF00018D9E /* Products */,
+				CD7D5BBA1F63E832D1F5BEA9 /* Pods */,
+				CCA17ECFA17B7EF2C40C8FFC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -528,6 +535,7 @@
 				0A4167751B7EC54A0029D807 /* Level */,
 				0AA72B9A1B6EF2B000018D9E /* Supporting Files */,
 				0AC918001B6FA6F40068B51D /* shaders */,
+				0A0708811BA368D100A757C2 /* Screens */,
 				0AD8CDE71B702EFB00833F84 /* Entity */,
 				0AD8CDE61B702EF500833F84 /* Helper */,
 				0AA14D7F1B75647D00770A6E /* Gui */,
@@ -611,7 +619,6 @@
 		0AD8CDE71B702EFB00833F84 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				0A0708811BA368D100A757C2 /* Screens */,
 				0A50E0F61B71402F008E69D5 /* GameEntityProtectedMethods.h */,
 				0A50E0F21B7135F6008E69D5 /* GameEntity.h */,
 				0A50E0F31B7135F6008E69D5 /* GameEntity.m */,
@@ -641,6 +648,23 @@
 			name = Entity;
 			sourceTree = "<group>";
 		};
+		CCA17ECFA17B7EF2C40C8FFC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DA27F0C2CB0AB770450D8A31 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CD7D5BBA1F63E832D1F5BEA9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				40095D3F8CD3421A02403A6B /* Pods.debug.xcconfig */,
+				60FB0AB86D4E945B48A5503A /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -648,10 +672,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0AA72BC71B6EF2B200018D9E /* Build configuration list for PBXNativeTarget "ios gl tutorial" */;
 			buildPhases = (
+				6F11307E09529A575B147BB1 /* Check Pods Manifest.lock */,
 				0A9973251BB345DE00AD6BB5 /* ShellScript */,
 				0AA72B931B6EF2AF00018D9E /* Sources */,
 				0AA72B941B6EF2AF00018D9E /* Frameworks */,
 				0AA72B951B6EF2AF00018D9E /* Resources */,
+				A014F5F1239A9C41EFAD9A86 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -826,6 +852,36 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "/Users/mnolan/programming/objective-c/ios\\ gl\\ tutorial/ios\\ gl\\ tutorial/Levels/combineJson.py";
+		};
+		6F11307E09529A575B147BB1 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A014F5F1239A9C41EFAD9A86 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1023,6 +1079,7 @@
 		};
 		0AA72BC81B6EF2B200018D9E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 40095D3F8CD3421A02403A6B /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -1045,6 +1102,7 @@
 		};
 		0AA72BC91B6EF2B200018D9E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 60FB0AB86D4E945B48A5503A /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
