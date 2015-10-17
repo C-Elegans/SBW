@@ -11,6 +11,7 @@
 #import "Screen.h"
 #import "Player.h"
 #import "GameGui.h"
+#import "TextBox.h"
 @interface Renderer : NSObject
 -(id)initView:(CGSize)size;
 -(void)renderGameEntities:(NSArray<GameEntity*>*)entities;
@@ -18,4 +19,5 @@
 -(void)renderScreen:(Screen*)screen;
 -(void)renderPlayer:(Player*)player;
 -(void)renderGuis:(NSArray<GameGui*>*)guis;
+-(void)renderText:(NSArray<TextBox*>*)textBoxes;
 @end

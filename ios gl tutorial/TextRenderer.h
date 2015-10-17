@@ -11,5 +11,5 @@
 #import "TextBox.h"
 @interface TextRenderer : NSObject
 -(id)init;
--(void)render:(NSArray<TextBox*>*)boxes view:(UIView*)view;
+-(void)render:(NSArray<TextBox*>*)boxes frame:(CGSize)frameSize;
 @end

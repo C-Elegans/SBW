@@ -33,4 +33,7 @@ const GLushort Indices[] = {
 -(NSArray*)getButtons{
 	return nil;
 }
+-(NSArray *)getText{
+	return nil;
+}
 @end

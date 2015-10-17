@@ -55,7 +55,7 @@ static id theController = nil;
 	NSMutableArray<Bullet*>* bulletsToDelete;
 	NSLock* bulletLock;
 	NSMutableArray<TextBox*>* textBoxes;
-	TextRenderer* textRenderer;
+	
 	HealthBar* healthbar;
 	Renderer* renderer;
 	//Background* background;
@@ -122,7 +122,7 @@ static id theController = nil;
     glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
 	[textBoxes addObject:[[TextBox alloc] initWithString:@"testing" x:-1 y:0.9 color:YELLOW size:1]];
 	
-	textRenderer = [TextRenderer new];
+	
 	renderer = [[Renderer alloc]initView:self.view.frame.size];
 	// self.currentLevel = [StatisticsTracker sharedInstance].currentlevel;
 	self.currentLevel = 9;
@@ -166,7 +166,7 @@ static id theController = nil;
 			[renderer renderGuis:guiObjects];
             [input update];
 			[arrayLock lock];
-			[textRenderer render:textBoxes view:self.view];
+			
 			[healthbar render:player];
 			[player update:gameObjects];
 			[gameObjects removeObjectsInArray:bullets];
@@ -201,6 +201,9 @@ static id theController = nil;
 			[renderer renderScreen:deathScreen];
 			break;
 		}
+		case AD:
+			
+			break;
     }
 	
 	
@@ -280,6 +283,9 @@ static id theController = nil;
 		if(_gameState == RUNNING){
 			[self endLevel];
 		}
+		if(gameState == DEAD){
+			[StatisticsTracker sharedInstance].lives --;
+		}
 		_gameState = gameState;
 		
 		switch (_gameState) {
@@ -291,7 +297,8 @@ static id theController = nil;
 				self.preferredFramesPerSecond = 10; break;
 			case PAUSED:
 				self.preferredFramesPerSecond = 10; break;
-	
+			case DEAD:
+				self.preferredFramesPerSecond = 10;	break;
 		}
 	}
 }
@@ -334,5 +341,6 @@ static id theController = nil;
 	[bulletsToDelete addObject:bullet];
 	[bulletLock unlock];
 }
+
 
 @end

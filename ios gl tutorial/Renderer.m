@@ -13,6 +13,7 @@
 #import "GuiShader.h"
 #import "Player.h"
 #import "GameGui.h"
+#import "TextRenderer.h"
 #import <OpenGLES/ES2/gl.h>
 #import <OpenGLES/ES2/glext.h>
 @interface Renderer(){
@@ -20,6 +21,7 @@
 	GameShader* gameShader;
 	GuiShader* guiShader;
 	CGSize frameSize;
+	TextRenderer* textRenderer;
 }
 @end
 @implementation Renderer
@@ -29,6 +31,7 @@
 	shader = [[MainShader alloc]init];
 	gameShader = [[GameShader alloc]init];
 	guiShader = [[GuiShader alloc]init];
+	textRenderer = [[TextRenderer alloc]init];
 	return self;
 }
 -(void)renderStart{
@@ -41,7 +44,13 @@
 	[gameShader uploadScreenCorrection:frameSize];
 	GLuint previousVAO = -1;
 	GLuint previousTexture = -1;
+	int i=0;
 	for(GameEntity* entity in entities){
+#ifdef DEBUG
+		char str[128];
+		sprintf(str, "Rendering Entity %d",i);
+		glPushGroupMarkerEXT(0, str);
+#endif
 		if(entity.vaoID != previousVAO){
 			glBindVertexArrayOES(entity.vaoID);
 			previousVAO = entity.vaoID;
@@ -59,6 +68,10 @@
 		
 		[gameShader disableAttribs];
 		[entity update:entities];
+		i++;
+#ifdef DEBUG
+		glPopGroupMarkerEXT();
+#endif
 	}
 	[gameShader stop];
 }
@@ -95,7 +108,9 @@
 		glPopGroupMarkerEXT();
 #endif
 	}
+	
 	[guiShader stop];
+	[self renderText:screen.getText];
 }
 -(void)renderPlayer:(Player *)player{
 	[gameShader start];
@@ -130,5 +145,8 @@
 	}
 	
 	[guiShader stop];
+}
+-(void)renderText:(NSArray<TextBox *> *)textBoxes{
+	[textRenderer render:textBoxes frame:frameSize];
 }
 @end

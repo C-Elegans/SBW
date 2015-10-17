@@ -26,18 +26,18 @@
 	//shader = [GuiShader new];
 	return self;
 }
--(void)render:(NSArray<TextBox*>*)boxes view:(UIView*)view{
+-(void)render:(NSArray<TextBox*>*)boxes frame:(CGSize)frameSize{
 	[shader start];
 	
 	for (TextBox* box in boxes) {
 		[shader uploadSize:box.size];
 		for (TextChar* tc in [box getChars]) {
-			[self renderTextChar:tc view:view color:box.color];
+			[self renderTextChar:tc view:frameSize color:box.color];
 		}
 	}
 	[shader stop];
 }
--(void)renderTextChar:(TextChar*)textChar view:(UIView*)view color:(vec4)color{
+-(void)renderTextChar:(TextChar*)textChar view:(CGSize)viewSize color:(vec4)color{
 	glPushGroupMarkerEXT(0, "Rendering Char");
 	glActiveTexture(GL_TEXTURE0);
 	
@@ -47,7 +47,7 @@
 	
 	[shader uploadObjectTransformation:textChar.position.x y:textChar.position.y];
 	[shader uploadTexCoordOffset:textChar.offset];
-	[shader uploadScreenCorrection:view.frame.size];
+	[shader uploadScreenCorrection:viewSize];
 	[shader uploadColor:color];
 	
 	glBindTexture(GL_TEXTURE_2D, textChar.texture);

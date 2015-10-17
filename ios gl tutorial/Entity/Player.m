@@ -50,7 +50,7 @@ const vec2 animationStates[] = {
     self = thePlayer;
 	self.textureDivisor = 2;
 	self.textureOffset = (vec2){0,0};
-	self.maxHealth = 10;
+	self.maxHealth = 2;
 	self.health = self.maxHealth;
 	time = 0;
     [super loadToBuffers:&playerVertices[0] vSize:sizeof(playerVertices) indices:&playerIndices[0] iSize:sizeof(playerIndices) objectName:@"player"];
@@ -118,7 +118,7 @@ const vec2 animationStates[] = {
 	}
 }
 -(void)die{
-	[OpenGLViewController getController].currentLevel = [OpenGLViewController getController].currentLevel;
+	[OpenGLViewController getController].gameState = DEAD;
 	_health = _maxHealth;
 	self.radius = 2;
 	self.theta =0;

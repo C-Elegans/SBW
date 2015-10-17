@@ -10,9 +10,13 @@
 #import "LoaderHelper.h"
 #import "TryAgainButton.h"
 #import "ChangeScreenMenuButton.h"
+#import "TextBox.h"
+#import "StatisticsTracker.h"
+#import "Color.h"
 @interface DeathScreen(){
 	ChangeScreenMenuButton* menuButton;
 	TryAgainButton* tryButton;
+	TextBox* hearts;
 }
 @end
 @implementation DeathScreen
@@ -21,6 +25,7 @@
 	menuButton = [[ChangeScreenMenuButton alloc]initWithPositionX:-.95 y:-0.4 view:view];
 	tryButton = [[TryAgainButton alloc]initWithPositionX:0.05 y:-0.4 view:view];
 	texture = [LoaderHelper loadTexture:@"deathScreen.png" enableMipmaps:false];
+	hearts = [[TextBox alloc]initWithString:[NSString stringWithFormat:@"x%d",[StatisticsTracker sharedInstance].lives] x:0.1 y:-0.1 color:WHITE size:1];
 	return self;
 }
 -(void)touchesEnded:(nonnull NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event{
@@ -31,5 +36,8 @@
 	NSArray* array = [[NSArray alloc] initWithObjects:menuButton,tryButton, nil];
 	
 	return array;
+}
+-(NSArray *)getText{
+	return [NSArray arrayWithObject:hearts];
 }
 @end

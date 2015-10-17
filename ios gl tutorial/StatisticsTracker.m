@@ -10,6 +10,7 @@
 
 @implementation StatisticsTracker
 @synthesize currentlevel = _currentlevel;
+@synthesize lives = _lives;
 -(id)init{
 	self = [super init];
 	[self loadData];
@@ -79,6 +80,20 @@
 	}
 }
 -(void)refillLives{
-	
+	NSLog(@"Refilling Lives");
+}
+-(void)setLives:(int)lives{
+	@synchronized(self) {
+		if (lives<0) {
+			[self refillLives];
+			lives = 0;
+		}
+		_lives = lives;
+	}
+}
+-(int)lives{
+	@synchronized(self) {
+		return _lives;
+	}
 }
 @end
