@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0A0708851BA368F900A757C2 /* MainScreenPlayButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A0708841BA368F900A757C2 /* MainScreenPlayButton.m */; };
-		0A10A87E1B73E8020011FB3F /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A10A87D1B73E8020011FB3F /* Player.m */; };
+		0A0C32B21BD1D64400E628EA /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A0C32B11BD1D64400E628EA /* Player.m */; };
 		0A1792071BA1C41600163CED /* door.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A1792061BA1C41600163CED /* door.png */; };
 		0A17920A1BA1C49400163CED /* Door.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A1792091BA1C49400163CED /* Door.m */; };
 		0A1792101BA2108B00163CED /* LevelChangeScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A17920F1BA2108B00163CED /* LevelChangeScreen.m */; };
@@ -128,8 +128,8 @@
 /* Begin PBXFileReference section */
 		0A0708831BA368F900A757C2 /* MainScreenPlayButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainScreenPlayButton.h; sourceTree = "<group>"; };
 		0A0708841BA368F900A757C2 /* MainScreenPlayButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainScreenPlayButton.m; sourceTree = "<group>"; };
+		0A0C32B11BD1D64400E628EA /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Player.m; path = Entity/Player.m; sourceTree = "<group>"; };
 		0A10A87C1B73E8020011FB3F /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Player.h; path = Entity/Player.h; sourceTree = "<group>"; };
-		0A10A87D1B73E8020011FB3F /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Player.m; path = Entity/Player.m; sourceTree = "<group>"; };
 		0A1792061BA1C41600163CED /* door.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = door.png; path = Assets/door.png; sourceTree = "<group>"; };
 		0A1792081BA1C49400163CED /* Door.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Door.h; path = Entity/Door.h; sourceTree = "<group>"; };
 		0A1792091BA1C49400163CED /* Door.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Door.m; path = Entity/Door.m; sourceTree = "<group>"; };
@@ -622,7 +622,7 @@
 				0A50E1071B724D34008E69D5 /* Planet.h */,
 				0A50E1081B724D34008E69D5 /* Planet.m */,
 				0A10A87C1B73E8020011FB3F /* Player.h */,
-				0A10A87D1B73E8020011FB3F /* Player.m */,
+				0A0C32B11BD1D64400E628EA /* Player.m */,
 				0A1792081BA1C49400163CED /* Door.h */,
 				0A1792091BA1C49400163CED /* Door.m */,
 				0A8D85E01BA704BD00585A62 /* Background.h */,
@@ -843,7 +843,6 @@
 				0AF351601B73EF8E00495590 /* GameInput.m in Sources */,
 				0AA4B49A1BAC5BA900F32400 /* StatisticsTracker.m in Sources */,
 				0AB018311BB9F98E00264366 /* Turret.m in Sources */,
-				0A10A87E1B73E8020011FB3F /* Player.m in Sources */,
 				0A4167781B7EC5680029D807 /* LevelLoader.m in Sources */,
 				0AD8CDEA1B702FC400833F84 /* LoaderHelper.m in Sources */,
 				0AC324641BCB266F00FE7801 /* DeathScreen.m in Sources */,
@@ -851,6 +850,7 @@
 				0AB018491BBC7E2A00264366 /* TextShader.m in Sources */,
 				0AA14D871B7567D300770A6E /* GuiShader.m in Sources */,
 				0A3691691BC31D3A0034E3B4 /* BarShader.m in Sources */,
+				0A0C32B21BD1D64400E628EA /* Player.m in Sources */,
 				0AA14D8E1B757CE600770A6E /* RightButton.m in Sources */,
 				0A0708851BA368F900A757C2 /* MainScreenPlayButton.m in Sources */,
 				0A50E1061B723F91008E69D5 /* Platform.m in Sources */,
