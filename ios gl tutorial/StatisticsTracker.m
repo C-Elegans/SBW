@@ -78,4 +78,7 @@
 		}
 	}
 }
+-(void)refillLives{
+	
+}
 @end

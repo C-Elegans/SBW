@@ -12,17 +12,20 @@
 @interface TextBox(){
 	NSMutableArray<TextChar*>* textChars;
 	TextShader* shader;
+	
 }
 @end
 @implementation TextBox
 @synthesize string=_string;
--(id)initWithString:(NSString*)string x:(float)x y:(float)y color:(vec4)color{
+-(id)initWithString:(NSString*)string x:(float)x y:(float)y color:(vec4)color size:(float)size{
 	self = [super init];
 	textChars = [NSMutableArray new];
-	_string = string;
+	
 	_position = (vec2){x,y};
 	shader = [TextShader new];
 	_color = color;
+	_size=size;
+	self.string = string;
 	return self;
 }
 -(NSArray<TextChar*>*)getChars{
@@ -42,7 +45,7 @@
 			
 			char c = [string characterAtIndex:i];
 			[textChars addObject:[[TextChar alloc]initWithChar:c x:xpos y:_position.y]];
-			xpos+= 0.025;
+			xpos+= 0.03*_size;
 		}
 	}
 }

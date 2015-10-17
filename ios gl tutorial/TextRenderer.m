@@ -28,7 +28,9 @@
 }
 -(void)render:(NSArray<TextBox*>*)boxes view:(UIView*)view{
 	[shader start];
+	
 	for (TextBox* box in boxes) {
+		[shader uploadSize:box.size];
 		for (TextChar* tc in [box getChars]) {
 			[self renderTextChar:tc view:view color:box.color];
 		}

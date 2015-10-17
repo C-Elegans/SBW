@@ -13,6 +13,7 @@
 @property vec2 position;
 @property NSString* string;
 @property vec4 color;
--(id)initWithString:(NSString*)string x:(float)x y:(float)y color:(vec4)color;
+@property float size;
+-(id)initWithString:(NSString*)string x:(float)x y:(float)y color:(vec4)color size:(float)size;
 -(NSArray<TextChar*>*)getChars;
 @end

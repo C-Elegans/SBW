@@ -95,6 +95,8 @@
 		0AD8CDE51B702EBD00833F84 /* MathHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD8CDE41B702EBD00833F84 /* MathHelper.m */; };
 		0AD8CDEA1B702FC400833F84 /* LoaderHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD8CDE91B702FC400833F84 /* LoaderHelper.m */; };
 		0AD918281B70EC960092C944 /* MathHelperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD918271B70EC960092C944 /* MathHelperTests.m */; };
+		0ADED1FE1BD1C77400EEF4FE /* TryAgainButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ADED1FD1BD1C77400EEF4FE /* TryAgainButton.m */; };
+		0ADED2001BD1CB3A00EEF4FE /* tryAgainButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 0ADED1FF1BD1CB3A00EEF4FE /* tryAgainButton.png */; };
 		0AF351601B73EF8E00495590 /* GameInput.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AF3515F1B73EF8E00495590 /* GameInput.m */; };
 		0AF869191BD036FA00C3B6BF /* leftButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AF869111BD036FA00C3B6BF /* leftButton.png */; };
 		0AF8691A1BD036FA00C3B6BF /* menuButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AF869121BD036FA00C3B6BF /* menuButton.png */; };
@@ -266,6 +268,9 @@
 		0AD8CDE81B702FC400833F84 /* LoaderHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoaderHelper.h; sourceTree = "<group>"; };
 		0AD8CDE91B702FC400833F84 /* LoaderHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoaderHelper.m; sourceTree = "<group>"; };
 		0AD918271B70EC960092C944 /* MathHelperTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MathHelperTests.m; sourceTree = "<group>"; };
+		0ADED1FC1BD1C77300EEF4FE /* TryAgainButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TryAgainButton.h; sourceTree = "<group>"; };
+		0ADED1FD1BD1C77400EEF4FE /* TryAgainButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TryAgainButton.m; sourceTree = "<group>"; };
+		0ADED1FF1BD1CB3A00EEF4FE /* tryAgainButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tryAgainButton.png; path = Assets/Buttons/tryAgainButton.png; sourceTree = "<group>"; };
 		0AF3515E1B73EF8E00495590 /* GameInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameInput.h; sourceTree = "<group>"; };
 		0AF3515F1B73EF8E00495590 /* GameInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameInput.m; sourceTree = "<group>"; };
 		0AF869111BD036FA00C3B6BF /* leftButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = leftButton.png; path = Assets/Buttons/leftButton.png; sourceTree = "<group>"; };
@@ -335,6 +340,8 @@
 				0A6643511BA3894300BA19E1 /* ChangeScreenMenuButton.m */,
 				0AA4B48B1BAB84FD00F32400 /* PauseScreenResumeButton.h */,
 				0AA4B48C1BAB84FD00F32400 /* PauseScreenResumeButton.m */,
+				0ADED1FC1BD1C77300EEF4FE /* TryAgainButton.h */,
+				0ADED1FD1BD1C77400EEF4FE /* TryAgainButton.m */,
 			);
 			name = ScreenButtons;
 			sourceTree = "<group>";
@@ -400,6 +407,7 @@
 				0AF869121BD036FA00C3B6BF /* menuButton.png */,
 				0AF869131BD036FA00C3B6BF /* nextButton.png */,
 				0AF869141BD036FA00C3B6BF /* pauseButton.png */,
+				0ADED1FF1BD1CB3A00EEF4FE /* tryAgainButton.png */,
 				0AF869151BD036FA00C3B6BF /* playButton.png */,
 				0AF869161BD036FA00C3B6BF /* resumeButton.png */,
 				0AF869171BD036FA00C3B6BF /* rightButton.png */,
@@ -776,6 +784,7 @@
 				0AF8691E1BD036FA00C3B6BF /* resumeButton.png in Resources */,
 				0A50E1031B723F6E008E69D5 /* platform.png in Resources */,
 				0A50E0FC1B71510B008E69D5 /* gameFragmentShader.glsl in Resources */,
+				0ADED2001BD1CB3A00EEF4FE /* tryAgainButton.png in Resources */,
 				0AA14D761B7561AF00770A6E /* astronaut.png in Resources */,
 				0A8D85E41BA706A400585A62 /* Background.png in Resources */,
 				0AA72BAA1B6EF2B100018D9E /* Assets.xcassets in Resources */,
@@ -847,6 +856,7 @@
 				0A50E1061B723F91008E69D5 /* Platform.m in Sources */,
 				0AD8CDE51B702EBD00833F84 /* MathHelper.m in Sources */,
 				0AA14D7E1B75647900770A6E /* GameGui.m in Sources */,
+				0ADED1FE1BD1C77400EEF4FE /* TryAgainButton.m in Sources */,
 				0A9BD6AA1BB0D2F700A24952 /* Tree.m in Sources */,
 				0A8D85E21BA704BD00585A62 /* Background.m in Sources */,
 				0A50E1091B724D34008E69D5 /* Planet.m in Sources */,

@@ -16,4 +16,5 @@
 -(void)uploadScreenCorrection:(CGSize)size;
 -(void)uploadTexCoordOffset:(vec2)offset;
 -(void)uploadColor:(vec4)color;
+-(void)uploadSize:(float)size;
 @end

@@ -120,7 +120,7 @@ static id theController = nil;
     input = [[GameInput alloc]init:player leftButton:leftButton rightButton:rightButton upButton:upButton pauseButton:pauseButton];
     glEnable(GL_BLEND);
     glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
-	[textBoxes addObject:[[TextBox alloc] initWithString:@"testing" x:-1 y:0.9 color:YELLOW]];
+	[textBoxes addObject:[[TextBox alloc] initWithString:@"testing" x:-1 y:0.9 color:YELLOW size:1]];
 	
 	textRenderer = [TextRenderer new];
 	renderer = [[Renderer alloc]initView:self.view.frame.size];

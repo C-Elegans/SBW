@@ -16,6 +16,7 @@
 	GLuint screenCorrection_location;
 	GLuint color_location;
 	GLuint texCoordOffset_location;
+	GLuint sizeCorrection_location;
 }
 @end
 @implementation TextShader
@@ -27,6 +28,7 @@
 	screenCorrection_location = glGetUniformLocation(program, "screenCorrection");
 	texCoordOffset_location = glGetUniformLocation(program, "texCoordOffset");
 	color_location = glGetUniformLocation(program, "color");
+	sizeCorrection_location = glGetUniformLocation(program, "sizeCorrection");
 	if(position_location == -1 || uv_location == -1){
 		NSLog(@"Invalid Attrib Location");
 		exit(1);
@@ -61,6 +63,9 @@
 }
 -(void)uploadColor:(vec4)color{
 	glUniform4f(color_location, color.x, color.y, color.z, color.r);
+}
+-(void)uploadSize:(float)size{
+	glUniform1f(sizeCorrection_location, size);
 }
 
 @end

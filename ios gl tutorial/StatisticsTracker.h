@@ -19,4 +19,5 @@
 -(void)saveData;
 -(void)loadData;
 -(void)setTrees:(int)trees forLevel:(int)level;
+-(void)refillLives;
 @end
