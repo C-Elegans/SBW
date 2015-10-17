@@ -52,7 +52,9 @@ const GLushort tryButtonIndices[] = {
 	
 	for(UITouch* touch in touches){
 		if ([MathHelper point:[touch locationInView:parentView] insideBox:[self getBoundingBox]]) {
+			
 			[OpenGLViewController getController].gameState = RUNNING;
+			
 			[StatisticsTracker sharedInstance].lives--;
 		}
 	}

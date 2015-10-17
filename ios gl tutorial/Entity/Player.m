@@ -64,7 +64,7 @@ const vec2 animationStates[] = {
 	
 	[super checkCollisions:gameObjects];
 	
-	[[OpenGLViewController getController] flushObjects];
+	
 
 	
 	[self updateAnimation];

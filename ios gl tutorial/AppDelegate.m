@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import "StatisticsTracker.h"
+#define APPID @"appb04226b6853d40aeae"
+#define ZONEID @"vzcfa16e6be89b41cb91"
 @interface AppDelegate ()
 
 @end
@@ -17,7 +19,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 	dispatch_async(dispatch_get_main_queue(), ^{
-	[AdColony configureWithAppID:@"appb04226b6853d40aeae" zoneIDs:@[@"vzcfa16e6be89b41cb91"] delegate:self logging:YES];
+	[AdColony configureWithAppID:APPID zoneIDs:@[ZONEID] delegate:self logging:YES];
 	});
     return YES;
 }
@@ -131,15 +133,17 @@
 #pragma mark - AdColony V4C
 
 -(void)onAdColonyV4VCReward:(BOOL)success currencyName:(NSString *)currencyName currencyAmount:(int)amount inZone:(NSString *)zoneID{
+	NSLog(@"Ad Shown, currency: %@, amount: %d",currencyName,amount);
 	if(success){
 		if([currencyName isEqualToString:@"Lives"]){
 			[StatisticsTracker sharedInstance].lives ++;
+			
 		}
 	}
 	
 }
 -(void)watchV4VCAd{
-	
+	[AdColony playVideoAdForZone:ZONEID withDelegate:nil withV4VCPrePopup:NO andV4VCPostPopup:NO];
 }
 
 @end

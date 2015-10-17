@@ -109,7 +109,7 @@ static id theController = nil;
     player = [[Player alloc]initRadius:1 theta:0];
 	bulletLock = [NSLock new];
     //gameObjects = [levelLoader loadLevel:0];
-    
+	arrayLock = [NSLock new];
     LeftButton* leftButton = [[LeftButton alloc]initWithPositionX:-.9 y:-.5 view:self.view];
     RightButton* rightButton = [[RightButton alloc]initWithPositionX:-.6 y:-.5 view:self.view];
     UpButton* upButton = [[UpButton alloc]initWithPositionX:.7 y:-.5 view:self.view];
@@ -161,7 +161,7 @@ static id theController = nil;
 			[gameObjects addObjectsFromArray:bullets];
 			[renderer renderGameEntities:gameObjects];
 			
-			[arrayLock unlock];
+			
             //Render player
 			
 			[renderer renderPlayer:player];
@@ -169,10 +169,12 @@ static id theController = nil;
 			[renderer renderGuis:guiObjects];
 			[renderer renderText:textBoxes];
             [input update];
-			[arrayLock lock];
+			
 			
 			[healthbar render:player];
 			[player update:gameObjects];
+			[gameObjects removeObjectsInArray:objectsToDelete];
+			[objectsToDelete removeAllObjects];
 			[gameObjects removeObjectsInArray:bullets];
 			
 			[bullets removeObjectsInArray:bulletsToDelete];
@@ -183,6 +185,7 @@ static id theController = nil;
 					[b checkCollisions:gameObjects];
 				
 			}
+			[gameObjects removeObjectsInArray:bullets];
 			[bullets removeObjectsInArray:bulletsToDelete];
 			[bulletsToDelete removeAllObjects];
 			
@@ -243,6 +246,8 @@ static id theController = nil;
 			[pauseScreen touchesEnded:touches withEvent:event];break;
 		case DEAD:
 			[deathScreen touchesEnded:touches withEvent:event];break;
+		case AD:
+			[livesScreen touchesEnded:touches withEvent:event];break;
 	}
 }
 -(void)touchesMoved:(nonnull NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event{
@@ -307,10 +312,15 @@ static id theController = nil;
 	}
 }
 -(void)endLevel{
+	dispatch_async(dispatch_get_main_queue(), ^{
+	[arrayLock lock];
 	[[StatisticsTracker sharedInstance ] setTrees:_trees forLevel:_currentLevel];
+	[gameObjects removeObjectsInArray:bullets];
 	[bullets removeAllObjects];
 	[bulletsToDelete removeAllObjects];
+	[arrayLock unlock];
 	_trees = 0;
+	});
 }
 -(GameState)gameState{
 	return _gameState;

@@ -9,5 +9,5 @@
 #import "Screen.h"
 
 @interface DeathScreen : Screen
-
+-(void)updateLives:(NSNumber*)lives;
 @end

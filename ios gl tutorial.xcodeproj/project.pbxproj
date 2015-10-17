@@ -31,6 +31,7 @@
 		0A42191B1BD29DDB009B969C /* liveScreenButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A42191A1BD29DDB009B969C /* liveScreenButton.png */; };
 		0A42191D1BD29DE2009B969C /* liveScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A42191C1BD29DE2009B969C /* liveScreen.png */; };
 		0A4219201BD2A6AF009B969C /* AdButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A42191F1BD2A6AF009B969C /* AdButton.m */; };
+		0A4219221BD2ACE7009B969C /* adButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A4219211BD2ACE7009B969C /* adButton.png */; };
 		0A50E0F11B712D3A008E69D5 /* mainScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A50E0F01B712D3A008E69D5 /* mainScreen.png */; };
 		0A50E0F41B7135F6008E69D5 /* GameEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A50E0F31B7135F6008E69D5 /* GameEntity.m */; };
 		0A50E0F81B714AB0008E69D5 /* MainMenuTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A50E0F71B714AB0008E69D5 /* MainMenuTests.m */; };
@@ -169,6 +170,7 @@
 		0A42191C1BD29DE2009B969C /* liveScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = liveScreen.png; path = Assets/liveScreen.png; sourceTree = "<group>"; };
 		0A42191E1BD2A6AF009B969C /* AdButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdButton.h; sourceTree = "<group>"; };
 		0A42191F1BD2A6AF009B969C /* AdButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdButton.m; sourceTree = "<group>"; };
+		0A4219211BD2ACE7009B969C /* adButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = adButton.png; path = Assets/Buttons/adButton.png; sourceTree = "<group>"; };
 		0A50E0F01B712D3A008E69D5 /* mainScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mainScreen.png; path = Assets/mainScreen.png; sourceTree = "<group>"; };
 		0A50E0F21B7135F6008E69D5 /* GameEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameEntity.h; path = Entity/GameEntity.h; sourceTree = "<group>"; };
 		0A50E0F31B7135F6008E69D5 /* GameEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameEntity.m; path = Entity/GameEntity.m; sourceTree = "<group>"; };
@@ -429,6 +431,7 @@
 				0A42191A1BD29DDB009B969C /* liveScreenButton.png */,
 				0A42191C1BD29DE2009B969C /* liveScreen.png */,
 				0AF869111BD036FA00C3B6BF /* leftButton.png */,
+				0A4219211BD2ACE7009B969C /* adButton.png */,
 				0A730BB11BD12A4900AAA7CF /* deathScreen.png */,
 				0AF869121BD036FA00C3B6BF /* menuButton.png */,
 				0AF869131BD036FA00C3B6BF /* nextButton.png */,
@@ -799,6 +802,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A4219221BD2ACE7009B969C /* adButton.png in Resources */,
 				0A36916F1BC4A43C0034E3B4 /* eyeball.png in Resources */,
 				0AF8691F1BD036FA00C3B6BF /* rightButton.png in Resources */,
 				0AB0182E1BB9F97C00264366 /* turret.png in Resources */,

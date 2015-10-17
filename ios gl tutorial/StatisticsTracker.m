@@ -48,7 +48,7 @@
 		_dateToFullyRecharge = [NSDate date];
 	}
 	if([[NSUserDefaults standardUserDefaults]objectForKey:@"treeLevels"]){
-		_treeLevels = [[NSUserDefaults standardUserDefaults]objectForKey:@"treeLevels"];
+		_treeLevels = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults]objectForKey:@"treeLevels"]];
 	}else{
 		_treeLevels = [NSMutableArray new];
 	}
@@ -89,6 +89,8 @@
 			lives = 0;
 		}
 		_lives = lives;
+		[[NSNotificationCenter defaultCenter] postNotificationName:@"livesUpdated" object:[NSNumber numberWithInt:[StatisticsTracker sharedInstance].lives]];
+		[[StatisticsTracker sharedInstance] saveData];
 	}
 }
 -(int)lives{

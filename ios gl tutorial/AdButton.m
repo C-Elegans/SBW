@@ -9,6 +9,7 @@
 #import "AdButton.h"
 #import "GameGuiProtectedMethods.h"
 #import <AdColony/AdColony.h>
+#import "AppDelegate.h"
 #define WIDTH 1.6
 #define HEIGHT 0.35
 @interface AdButton(){
@@ -51,7 +52,7 @@ const GLushort adButtonIndices[] = {
 	
 	for(UITouch* touch in touches){
 		if ([MathHelper point:[touch locationInView:parentView] insideBox:[self getBoundingBox]]) {
-			
+			[((AppDelegate*)[[UIApplication sharedApplication] delegate]) watchV4VCAd];
 		}
 	}
 	

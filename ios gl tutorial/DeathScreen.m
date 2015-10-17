@@ -29,6 +29,7 @@
 	liveButton = [[LiveScreenButton alloc]initWithPositionX:0.05 y:-0.4 view:view];
 	texture = [LoaderHelper loadTexture:@"deathScreen.png" enableMipmaps:false];
 	hearts = [[TextBox alloc]initWithString:[NSString stringWithFormat:@"x%d",[StatisticsTracker sharedInstance].lives] x:0.1 y:-0.1 color:WHITE size:1];
+	[[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(updateLives:) name:@"livesUpdated" object:nil];
 	return self;
 }
 -(void)touchesEnded:(nonnull NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event{
@@ -46,5 +47,8 @@
 }
 -(NSArray *)getText{
 	return [NSArray arrayWithObject:hearts];
+}
+-(void)updateLives:(NSNumber *)lives{
+	hearts.string = [NSString stringWithFormat:@"x%d",[StatisticsTracker sharedInstance].lives];
 }
 @end
