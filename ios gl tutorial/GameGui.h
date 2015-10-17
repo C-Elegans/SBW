@@ -14,6 +14,6 @@
 @property int numVertices;
 @property float x;
 @property float y;
-
+-(void)touchesEnded:(nonnull NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event;
 -(nonnull id)initWithPositionX:(float)x y:(float)y view:(nonnull UIView *)view;
 @end

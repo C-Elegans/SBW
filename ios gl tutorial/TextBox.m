@@ -28,6 +28,18 @@
 	self.string = string;
 	return self;
 }
+-(id)initWithStringCentered:(NSString*)string x:(float)x y:(float)y color:(vec4)color size:(float)size{
+	self = [super init];
+	_color = color;
+	_size=size;
+	textChars = [NSMutableArray new];
+	x = x-((0.04*_size*[string length])/2);
+	_position = (vec2){x,y};
+	shader = [TextShader new];
+	
+	self.string = string;
+	return self;
+}
 -(NSArray<TextChar*>*)getChars{
 	return textChars;
 }
@@ -45,7 +57,7 @@
 			
 			char c = [string characterAtIndex:i];
 			[textChars addObject:[[TextChar alloc]initWithChar:c x:xpos y:_position.y]];
-			xpos+= 0.03*_size;
+			xpos+= 0.04*_size;
 		}
 	}
 }

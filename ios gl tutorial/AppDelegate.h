@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
-
-@interface AppDelegate : UIResponder <UIApplicationDelegate>{
+#import <AdColony/AdColony.h>
+@interface AppDelegate : UIResponder <UIApplicationDelegate,AdColonyDelegate>{
   
 }
 
@@ -21,7 +21,7 @@
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
-
+-(void)watchV4VCAd;
 
 @end
 

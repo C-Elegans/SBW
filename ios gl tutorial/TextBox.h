@@ -9,11 +9,13 @@
 #import <Foundation/Foundation.h>
 #import "MathHelper.h"
 #import "TextChar.h"
+#import "Color.h"
 @interface TextBox : NSObject
 @property vec2 position;
 @property NSString* string;
 @property vec4 color;
 @property float size;
 -(id)initWithString:(NSString*)string x:(float)x y:(float)y color:(vec4)color size:(float)size;
+-(id)initWithStringCentered:(NSString*)string x:(float)x y:(float)y color:(vec4)color size:(float)size;
 -(NSArray<TextChar*>*)getChars;
 @end

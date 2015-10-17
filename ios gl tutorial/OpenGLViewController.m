@@ -33,6 +33,7 @@
 #import "HealthBar.h"
 #import "Renderer.h"
 #import "DeathScreen.h"
+#import "LivesScreen.h"
 static id theController = nil;
 
 @interface OpenGLViewController (){
@@ -42,6 +43,7 @@ static id theController = nil;
 	LevelChangeScreen* changeScreen;
 	PauseScreen* pauseScreen;
 	DeathScreen* deathScreen;
+	LivesScreen* livesScreen;
     NSMutableArray* guiObjects;
     NSMutableArray* gameObjects;
 	Player* player;
@@ -96,6 +98,7 @@ static id theController = nil;
 	changeScreen = [[LevelChangeScreen alloc]initPosition:(vec3){0.0f,0.0f,0.0f} view:self.view];
 	pauseScreen = [[PauseScreen alloc]initPosition:(vec3){0,0,0} view:self.view];
 	deathScreen = [[DeathScreen alloc]initPosition:(vec3){0,0,0} view:self.view];
+	livesScreen = [[LivesScreen alloc]initPosition:(vec3){0,0,0} view:self.view];
     gameObjects = [[NSMutableArray alloc]init];
     guiObjects = [[NSMutableArray alloc]init];
 	objectsToDelete = [NSMutableArray new];
@@ -164,6 +167,7 @@ static id theController = nil;
 			[renderer renderPlayer:player];
             //Render Gui objects
 			[renderer renderGuis:guiObjects];
+			[renderer renderText:textBoxes];
             [input update];
 			[arrayLock lock];
 			
@@ -202,7 +206,7 @@ static id theController = nil;
 			break;
 		}
 		case AD:
-			
+			[renderer renderScreen:livesScreen];
 			break;
     }
 	

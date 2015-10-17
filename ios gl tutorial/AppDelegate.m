@@ -16,7 +16,9 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
+	dispatch_async(dispatch_get_main_queue(), ^{
+	[AdColony configureWithAppID:@"appb04226b6853d40aeae" zoneIDs:@[@"vzcfa16e6be89b41cb91"] delegate:self logging:YES];
+	});
     return YES;
 }
 
@@ -125,6 +127,19 @@
             abort();
         }
     }
+}
+#pragma mark - AdColony V4C
+
+-(void)onAdColonyV4VCReward:(BOOL)success currencyName:(NSString *)currencyName currencyAmount:(int)amount inZone:(NSString *)zoneID{
+	if(success){
+		if([currencyName isEqualToString:@"Lives"]){
+			[StatisticsTracker sharedInstance].lives ++;
+		}
+	}
+	
+}
+-(void)watchV4VCAd{
+	
 }
 
 @end

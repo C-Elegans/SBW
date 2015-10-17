@@ -178,6 +178,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1990BBF84B68EB8B3869EC8903221081 /* Pods.release.xcconfig */;
 			buildSettings = {
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
@@ -194,6 +195,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FAC6B5C748A67F976650195C8383B224 /* Pods.debug.xcconfig */;
 			buildSettings = {
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
