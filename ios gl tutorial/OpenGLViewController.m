@@ -359,6 +359,7 @@ static id theController = nil;
 		case DEAD: return deathScreen; break;
 		case AD: return livesScreen; break;
 		case LEVEL_SELECT: return selectScreen; break;
+	}
 }
 
 

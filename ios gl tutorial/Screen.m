@@ -36,5 +36,8 @@ const GLushort Indices[] = {
 -(NSArray *)getText{
 	return nil;
 }
+-(void)update{
+	
+}
 
 @end

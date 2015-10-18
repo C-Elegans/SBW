@@ -10,4 +10,5 @@
 
 @interface LevelLoader : GameGui
 -(NSMutableArray*)loadLevel:(int)level;
+-(int)levelCount;
 @end
