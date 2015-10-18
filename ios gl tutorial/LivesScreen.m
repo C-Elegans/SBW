@@ -44,6 +44,9 @@
 }
 -(void)updateLives:(NSNumber *)lives{
 	NSLog(@"Lives Updated");
+	[self update];
+}
+-(void)update{
 	[[textBoxes objectAtIndex:0] setString:[NSString stringWithFormat:@"You have %d lives left",[StatisticsTracker sharedInstance].lives]];
 }
 

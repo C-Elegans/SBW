@@ -49,6 +49,9 @@
 	return [NSArray arrayWithObject:hearts];
 }
 -(void)updateLives:(NSNumber *)lives{
+	[self update];
+}
+-(void)update{
 	hearts.string = [NSString stringWithFormat:@"x%d",[StatisticsTracker sharedInstance].lives];
 }
 @end

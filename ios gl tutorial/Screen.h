@@ -19,4 +19,5 @@
 -(void)touchesEnded:(nonnull NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event;
 -(nullable NSArray*)getButtons;
 -(nullable NSArray*)getText;
+-(void)update;
 @end

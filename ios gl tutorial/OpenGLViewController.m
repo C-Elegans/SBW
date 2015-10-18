@@ -34,6 +34,7 @@
 #import "Renderer.h"
 #import "DeathScreen.h"
 #import "LivesScreen.h"
+#import "LevelSelectScreen.h"
 static id theController = nil;
 
 @interface OpenGLViewController (){
@@ -44,6 +45,7 @@ static id theController = nil;
 	PauseScreen* pauseScreen;
 	DeathScreen* deathScreen;
 	LivesScreen* livesScreen;
+	LevelSelectScreen* selectScreen;
     NSMutableArray* guiObjects;
     NSMutableArray* gameObjects;
 	Player* player;
@@ -99,6 +101,7 @@ static id theController = nil;
 	pauseScreen = [[PauseScreen alloc]initPosition:(vec3){0,0,0} view:self.view];
 	deathScreen = [[DeathScreen alloc]initPosition:(vec3){0,0,0} view:self.view];
 	livesScreen = [[LivesScreen alloc]initPosition:(vec3){0,0,0} view:self.view];
+	selectScreen = [[LevelSelectScreen alloc]initPosition:(vec3){0,0,0} view:self.view loader:levelLoader];
     gameObjects = [[NSMutableArray alloc]init];
     guiObjects = [[NSMutableArray alloc]init];
 	objectsToDelete = [NSMutableArray new];
@@ -211,6 +214,9 @@ static id theController = nil;
 		case AD:
 			[renderer renderScreen:livesScreen];
 			break;
+		case LEVEL_SELECT:
+			[renderer renderScreen:selectScreen];
+			break;
     }
 	
 	
@@ -227,28 +233,12 @@ static id theController = nil;
 }
 -(void)touchesEnded:(nonnull NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event{
     [super touchesEnded:touches withEvent:event];
-    if(_gameState == MAIN){
-		[mainScreen touchesEnded:touches withEvent:event];
-	}else if(_gameState == LEVEL_CHANGE){
-		[changeScreen touchesEnded:touches withEvent:event];
+	if(_gameState == RUNNING){
+		[input touchesEnded:touches withEvent:event];
+	}else{
+		[[self getScreenForState:_gameState] touchesEnded:touches withEvent:event];
 	}
-	else{
-        [input touchesEnded:touches withEvent:event];
-    }
-	switch (_gameState) {
-  		case MAIN:
-			[mainScreen touchesEnded:touches withEvent:event];break;
-		case LEVEL_CHANGE:
-			[changeScreen touchesEnded:touches withEvent:event]; break;
-		case RUNNING:
-			[input touchesEnded:touches withEvent:event];break;
-		case PAUSED:
-			[pauseScreen touchesEnded:touches withEvent:event];break;
-		case DEAD:
-			[deathScreen touchesEnded:touches withEvent:event];break;
-		case AD:
-			[livesScreen touchesEnded:touches withEvent:event];break;
-	}
+	
 }
 -(void)touchesMoved:(nonnull NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event{
     [super touchesMoved:touches withEvent:event];
@@ -308,7 +298,12 @@ static id theController = nil;
 				self.preferredFramesPerSecond = 10; break;
 			case DEAD:
 				self.preferredFramesPerSecond = 10;	break;
+			case AD:
+				self.preferredFramesPerSecond = 10; break;
+			case LEVEL_SELECT:
+				self.preferredFramesPerSecond = 30; break;
 		}
+		[[self getScreenForState:_gameState] update];
 	}
 }
 -(void)endLevel{
@@ -354,6 +349,16 @@ static id theController = nil;
 	[bulletLock lock];
 	[bulletsToDelete addObject:bullet];
 	[bulletLock unlock];
+}
+-(Screen*)getScreenForState:(GameState)state{
+	switch (state) {
+		case MAIN: return mainScreen; break;
+		case RUNNING: return nil; break;
+		case LEVEL_CHANGE: return changeScreen; break;
+		case  PAUSED: return pauseScreen; break;
+		case DEAD: return deathScreen; break;
+		case AD: return livesScreen; break;
+		case LEVEL_SELECT: return selectScreen; break;
 }
 
 

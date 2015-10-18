@@ -10,7 +10,7 @@
 #import <GLKit/GLKit.h>
 #import "GameEntity.h"
 #import "Bullet.h"
-typedef enum{MAIN,RUNNING,LEVEL_CHANGE,PAUSED,DEAD,AD} GameState;
+typedef enum{MAIN,RUNNING,LEVEL_CHANGE,PAUSED,DEAD,AD,LEVEL_SELECT} GameState;
 @interface OpenGLViewController : GLKViewController{
     
     
