@@ -50,8 +50,9 @@
 -(void)uploadTransformation:(float)x y:(float)y width:(float)width height:(float)height correction:(CGSize)correction{
 	float offset = correction.height/correction.width;
 	GLKMatrix4 mat = GLKMatrix4Identity;
-	mat = GLKMatrix4Scale(mat, width*offset, height, 1);
+	
 	mat = GLKMatrix4Translate(mat, x, y, 0);
+	mat = GLKMatrix4Scale(mat, width*offset, height, 1);
 	glUniformMatrix4fv(transformation_location, 1, NO, mat.m);
 	
 	

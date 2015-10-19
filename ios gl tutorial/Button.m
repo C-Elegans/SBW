@@ -35,7 +35,7 @@ const GLushort buttonIndices[] = {
 	frameRect = view.frame;
 	
 	parentView = view;
-	_text = [[TextBox alloc] initWithStringCentered:string x:self.x -(_width/2) y:self.y - (_height/2) color:BLACK size:1.5];
+	_text = [[TextBox alloc] initWithStringCentered:string x:self.x +(_width/2) y:self.y - (_height/2) color:BLACK size:1.5];
 	return self;
 }
 -(CGRect)getBoundingBox{
