@@ -38,9 +38,9 @@
 	[menuButton touchesEnded:touches withEvent:event];
 	[button touchesEnded:touches withEvent:event];
 }
--(NSArray*)getButtons{
+-(NSArray*)getAllButtons{
 	int lives =[StatisticsTracker sharedInstance].lives;
-	GameGui* button = (lives>0) ?tryButton:liveButton;
+	Button* button = (lives>0) ?tryButton:liveButton;
 	NSArray* array = [[NSArray alloc] initWithObjects:menuButton,button, nil];
 	
 	return array;

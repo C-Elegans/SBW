@@ -29,35 +29,13 @@ const GLushort tryButtonIndices[] = {
 	2, 3, 0
 };
 -(id)initWithPositionX:(float)x y:(float)y view:(nonnull UIView *)view{
-	self = [super initWithPositionX:x y:y view:view];
-	[super loadToBuffers:&tryButtonVertices[0] vSize:sizeof(tryButtonVertices) indices:&tryButtonIndices[0] iSize:sizeof(tryButtonIndices) objectName:@"tryAgainButton"];
-	[super loadToTexture:@"tryAgainButton.png"];
-	frameRect = view.frame;
-	
-	parentView = view;
+	self = [super initWithPositionX:x y:y width:WIDTH height:HEIGHT text:@"Try Again" view:view];
 	return self;
 }
--(CGRect)getBoundingBox{
-	CGSize size = frameRect.size;
-	float xDim = size.width;
-	float yDim = size.height;
-	float x = (self.x +1) *0.5;
-	float y = (1-self.y) *0.5;
-	//float offset = size.height/size.width;
-	
-	return CGRectMake(x*xDim, y*yDim, WIDTH*0.5*yDim, HEIGHT*0.5*yDim);
-}
 
--(void)touchesEnded:(nonnull NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event{
+-(void)onClick{
+	[OpenGLViewController getController].gameState = RUNNING;
 	
-	for(UITouch* touch in touches){
-		if ([MathHelper point:[touch locationInView:parentView] insideBox:[self getBoundingBox]]) {
-			
-			[OpenGLViewController getController].gameState = RUNNING;
-			
-			[StatisticsTracker sharedInstance].lives--;
-		}
-	}
-	
+	[StatisticsTracker sharedInstance].lives--;
 }
 @end
