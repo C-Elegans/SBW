@@ -50,6 +50,10 @@
 		0A6643521BA3894300BA19E1 /* ChangeScreenMenuButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6643511BA3894300BA19E1 /* ChangeScreenMenuButton.m */; };
 		0A730BB21BD12A4900AAA7CF /* deathScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A730BB11BD12A4900AAA7CF /* deathScreen.png */; };
 		0A730BB61BD12AC300AAA7CF /* Renderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A730BB51BD12AC300AAA7CF /* Renderer.m */; };
+		0A895BAB1BD58F2D00515035 /* button1.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A895BAA1BD58F2D00515035 /* button1.png */; };
+		0A895BAF1BD59F4200515035 /* FXAAShader.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A895BAE1BD59F4200515035 /* FXAAShader.m */; };
+		0A895BB11BD59F5300515035 /* fxaaVertexShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 0A895BB01BD59F5300515035 /* fxaaVertexShader.glsl */; };
+		0A895BB31BD59F5F00515035 /* fxaaFragmentShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 0A895BB21BD59F5F00515035 /* fxaaFragmentShader.glsl */; };
 		0A8D85E21BA704BD00585A62 /* Background.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A8D85E11BA704BD00585A62 /* Background.m */; };
 		0A8D85E41BA706A400585A62 /* Background.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A8D85E31BA706A400585A62 /* Background.png */; };
 		0A95A7E91B7C14A00030B540 /* UpButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A95A7E81B7C14A00030B540 /* UpButton.m */; };
@@ -202,6 +206,10 @@
 		0A730BB11BD12A4900AAA7CF /* deathScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = deathScreen.png; path = Assets/deathScreen.png; sourceTree = "<group>"; };
 		0A730BB41BD12AC300AAA7CF /* Renderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Renderer.h; sourceTree = "<group>"; };
 		0A730BB51BD12AC300AAA7CF /* Renderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Renderer.m; sourceTree = "<group>"; };
+		0A895BAD1BD59F4200515035 /* FXAAShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXAAShader.h; sourceTree = "<group>"; };
+		0A895BAE1BD59F4200515035 /* FXAAShader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXAAShader.m; sourceTree = "<group>"; };
+		0A895BB01BD59F5300515035 /* fxaaVertexShader.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fxaaVertexShader.glsl; sourceTree = "<group>"; };
+		0A895BB21BD59F5F00515035 /* fxaaFragmentShader.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fxaaFragmentShader.glsl; sourceTree = "<group>"; };
 		0A8D85E01BA704BD00585A62 /* Background.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Background.h; path = Entity/Background.h; sourceTree = "<group>"; };
 		0A8D85E11BA704BD00585A62 /* Background.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Background.m; path = Entity/Background.m; sourceTree = "<group>"; };
 		0A8D85E31BA706A400585A62 /* Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Background.png; path = Assets/Background.png; sourceTree = "<group>"; };
@@ -439,6 +447,17 @@
 			name = Render;
 			sourceTree = "<group>";
 		};
+		0A895BAC1BD59EF300515035 /* FXAA */ = {
+			isa = PBXGroup;
+			children = (
+				0A895BAD1BD59F4200515035 /* FXAAShader.h */,
+				0A895BAE1BD59F4200515035 /* FXAAShader.m */,
+				0A895BB01BD59F5300515035 /* fxaaVertexShader.glsl */,
+				0A895BB21BD59F5F00515035 /* fxaaFragmentShader.glsl */,
+			);
+			name = FXAA;
+			sourceTree = "<group>";
+		};
 		0AA14D7B1B7561C100770A6E /* Images */ = {
 			isa = PBXGroup;
 			children = (
@@ -635,6 +654,7 @@
 			children = (
 				0AD8CDDA1B70211F00833F84 /* Shader.h */,
 				0AD8CDDB1B70211F00833F84 /* Shader.m */,
+				0A895BAC1BD59EF300515035 /* FXAA */,
 				0A50E1001B715649008E69D5 /* MainScreenShader */,
 				0A50E1011B715653008E69D5 /* GameShader */,
 				0AA14D841B7567AC00770A6E /* GuiShader */,
@@ -818,6 +838,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A895BB31BD59F5F00515035 /* fxaaFragmentShader.glsl in Resources */,
 				0A4219221BD2ACE7009B969C /* adButton.png in Resources */,
 				0A36916F1BC4A43C0034E3B4 /* eyeball.png in Resources */,
 				0AF8691F1BD036FA00C3B6BF /* rightButton.png in Resources */,
@@ -834,6 +855,7 @@
 				0A50E0FA1B7150FE008E69D5 /* gameVertexShader.glsl in Resources */,
 				0A50E10B1B725006008E69D5 /* earth.png in Resources */,
 				0A36916D1BC31FCB0034E3B4 /* barFragmentShader.glsl in Resources */,
+				0A895BB11BD59F5300515035 /* fxaaVertexShader.glsl in Resources */,
 				0A50E0F11B712D3A008E69D5 /* mainScreen.png in Resources */,
 				0AB0184D1BBCA06500264366 /* textVertexShader.glsl in Resources */,
 				0AC918021B6FA7050068B51D /* fragmentShader.glsl in Resources */,
@@ -964,6 +986,7 @@
 				0A9BD6AA1BB0D2F700A24952 /* Tree.m in Sources */,
 				0A8D85E21BA704BD00585A62 /* Background.m in Sources */,
 				0A50E1091B724D34008E69D5 /* Planet.m in Sources */,
+				0A895BAF1BD59F4200515035 /* FXAAShader.m in Sources */,
 				0AAA5C991BA381DE00F6BE4A /* ChangeScreenNextButton.m in Sources */,
 				0A17920A1BA1C49400163CED /* Door.m in Sources */,
 				0AA4B48D1BAB84FD00F32400 /* PauseScreenResumeButton.m in Sources */,

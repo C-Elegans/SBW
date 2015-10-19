@@ -32,7 +32,7 @@ static NSMutableDictionary* vaoDict;
     
     glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), 0);
     glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid*) (sizeof(float) * 3));
-    glDisableVertexAttribArray(vaoid);
+	//glDisableVertexAttribArray(vaoid);
     glBindVertexArrayOES(0);
     return vaoid;
     
@@ -74,13 +74,11 @@ static NSMutableDictionary* vaoDict;
     glGenTextures(1, &texName);
     glBindTexture(GL_TEXTURE_2D, texName);
     
-    
-    
+	
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, (GLsizei)width, (GLsizei)height, 0, GL_RGBA, GL_UNSIGNED_BYTE, spriteData);
 	if(mipmapEnabled){
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_NEAREST);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-		glTexParameteri(GL_TEXTURE_2D, GL_GENERATE_MIPMAP_HINT, GL_NICEST);
 		glGenerateMipmap(GL_TEXTURE_2D);
 	}else{
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
@@ -88,6 +86,7 @@ static NSMutableDictionary* vaoDict;
 		//glTexParameteri(GL_TEXTURE_2D, GL_GENERATE_MIPMAP_HINT, GL_NICEST);
 		//glGenerateMipmap(GL_TEXTURE_2D);
 	}
+	
 	//glGenerateMipmap(GL_TEXTURE_2D);
     free(spriteData);
 	//CGImageRelease(spriteImage);

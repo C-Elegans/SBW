@@ -13,11 +13,13 @@
 #import "GameGui.h"
 #import "TextBox.h"
 @interface Renderer : NSObject
--(id)initView:(CGSize)size;
+-(id)initView:(CGSize)size glkView:(GLKView*)glkView;
 -(void)renderGameEntities:(NSArray<GameEntity*>*)entities;
 -(void)renderStart;
 -(void)renderScreen:(Screen*)screen;
 -(void)renderPlayer:(Player*)player;
 -(void)renderGuis:(NSArray<GameGui*>*)guis;
 -(void)renderText:(NSArray<TextBox*>*)textBoxes;
+-(void)resolveFXAA;
+-(void)bindFXAABuffer;
 @end
