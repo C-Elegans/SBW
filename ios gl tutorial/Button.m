@@ -31,11 +31,11 @@ const GLushort buttonIndices[] = {
 	_height = height;
 	self = [super initWithPositionX:x y:y view:view];
 	[super loadToBuffers:&buttonVertices[0] vSize:sizeof(buttonVertices) indices:&buttonIndices[0] iSize:sizeof(buttonIndices) objectName:@"button"];
-	[super loadToTexture:@"button.png"];
+	[super loadToTexture:@"button1.png"];
 	frameRect = view.frame;
 	
 	parentView = view;
-	_text = [[TextBox alloc] initWithStringCentered:string x:self.x +(_width/2) y:self.y - (_height/2) color:BLACK size:1.5];
+	_text = [[TextBox alloc] initWithStringCentered:string x:self.x+(0.25*_width)  y:self.y+(0.25*_height)  color:BLACK size:1.5];
 	return self;
 }
 -(CGRect)getBoundingBox{

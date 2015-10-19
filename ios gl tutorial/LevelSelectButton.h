@@ -6,8 +6,8 @@
 //  Copyright © 2015 Michael Nolan. All rights reserved.
 //
 
-#import "GameGui.h"
+#import "Button.h"
 
-@interface LevelSelectButton : GameGui
+@interface LevelSelectButton : Button
 
 @end

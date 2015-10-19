@@ -30,10 +30,10 @@ const Rectangle PlayButton = {0.1434f,0.3706f ,0.7117f,0.1652f};
 	[levelButton touchesEnded:touches withEvent:event];
 }
 -(NSArray*)getButtons{
-	NSArray* array = [[NSArray alloc] initWithObjects:levelButton, nil];
-	return array;
+	
+	return nil;
 }
 -(NSArray<Button *> *)getAllButtons{
-	return [NSArray arrayWithObject:playButton];
+	return [NSArray arrayWithObjects:playButton,levelButton,nil];
 }
 @end

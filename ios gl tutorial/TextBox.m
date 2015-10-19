@@ -33,7 +33,8 @@
 	_color = color;
 	_size=size;
 	textChars = [NSMutableArray new];
-	x = x-((0.04*_size*[string length])/2);
+	x = x-((0.04*_size*([string length]-1))/2);
+	y-=0.025*size;
 	_position = (vec2){x,y};
 	shader = [TextShader new];
 	
