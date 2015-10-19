@@ -90,7 +90,7 @@ static NSMutableDictionary* vaoDict;
 	}
 	//glGenerateMipmap(GL_TEXTURE_2D);
     free(spriteData);
-	CGImageRelease(spriteImage);
+	//CGImageRelease(spriteImage);
     return texName;
 }
 +(GLuint)loadTexture:(NSString *)fileName enableMipmaps:(BOOL)mipmapsEnabled{
