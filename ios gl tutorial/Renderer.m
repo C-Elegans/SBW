@@ -88,7 +88,7 @@
 	glBindVertexArrayOES(0);
 	[shader stop];
 	
-	NSArray* buttons = [screen getButtons];
+	//NSArray* buttons = [screen getButtons];
 	[guiShader start];
 	//[guiShader uploadScreenCorrection:frameSize];
 	[guiShader uploadAlpha:1];
@@ -127,8 +127,8 @@
 	[gameShader stop];
 }
 -(void)renderGuis:(NSArray<GameGui *> *)guis{
-	/*[guiShader start];
-	[guiShader uploadScreenCorrection:frameSize];
+	[guiShader start];
+	
 	[guiShader uploadAlpha:0.1];
 	glActiveTexture(GL_TEXTURE0);
 	for(GameGui *gui in guis){
@@ -136,7 +136,7 @@
 		glBindVertexArrayOES(gui.vaoID);
 		
 		[guiShader enableAttribs];
-		[guiShader uploadObjectTransformation:gui.x y:gui.y];
+		[guiShader uploadTransformation:gui.x y:gui.y width:1 height:1 correction:frameSize];
 		glBindTexture(GL_TEXTURE_2D, gui.texture);
 		glDrawElements(GL_TRIANGLES, gui.numVertices, GL_UNSIGNED_SHORT, 0);
 		[guiShader disableAttribs];
@@ -144,7 +144,7 @@
 
 	}
 	
-	[guiShader stop];*/
+	[guiShader stop];
 }
 -(void)renderButton:(NSArray<Button *> *)buttons{
 	NSMutableArray<TextBox*>* textBoxes = [NSMutableArray new];
