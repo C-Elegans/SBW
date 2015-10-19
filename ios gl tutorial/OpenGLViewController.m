@@ -80,7 +80,7 @@ static id theController = nil;
     levelLoader = [[LevelLoader alloc] init];
 	lastTimeStamp = CFAbsoluteTimeGetCurrent();
     GLKView *glkView = (GLKView*)self.view;
-    glkView.drawableMultisample = GLKViewDrawableMultisample4X;
+    glkView.drawableMultisample = GLKViewDrawableMultisampleNone;
     if(theController != nil && theController != self){
         NSLog(@"MORE THAN ONE CONTROLLER CREATED");
         exit(1);
@@ -129,7 +129,7 @@ static id theController = nil;
 	[textBoxes addObject:[[TextBox alloc] initWithString:@"testing" x:-1 y:0.9 color:YELLOW size:1]];
 	
 	
-	renderer = [[Renderer alloc]initView:self.view.frame.size];
+	renderer = [[Renderer alloc]initView:self.view.frame.size glkView:glkView];
 	// self.currentLevel = [StatisticsTracker sharedInstance].currentlevel;
 	self.currentLevel = 9;
 }
@@ -162,13 +162,11 @@ static id theController = nil;
             glActiveTexture(GL_TEXTURE0);
             
 			[gameObjects addObjectsFromArray:bullets];
+			
+			[renderer bindFXAABuffer];
 			[renderer renderGameEntities:gameObjects];
-			
-			
-            //Render player
-			
 			[renderer renderPlayer:player];
-            //Render Gui objects
+			[renderer resolveFXAA];
 			[renderer renderGuis:guiObjects];
 			[renderer renderText:textBoxes];
             [input update];

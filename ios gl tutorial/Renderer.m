@@ -14,24 +14,79 @@
 #import "Player.h"
 #import "GameGui.h"
 #import "TextRenderer.h"
+#import "FXAAShader.h"
 #import <OpenGLES/ES2/gl.h>
 #import <OpenGLES/ES2/glext.h>
 @interface Renderer(){
 	MainShader* shader;
 	GameShader* gameShader;
 	GuiShader* guiShader;
+	FXAAShader* fxaaShader;
 	CGSize frameSize;
 	TextRenderer* textRenderer;
+	GLuint fxaaVAO;
+	GLuint fxaaFrameBuffer;
+	GLuint fxaaTexture;
+	GLuint fxaaRenderBuffer;
+	GLuint fxaaDepthBuffer;
+	GLKView* view;
 }
 @end
 @implementation Renderer
--(id)initView:(CGSize)size{
+const Vertex fxaaVertices[] = {
+	{{1, -1, 0}, {1,0}},
+	{{1, 1, 0}, {1,1}},
+	{{-1, 1, 0}, {0,1}},
+	{{-1, -1, 0}, {0,0}}
+};
+
+const GLushort fxaaIndices[] = {
+	0, 1, 2,
+	2, 3, 0
+};
+-(id)initView:(CGSize)size glkView:(GLKView *)glkView{
 	self = [super init];
 	frameSize = size;
 	shader = [[MainShader alloc]init];
 	gameShader = [[GameShader alloc]init];
 	guiShader = [[GuiShader alloc]init];
+	fxaaShader = [[FXAAShader alloc]init];
 	textRenderer = [[TextRenderer alloc]init];
+	fxaaVAO = [LoaderHelper loadToVBOS:fxaaVertices verticesSize:sizeof(fxaaVertices) indices:fxaaIndices indicesSize:sizeof(fxaaIndices) objectName:@"FXAA Screen"];
+	view = glkView;
+	
+	
+	glGenFramebuffers(1, &fxaaFrameBuffer);
+	glBindFramebuffer(GL_FRAMEBUFFER, fxaaFrameBuffer);
+	
+	//create and bind renderbuffer
+	glGenRenderbuffers(1, &fxaaRenderBuffer);
+	glBindRenderbuffer(GL_RENDERBUFFER, fxaaRenderBuffer);
+	glRenderbufferStorage(GL_RENDERBUFFER, GL_RGBA8_OES, frameSize.width*2, frameSize.height*2);
+	glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, fxaaRenderBuffer);
+	//create and bind depth buffer
+	/*glGenRenderbuffers(1, &fxaaDepthBuffer);
+	 glBindRenderbuffer(GL_RENDERBUFFER, fxaaDepthBuffer);
+	 glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT16, frameSize.width*2, frameSize.height*2);
+	 glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, fxaaDepthBuffer);*/
+	
+	glGenTextures(1, &fxaaTexture);
+	glBindTexture(GL_TEXTURE_2D, fxaaTexture);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA,  frameSize.width*2, frameSize.height*2, 0, GL_RGBA, GL_UNSIGNED_BYTE, NULL);
+	
+	
+	glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, fxaaTexture, 0);
+	GLenum status = glCheckFramebufferStatus(GL_FRAMEBUFFER) ;
+	if(status != GL_FRAMEBUFFER_COMPLETE) {
+		NSLog(@"failed to make complete framebuffer object %x", status);
+	}
+	
+	glBindTexture(GL_TEXTURE_2D, 0);
+	[view bindDrawable];
 	return self;
 }
 -(void)renderStart{
@@ -169,5 +224,21 @@
 }
 -(void)renderText:(NSArray<TextBox *> *)textBoxes{
 	[textRenderer render:textBoxes frame:frameSize];
+}
+-(void)bindFXAABuffer{
+	
+	glBindFramebuffer(GL_FRAMEBUFFER, fxaaFrameBuffer);
+}
+-(void)resolveFXAA{
+	[view bindDrawable];
+	[fxaaShader start];
+	glBindVertexArrayOES(fxaaVAO);
+	glBindTexture(GL_TEXTURE_2D, fxaaTexture);
+	
+	[fxaaShader enableAttribs];
+	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_SHORT, 0);
+	[fxaaShader disableAttribs];
+	glBindTexture(GL_TEXTURE_2D, 0);
+	[fxaaShader stop];
 }
 @end

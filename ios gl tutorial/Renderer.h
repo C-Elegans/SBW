@@ -13,8 +13,9 @@
 #import "GameGui.h"
 #import "TextBox.h"
 #import "Button.h"
+#import <GLKit/GLKit.h>
 @interface Renderer : NSObject
--(id)initView:(CGSize)size;
+-(id)initView:(CGSize)size glkView:(GLKView*)glkView;
 -(void)renderGameEntities:(NSArray<GameEntity*>*)entities;
 -(void)renderStart;
 -(void)renderScreen:(Screen*)screen;
@@ -22,4 +23,6 @@
 -(void)renderGuis:(NSArray<GameGui*>*)guis;
 -(void)renderText:(NSArray<TextBox*>*)textBoxes;
 -(void)renderButton:(NSArray<Button*>*)buttons;
+-(void)resolveFXAA;
+-(void)bindFXAABuffer;
 @end
