@@ -90,10 +90,10 @@
 	
 	NSArray* buttons = [screen getButtons];
 	[guiShader start];
-	[guiShader uploadScreenCorrection:frameSize];
+	//[guiShader uploadScreenCorrection:frameSize];
 	[guiShader uploadAlpha:1];
 	glActiveTexture(GL_TEXTURE0);
-	for(GameGui *gui in buttons){
+	/*for(GameGui *gui in buttons){
 #ifdef DEBUG
 		glPushGroupMarkerEXT(0,"rendering button");
 #endif
@@ -107,8 +107,8 @@
 #ifdef DEBUG
 		glPopGroupMarkerEXT();
 #endif
-	}
-	
+	}*/
+	[self renderButton:[screen getAllButtons]];
 	[guiShader stop];
 	[self renderText:screen.getText];
 }
@@ -127,7 +127,7 @@
 	[gameShader stop];
 }
 -(void)renderGuis:(NSArray<GameGui *> *)guis{
-	[guiShader start];
+	/*[guiShader start];
 	[guiShader uploadScreenCorrection:frameSize];
 	[guiShader uploadAlpha:0.1];
 	glActiveTexture(GL_TEXTURE0);
@@ -144,7 +144,28 @@
 
 	}
 	
+	[guiShader stop];*/
+}
+-(void)renderButton:(NSArray<Button *> *)buttons{
+	NSMutableArray<TextBox*>* textBoxes = [NSMutableArray new];
+	[guiShader start];
+	//[guiShader uploadScreenCorrection:frameSize];
+	[guiShader uploadAlpha:0.1];
+	glActiveTexture(GL_TEXTURE0);
+	for(Button *button in buttons){
+		[textBoxes addObject:button.text];
+		glBindVertexArrayOES(button.vaoID);
+		
+		[guiShader enableAttribs];
+		[guiShader uploadTransformation:button.x y:button.y width:button.width height:button.height correction:frameSize];
+		glBindTexture(GL_TEXTURE_2D, button.texture);
+		glDrawElements(GL_TRIANGLES, button.numVertices, GL_UNSIGNED_SHORT, 0);
+		[guiShader disableAttribs];
+		glBindVertexArrayOES(0);
+		
+	}
 	[guiShader stop];
+	[self renderText:textBoxes];
 }
 -(void)renderText:(NSArray<TextBox *> *)textBoxes{
 	[textRenderer render:textBoxes frame:frameSize];

@@ -10,8 +10,7 @@
 @interface GuiShader(){
     GLuint position_location;
     GLuint uv_location;
-    GLuint positionOffset_location;
-    GLuint screenCorrection_location;
+	GLuint transformation_location;
 	GLuint alpha_location;
 }
 @end
@@ -20,8 +19,7 @@
     self = [super initFromVertexFile:@"guiVertexShader" fragmentFile:@"guiFragmentShader"];
     position_location = glGetAttribLocation(program, "position");
     uv_location = glGetAttribLocation(program, "inTexCoords");
-    positionOffset_location = glGetUniformLocation(program, "positionOffset");
-    screenCorrection_location = glGetUniformLocation(program, "screenCorrection");
+	transformation_location = glGetUniformLocation(program, "transformation");
 	alpha_location = glGetUniformLocation(program, "alpha");
     
     if(position_location == -1 || uv_location == -1){
@@ -45,15 +43,18 @@
     glDisableVertexAttribArray(position_location);
     glDisableVertexAttribArray(uv_location);
 }
--(void)uploadObjectTransformation:(float)x y:(float)y{
-    glUniform2f(positionOffset_location, x, y);
-}
--(void)uploadScreenCorrection:(CGSize)size{
-    float offset = size.height/size.width;
-    glUniform1f(screenCorrection_location, offset);
-}
+
 -(void)uploadAlpha:(float)alpha{
 	glUniform1f(alpha_location, alpha);
+}
+-(void)uploadTransformation:(float)x y:(float)y width:(float)width height:(float)height correction:(CGSize)correction{
+	float offset = correction.height/correction.width;
+	GLKMatrix4 mat = GLKMatrix4Identity;
+	mat = GLKMatrix4Scale(mat, width*offset, height, 1);
+	mat = GLKMatrix4Translate(mat, x, y, 0);
+	glUniformMatrix4fv(transformation_location, 1, NO, mat.m);
+	
+	
 }
 
 

@@ -11,7 +11,6 @@
 @interface GuiShader : Shader
 -(void)enableAttribs;
 -(void)disableAttribs;
--(void)uploadObjectTransformation:(float)x y:(float)y;
--(void)uploadScreenCorrection:(CGSize)size;
+-(void)uploadTransformation:(float)x y:(float)y width:(float)width height:(float)height correction:(CGSize)correction;
 -(void)uploadAlpha:(float)alpha;
 @end

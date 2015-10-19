@@ -12,6 +12,7 @@
 #import "Player.h"
 #import "GameGui.h"
 #import "TextBox.h"
+#import "Button.h"
 @interface Renderer : NSObject
 -(id)initView:(CGSize)size;
 -(void)renderGameEntities:(NSArray<GameEntity*>*)entities;
@@ -20,4 +21,5 @@
 -(void)renderPlayer:(Player*)player;
 -(void)renderGuis:(NSArray<GameGui*>*)guis;
 -(void)renderText:(NSArray<TextBox*>*)textBoxes;
+-(void)renderButton:(NSArray<Button*>*)buttons;
 @end
