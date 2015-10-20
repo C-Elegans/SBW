@@ -211,6 +211,7 @@ const GLushort fxaaIndices[] = {
 -(void)resolveFXAA{
 	[view bindDrawable];
 	[fxaaShader start];
+	
 	glBindVertexArrayOES(fxaaVAO);
 	glBindTexture(GL_TEXTURE_2D, fxaaTexture);
 	

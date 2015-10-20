@@ -12,8 +12,7 @@
 @interface FXAAShader(){
 	GLuint position_location;
 	GLuint uv_location;
-	GLuint transformation_location;
-	GLuint alpha_location;
+
 }
 @end
 @implementation FXAAShader
@@ -21,7 +20,7 @@
 	self = [super initFromVertexFile:@"fxaaVertexShader" fragmentFile:@"fxaaFragmentShader"];
 	position_location = glGetAttribLocation(program, "position");
 	uv_location = glGetAttribLocation(program, "inTexCoords");
-	
+
 	
 	if(position_location == -1 || uv_location == -1){
 		NSLog(@"Invalid Attrib Location");
@@ -44,6 +43,7 @@
 	glDisableVertexAttribArray(position_location);
 	glDisableVertexAttribArray(uv_location);
 }
+
 
 
 

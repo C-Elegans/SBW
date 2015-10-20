@@ -11,4 +11,5 @@
 @interface FXAAShader : Shader
 -(void)enableAttribs;
 -(void)disableAttribs;
+-(void)setRCP:(CGSize)size;
 @end
