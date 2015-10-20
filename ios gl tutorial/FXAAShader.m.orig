@@ -12,7 +12,12 @@
 @interface FXAAShader(){
 	GLuint position_location;
 	GLuint uv_location;
+<<<<<<< HEAD
 
+=======
+	GLuint transformation_location;
+	GLuint alpha_location;
+>>>>>>> button-refactor
 }
 @end
 @implementation FXAAShader
@@ -20,7 +25,11 @@
 	self = [super initFromVertexFile:@"fxaaVertexShader" fragmentFile:@"fxaaFragmentShader"];
 	position_location = glGetAttribLocation(program, "position");
 	uv_location = glGetAttribLocation(program, "inTexCoords");
+<<<<<<< HEAD
 
+=======
+	
+>>>>>>> button-refactor
 	
 	if(position_location == -1 || uv_location == -1){
 		NSLog(@"Invalid Attrib Location");
@@ -46,4 +55,8 @@
 
 
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> button-refactor
 @end

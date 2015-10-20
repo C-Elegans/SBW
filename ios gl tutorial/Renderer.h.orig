@@ -13,7 +13,10 @@
 #import "GameGui.h"
 #import "TextBox.h"
 #import "Button.h"
+<<<<<<< HEAD
+=======
 #import <GLKit/GLKit.h>
+>>>>>>> button-refactor
 @interface Renderer : NSObject
 -(id)initView:(CGSize)size glkView:(GLKView*)glkView;
 -(void)renderGameEntities:(NSArray<GameEntity*>*)entities;
@@ -22,7 +25,16 @@
 -(void)renderPlayer:(Player*)player;
 -(void)renderGuis:(NSArray<GameGui*>*)guis;
 -(void)renderText:(NSArray<TextBox*>*)textBoxes;
+<<<<<<< HEAD
+<<<<<<< Updated upstream
+-(void)resolveFXAA;
+-(void)bindFXAABuffer;
+=======
+-(void)renderButton:(NSArray<Button*>*)buttons;
+>>>>>>> Stashed changes
+=======
 -(void)renderButton:(NSArray<Button*>*)buttons;
 -(void)resolveFXAA;
 -(void)bindFXAABuffer;
+>>>>>>> button-refactor
 @end

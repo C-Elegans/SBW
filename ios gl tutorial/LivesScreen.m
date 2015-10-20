@@ -14,7 +14,7 @@
 #import "StatisticsTracker.h"
 @interface LivesScreen(){
 	NSMutableArray<TextBox*>* textBoxes;
-	NSMutableArray<GameGui*>* buttons;
+	NSMutableArray<Button*>* buttons;
 }
 @end
 @implementation LivesScreen
@@ -34,7 +34,7 @@
 	}];
 	
 }
--(NSArray*)getButtons{
+-(NSArray*)getAllButtons{
 	
 	
 	return buttons;

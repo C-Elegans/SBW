@@ -29,32 +29,10 @@ const GLushort resumeButtonIndices[] = {
 	2, 3, 0
 };
 -(id)initWithPositionX:(float)x y:(float)y view:(nonnull UIView *)view{
-	self = [super initWithPositionX:x y:y view:view];
-	[super loadToBuffers:&resumeButtonVertices[0] vSize:sizeof(resumeButtonVertices) indices:&resumeButtonIndices[0] iSize:sizeof(resumeButtonIndices) objectName:@"resumeButton"];
-	[super loadToTexture:@"resumeButton.png"];
-	frameRect = view.frame;
-	
-	parentView = view;
+	self = [super initWithPositionX:x y:y width:WIDTH height:HEIGHT text:@"Resume" view:view];
 	return self;
 }
--(CGRect)getBoundingBox{
-	CGSize size = frameRect.size;
-	float xDim = size.width;
-	float yDim = size.height;
-	float x = (self.x +1) *0.5;
-	float y = (1-self.y) *0.5;
-	//float offset = size.height/size.width;
-	
-	return CGRectMake(x*xDim, y*yDim, WIDTH*0.5*xDim, HEIGHT*0.5*yDim);
-}
-
--(void)touchesEnded:(nonnull NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event{
-	
-	for(UITouch* touch in touches){
-		if ([MathHelper point:[touch locationInView:parentView] insideBox:[self getBoundingBox]]) {
-			[OpenGLViewController getController].gameState = RUNNING;
-		}
-	}
-	
+-(void)onClick{
+	[OpenGLViewController getController].gameState = RUNNING;
 }
 @end

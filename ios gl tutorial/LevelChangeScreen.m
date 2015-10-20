@@ -44,7 +44,7 @@ const GLushort changeIndices[] = {
 	}
 	ignoreTouch = false;
 }
--(NSArray*)getButtons{
+-(NSArray*)getAllButtons{
 	NSArray* array = [[NSArray alloc] initWithObjects:nextButton,menuButton, nil];
 	return array;
 }

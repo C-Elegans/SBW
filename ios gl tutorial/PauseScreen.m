@@ -24,7 +24,7 @@
 -(void)touchesEnded:(nonnull NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event{
 	[resumeButton touchesEnded:touches withEvent:event];
 }
--(NSArray*)getButtons{
+-(NSArray<Button *> *)getAllButtons{
 	NSArray* array = [[NSArray alloc] initWithObjects:resumeButton, nil];
 	return array;
 }

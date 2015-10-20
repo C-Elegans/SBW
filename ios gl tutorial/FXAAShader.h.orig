@@ -11,4 +11,8 @@
 @interface FXAAShader : Shader
 -(void)enableAttribs;
 -(void)disableAttribs;
+<<<<<<< HEAD
+-(void)setRCP:(CGSize)size;
+=======
+>>>>>>> button-refactor
 @end

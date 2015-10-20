@@ -30,34 +30,13 @@ const GLushort nextButtonIndices[] = {
 	2, 3, 0
 };
 -(id)initWithPositionX:(float)x y:(float)y view:(nonnull UIView *)view{
-	self = [super initWithPositionX:x y:y view:view];
-	[super loadToBuffers:&nextButtonVertices[0] vSize:sizeof(nextButtonVertices) indices:&nextButtonIndices[0] iSize:sizeof(nextButtonIndices) objectName:@"nextButton"];
-	[super loadToTexture:@"nextButton.png"];
-	frameRect = view.frame;
-	
-	parentView = view;
+	self = [super initWithPositionX:x y:y width:WIDTH height:HEIGHT text:@"Next" view:view];
 	return self;
 }
--(CGRect)getBoundingBox{
-	CGSize size = frameRect.size;
-	float xDim = size.width;
-	float yDim = size.height;
-	float x = (self.x +1) *0.5;
-	float y = (1-self.y) *0.5;
-	//float offset = size.height/size.width;
-	
-	return CGRectMake(x*xDim, y*yDim, WIDTH*0.5*yDim, HEIGHT*0.5*yDim);
-}
 
--(void)touchesEnded:(nonnull NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event{
-	
-	for(UITouch* touch in touches){
-		if ([MathHelper point:[touch locationInView:parentView] insideBox:[self getBoundingBox]]) {
-			[OpenGLViewController getController].currentLevel++;
-			[[OpenGLViewController getController] resetPlayerAndInput];
-			[OpenGLViewController getController].gameState = RUNNING;
-		}
-	}
-	
+-(void)onClick{
+	[OpenGLViewController getController].currentLevel++;
+	[[OpenGLViewController getController] resetPlayerAndInput];
+	[OpenGLViewController getController].gameState = RUNNING;
 }
 @end

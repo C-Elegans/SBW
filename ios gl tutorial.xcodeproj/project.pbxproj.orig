@@ -211,7 +211,10 @@
 		0A730BB11BD12A4900AAA7CF /* deathScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = deathScreen.png; path = Assets/deathScreen.png; sourceTree = "<group>"; };
 		0A730BB41BD12AC300AAA7CF /* Renderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Renderer.h; sourceTree = "<group>"; };
 		0A730BB51BD12AC300AAA7CF /* Renderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Renderer.m; sourceTree = "<group>"; };
+<<<<<<< HEAD
+=======
 		0A895BAA1BD58F2D00515035 /* button1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button1.png; path = Assets/Buttons/button1.png; sourceTree = "<group>"; };
+>>>>>>> button-refactor
 		0A895BAD1BD59F4200515035 /* FXAAShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXAAShader.h; sourceTree = "<group>"; };
 		0A895BAE1BD59F4200515035 /* FXAAShader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXAAShader.m; sourceTree = "<group>"; };
 		0A895BB01BD59F5300515035 /* fxaaVertexShader.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fxaaVertexShader.glsl; sourceTree = "<group>"; };

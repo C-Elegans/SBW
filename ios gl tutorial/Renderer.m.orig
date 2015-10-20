@@ -182,8 +182,13 @@ const GLushort fxaaIndices[] = {
 	[gameShader stop];
 }
 -(void)renderGuis:(NSArray<GameGui *> *)guis{
+<<<<<<< HEAD
+	/*[guiShader start];
+	[guiShader uploadScreenCorrection:frameSize];
+=======
 	[guiShader start];
 	
+>>>>>>> button-refactor
 	[guiShader uploadAlpha:0.1];
 	glActiveTexture(GL_TEXTURE0);
 	for(GameGui *gui in guis){
@@ -253,6 +258,10 @@ const GLushort fxaaIndices[] = {
 -(void)resolveFXAA{
 	[view bindDrawable];
 	[fxaaShader start];
+<<<<<<< HEAD
+	
+=======
+>>>>>>> button-refactor
 	glBindVertexArrayOES(fxaaVAO);
 	glBindTexture(GL_TEXTURE_2D, fxaaTexture);
 	
