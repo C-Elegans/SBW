@@ -12,6 +12,7 @@
 #import "Player.h"
 #import "GameGui.h"
 #import "TextBox.h"
+#import "Button.h"
 @interface Renderer : NSObject
 -(id)initView:(CGSize)size glkView:(GLKView*)glkView;
 -(void)renderGameEntities:(NSArray<GameEntity*>*)entities;
@@ -20,6 +21,10 @@
 -(void)renderPlayer:(Player*)player;
 -(void)renderGuis:(NSArray<GameGui*>*)guis;
 -(void)renderText:(NSArray<TextBox*>*)textBoxes;
+<<<<<<< Updated upstream
 -(void)resolveFXAA;
 -(void)bindFXAABuffer;
+=======
+-(void)renderButton:(NSArray<Button*>*)buttons;
+>>>>>>> Stashed changes
 @end

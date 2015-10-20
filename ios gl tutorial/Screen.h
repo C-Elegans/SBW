@@ -7,7 +7,7 @@
 //
 
 #import "MathHelper.h"
-
+#import "Button.h"
 @interface Screen : NSObject{
 @public GLuint vaoID;
 @public GLuint texture;
@@ -18,6 +18,7 @@
 -(nonnull id)initPosition:(vec3)pos view:(nonnull UIView*)view;
 -(void)touchesEnded:(nonnull NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event;
 -(nullable NSArray*)getButtons;
+-(nullable NSArray<Button*>*)getAllButtons;
 -(nullable NSArray*)getText;
 -(void)update;
 @end
