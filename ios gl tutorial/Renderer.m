@@ -199,28 +199,7 @@ const GLushort fxaaIndices[] = {
 
 	}
 	
-	[guiShader stop];*/
-}
--(void)renderButton:(NSArray<Button *> *)buttons{
-	NSMutableArray<TextBox*>* textBoxes = [NSMutableArray new];
-	[guiShader start];
-	//[guiShader uploadScreenCorrection:frameSize];
-	[guiShader uploadAlpha:0.1];
-	glActiveTexture(GL_TEXTURE0);
-	for(Button *button in buttons){
-		[textBoxes addObject:button.text];
-		glBindVertexArrayOES(button.vaoID);
-		
-		[guiShader enableAttribs];
-		[guiShader uploadTransformation:button.x y:button.y width:button.width height:button.height correction:frameSize];
-		glBindTexture(GL_TEXTURE_2D, button.texture);
-		glDrawElements(GL_TRIANGLES, button.numVertices, GL_UNSIGNED_SHORT, 0);
-		[guiShader disableAttribs];
-		glBindVertexArrayOES(0);
-		
-	}
 	[guiShader stop];
-	[self renderText:textBoxes];
 }
 -(void)renderButton:(NSArray<Button *> *)buttons{
 	NSMutableArray<TextBox*>* textBoxes = [NSMutableArray new];
