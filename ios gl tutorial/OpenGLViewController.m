@@ -131,7 +131,7 @@ static id theController = nil;
 	
 	renderer = [[Renderer alloc]initView:self.view.frame.size glkView:glkView];
 	// self.currentLevel = [StatisticsTracker sharedInstance].currentlevel;
-	self.currentLevel = 9;
+	self.currentLevel = 0;
 }
 -(BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation{
     return UIInterfaceOrientationIsLandscape(toInterfaceOrientation);
@@ -143,7 +143,7 @@ static id theController = nil;
 	TextBox* box = [textBoxes objectAtIndex:0];
 	[box setString:[NSString stringWithFormat:@"%0.1fs",_levelTime]];
 	[renderer renderStart];
-	
+	[renderer bindFXAABuffer];
     switch (_gameState) {
         case MAIN:
 			{
@@ -163,10 +163,10 @@ static id theController = nil;
             
 			[gameObjects addObjectsFromArray:bullets];
 			
-			[renderer bindFXAABuffer];
+			
 			[renderer renderGameEntities:gameObjects];
 			[renderer renderPlayer:player];
-			[renderer resolveFXAA];
+			
 			[renderer renderGuis:guiObjects];
 			[renderer renderText:textBoxes];
             [input update];
@@ -216,6 +216,7 @@ static id theController = nil;
 			[renderer renderScreen:selectScreen];
 			break;
     }
+	[renderer resolveFXAA];
 	
 	
 }
